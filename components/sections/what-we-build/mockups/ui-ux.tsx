@@ -265,7 +265,6 @@ export function UIUXMockup({ isActive }: { isActive?: boolean }) {
       setLayout(LAYOUTS[idx]);
     }, LAYOUT_DURATION[layout]);
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layout, isActive]);
 
   const meta = LAYOUT_META[layout];

@@ -82,6 +82,93 @@ function getProjectBadge(project: Project) {
   };
 }
 
+function BrowserMockup({ activeProject }: { activeProject: Project }) {
+  return (
+    <div className="relative w-full rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.14)] border border-slate-200/90 bg-white overflow-hidden flex flex-col z-20">
+      {/* Browser Window Header Chrome */}
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-[#F8F9FA] rounded-t-2xl border-b border-slate-200/80 select-none">
+        {/* 3 Traffic Dots */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
+        </div>
+        
+        {/* Centered Address Pill with Green Lock */}
+        <div className="flex-1 flex justify-center px-2 min-w-0">
+          <a
+            href={activeProject.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center justify-center gap-1.5 bg-white border border-slate-200 shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-xs sm:text-xs font-medium text-slate-600 min-w-0 max-w-[150px] xs:max-w-[200px] sm:max-w-sm truncate hover:border-slate-300 hover:text-slate-900 transition-colors cursor-pointer group"
+            title={`Visit ${activeProject.domain}`}
+          >
+            <AnimatedIcon icon={LockIcon} size={12} className="text-emerald-500 shrink-0" />
+            <span className="truncate">{activeProject.domain}</span>
+            <AnimatedIcon icon={ExternalLinkIcon} size={10} className="text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0" />
+          </a>
+        </div>
+        
+        {/* Right Maximize Icon */}
+        <div className="w-8 sm:w-10 flex justify-end shrink-0">
+          <a 
+            href={activeProject.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-slate-400 hover:text-slate-700 transition-colors p-1"
+          >
+            <Maximize2 size={13} />
+          </a>
+        </div>
+      </div>
+        
+      {/* Browser Viewport Area (Render Authentic High-End Mockup Hero) */}
+      <div className="relative w-full aspect-square sm:aspect-[16/10] overflow-hidden bg-slate-900">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeProject.id}
+            initial={{ opacity: 0, scale: 1.01 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.99 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full bg-white"
+          >
+            {activeProject.serviceType === "Websites" && activeProject.url ? (
+              <div className="absolute inset-0 w-full h-full sm:w-[200%] sm:h-[200%] origin-top-left sm:scale-50">
+                <iframe 
+                  src={activeProject.url}
+                  title={activeProject.name}
+                  className="w-full h-full border-none pointer-events-auto"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                />
+              </div>
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-slate-50 flex flex-col items-center justify-center p-6 text-center gap-5">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shadow-sm">
+                  <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-slate-300" strokeWidth={1.5} />
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight">
+                    Building in Stealth
+                  </h3>
+                  <p className="text-sm sm:text-sm text-slate-500 max-w-72 sm:max-w-xs leading-relaxed">
+                    This {activeProject.serviceType.toLowerCase().replace('s', '')} is currently under active development in our lab.
+                  </p>
+                </div>
+                <span className="px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 border border-amber-200 text-xs font-bold tracking-wide uppercase shadow-sm">
+                  Preview Coming Soon
+                </span>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 export function SelectedWork() {
   const [activeFilter, setActiveFilter] = useState<string>("Websites");
   
@@ -106,6 +193,63 @@ export function SelectedWork() {
     setActiveId(displayProjects[nextIdx].id);
   };
 
+  const FilterTabsList = ({ layoutIdPrefix }: { layoutIdPrefix: string }) => (
+    <div className="flex items-center gap-1 p-1 bg-slate-100/70 backdrop-blur-xl rounded-full border border-slate-200/60 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-max max-w-full shadow-inner">
+      {FILTER_TABS.map((tab) => {
+        const isActiveTab = activeFilter === tab;
+        const count = PROJECTS.filter((p) => p.kind === "client" && p.serviceType === tab).length;
+
+        return (
+          <button 
+            key={tab}
+            onClick={() => setActiveFilter(tab)}
+            className={cn(
+              "relative px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors duration-300 cursor-pointer outline-none select-none",
+              isActiveTab ? "text-white" : "text-slate-600 hover:text-[#922F55]"
+            )}
+          >
+            {isActiveTab && (
+              <motion.div 
+                layoutId={`activeFilterTab-${layoutIdPrefix}`}
+                className="absolute inset-0 bg-gradient-to-r from-[#922F55] to-[#6C2BB8] rounded-full shadow-md z-0"
+                transition={{ type: "spring", stiffness: 350, damping: 28 }}
+              />
+            )}
+            <span className="relative z-10">{tab}</span>
+            <span 
+              className={cn(
+                "relative z-10 px-1.5 py-0.2 rounded-full text-[10px] sm:text-xs font-bold flex items-center justify-center min-w-[20px] transition-all duration-300",
+                isActiveTab ? "bg-white/20 text-white shadow-sm" : "bg-white text-slate-500 shadow-sm border border-slate-200/60"
+              )}
+            >
+              {count}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
+
+  const NavButtons = () => (
+    <div className="flex items-center gap-0.5 p-1 bg-white/90 backdrop-blur-xl rounded-full border border-slate-200/80 shadow-sm shrink-0">
+      <button 
+        onClick={handlePrev} 
+        aria-label="Previous Project"
+        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[#121114] hover:bg-slate-100 hover:text-[#922F55] transition-colors cursor-pointer active:scale-95 outline-none"
+      >
+        <AnimatedIcon icon={ChevronLeftIcon} size={15} />
+      </button>
+      <div className="w-[1px] h-4 bg-slate-200/80 mx-0.5" />
+      <button 
+        onClick={handleNext} 
+        aria-label="Next Project"
+        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[#121114] hover:bg-slate-100 hover:text-[#922F55] transition-colors cursor-pointer active:scale-95 outline-none"
+      >
+        <AnimatedIcon icon={ChevronRightIcon} size={15} />
+      </button>
+    </div>
+  );
+
   const handlePrev = () => {
     if (displayProjects.length === 0) return;
     const prevIdx = (activeProjectIndex - 1 + displayProjects.length) % displayProjects.length;
@@ -115,12 +259,12 @@ export function SelectedWork() {
   return (
     <section 
       id="selected-work" 
-      className="relative w-full py-16 sm:py-20 lg:py-24 font-satoshi selection:bg-[#922F55]/20 selection:text-[#922F55]"
+      className="relative w-full py-12 sm:py-16 lg:py-24 font-satoshi selection:bg-[#922F55]/20 selection:text-[#922F55] overflow-hidden"
     >
       {/* ── Background Decorative Elements ── */}
       {/* 1. Left Dot Grid Matrix */}
       <div 
-        className="absolute left-0 top-0 bottom-0 w-96 pointer-events-none opacity-40 z-0"
+        className="absolute left-0 top-0 bottom-0 w-full max-w-96 pointer-events-none opacity-40 z-0"
         style={{
           backgroundImage: "radial-gradient(#94A3B8 1.4px, transparent 1.4px)",
           backgroundSize: "20px 20px",
@@ -136,7 +280,7 @@ export function SelectedWork() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
            
           {/* ── LEFT COLUMN: Heading & Project List ── */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="lg:col-span-5 flex flex-col gap-6 min-w-0">
             <SectionHeader
               eyebrow="Our Work"
               title="Selected"
@@ -145,6 +289,18 @@ export function SelectedWork() {
               className="items-start text-left mx-0"
               maxWidth="max-w-2xl"
             />
+
+            {/* Mobile Filter & Nav (Visible only on < lg) */}
+            <div className="flex lg:hidden w-full mb-2">
+              <div className="flex items-center justify-between gap-3 relative z-10 w-full overflow-hidden">
+                {/* Left: Filter Tabs */}
+                <FilterTabsList layoutIdPrefix="mobile" />
+                
+                {/* Right: Nav buttons */}
+                <NavButtons />
+              </div>
+            </div>
+
             {/* Project List: Max 3 Cards on Home Page */}
             <div className="flex flex-col gap-3">
               {displayProjects.map((project) => {
@@ -156,85 +312,95 @@ export function SelectedWork() {
                     key={project.id}
                     onClick={() => setActiveId(project.id)}
                     className={cn(
-                      "group p-3 sm:p-3.5 rounded-2xl flex items-center gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative",
+                      "group p-3 sm:p-3.5 rounded-2xl flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
                       isActive
-                        ? "bg-white border-[#FCE4EC] shadow-[0_12px_30px_rgba(146,47,85,0.15)] ring-1 ring-[#FCE4EC] translate-x-1.5 sm:translate-x-3 z-10"
-                        : "bg-transparent border-transparent hover:bg-white/40 hover:border-slate-100 hover:translate-x-1"
+                        ? "bg-white border-[#FCE4EC] shadow-[0_12px_30px_rgba(146,47,85,0.15)] ring-1 ring-[#FCE4EC] translate-x-0 lg:translate-x-3 z-10"
+                        : "bg-transparent border-transparent hover:bg-white/40 hover:border-slate-100 hover:translate-x-0 lg:hover:translate-x-1"
                     )}
                   >
-                    {/* Project Number */}
-                    <span 
-                      className={cn(
-                        "text-base sm:text-base font-bold w-6 shrink-0 transition-colors",
-                        isActive ? "text-[#922F55]" : "text-slate-400"
-                      )}
-                    >
-                      {project.number}
-                    </span>
+                    {/* Top Row: Number, Logo, Details, Chevron */}
+                    <div className="flex items-center gap-3 sm:gap-4 w-full">
+                      {/* Project Number */}
+                      <span 
+                        className={cn(
+                          "text-base sm:text-base font-bold w-6 shrink-0 transition-colors",
+                          isActive ? "text-[#922F55]" : "text-slate-400"
+                        )}
+                      >
+                        {project.number}
+                      </span>
 
-                    {/* Logo (No Background) */}
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center">
-                      <img
-                        src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
-                        alt={`${project.name} Logo`}
-                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                      />
-                    </div>
-
-                    {/* Content Details: Title, Badge, Description, Tags */}
-                    <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
-                      {/* Line 1: Title + Result Badge */}
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h4 
-                          className={cn(
-                            "font-bold text-sm sm:text-base truncate tracking-tight transition-colors",
-                            isActive ? "text-[#121114]" : "text-slate-800 group-hover:text-[#121114]"
-                          )}
-                        >
-                          {project.name}
-                        </h4>
-                        
-                        <span 
-                          className={cn(
-                            "text-xs sm:text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center gap-1 whitespace-nowrap",
-                            badge.bg,
-                            badge.text
-                          )}
-                        >
-                          {badge.icon}
-                          {badge.label}
-                        </span>
+                      {/* Logo (No Background) */}
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center">
+                        <img
+                          src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
+                          alt={`${project.name} Logo`}
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                        />
                       </div>
 
-                      {/* Line 2: Tech Stack (Visible only when Active) */}
-                      <div className={cn(
-                        "flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out",
-                        isActive ? "max-h-24 opacity-100 pt-1" : "max-h-0 opacity-0"
-                      )}>
-                        <div className="flex items-center gap-1.5 overflow-hidden pt-0.5">
-                          {project.stack.slice(0, 3).map((tag) => (
-                            <span 
-                              key={tag} 
-                              className="text-xs sm:text-xs bg-[#F1F5F9]/80 text-[#64748B] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                      {/* Content Details: Title, Badge, Description, Tags */}
+                      <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
+                        {/* Line 1: Title + Result Badge */}
+                        <div className="flex flex-wrap items-center gap-2 min-w-0">
+                          <h4 
+                            className={cn(
+                              "font-bold text-sm sm:text-base truncate tracking-tight transition-colors max-w-full",
+                              isActive ? "text-[#121114]" : "text-slate-800 group-hover:text-[#121114]"
+                            )}
+                          >
+                            {project.name}
+                          </h4>
+                          
+                          <span 
+                            className={cn(
+                              "text-xs sm:text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center gap-1 whitespace-nowrap",
+                              badge.bg,
+                              badge.text
+                            )}
+                          >
+                            {badge.icon}
+                            {badge.label}
+                          </span>
+                        </div>
+
+                        {/* Line 2: Tech Stack (Visible only when Active) */}
+                        <div className={cn(
+                          "flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out",
+                          isActive ? "max-h-24 opacity-100 pt-1" : "max-h-0 opacity-0"
+                        )}>
+                          <div className="flex flex-wrap items-center gap-1.5 min-w-0 pt-0.5">
+                            {project.stack.slice(0, 3).map((tag) => (
+                              <span 
+                                key={tag} 
+                                className="text-xs sm:text-xs bg-[#F1F5F9]/80 text-[#64748B] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
+
+                      {/* Right Chevron Button */}
+                      <div 
+                        className={cn(
+                          "shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
+                          isActive 
+                            ? "bg-[#922F55] border-[#922F55] text-white shadow-md" 
+                            : "bg-white/80 border-slate-100 text-slate-400 group-hover:text-slate-700 shadow-sm group-hover:translate-x-1"
+                        )}
+                      >
+                        <AnimatedIcon icon={ChevronRightIcon} size={15} />
+                      </div>
                     </div>
 
-                    {/* Right Chevron Button */}
-                    <div 
-                      className={cn(
-                        "shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
-                        isActive 
-                          ? "bg-[#922F55] border-[#922F55] text-white shadow-md translate-x-1" 
-                          : "bg-white/80 border-slate-100 text-slate-400 group-hover:text-slate-700 shadow-sm group-hover:translate-x-1"
-                      )}
-                    >
-                      <AnimatedIcon icon={ChevronRightIcon} size={15} />
-                    </div>
+                    {/* Mobile Mockup (Visible only when active and on mobile) */}
+                    {isActive && (
+                      <div className="block lg:hidden w-full pt-2 pb-1">
+                        <BrowserMockup activeProject={project} />
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -256,44 +422,16 @@ export function SelectedWork() {
           </div>
 
           {/* ── RIGHT COLUMN: Browser Mockup & Live Hero View ── */}
-          <div className="lg:col-span-7 flex flex-col gap-4 relative pt-2 lg:pt-0">
+          <div className="hidden lg:flex lg:col-span-7 flex-col gap-4 relative pt-2 lg:pt-0 min-w-0">
             
             {/* Top Header: Filter Tabs & Live Client Site Badge + Prev/Next Arrows */}
-            <div className="flex items-center justify-between gap-4 relative z-10 min-h-10">
+            <div className="flex items-center justify-between gap-3 relative z-10">
               
               {/* Left: Filter Tabs */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 hide-scrollbar -mx-2 px-2 sm:mx-0 sm:px-0">
-                {FILTER_TABS.map((tab) => {
-                  const isActive = activeFilter === tab;
-                  const count = PROJECTS.filter((p) => p.kind === "client" && p.serviceType === tab).length;
-
-                  return (
-                    <button 
-                      key={tab}
-                      onClick={() => setActiveFilter(tab)}
-                      className={cn(
-                        "px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-all duration-150 cursor-pointer",
-                        isActive 
-                          ? "bg-[#591730] text-white shadow-sm" 
-                          : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-800 shadow-sm"
-                      )}
-                    >
-                      {tab} 
-                      <span 
-                        className={cn(
-                          "px-1.5 py-0.2 rounded-full text-xs font-bold",
-                          isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-400"
-                        )}
-                      >
-                        {count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
+              <FilterTabsList layoutIdPrefix="desktop" />
 
               {/* Right: Live Client Site Badge & Nav Buttons */}
-              <div className="flex items-center gap-6 shrink-0">
+              <div className="flex items-center gap-3 sm:gap-6 shrink-0">
                 {/* Handwritten "Live Client Site" badge positioned left of arrows */}
                 <div className="hidden sm:flex pointer-events-none items-center gap-2 z-30 select-none">
                   <span className="font-handwriting text-lg text-[#922F55] font-bold -rotate-2 tracking-wide drop-shadow-sm">
@@ -307,107 +445,12 @@ export function SelectedWork() {
                 </div>
 
                 {/* Prev / Next Circular Navigation Buttons */}
-                <div className="hidden sm:flex items-center gap-2 shrink-0">
-                  <button 
-                    onClick={handlePrev} 
-                    aria-label="Previous Project"
-                    className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-200 text-[#121114] hover:bg-slate-50 transition-colors cursor-pointer active:scale-95"
-                  >
-                    <AnimatedIcon icon={ChevronLeftIcon} size={16} />
-                  </button>
-                  <button 
-                    onClick={handleNext} 
-                    aria-label="Next Project"
-                    className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-200 text-[#121114] hover:bg-slate-50 transition-colors cursor-pointer active:scale-95"
-                  >
-                    <AnimatedIcon icon={ChevronRightIcon} size={16} />
-                  </button>
-                </div>
+                <NavButtons />
               </div>
             </div>
 
             {/* ── Browser Window Mockup Frame ── */}
-            <div className="relative w-full rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.14)] border border-slate-200/90 bg-white overflow-hidden flex flex-col z-20">
-               
-              {/* Browser Window Header Chrome */}
-              <div className="flex items-center justify-between px-4 py-2.5 bg-[#F8F9FA] rounded-t-2xl border-b border-slate-200/80 select-none">
-                {/* 3 Traffic Dots */}
-                <div className="flex items-center gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
-                  <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
-                  <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
-                </div>
-                
-                {/* Centered Address Pill with Green Lock */}
-                <div className="flex-1 flex justify-center px-2">
-                  <a
-                    href={activeProject.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 bg-white border border-slate-200 shadow-xs rounded-md px-3.5 py-1 text-xs sm:text-xs font-medium text-slate-600 min-w-48 max-w-sm truncate hover:border-slate-300 hover:text-slate-900 transition-colors cursor-pointer group"
-                    title={`Visit ${activeProject.domain}`}
-                  >
-                    <AnimatedIcon icon={LockIcon} size={12} className="text-emerald-500 shrink-0" />
-                    <span className="truncate">{activeProject.domain}</span>
-                    <AnimatedIcon icon={ExternalLinkIcon} size={10} className="text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0" />
-                  </a>
-                </div>
-                
-                {/* Right Maximize Icon */}
-                <div className="w-10 flex justify-end">
-                  <a 
-                    href={activeProject.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-slate-400 hover:text-slate-700 transition-colors p-1"
-                  >
-                    <Maximize2 size={13} />
-                  </a>
-                </div>
-              </div>
-               
-              {/* Browser Viewport Area (Render Authentic High-End Mockup Hero) */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-slate-900">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeProject.id}
-                    initial={{ opacity: 0, scale: 1.01 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.99 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full bg-white"
-                  >
-                    {activeProject.serviceType === "Websites" && activeProject.url ? (
-                      <div className="absolute inset-0 w-[200%] h-[200%] origin-top-left scale-50">
-                        <iframe 
-                          src={activeProject.url}
-                          title={activeProject.name}
-                          className="w-full h-full border-none pointer-events-auto"
-                          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                        />
-                      </div>
-                    ) : (
-                      <div className="absolute inset-0 w-full h-full bg-slate-50 flex flex-col items-center justify-center p-6 text-center gap-5">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shadow-sm">
-                          <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-slate-300" strokeWidth={1.5} />
-                        </div>
-                        <div className="flex flex-col items-center gap-2">
-                          <h3 className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight">
-                            Building in Stealth
-                          </h3>
-                          <p className="text-sm sm:text-sm text-slate-500 max-w-72 sm:max-w-xs leading-relaxed">
-                            This {activeProject.serviceType.toLowerCase().replace('s', '')} is currently under active development in our lab.
-                          </p>
-                        </div>
-                        <span className="px-4 py-1.5 rounded-full bg-amber-50 text-amber-600 border border-amber-200 text-xs font-bold tracking-wide uppercase shadow-sm">
-                          Preview Coming Soon
-                        </span>
-                      </div>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
+            <BrowserMockup activeProject={activeProject} />
 
           </div>
         </div>

@@ -45,13 +45,13 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative w-full h-[400px] xs:h-[420px] sm:h-[480px] md:h-[520px] lg:h-[600px] flex items-center justify-center select-none perspective-[1200px] max-w-4xl mx-auto",
+        "relative w-full h-[320px] xs:h-[360px] sm:h-[440px] md:h-[500px] lg:h-[600px] flex items-center justify-center select-none perspective-[1200px] max-w-4xl mx-auto overflow-hidden sm:overflow-visible",
         className
       )}
     >
       {/* ── AMBIENT PURPLE & PINK GLOWS ── */}
-      <div className="absolute top-4 left-4 w-56 sm:w-80 md:w-96 h-56 sm:h-80 md:h-96 bg-[#E8D9FE]/60 rounded-full blur-[70px] pointer-events-none -translate-x-1/4 -translate-y-1/4 z-0" />
-      <div className="absolute bottom-4 right-4 w-44 sm:w-72 md:w-96 h-44 sm:h-72 md:h-96 bg-[#F5D0E8]/50 rounded-full blur-[70px] pointer-events-none translate-x-1/4 translate-y-1/4 z-0" />
+      <div className="absolute top-4 left-4 w-40 sm:w-80 md:w-96 h-40 sm:h-80 md:h-96 bg-[#E8D9FE]/60 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none -translate-x-1/4 -translate-y-1/4 z-0" />
+      <div className="absolute bottom-4 right-4 w-36 sm:w-72 md:w-96 h-36 sm:h-72 md:h-96 bg-[#F5D0E8]/50 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none translate-x-1/4 translate-y-1/4 z-0" />
 
       {/* 3D Parallax Canvas */}
       <motion.div
@@ -59,7 +59,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
         className="relative w-full h-full flex items-center justify-center z-10"
       >
         {/* ── LEFT FLOATING WORKFLOW CARD (Behind desk/character) ── */}
-        <div className="absolute top-[4%] sm:top-[6%] left-[-2%] xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.56] xs:scale-[0.64] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto">
+        <div className="absolute top-[2%] sm:top-[6%] left-0 xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto">
           <motion.div
             animate={{ y: [3, -3, 3] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
@@ -167,14 +167,14 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
           animate={{ y: [-3, 3, -3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           style={{ transform: "translateZ(25px)" }}
-          className="relative z-10 w-full max-w-[270px] xs:max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[500px] h-[270px] xs:h-[300px] sm:h-[380px] md:h-[440px] lg:h-[500px] flex items-center justify-center pointer-events-none"
+          className="relative z-10 w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px] h-[210px] xs:h-[240px] sm:h-[340px] md:h-[420px] lg:h-[500px] flex items-center justify-center pointer-events-none"
         >
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
               src="/assets/simplehero.png"
               alt="SimpleThink 3D Developer Character"
               fill
-              sizes="(max-width: 768px) 100vw, 500px"
+              sizes="(max-width: 640px) 240px, (max-width: 1024px) 420px, 500px"
               className="object-contain drop-shadow-xl"
               priority
             />
@@ -182,7 +182,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
         </motion.div>
 
         {/* ── RIGHT FLOATING FEATURE BADGES ── */}
-        <div className="absolute top-[12%] sm:top-[16%] right-[-2%] xs:right-0 sm:right-0 md:right-2 lg:-right-2 xl:-right-6 z-20 scale-[0.56] xs:scale-[0.64] sm:scale-75 md:scale-90 lg:scale-100 origin-right pointer-events-none sm:pointer-events-auto">
+        <div className="absolute top-[8%] sm:top-[16%] right-0 sm:right-0 md:right-2 lg:-right-2 xl:-right-6 z-20 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-right pointer-events-none sm:pointer-events-auto">
           <div
             className="flex flex-col gap-2.5 sm:gap-3 font-satoshi"
             style={{ transform: "translateZ(35px) rotateY(-6deg) rotateZ(4deg)" }}

@@ -67,7 +67,7 @@ export function WhatWeBuild() {
   return (
     <section
       id="capabilities"
-      className="relative w-full py-16 sm:py-20 lg:py-24"
+      className="relative w-full py-12 sm:py-16 lg:py-24"
     >
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8">
@@ -105,8 +105,8 @@ export function WhatWeBuild() {
           description="We engineer custom software, scalable web applications, and mobile platforms — with enterprise-grade reliability and zero unnecessary overhead."
         />
 
-        <div ref={containerRef} className="relative w-full py-2 perspective-[1400px] overflow-visible">
-          <div className="flex items-center justify-center min-h-80 sm:min-h-96 relative w-full">
+        <div ref={containerRef} className="relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
+          <div className="flex items-center justify-center min-h-[580px] xs:min-h-[540px] sm:min-h-[500px] md:min-h-[460px] lg:min-h-96 relative w-full">
             {displayServices.map((service, index) => {
               let offset = index - activeIndex;
               const half = Math.floor(displayServices.length / 2);
@@ -145,7 +145,7 @@ export function WhatWeBuild() {
                     opacity: { type: "tween", duration: 0.3, ease: "easeOut" },
                   }}
                   className={cn(
-                    "absolute top-0 w-full max-w-3xl lg:max-w-4xl rounded-3xl p-6 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
+                    "absolute top-0 w-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-5 pb-12 xs:p-6 xs:pb-14 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
                     "backdrop-blur-2xl border",
                     isActive
                       ? "bg-white/95 border-[rgba(146,47,85,0.15)] z-30 pointer-events-auto"
@@ -308,7 +308,7 @@ export function WhatWeBuild() {
                         animate={isActive ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.92, opacity: 0.6, y: 4 }}
                         transition={{ type: "spring", stiffness: 300, damping: 28 }}
                       >
-                        <div className="w-full max-w-xs h-64 mx-auto flex items-center justify-center px-3">
+                        <div className="w-full max-w-xs h-44 sm:h-56 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-3">
                           <MockupComponent isActive={isActive} />
                         </div>
                       </motion.div>
@@ -320,9 +320,9 @@ export function WhatWeBuild() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between max-w-4xl mx-auto px-2 font-satoshi w-full">
+        <div className="flex items-center justify-between max-w-4xl mx-auto px-2 font-satoshi w-full gap-2">
           <div className="flex items-center gap-2 text-[#68666C]">
-            <span className="text-xs sm:text-sm font-semibold text-[#68666C] select-none">
+            <span className="hidden xs:inline text-xs sm:text-sm font-semibold text-[#68666C] select-none">
               Drag to explore
             </span>
             <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[#121114]">
@@ -348,7 +348,7 @@ export function WhatWeBuild() {
           </div>
 
           {/* Dot indicators */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {displayServices.map((svc, i) => (
               <motion.button
                 key={i}
@@ -356,7 +356,7 @@ export function WhatWeBuild() {
                 onClick={() => setActiveIndex(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 animate={{
-                  width: activeIndex === i ? 28 : 8,
+                  width: activeIndex === i ? 22 : 6,
                   backgroundColor: activeIndex === i ? "#922F55" : "#CBD5E1",
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
@@ -366,16 +366,16 @@ export function WhatWeBuild() {
           </div>
 
           {/* Nav buttons */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <motion.button
               type="button"
               onClick={handlePrev}
               aria-label="Previous service"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
-              className="w-10 h-10 rounded-full bg-white border border-[rgba(30,24,30,0.08)] shadow-sm text-[#121114] flex items-center justify-center cursor-pointer group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[rgba(30,24,30,0.08)] shadow-sm text-[#121114] flex items-center justify-center cursor-pointer group"
             >
-              <AnimatedIcon icon={ChevronLeftIcon} size={18} />
+              <AnimatedIcon icon={ChevronLeftIcon} size={16} />
             </motion.button>
             <motion.button
               type="button"
@@ -383,9 +383,9 @@ export function WhatWeBuild() {
               aria-label="Next service"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
-              className="w-10 h-10 rounded-full bg-white border border-[rgba(30,24,30,0.08)] shadow-sm text-[#121114] flex items-center justify-center cursor-pointer group"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[rgba(30,24,30,0.08)] shadow-sm text-[#121114] flex items-center justify-center cursor-pointer group"
             >
-              <AnimatedIcon icon={ChevronRightIcon} size={18} />
+              <AnimatedIcon icon={ChevronRightIcon} size={16} />
             </motion.button>
           </div>
         </div>

@@ -2,7 +2,6 @@ import React from "react";
 // Removed lucide-react import
 import {
   NextJsIcon,
-  TypeScriptIcon,
   TailwindIcon,
   MotionIcon,
   NodeJsIcon,

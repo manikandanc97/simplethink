@@ -40,7 +40,6 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
     }, STAGE_DURATION[stage]);
 
     return () => clearTimeout(timer);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stage, isActive]);
 
   return (

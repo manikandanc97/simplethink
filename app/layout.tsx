@@ -1,3 +1,4 @@
+import { FloatingCallButton } from "@/components/layout/floating-call-button";
 import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 import { MobileMenuProvider } from "@/components/layout/mobile-menu-context";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {children}
               </main>
 
+              <FloatingCallButton />
               <MobileBottomNav />
               <SiteFooter />
             </MobileMenuProvider>

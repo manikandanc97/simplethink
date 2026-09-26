@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Search } from "lucide-react";
 import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
-import { AnimatedIcon, AnimatedX } from "@/components/ui/animated-icon";
+import { AnimatedIcon, AnimatedX, type AnimatedIconName } from "@/components/ui/animated-icon";
 import { cn } from "@/lib/utils";
 import { FILTER_SERVICES } from "./work-data";
 import { type Project } from "@/types/project";
@@ -54,7 +53,7 @@ export function WorkControls({
             >
               {Icon && (
                 <AnimatedIcon
-                  name={Icon as any}
+                  name={Icon as AnimatedIconName}
                   size={15}
                   className={cn(
                     "transition-transform",

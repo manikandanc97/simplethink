@@ -18,7 +18,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative scroll-mt-24 py-16 sm:py-24">
+    <section id="faq" className="relative scroll-mt-24 py-12 sm:py-16 lg:py-24">
 
       {/* Ambient background glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -46,10 +46,10 @@ export function FAQ() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
         
         {/* Left Column (5 Cols) */}
-        <div className="lg:col-span-5 flex flex-col justify-start gap-6 lg:sticky lg:top-32">
+        <div className="lg:col-span-5 flex flex-col justify-start gap-5 sm:gap-6 lg:sticky lg:top-32">
           
           {/* Top Info */}
           <SectionHeader
@@ -62,7 +62,7 @@ export function FAQ() {
           />
 
           {/* Bottom Composite Card Component (Single Unified Card containing CTA, Character & Stats) */}
-          <div className="relative mt-4 sm:mt-6 pt-4">
+          <div className="relative mt-2 sm:mt-6 pt-4">
             
             {/* 1. "Still have a question?" Handwritten note & curved arrow */}
             <div className="absolute -top-5 left-1 sm:left-2 z-20 flex items-start gap-1 pointer-events-none select-none">
@@ -94,33 +94,33 @@ export function FAQ() {
             </div>
 
             {/* 2. Main Outer White Card */}
-            <div className="relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10">
+            <div className="relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10 overflow-hidden">
               
               {/* Upper Content Area: Left CTA + Right 3D Character */}
-              <div className="relative min-h-48 sm:min-h-[12.5rem]">
+              <div className="relative min-h-[11rem] sm:min-h-[12.5rem]">
                 
                 {/* Left: Text & CTA Button */}
-                <div className="relative z-10 max-w-44 sm:max-w-56 flex flex-col items-start gap-3">
-                  <div className="flex flex-col items-start gap-2">
+                <div className="relative z-10 max-w-[60%] sm:max-w-56 flex flex-col items-start gap-2.5 sm:gap-3">
+                  <div className="flex flex-col items-start gap-1.5 sm:gap-2">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-rose-50/80 dark:bg-rose-950/40 border border-rose-100/80 dark:border-rose-900/40">
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:py-1 rounded-full bg-rose-50/80 dark:bg-rose-950/40 border border-rose-100/80 dark:border-rose-900/40">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#db2777]">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                         <circle cx="9" cy="12" r="1" fill="currentColor"/>
                         <circle cx="12" cy="12" r="1" fill="currentColor"/>
                         <circle cx="15" cy="12" r="1" fill="currentColor"/>
                       </svg>
-                      <span className="text-[11px] font-bold text-[#db2777]">We&apos;re here to help</span>
+                      <span className="text-[10px] sm:text-[11px] font-bold text-[#db2777]">We&apos;re here to help</span>
                     </div>
 
                     <div className="flex flex-col gap-1">
                       {/* Heading */}
-                      <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+                      <h3 className="text-sm xs:text-base sm:text-lg font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
                         Can&apos;t find your answer?
                       </h3>
 
                       {/* Subtitle */}
-                      <p className="text-[11px] sm:text-xs text-slate-500 dark:text-zinc-400 leading-relaxed pr-2">
+                      <p className="text-[10px] xs:text-[11px] sm:text-xs text-slate-500 dark:text-zinc-400 leading-relaxed pr-1 sm:pr-2">
                         Talk to our team and get a clear answer for your requirement.
                       </p>
                     </div>
@@ -130,15 +130,15 @@ export function FAQ() {
                   <button
                     type="button"
                     onClick={() => openLead({ description: "FAQ - Technical Consultation" })}
-                    className="inline-flex mt-1 items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#922F55] hover:bg-[#7D2748] text-white text-xs sm:text-sm font-bold shadow-[0_4px_14px_rgba(146,47,85,0.25)] hover:shadow-[0_6px_20px_rgba(146,47,85,0.35)] active:scale-95 transition-all duration-200 cursor-pointer group"
+                    className="inline-flex mt-0.5 sm:mt-1 items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-[#922F55] hover:bg-[#7D2748] text-white text-[11px] sm:text-sm font-bold shadow-[0_4px_14px_rgba(146,47,85,0.25)] hover:shadow-[0_6px_20px_rgba(146,47,85,0.35)] active:scale-95 transition-all duration-200 cursor-pointer group shrink-0"
                   >
                     <span>Talk to our team</span>
-                    <AnimatedArrowRight size={14} className="ml-0.5 text-white" />
+                    <AnimatedArrowRight size={13} className="ml-0.5 text-white" />
                   </button>
                 </div>
 
-                {/* Right: 3D Character Sitting with Laptop (Completely visible, zero obstruction!) */}
-                <div className="absolute -right-5 sm:-right-6 bottom-0 sm:bottom-0.5 w-44 sm:w-[13.5rem] pointer-events-none select-none z-10">
+                {/* Right: 3D Character Sitting with Laptop */}
+                <div className="absolute -right-2 sm:-right-6 bottom-0 sm:bottom-0.5 w-32 xs:w-36 sm:w-[13.5rem] pointer-events-none select-none z-10">
                   {/* 3 accent lines radiating from hair */}
                   <div className="absolute -top-1 sm:-top-2 right-4 flex gap-1.5 rotate-[35deg]">
                     <div className="w-0.5 h-2.5 sm:h-3 bg-[#f43f5e] rounded-full" />
@@ -151,6 +151,7 @@ export function FAQ() {
                     alt="Technical Lead with laptop"
                     width={400}
                     height={480}
+                    sizes="(max-width: 640px) 150px, 220px"
                     className="w-full h-auto object-contain drop-shadow-[0_12px_25px_rgba(244,63,94,0.12)]"
                     priority
                   />
@@ -161,20 +162,20 @@ export function FAQ() {
               {/* Bottom: Stats Panel (Full-width rounded card with dividers) */}
               <div className="relative z-20 mt-3 sm:mt-4 bg-white/95 dark:bg-zinc-800/80 backdrop-blur-sm rounded-[0.8rem] p-2 border border-zinc-100 dark:border-white/10 shadow-[0_2px_12px_rgba(0,0,0,0.02)] grid grid-cols-3 divide-x divide-zinc-100 dark:divide-zinc-700/60 text-center sm:text-left">
                 <div className="px-1.5 sm:px-2">
-                  <div className="text-sm sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">100%</div>
-                  <div className="text-[10px] sm:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
+                  <div className="text-xs sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">100%</div>
+                  <div className="text-[9px] xs:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
                     Honest Answers
                   </div>
                 </div>
                 <div className="px-1.5 sm:px-2">
-                  <div className="text-sm sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">Usually</div>
-                  <div className="text-[10px] sm:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
+                  <div className="text-xs sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">Usually</div>
+                  <div className="text-[9px] xs:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
                     Within a Few Hours
                   </div>
                 </div>
                 <div className="px-1.5 sm:px-2">
-                  <div className="text-sm sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">Zero</div>
-                  <div className="text-[10px] sm:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
+                  <div className="text-xs sm:text-sm font-extrabold text-[#be123c] dark:text-rose-400">Zero</div>
+                  <div className="text-[9px] xs:text-[10px] font-medium text-slate-500 dark:text-zinc-400 mt-0.5">
                     Sales Pressure
                   </div>
                 </div>
@@ -187,7 +188,7 @@ export function FAQ() {
         </div>
 
         {/* Right Column (7 Cols) - FAQ Accordion List */}
-        <div className="lg:col-span-7 flex flex-col gap-4 pt-0 lg:pt-1">
+        <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4 pt-0 lg:pt-1">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
             const Icon = faq.icon;
@@ -195,7 +196,7 @@ export function FAQ() {
             return (
               <div
                 key={faq.id}
-                className={`group rounded-3xl transition-all duration-300 overflow-hidden ${
+                className={`group rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? "bg-white dark:bg-zinc-900 border-[1.5px] border-rose-300/80 dark:border-rose-500/50 shadow-[0_12px_35px_rgba(244,63,94,0.12)]"
                     : "bg-white dark:bg-zinc-900 border border-transparent dark:border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.06)]"
@@ -204,12 +205,12 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => toggle(faq.id)}
-                  className="w-full flex items-center justify-between gap-3 p-4 sm:p-4 text-left cursor-pointer outline-none"
+                  className="w-full flex items-center justify-between gap-2.5 sm:gap-3 p-3.5 sm:p-4 text-left cursor-pointer outline-none"
                 >
-                  <div className="flex items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
+                  <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
                     {/* Number Box */}
                     <div
-                      className={`shrink-0 flex items-center justify-center w-11 h-11 rounded-xl font-bold text-base transition-colors duration-300 ${
+                      className={`shrink-0 flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-colors duration-300 ${
                         isOpen
                           ? "bg-rose-50 dark:bg-rose-950/50 text-[#e11d48] dark:text-rose-400"
                           : "bg-[#f4f4f6] dark:bg-zinc-800/60 text-[#1e1b4b] dark:text-zinc-300 group-hover:bg-[#f0f0f4]"
@@ -219,14 +220,14 @@ export function FAQ() {
                     </div>
 
                     {/* Tag + Question */}
-                    <div className="flex flex-col gap-1 flex-1 min-w-0">
+                    <div className="flex flex-col gap-0.5 sm:gap-1 flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
                         <Icon className="w-3 h-3 text-[#db2777] dark:text-pink-500" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#db2777] dark:text-pink-500">
+                        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#db2777] dark:text-pink-500">
                           {faq.category}
                         </span>
                       </div>
-                      <h3 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white leading-snug">
+                      <h3 className="text-xs xs:text-sm sm:text-base font-bold text-zinc-900 dark:text-white leading-snug">
                         {faq.question}
                       </h3>
                     </div>
@@ -234,13 +235,13 @@ export function FAQ() {
 
                   {/* Dropdown Chevron */}
                   <div
-                    className={`shrink-0 flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 shadow-sm ${
+                    className={`shrink-0 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border transition-all duration-300 shadow-sm ${
                       isOpen
                         ? "bg-white dark:bg-zinc-800 border-rose-200 dark:border-rose-900/50 text-[#e11d48] dark:text-rose-400 rotate-180 shadow-rose-100/50"
                         : "bg-white dark:bg-zinc-800 border-zinc-100 dark:border-zinc-700 text-zinc-700 dark:text-zinc-400 shadow-zinc-100/50"
                     }`}
                   >
-                    <AnimatedIcon icon={ChevronDownIcon} size={18} className="w-4.5 h-4.5 stroke-[2.5]" />
+                    <AnimatedIcon icon={ChevronDownIcon} size={16} className="w-4 h-4 stroke-[2.5]" />
                   </div>
                 </button>
 
@@ -254,19 +255,19 @@ export function FAQ() {
                       transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-col gap-3.5 px-4 sm:px-4 pb-4 pt-0 pl-16 sm:pl-20">
-                        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-[1.6] max-w-[95%]">
+                      <div className="flex flex-col gap-3 px-4 pb-4 pt-0 sm:pl-16 lg:pl-20 sm:pr-6">
+                        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                           {faq.answer}
                         </p>
 
                         {faq.highlights && faq.highlights.length > 0 && (
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {faq.highlights.map((hl, i) => {
                               const HlIcon = hl.icon;
                               return (
                                 <div
                                   key={i}
-                                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-100/80 dark:border-rose-900/40 text-rose-950 dark:text-rose-200 text-xs font-semibold"
+                                  className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-100/80 dark:border-rose-900/40 text-rose-950 dark:text-rose-200 text-[11px] sm:text-xs font-semibold"
                                 >
                                   <HlIcon className="w-3.5 h-3.5 text-[#e11d48] dark:text-rose-500" />
                                   <span>{hl.text}</span>

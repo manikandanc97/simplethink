@@ -1,4 +1,4 @@
-import { Project, ServiceType, ProjectPreviewTheme } from "@/types/project";
+import { Project } from "@/types/project";
 
 /**
  * ─────────────────────────────────────────────────────────────────────────────

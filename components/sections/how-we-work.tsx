@@ -27,7 +27,7 @@ export function HowWeWork() {
   return (
     <section
       id="how-we-work"
-      className="relative py-16 sm:py-20 lg:py-24 select-none"
+      className="relative py-12 sm:py-16 lg:py-24 select-none"
     >
       {/* Soft Pastel Background Ambient Accents */}
 
@@ -37,7 +37,7 @@ export function HowWeWork() {
       <div className="hidden lg:block pointer-events-none absolute top-1/2 left-3 w-20 h-28 hero-dots opacity-35" />
       <div className="hidden lg:block pointer-events-none absolute top-28 right-10 w-24 h-24 hero-dots opacity-35" />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-6 sm:gap-10">
         
         {/* ========================================================================= */}
         {/* SECTION HEADER (Center Aligned, matching reference) */}
@@ -58,7 +58,7 @@ export function HowWeWork() {
         {/* ========================================================================= */}
         {/* STEPPER NAVIGATION BAR (Horizontal connected flow) */}
         {/* ========================================================================= */}
-        <div className="flex items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-4 -my-4 px-4 -mx-4 scrollbar-none">
+        <div className="flex items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-2 w-full scrollbar-none">
           {STEPS.map((step, index) => {
             const isActive = activeStepIndex === index;
             const StepIcon = step.icon;
@@ -201,7 +201,7 @@ export function HowWeWork() {
         {/* ========================================================================= */}
         {/* MAIN BENTO CARD (Left Narrative + Right 3D Visual Scene) */}
         {/* ========================================================================= */}
-        <div className="w-full bg-white rounded-3xl sm:rounded-3xl border border-neutral-200/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] p-6 sm:p-8 lg:p-8 relative overflow-hidden">
+        <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] p-4 xs:p-6 sm:p-8 lg:p-8 relative overflow-hidden">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -215,8 +215,8 @@ export function HowWeWork() {
               {/* ------------------------------------------------------------- */}
               {/* LEFT COLUMN: Narrative & 2x2 Features Grid */}
               {/* ------------------------------------------------------------- */}
-              <div className="lg:col-span-6 flex flex-col gap-6 sm:gap-8 z-10">
-                <div className="flex flex-col gap-3.5">
+              <div className="lg:col-span-6 flex flex-col gap-5 sm:gap-8 z-10">
+                <div className="flex flex-col gap-3">
                   {/* Step Kicker */}
                   <div>
                     <span className="inline-block px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs font-black tracking-widest text-[#E11D48] uppercase">
@@ -225,7 +225,7 @@ export function HowWeWork() {
                   </div>
 
                   {/* Big Headline */}
-                  <h3 className="font-satoshi font-black text-3xl sm:text-4xl lg:text-4xl text-neutral-900 tracking-tight leading-[1.12]">
+                  <h3 className="font-satoshi font-black text-2xl xs:text-3xl sm:text-4xl lg:text-4xl text-neutral-900 tracking-tight leading-[1.15]">
                     {currentStep.headlineFirst}{" "}
                     <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                       {currentStep.headlineAccent}
@@ -239,7 +239,7 @@ export function HowWeWork() {
                 </div>
 
                 {/* 2x2 Feature Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                   {currentStep.features.map((feature, idx) => {
                     const FeatIcon = feature.icon;
                     return (
@@ -249,7 +249,7 @@ export function HowWeWork() {
                       >
                         <div
                           className={cn(
-                            "w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105",
+                            "w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105",
                             feature.iconBg,
                             feature.iconColor
                           )}
@@ -275,7 +275,7 @@ export function HowWeWork() {
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="bg-[#831843] hover:bg-[#6e1336] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-lg shadow-[#831843]/20 flex items-center gap-2 cursor-pointer transition-all active:scale-95 group"
+                    className="bg-[#831843] hover:bg-[#6e1336] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-full shadow-lg shadow-[#831843]/20 flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 group w-full sm:w-auto"
                   >
                     <span>
                       {activeStepIndex === STEPS.length - 1

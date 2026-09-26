@@ -43,7 +43,7 @@ export function TechStack() {
   return (
     <section
       id="tech-stack"
-      className="relative w-full py-16 sm:py-20 lg:py-24"
+      className="relative w-full py-12 sm:py-16 lg:py-24"
     >
       {/* ── Background Atmosphere & Ambient Glows ────────────────────────────── */}
 
@@ -53,7 +53,7 @@ export function TechStack() {
       <div className="pointer-events-none absolute bottom-8 left-8 w-36 h-36 hero-dots opacity-40 dark:opacity-20" />
       <div className="pointer-events-none absolute bottom-8 right-8 w-36 h-36 hero-dots opacity-40 dark:opacity-20" />
 
-      <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-8 sm:gap-12">
+      <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
 
         {/* ── Top Header with Floating Performance Pill ──────────────────────── */}
         <div className="relative text-center">
@@ -108,20 +108,20 @@ export function TechStack() {
         </div>
 
         {/* ── Categories + Cards wrapper ────────────────────────────────────── */}
-        <div className="flex flex-col gap-10 sm:gap-12">
+        <div className="flex flex-col gap-8 sm:gap-12">
           {/* ── Category Pill Tabs with "Tools we love" Handwritten Annotation ──── */}
           <div className="relative">
 
           {/* Playful Handwritten Annotation: "Tools we love" + Curved Arrow pointing right to the tab */}
-          <div className="absolute -top-14 sm:-top-16 left-2 sm:left-4 md:left-8 lg:left-14 z-20 pointer-events-none select-none flex items-end gap-3">
+          <div className="absolute -top-12 sm:-top-16 left-1 sm:left-4 md:left-8 lg:left-14 z-20 pointer-events-none select-none flex items-end gap-2 sm:gap-3 scale-90 sm:scale-100 origin-bottom-left">
             <span
-              className="font-handwriting text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200 -rotate-10 leading-tight tracking-wide"
+              className="font-handwriting text-base sm:text-xl font-bold text-slate-800 dark:text-slate-200 -rotate-10 leading-tight tracking-wide"
               style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
             >
               Tools<br />we love
             </span>
-            <div className="ml-1 text-[#9F1239] dark:text-rose-400">
-              <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <div className="ml-0.5 sm:ml-1 text-[#9F1239] dark:text-rose-400">
+              <svg width="34" height="34" viewBox="0 0 38 38" fill="none" className="w-7 h-7 sm:w-9 sm:h-9">
                 <path
                   d="M 4 4 C 15 4, 28 12, 24 28"
                   stroke="currentColor"
@@ -146,7 +146,7 @@ export function TechStack() {
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5"
+            className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5"
             role="tablist"
             aria-label="Technology categories"
           >
@@ -162,7 +162,7 @@ export function TechStack() {
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(cat)}
                   id={`tech-tab-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                  className={`relative px-4 sm:px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center gap-2.5 ${
+                  className={`relative px-3 py-1.5 sm:px-4.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center gap-1.5 sm:gap-2.5 ${
                     isActive
                       ? "text-white shadow-lg shadow-[#881337]/25"
                       : "border border-slate-200/80 dark:border-border/70 text-slate-600 dark:text-muted-foreground bg-white dark:bg-card/80 hover:text-slate-900 dark:hover:text-foreground hover:border-slate-300 dark:hover:border-border"
@@ -180,8 +180,8 @@ export function TechStack() {
 
                   {/* Category Icon */}
                   <AnimatedIcon
-                    name={Icon as any}
-                    size={16}
+                    name={Icon}
+                    size={15}
                     className={`relative z-10 ${
                       isActive ? "text-white" : "text-slate-500 dark:text-muted-foreground"
                     }`}
@@ -241,30 +241,30 @@ export function TechStack() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-6 sm:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full"
+          className="max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-4 sm:px-8 lg:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6">
             {/* 1. Reliable */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 min-w-0">
               <div className="w-9 h-9 rounded-full bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-900/40 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5 text-rose-500" />
               </div>
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left min-w-0">
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-foreground">
                   Reliable
                 </span>
-                <span className="text-xs text-slate-500 dark:text-muted-foreground leading-tight">
+                <span className="text-xs text-slate-500 dark:text-muted-foreground leading-tight truncate xs:whitespace-normal">
                   Battle-tested in real projects
                 </span>
               </div>
             </div>
 
             {/* 2. Performant */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 min-w-0">
               <div className="w-9 h-9 rounded-full bg-purple-50 dark:bg-purple-950/40 border border-purple-100 dark:border-purple-900/40 flex items-center justify-center shrink-0">
                 <Zap className="w-5 h-5 text-purple-600 fill-purple-600/20" />
               </div>
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left min-w-0">
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-foreground">
                   Performant
                 </span>
@@ -275,11 +275,11 @@ export function TechStack() {
             </div>
 
             {/* 3. Scalable */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 min-w-0">
               <div className="w-9 h-9 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-center shrink-0">
                 <BarChart2 className="w-5 h-5 text-indigo-600" />
               </div>
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left min-w-0">
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-foreground">
                   Scalable
                 </span>
@@ -290,16 +290,16 @@ export function TechStack() {
             </div>
 
             {/* 4. Future-ready */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 min-w-0">
               <div className="w-9 h-9 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900/40 flex items-center justify-center shrink-0">
                 <InfinityIcon className="w-5 h-5 text-pink-600" />
               </div>
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left min-w-0">
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-foreground">
                   Future-ready
                 </span>
                 <span className="text-xs text-slate-500 dark:text-muted-foreground leading-tight">
-                  Always evolving with the best tools
+                  Always evolving with best tools
                 </span>
               </div>
             </div>
@@ -311,13 +311,13 @@ export function TechStack() {
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex items-center justify-center gap-4 max-w-4xl mx-auto w-full"
+          className="flex items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto w-full px-2"
         >
-          <div className="h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
-          <p className="text-xs sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 whitespace-nowrap">
+          <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
+          <p className="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 text-center leading-relaxed">
             We choose tools that fit your project — not the other way around.
           </p>
-          <div className="h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
+          <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
         </motion.div>
 
       </div>

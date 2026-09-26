@@ -196,7 +196,6 @@ export function MobileAppsMockup({ isActive }: { isActive?: boolean }) {
       setScreen(SCREENS[idx]);
     }, DURATIONS[screen]);
     return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screen, isActive]);
 
   const tabIndex = SCREENS.indexOf(screen);

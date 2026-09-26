@@ -1,9 +1,10 @@
 import { TechCategory, TechItem, TECH_CATEGORIES } from '@/types/tech';
+import { type AnimatedIconName } from '@/components/ui/animated-icon';
 
 export const CATEGORIES = TECH_CATEGORIES;
 export type Category = TechCategory;
 
-export const CATEGORY_ICONS: Record<Category, string> = {
+export const CATEGORY_ICONS: Record<Category, AnimatedIconName> = {
   "Frontend & Web": "laptop",
   Mobile: "smartphone",
   "Backend & APIs": "cpu",
