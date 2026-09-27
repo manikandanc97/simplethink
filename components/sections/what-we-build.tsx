@@ -67,7 +67,7 @@ export function WhatWeBuild() {
   return (
     <section
       id="capabilities"
-      className="relative w-full py-12 sm:py-16 lg:py-24"
+      className="relative w-full py-12 sm:py-16 lg:py-24 overflow-hidden"
     >
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8">

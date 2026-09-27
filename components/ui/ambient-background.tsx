@@ -74,52 +74,52 @@ export function AmbientBackground({ className }: { className?: string }) {
       <motion.div 
         animate={{ y: [-15, 15, -15], x: [-6, 6, -6], scale: [1, 1.04, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-[-8%] w-[80vw] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1200px] bg-[#F3EBF9]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-90" 
+        className="absolute top-0 left-[-8%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1200px] bg-[#F3EBF9]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-90" 
       />
       <motion.div 
         animate={{ y: [15, -15, 15], x: [6, -6, 6], scale: [1, 1.04, 1] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-[5%] right-[-8%] w-[60vw] h-[500px] sm:h-[800px] lg:h-[1000px] max-w-[900px] bg-[#FAF0F6]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+        className="absolute top-[5%] right-[-8%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1000px] max-w-[900px] bg-[#FAF0F6]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
       />
       
       {/* 2. What We Build -> Selected Work (15% to 40%) */}
       <motion.div 
         animate={{ y: [-18, 18, -18], x: [8, -8, 8], scale: [1, 1.02, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-[20%] left-[8%] w-[70vw] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-70" 
+        className="absolute top-[20%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-70" 
       />
       <motion.div 
         animate={{ y: [18, -18, 18], x: [-8, 8, -8], scale: [1, 1.05, 1] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        className="absolute top-[30%] right-[0%] w-[60vw] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE4EC]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+        className="absolute top-[30%] right-[0%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE4EC]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
       />
 
       {/* 3. How We Work -> Philosophy (40% to 65%) */}
       <motion.div 
         animate={{ y: [-15, 15, -15], x: [-6, 6, -6], scale: [1, 1.03, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-[45%] left-[-4%] w-[80vw] h-[600px] sm:h-[900px] lg:h-[1300px] max-w-[1100px] bg-[#F3E8FF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+        className="absolute top-[45%] left-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1300px] max-w-[1100px] bg-[#F3E8FF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
       />
       <motion.div 
         animate={{ y: [20, -20, 20], x: [10, -10, 10], scale: [1, 1.05, 1] }}
         transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="absolute top-[55%] right-[8%] w-[60vw] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE7F3]/40 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
+        className="absolute top-[55%] right-[8%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE7F3]/40 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
       />
 
       {/* 4. Tech Stack -> FAQ -> CTA (65% to 100%) */}
       <motion.div 
         animate={{ y: [-12, 12, -12], x: [-10, 10, -10], scale: [1, 1.02, 1] }}
         transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-        className="absolute top-[70%] left-[8%] w-[70vw] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
+        className="absolute top-[70%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
       />
       <motion.div 
         animate={{ y: [12, -12, 12], x: [8, -8, 8], scale: [1, 1.04, 1] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3.5 }}
-        className="absolute top-[85%] right-[-4%] w-[80vw] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1100px] bg-[#FAF0F6]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+        className="absolute top-[85%] right-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1100px] bg-[#FAF0F6]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
       />
 
       {/* 5. Delicate Dashed and Solid Sweeping Lines */}
-      <svg className="absolute top-0 left-0 w-full h-full opacity-20 sm:opacity-30 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg className="absolute top-0 left-0 w-full h-full opacity-20 sm:opacity-30 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         {/* Dashed wave 1 */}
         <path d="M-10,20 C 30,10 70,30 110,20" fill="none" stroke="#d8b4e2" strokeWidth="0.2" strokeDasharray="1 1" />
         {/* Solid thin wave 2 */}

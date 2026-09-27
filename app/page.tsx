@@ -1,4 +1,4 @@
-﻿import { WorkbenchHero } from "@/components/workbench/workbench-hero";
+import { WorkbenchHero } from "@/components/workbench/workbench-hero";
 import dynamic from "next/dynamic";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 
@@ -11,9 +11,11 @@ const TechStack = dynamic(() => import("@/components/sections/tech-stack").then(
 const FAQ = dynamic(() => import("@/components/sections/faq").then((mod) => mod.FAQ));
 const CTA = dynamic(() => import("@/components/sections/cta").then((mod) => mod.CTA));
 
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 w-full relative">
+
       <AmbientBackground />
       <div className="relative z-10 w-full flex flex-col">
         {/* 02 — HERO */}

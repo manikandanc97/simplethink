@@ -146,7 +146,7 @@ export function TechStack() {
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 w-full max-w-lg sm:max-w-none mx-auto"
             role="tablist"
             aria-label="Technology categories"
           >
@@ -162,7 +162,7 @@ export function TechStack() {
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(cat)}
                   id={`tech-tab-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                  className={`relative px-3 py-1.5 sm:px-4.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center gap-1.5 sm:gap-2.5 ${
+                  className={`relative px-2.5 xs:px-3 sm:px-4.5 py-2 rounded-xl sm:rounded-full text-[10px] xs:text-[11px] sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 w-full sm:w-auto ${
                     isActive
                       ? "text-white shadow-lg shadow-[#881337]/25"
                       : "border border-slate-200/80 dark:border-border/70 text-slate-600 dark:text-muted-foreground bg-white dark:bg-card/80 hover:text-slate-900 dark:hover:text-foreground hover:border-slate-300 dark:hover:border-border"
@@ -172,7 +172,7 @@ export function TechStack() {
                   {isActive && (
                     <motion.span
                       layoutId="tech-active-pill"
-                      className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4C0519] via-[#6D0E31] to-[#881337]"
+                      className="absolute inset-0 rounded-xl sm:rounded-full bg-gradient-to-r from-[#4C0519] via-[#6D0E31] to-[#881337]"
                       style={{ zIndex: -1 }}
                       transition={SPRING}
                     />

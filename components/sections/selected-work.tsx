@@ -292,12 +292,9 @@ export function SelectedWork() {
 
             {/* Mobile Filter & Nav (Visible only on < lg) */}
             <div className="flex lg:hidden w-full mb-2">
-              <div className="flex items-center justify-between gap-3 relative z-10 w-full overflow-hidden">
+              <div className="flex items-center justify-start gap-3 relative z-10 w-full overflow-hidden">
                 {/* Left: Filter Tabs */}
                 <FilterTabsList layoutIdPrefix="mobile" />
-                
-                {/* Right: Nav buttons */}
-                <NavButtons />
               </div>
             </div>
 

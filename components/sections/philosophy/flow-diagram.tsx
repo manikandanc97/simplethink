@@ -15,7 +15,7 @@ export function FlowDiagram({ inView }: { inView: boolean }) {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="relative rounded-[24px] bg-white border border-neutral-100 shadow-[0_12px_44px_rgba(0,0,0,0.04)] p-4 xs:p-6 sm:p-8 flex flex-col justify-between gap-5 sm:gap-6 min-h-0 md:min-h-[460px] overflow-hidden sm:overflow-visible z-10"
+        className="relative rounded-[24px] bg-white border border-neutral-100 shadow-[0_12px_44px_rgba(0,0,0,0.04)] p-4 xs:p-6 sm:p-8 flex flex-col justify-between gap-5 sm:gap-6 min-h-0 md:min-h-[460px] overflow-visible z-10"
       >
         {/* Top Bar inside Center Card */}
         <div className="flex items-center justify-between w-full z-10">

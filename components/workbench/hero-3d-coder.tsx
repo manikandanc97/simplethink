@@ -25,6 +25,30 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
     damping: 30,
   });
 
+  // Track container dimensions to force a DOM update on resize. 
+  // This prevents the browser GPU compositor from caching stale 3D bounds
+  // when switching viewports, and resets the parallax bounds logic.
+  const [bounds, setBounds] = React.useState({ width: 0, height: 0 });
+
+  React.useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setBounds({
+          width: entry.contentRect.width,
+          height: entry.contentRect.height,
+        });
+        // Reset parallax to prevent stuck coordinates across viewports
+        mouseX.set(0);
+        mouseY.set(0);
+      }
+    });
+    
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [mouseX, mouseY]);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -44,8 +68,9 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      style={{ "--sync-width": bounds.width } as React.CSSProperties}
       className={cn(
-        "relative w-full h-[320px] xs:h-[360px] sm:h-[440px] md:h-[500px] lg:h-[600px] flex items-center justify-center select-none perspective-[1200px] max-w-4xl mx-auto overflow-hidden sm:overflow-visible",
+        "relative w-full h-[320px] xs:h-[360px] sm:h-[440px] md:h-[500px] lg:h-[600px] flex items-center justify-center select-none perspective-[1200px] max-w-4xl mx-auto overflow-visible",
         className
       )}
     >

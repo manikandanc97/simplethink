@@ -8,7 +8,7 @@ export function HeroGridAccents() {
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 1920 900"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid slice"
         aria-hidden="true"
       >
         <defs>

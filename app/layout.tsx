@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col overflow-x-hidden">
+      <body className="min-h-full flex flex-col">
         {/* Skip to main content for accessibility */}
         <a
           href="#main"

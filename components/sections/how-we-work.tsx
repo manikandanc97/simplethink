@@ -6,13 +6,24 @@ import { STEPS } from "@/lib/data/how-we-work";
 import { cn } from "@/lib/utils";
 import { ShieldCheck } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { StepVisual } from "./how-we-work/step-visuals";
 import { SectionHeader } from "@/components/ui/section-header";
 
 export function HowWeWork() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const { openLead } = useLead();
+  const navContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (navContainerRef.current) {
+      const container = navContainerRef.current;
+      const activeBtn = container.querySelector(`[data-step="${activeStepIndex}"]`) as HTMLElement;
+      if (activeBtn) {
+        container.scrollTo({ left: Math.max(0, activeBtn.offsetLeft - 16), behavior: "smooth" });
+      }
+    }
+  }, [activeStepIndex]);
 
   const currentStep = STEPS[activeStepIndex];
 
@@ -58,7 +69,7 @@ export function HowWeWork() {
         {/* ========================================================================= */}
         {/* STEPPER NAVIGATION BAR (Horizontal connected flow) */}
         {/* ========================================================================= */}
-        <div className="flex items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-2 w-full scrollbar-none">
+        <div ref={navContainerRef} className="relative flex items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-4 overflow-x-auto py-2 w-full scrollbar-none [mask-image:linear-gradient(to_right,black_85%,transparent_100%)] lg:[mask-image:none] pr-16 lg:pr-0">
           {STEPS.map((step, index) => {
             const isActive = activeStepIndex === index;
             const StepIcon = step.icon;
@@ -68,6 +79,7 @@ export function HowWeWork() {
                 {/* Step Button Card */}
                 <button
                   type="button"
+                  data-step={index}
                   onClick={() => setActiveStepIndex(index)}
                   className={cn(
                     "relative group flex items-center gap-3 transition-all duration-300 cursor-pointer text-left rounded-2xl select-none",
