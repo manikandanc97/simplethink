@@ -39,7 +39,7 @@ export function FlowDiagram({ inView }: { inView: boolean }) {
           <div className="relative flex flex-col items-center justify-center my-1">
             <div className="w-24 h-24 xs:w-28 xs:h-28 rounded-full bg-white shadow-[0_12px_36px_rgba(210,61,120,0.16)] border border-rose-100 flex flex-col items-center justify-center p-3">
               <Image
-                src="/logo.png"
+                src="/assets/logo.png"
                 alt="SimplePrime Logo"
                 width={140}
                 height={32}
@@ -282,7 +282,7 @@ export function FlowDiagram({ inView }: { inView: boolean }) {
           >
             <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white shadow-[0_20px_60px_rgba(210,61,120,0.2),0_4px_16px_rgba(0,0,0,0.04)] border border-rose-50 flex flex-col items-center justify-center p-3 sm:p-4">
               <Image
-                src="/logo.png"
+                src="/assets/logo.png"
                 alt="SimplePrime Logo"
                 width={180}
                 height={40}

@@ -54,7 +54,7 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
             aria-label="SimpleThink Home"
           >
             <Image
-              src="/logo.png"
+              src="/assets/logo.png"
               alt="SimpleThink Logo"
               width={180}
               height={40}

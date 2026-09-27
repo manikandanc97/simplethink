@@ -40,7 +40,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                 aria-label="SimpleThink Home"
               >
                 <Image
-                  src="/logo.png"
+                  src="/assets/logo.png"
                   alt="SimpleThink"
                   width={160}
                   height={36}
@@ -266,7 +266,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
       <div className="w-full flex items-end justify-center pointer-events-none select-none relative z-0 overflow-hidden">
         <div className="relative w-full flex justify-center items-center -my-[6%] md:-my-[8%] lg:-my-[10%]">
           <Image
-            src="/logo.png"
+            src="/assets/logo.png"
             alt="SimpleThink Logo"
             width={1920}
             height={400}
