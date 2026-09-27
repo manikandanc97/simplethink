@@ -17,8 +17,15 @@ import { Maximize2 } from "lucide-react";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 const FILTER_TABS = ["Websites", "Web Apps", "Mobile Apps"] as const;
 
@@ -177,6 +184,90 @@ export function SelectedWork() {
   const displayProjects = filteredProjects.slice(0, 3);
   
   const [activeId, setActiveId] = useState<string>(displayProjects[0]?.id || "");
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const root = containerRef.current;
+    if (!root) return;
+
+    const filterEls = root.querySelectorAll<HTMLElement>(".sw-filter");
+    const projectItems = root.querySelectorAll<HTMLElement>(".sw-project-item");
+    const browser = root.querySelector<HTMLElement>(".sw-browser");
+
+    // Filter tabs entrance
+    if (filterEls.length > 0) {
+      gsap.fromTo(
+        Array.from(filterEls),
+        { y: 12, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+
+    // Project cards stagger entrance
+    if (projectItems.length > 0) {
+      gsap.fromTo(
+        Array.from(projectItems),
+        { x: -16, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+
+    // Browser mockup reveal
+    if (browser) {
+      gsap.fromTo(
+        browser,
+        { y: 30, opacity: 0, scale: 0.98 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.85,
+          ease: "power3.out",
+          clearProps: "transform,opacity,scale",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Subtle parallax on scroll
+      gsap.to(browser, {
+        y: 25,
+        ease: "none",
+        scrollTrigger: {
+          trigger: root,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+  }, { scope: containerRef });
 
   useEffect(() => {
     if (!displayProjects.find((p) => p.id === activeId) && displayProjects.length > 0) {
@@ -259,6 +350,7 @@ export function SelectedWork() {
   return (
     <section 
       id="selected-work" 
+      ref={containerRef}
       className="relative w-full py-12 sm:py-16 lg:py-24 font-satoshi selection:bg-[#922F55]/20 selection:text-[#922F55] overflow-hidden"
     >
       {/* ── Background Decorative Elements ── */}
@@ -291,7 +383,7 @@ export function SelectedWork() {
             />
 
             {/* Mobile Filter & Nav (Visible only on < lg) */}
-            <div className="flex lg:hidden w-full mb-2">
+            <div className="sw-filter flex lg:hidden w-full mb-2">
               <div className="flex items-center justify-start gap-3 relative z-10 w-full overflow-hidden">
                 {/* Left: Filter Tabs */}
                 <FilterTabsList layoutIdPrefix="mobile" />
@@ -299,109 +391,118 @@ export function SelectedWork() {
             </div>
 
             {/* Project List: Max 3 Cards on Home Page */}
-            <div className="flex flex-col gap-3">
-              {displayProjects.map((project) => {
-                const isActive = project.id === activeId;
-                const badge = getProjectBadge(project);
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeFilter}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="flex flex-col gap-3"
+              >
+                {displayProjects.map((project) => {
+                  const isActive = project.id === activeId;
+                  const badge = getProjectBadge(project);
 
-                return (
-                  <div
-                    key={project.id}
-                    onClick={() => setActiveId(project.id)}
-                    className={cn(
-                      "group p-3 sm:p-3.5 rounded-2xl flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
-                      isActive
-                        ? "bg-white border-[#FCE4EC] shadow-[0_12px_30px_rgba(146,47,85,0.15)] ring-1 ring-[#FCE4EC] translate-x-0 lg:translate-x-3 z-10"
-                        : "bg-transparent border-transparent hover:bg-white/40 hover:border-slate-100 hover:translate-x-0 lg:hover:translate-x-1"
-                    )}
-                  >
-                    {/* Top Row: Number, Logo, Details, Chevron */}
-                    <div className="flex items-center gap-3 sm:gap-4 w-full">
-                      {/* Project Number */}
-                      <span 
-                        className={cn(
-                          "text-base sm:text-base font-bold w-6 shrink-0 transition-colors",
-                          isActive ? "text-[#922F55]" : "text-slate-400"
-                        )}
-                      >
-                        {project.number}
-                      </span>
+                  return (
+                    <div
+                      key={project.id}
+                      onClick={() => setActiveId(project.id)}
+                      className={cn(
+                        "sw-project-item group p-3 sm:p-3.5 rounded-2xl flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
+                        isActive
+                          ? "bg-white border-[#FCE4EC] shadow-[0_12px_30px_rgba(146,47,85,0.15)] ring-1 ring-[#FCE4EC] translate-x-0 lg:translate-x-3 z-10"
+                          : "bg-transparent border-transparent hover:bg-white/40 hover:border-slate-100 hover:translate-x-0 lg:hover:translate-x-1"
+                      )}
+                    >
+                      {/* Top Row: Number, Logo, Details, Chevron */}
+                      <div className="flex items-center gap-3 sm:gap-4 w-full">
+                        {/* Project Number */}
+                        <span 
+                          className={cn(
+                            "text-base sm:text-base font-bold w-6 shrink-0 transition-colors",
+                            isActive ? "text-[#922F55]" : "text-slate-400"
+                          )}
+                        >
+                          {project.number}
+                        </span>
 
-                      {/* Logo (No Background) */}
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center">
-                        <img
-                          src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
-                          alt={`${project.name} Logo`}
-                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                        />
-                      </div>
-
-                      {/* Content Details: Title, Badge, Description, Tags */}
-                      <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
-                        {/* Line 1: Title + Result Badge */}
-                        <div className="flex flex-wrap items-center gap-2 min-w-0">
-                          <h4 
-                            className={cn(
-                              "font-bold text-sm sm:text-base truncate tracking-tight transition-colors max-w-full",
-                              isActive ? "text-[#121114]" : "text-slate-800 group-hover:text-[#121114]"
-                            )}
-                          >
-                            {project.name}
-                          </h4>
-                          
-                          <span 
-                            className={cn(
-                              "text-xs sm:text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center gap-1 whitespace-nowrap",
-                              badge.bg,
-                              badge.text
-                            )}
-                          >
-                            {badge.icon}
-                            {badge.label}
-                          </span>
+                        {/* Logo (No Background) */}
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center">
+                          <img
+                            src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
+                            alt={`${project.name} Logo`}
+                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                          />
                         </div>
 
-                        {/* Line 2: Tech Stack (Visible only when Active) */}
-                        <div className={cn(
-                          "flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out",
-                          isActive ? "max-h-24 opacity-100 pt-1" : "max-h-0 opacity-0"
-                        )}>
-                          <div className="flex flex-wrap items-center gap-1.5 min-w-0 pt-0.5">
-                            {project.stack.slice(0, 3).map((tag) => (
-                              <span 
-                                key={tag} 
-                                className="text-xs sm:text-xs bg-[#F1F5F9]/80 text-[#64748B] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                        {/* Content Details: Title, Badge, Description, Tags */}
+                        <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
+                          {/* Line 1: Title + Result Badge */}
+                          <div className="flex flex-wrap items-center gap-2 min-w-0">
+                            <h4 
+                              className={cn(
+                                "font-bold text-sm sm:text-base truncate tracking-tight transition-colors max-w-full",
+                                isActive ? "text-[#121114]" : "text-slate-800 group-hover:text-[#121114]"
+                              )}
+                            >
+                              {project.name}
+                            </h4>
+                            
+                            <span 
+                              className={cn(
+                                "text-xs sm:text-xs font-bold px-2 py-0.5 rounded-full inline-flex items-center gap-1 whitespace-nowrap",
+                                badge.bg,
+                                badge.text
+                              )}
+                            >
+                              {badge.icon}
+                              {badge.label}
+                            </span>
+                          </div>
+
+                          {/* Line 2: Tech Stack (Visible only when Active) */}
+                          <div className={cn(
+                            "flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out",
+                            isActive ? "max-h-24 opacity-100 pt-1" : "max-h-0 opacity-0"
+                          )}>
+                            <div className="flex flex-wrap items-center gap-1.5 min-w-0 pt-0.5">
+                              {project.stack.slice(0, 3).map((tag) => (
+                                <span 
+                                  key={tag} 
+                                  className="text-xs sm:text-xs bg-[#F1F5F9]/80 text-[#64748B] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
+
+                        {/* Right Chevron Button */}
+                        <div 
+                          className={cn(
+                            "shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
+                            isActive 
+                              ? "bg-[#922F55] border-[#922F55] text-white shadow-md" 
+                              : "bg-white/80 border-slate-100 text-slate-400 group-hover:text-slate-700 shadow-sm group-hover:translate-x-1"
+                          )}
+                        >
+                          <AnimatedIcon icon={ChevronRightIcon} size={15} />
+                        </div>
                       </div>
 
-                      {/* Right Chevron Button */}
-                      <div 
-                        className={cn(
-                          "shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
-                          isActive 
-                            ? "bg-[#922F55] border-[#922F55] text-white shadow-md" 
-                            : "bg-white/80 border-slate-100 text-slate-400 group-hover:text-slate-700 shadow-sm group-hover:translate-x-1"
-                        )}
-                      >
-                        <AnimatedIcon icon={ChevronRightIcon} size={15} />
-                      </div>
+                      {/* Mobile Mockup (Visible only when active and on mobile) */}
+                      {isActive && (
+                        <div className="block lg:hidden w-full pt-2 pb-1">
+                          <BrowserMockup activeProject={project} />
+                        </div>
+                      )}
                     </div>
-
-                    {/* Mobile Mockup (Visible only when active and on mobile) */}
-                    {isActive && (
-                      <div className="block lg:hidden w-full pt-2 pb-1">
-                        <BrowserMockup activeProject={project} />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </motion.div>
+            </AnimatePresence>
 
             {/* List Footer */}
             <div className="flex items-center justify-between">
@@ -422,7 +523,7 @@ export function SelectedWork() {
           <div className="hidden lg:flex lg:col-span-7 flex-col gap-4 relative pt-2 lg:pt-0 min-w-0">
             
             {/* Top Header: Filter Tabs & Live Client Site Badge + Prev/Next Arrows */}
-            <div className="flex items-center justify-between gap-3 relative z-10">
+            <div className="sw-filter flex items-center justify-between gap-3 relative z-10">
               
               {/* Left: Filter Tabs */}
               <FilterTabsList layoutIdPrefix="desktop" />
@@ -447,7 +548,11 @@ export function SelectedWork() {
             </div>
 
             {/* ── Browser Window Mockup Frame ── */}
-            <BrowserMockup activeProject={activeProject} />
+            <div className="sw-browser">
+              <div className="sw-browser-parallax">
+                <BrowserMockup activeProject={activeProject} />
+              </div>
+            </div>
 
           </div>
         </div>

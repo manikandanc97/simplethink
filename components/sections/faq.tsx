@@ -5,20 +5,75 @@ import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FAQS } from "@/lib/data/faq";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 export function FAQ() {
   const [openId, setOpenId] = useState<string | null>("faq-pricing");
   const { openLead } = useLead();
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const root = containerRef.current;
+    if (!root) return;
+
+    const faqCard = root.querySelector<HTMLElement>(".faq-card");
+    const faqItems = root.querySelectorAll<HTMLElement>(".faq-item");
+
+    if (faqCard) {
+      gsap.fromTo(
+        faqCard,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+
+    if (faqItems.length > 0) {
+      gsap.fromTo(
+        Array.from(faqItems),
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+  }, { scope: containerRef });
 
   const toggle = (id: string) => {
     setOpenId((curr) => (curr === id ? null : id));
   };
 
   return (
-    <section id="faq" className="relative scroll-mt-24 py-12 sm:py-16 lg:py-24">
+    <section id="faq" ref={containerRef} className="relative scroll-mt-24 py-12 sm:py-16 lg:py-24">
 
       {/* Ambient background glows */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -94,10 +149,10 @@ export function FAQ() {
             </div>
 
             {/* 2. Main Outer White Card */}
-            <div className="relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10 overflow-visible">
+            <div className="faq-card relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10 overflow-visible">
               
               {/* Upper Content Area: Left CTA + Right 3D Character */}
-              <div className="relative min-h-[11rem] sm:min-h-[12.5rem] lg:min-h-[10rem]">
+              <div className="relative min-h-[10rem] sm:min-h-[12rem]">
                 
                 {/* Left: Text & CTA Button */}
                 <div className="relative z-10 max-w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2.5 sm:gap-3">
@@ -153,7 +208,6 @@ export function FAQ() {
                     height={480}
                     sizes="(max-width: 640px) 150px, 220px"
                     className="w-full h-auto object-contain drop-shadow-[0_12px_25px_rgba(244,63,94,0.12)]"
-                    priority
                   />
                 </div>
 
@@ -196,7 +250,7 @@ export function FAQ() {
             return (
               <div
                 key={faq.id}
-                className={`group rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
+                className={`faq-item group rounded-2xl sm:rounded-3xl transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? "bg-white dark:bg-zinc-900 border-[1.5px] border-rose-300/80 dark:border-rose-500/50 shadow-[0_12px_35px_rgba(244,63,94,0.12)]"
                     : "bg-white dark:bg-zinc-900 border border-transparent dark:border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_6px_25px_rgba(0,0,0,0.06)]"
@@ -255,7 +309,13 @@ export function FAQ() {
                       transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-col gap-3 px-4 pb-4 pt-0 sm:pl-16 lg:pl-20 sm:pr-6">
+                      <motion.div 
+                        initial={{ y: -8 }}
+                        animate={{ y: 0 }}
+                        exit={{ y: -8 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="flex flex-col gap-3 px-4 pb-4 pt-0 sm:pl-16 lg:pl-20 sm:pr-6"
+                      >
                         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
                           {faq.answer}
                         </p>
@@ -276,7 +336,7 @@ export function FAQ() {
                             })}
                           </div>
                         )}
-                      </div>
+                      </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>

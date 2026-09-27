@@ -238,7 +238,6 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
               alt="Discover Phase - SimpleThink"
               width={1774}
               height={887}
-              priority
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"
               className="w-full max-w-sm xs:max-w-md sm:max-w-xl lg:max-w-2xl object-contain drop-shadow-xl select-none"
             />
@@ -374,7 +373,6 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
               alt="Design Phase - SimpleThink"
               width={1774}
               height={887}
-              priority
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"
               className="w-full max-w-sm xs:max-w-md sm:max-w-xl lg:max-w-2xl object-contain drop-shadow-xl select-none"
             />
@@ -502,7 +500,6 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
               alt="Develop Phase - SimpleThink"
               width={1774}
               height={887}
-              priority
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"
               className="w-full max-w-sm xs:max-w-md sm:max-w-xl lg:max-w-2xl object-contain drop-shadow-xl select-none"
             />
@@ -640,7 +637,6 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
               alt="Launch Phase - SimpleThink"
               width={1774}
               height={887}
-              priority
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"
               className="w-full max-w-sm xs:max-w-md sm:max-w-xl lg:max-w-2xl object-contain drop-shadow-xl select-none"
             />

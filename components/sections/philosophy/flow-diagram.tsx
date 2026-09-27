@@ -287,7 +287,6 @@ export function FlowDiagram({ inView }: { inView: boolean }) {
                 width={180}
                 height={40}
                 className="w-[90%] h-auto object-contain drop-shadow-sm select-none"
-                priority
               />
             </div>
           </motion.div>

@@ -5,18 +5,24 @@ import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { PlayIcon } from "@animateicons/react/lucide/play-icon";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
 import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HERO_CONTENT } from "@/lib/data/hero";
 import { Hero3DCoder } from "./hero-3d-coder";
 import { HeroGridAccents } from "./hero-grid-accents";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 export function WorkbenchHero() {
   const { openLead } = useLead();
   const heroRef = useRef<HTMLElement>(null);
 
   const handleScrollDown = () => {
-    const nextSection = document.getElementById("capabilities");
+    const nextSection = document.getElementById("capabilities") || document.getElementById("what-we-build");
     if (nextSection) {
       const offset = 80;
       const elementPosition = nextSection.getBoundingClientRect().top;
@@ -29,6 +35,34 @@ export function WorkbenchHero() {
       window.scrollBy({ top: window.innerHeight * 0.85, behavior: "smooth" });
     }
   };
+
+  useGSAP(() => {
+    const root = heroRef.current;
+    if (!root) return;
+
+    const line1 = root.querySelector<HTMLElement>(".hero-line-1");
+    const line2 = root.querySelector<HTMLElement>(".hero-line-2");
+    const desc = root.querySelector<HTMLElement>(".hero-desc");
+    const cta = root.querySelector<HTMLElement>(".hero-cta");
+    const artwork = root.querySelector<HTMLElement>(".hero-artwork");
+    const scroll = root.querySelector<HTMLElement>(".hero-scroll");
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      onComplete: () => {
+        gsap.set([line1, line2, desc, cta, artwork, scroll].filter(Boolean), {
+          clearProps: "transform,opacity,scale",
+        });
+      },
+    });
+
+    if (line1) tl.fromTo(line1, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75 }, 0.05);
+    if (line2) tl.fromTo(line2, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75 }, 0.18);
+    if (desc) tl.fromTo(desc, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.3);
+    if (cta) tl.fromTo(cta, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.42);
+    if (artwork) tl.fromTo(artwork, { scale: 0.94, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0 }, 0.15);
+    if (scroll) tl.fromTo(scroll, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 1.0);
+  }, { scope: heroRef });
 
   return (
     <section
@@ -50,14 +84,11 @@ export function WorkbenchHero() {
             
 
             {/* Headline */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            <h1 
               className="font-satoshi font-extrabold tracking-tighter text-[#121114] leading-[1.08] sm:leading-none text-4xl xs:text-5xl sm:text-6xl lg:text-7xl flex flex-col gap-1.5 sm:gap-2"
             >
-              <span className="block">{HERO_CONTENT.headlineLine1}</span>
-              <span className="block relative inline-block">
+              <span className="block hero-line-1">{HERO_CONTENT.headlineLine1}</span>
+              <span className="block relative inline-block hero-line-2">
                 {HERO_CONTENT.headlineLine2Prefix}
                 <span className="relative inline-block brand-gradient-text">
                   {HERO_CONTENT.headlineHighlight}
@@ -91,26 +122,20 @@ export function WorkbenchHero() {
                   </svg>
                 </span>
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Paragraph */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="type-lead text-muted-foreground max-w-lg text-sm sm:text-base lg:text-lg leading-relaxed"
+            <p
+              className="hero-desc type-lead text-muted-foreground max-w-lg text-sm sm:text-base lg:text-lg leading-relaxed"
             >
               {HERO_CONTENT.description}
-            </motion.p>
+            </p>
             </div>
 
             <div className="flex flex-col gap-8 sm:gap-14 w-full">
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-row items-center gap-3 sm:gap-6 w-full sm:w-auto font-satoshi"
+            <div
+              className="hero-cta flex flex-row items-center gap-3 sm:gap-6 w-full sm:w-auto font-satoshi"
             >
               <Button
                 id="hero-start-project"
@@ -134,46 +159,38 @@ export function WorkbenchHero() {
                   <span className="text-[10px] sm:text-xs font-medium text-[#68666C] mt-0.5 whitespace-nowrap">2 min overview</span>
                 </div>
               </button>
-            </motion.div>
+            </div>
 
             </div>
           </div>
 
           {/* RIGHT: 3D Character & Floating UI Cards */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="lg:col-span-7 xl:col-span-6 flex justify-center items-center w-full relative min-h-80 sm:min-h-96 lg:min-h-96"
+          <div
+            className="hero-artwork lg:col-span-7 xl:col-span-6 flex justify-center items-center w-full relative min-h-64 sm:min-h-96"
           >
             <Hero3DCoder />
-          </motion.div>
+          </div>
           
         </div>
       </div>
       
       {/* Interactive scroll indicator button */}
-      <motion.button
+      <button
         type="button"
         id="hero-scroll-indicator"
         aria-label="Scroll down to explore capabilities"
         onClick={handleScrollDown}
-        initial={{ opacity: 0, y: -6 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.0, duration: 0.6 }}
-        className="group relative mt-6 lg:mt-0 lg:absolute lg:bottom-4 left-auto lg:left-1/2 lg:-translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-slate-400 hover:text-foreground cursor-pointer focus:outline-none transition-all select-none"
+        className="hero-scroll group relative mt-6 lg:mt-0 lg:absolute lg:bottom-4 left-auto lg:left-1/2 lg:-translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-slate-400 hover:text-foreground cursor-pointer focus:outline-none transition-all select-none"
       >
         <span className="text-xs font-bold uppercase tracking-widest group-hover:text-primary transition-colors duration-300">
           scroll
         </span>
-        <motion.div
-          animate={{ y: [0, 4, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="w-4 h-4 rounded-full border-[1.5px] border-slate-300 group-hover:border-primary/50 flex items-center justify-center transition-colors"
+        <div
+          className="w-4 h-4 rounded-full border-[1.5px] border-slate-300 group-hover:border-primary/50 flex items-center justify-center transition-colors animate-bounce"
         >
           <AnimatedIcon icon={ChevronDownIcon} size={12} className="h-2.5 w-2.5 text-slate-400 group-hover:text-primary transition-colors" />
-        </motion.div>
-      </motion.button>
+        </div>
+      </button>
     </section>
   );
 }

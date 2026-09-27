@@ -7,13 +7,36 @@ import { cn } from "@/lib/utils";
 import { ShieldCheck } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { StepVisual } from "./how-we-work/step-visuals";
 import { SectionHeader } from "@/components/ui/section-header";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 export function HowWeWork() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const { openLead } = useLead();
   const navContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 60%",
+      end: "bottom 40%",
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const totalSteps = STEPS.length;
+        const step = Math.max(0, Math.min(Math.floor(progress * totalSteps), totalSteps - 1));
+        setActiveStepIndex(step);
+      },
+      onLeaveBack: () => setActiveStepIndex(0),
+    });
+  }, { scope: sectionRef });
 
   useEffect(() => {
     if (navContainerRef.current) {
@@ -38,6 +61,7 @@ export function HowWeWork() {
   return (
     <section
       id="how-we-work"
+      ref={sectionRef}
       className="relative py-12 sm:py-16 lg:py-24 select-none"
     >
       {/* Soft Pastel Background Ambient Accents */}

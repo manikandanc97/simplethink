@@ -7,11 +7,18 @@ import {
   ShieldCheck,
   Zap
 } from "lucide-react";
-import { AnimatePresence, motion, useInView } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TechCard } from "./tech-stack-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 // ─── Categories ───────────────────────────────────────────────────────────────
 
@@ -24,7 +31,53 @@ const SPRING = { type: "spring" as const, stiffness: 340, damping: 28 };
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<Category>("Frontend & Web");
   const containerRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(containerRef, { once: true, margin: "-60px" });
+
+  useGSAP(() => {
+    const root = containerRef.current;
+    if (!root) return;
+
+    const tabs = root.querySelector<HTMLElement>(".ts-tabs");
+    const valueStrip = root.querySelector<HTMLElement>(".ts-value-strip");
+
+    if (tabs) {
+      gsap.fromTo(
+        tabs,
+        { y: 16, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+
+    if (valueStrip) {
+      gsap.fromTo(
+        valueStrip,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          delay: 0.15,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: root,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+  }, { scope: containerRef });
 
   // Counts per category
   const categoryCounts = useMemo(() => {
@@ -60,11 +113,8 @@ export function TechStack() {
 
           {/* Floating "Fast Performant" Pill (Top Right, aligned near subtitle) */}
           <div className="hidden lg:flex absolute top-10 right-2 xl:right-8 z-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 8 }}
-              animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative flex items-center gap-3 bg-white/95 dark:bg-card/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/70 dark:border-border/60 shadow-[0_8px_25px_rgba(0,0,0,0.05)]"
+            <div
+              className="ts-pill relative flex items-center gap-3 bg-white/95 dark:bg-card/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/70 dark:border-border/60 shadow-[0_8px_25px_rgba(0,0,0,0.05)]"
             >
               {/* Radiating Accent Sparks on Top-Left */}
               <div className="absolute -top-3.5 -left-3 pointer-events-none text-rose-400">
@@ -89,7 +139,7 @@ export function TechStack() {
                   Performant
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* ── Top Header ── */}
@@ -142,11 +192,8 @@ export function TechStack() {
           </div>
 
           {/* Tabs Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 w-full max-w-lg sm:max-w-none mx-auto"
+          <div
+            className="ts-tabs grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 w-full max-w-lg sm:max-w-none mx-auto"
             role="tablist"
             aria-label="Technology categories"
           >
@@ -203,14 +250,14 @@ export function TechStack() {
                 </button>
               );
             })}
-          </motion.div>
+          </div>
         </div>
 
         {/* ── Tech Cards Grid ─────────────────────────────────────────────────── */}
         <div
           role="tabpanel"
           aria-label={`${activeCategory} technologies`}
-          className="relative min-h-[220px]"
+          className="relative min-h-[260px]"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -237,11 +284,8 @@ export function TechStack() {
         </div>
 
         {/* ── Bottom Value Proposition Strip (White Floating Island) ──────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-4 sm:px-8 lg:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full"
+        <div
+          className="ts-value-strip max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-4 sm:px-8 lg:px-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full"
         >
           <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6">
             {/* 1. Reliable */}
@@ -304,21 +348,18 @@ export function TechStack() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* ── Bottom Divider & Editorial Note ─────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto w-full px-2"
+        <div
+          className="ts-footer flex items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto w-full px-2"
         >
           <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
           <p className="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 text-center leading-relaxed">
             We choose tools that fit your project — not the other way around.
           </p>
           <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
-        </motion.div>
+        </div>
 
       </div>
     </section>

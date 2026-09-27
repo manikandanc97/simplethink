@@ -5,10 +5,17 @@ import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon"
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageSquare, Zap } from "lucide-react";
 import { CalendarIcon } from "@animateicons/react/lucide/calendar-icon";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 interface CTAProps {
   onStartProject?: () => void;
@@ -16,8 +23,65 @@ interface CTAProps {
 
 export function CTA({ onStartProject }: CTAProps) {
   const { openLead } = useLead();
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const ref = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const illustrationRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const section = ref.current;
+    if (!section) return;
+
+    if (illustrationRef.current) {
+      gsap.fromTo(
+        illustrationRef.current,
+        { scale: 0.95, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.85,
+          ease: "power2.out",
+          clearProps: "transform,opacity,scale",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+
+      // Subtle parallax on illustration
+      gsap.to(illustrationRef.current, {
+        y: 25,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+
+    if (contentRef.current) {
+      gsap.fromTo(
+        contentRef.current,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          delay: 0.1,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+  }, { scope: ref });
 
   const handleStart = () => {
     if (onStartProject) onStartProject();
@@ -45,16 +109,14 @@ export function CTA({ onStartProject }: CTAProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
           
           {/* ── Left Column: 3D Illustration ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-5 xl:col-span-5 flex justify-center items-center relative"
+          <div
+            ref={illustrationRef}
+            className="hidden lg:flex lg:col-span-5 xl:col-span-5 justify-center items-center relative"
           >
             {/* Subtle glow backdrop for the 3D illustration */}
             <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-[#922F55]/12 via-[#6C2BB8]/10 to-transparent blur-2xl pointer-events-none" />
 
-            <div className="relative w-64 h-64 xs:w-72 xs:h-72 sm:w-96 sm:h-96 lg:w-96 lg:h-96">
+            <div className="cta-parallax relative w-64 h-64 xs:w-72 xs:h-72 sm:w-96 sm:h-96 lg:w-96 lg:h-96">
               {/* Gentle floating motion */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
@@ -67,30 +129,24 @@ export function CTA({ onStartProject }: CTAProps) {
                   fill
                   sizes="(max-width: 640px) 260px, (max-width: 1024px) 380px, 400px"
                   className="object-contain drop-shadow-[0_20px_35px_rgba(146,47,85,0.12)]"
-                  priority
                 />
               </motion.div>
 
               {/* READY TO BUILD? Floating Pill */}
-              <motion.div
-                initial={{ scale: 0.85, opacity: 0 }}
-                animate={inView ? { scale: 1, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 }}
+              <div
                 className="absolute right-[2%] bottom-[16%] xs:right-[4%] xs:bottom-[20%] sm:right-[8%] sm:bottom-[22%] z-20 inline-flex items-center gap-1.5 xs:gap-2 px-3 py-1.5 xs:px-3.5 xs:py-2 sm:px-4 sm:py-2 rounded-full bg-white/95 backdrop-blur-md shadow-[0_8px_24px_rgba(30,24,30,0.10)] border border-[rgba(30,24,30,0.08)] hover:scale-105 transition-transform duration-300"
               >
                 <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-[#922F55] font-extrabold text-[10px] xs:text-xs tracking-wider sm:tracking-widest uppercase font-satoshi whitespace-nowrap">
                   READY TO BUILD?
                 </span>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* ── Right Column: Content & Actions ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          <div
+            ref={contentRef}
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left font-satoshi gap-6 sm:gap-8 lg:gap-10 w-full"
           >
             <div className="flex flex-col items-center lg:items-start gap-5 sm:gap-6 w-full">
@@ -105,7 +161,7 @@ export function CTA({ onStartProject }: CTAProps) {
               />
 
               {/* 3 Pillars as sleek pills */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5">
+              <div className="cta-content flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5">
               {[
                 { label: "Simple process.", icon: Zap },
                 { label: "Clear communication.", icon: MessageSquare },
@@ -125,7 +181,7 @@ export function CTA({ onStartProject }: CTAProps) {
               </div>
             </div>
 
-            <div className="flex flex-col items-center lg:items-start gap-3.5 sm:gap-4 w-full sm:w-auto">
+            <div className="cta-content flex flex-col items-center lg:items-start gap-3.5 sm:gap-4 w-full sm:w-auto">
               {/* Action Buttons & Fast Response Note */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <Button
@@ -155,7 +211,7 @@ export function CTA({ onStartProject }: CTAProps) {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>

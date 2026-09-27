@@ -8,7 +8,14 @@ import { ChevronRightIcon } from "@animateicons/react/lucide/chevron-right-icon"
 import { MousePointer2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 import { MobileAppsMockup, SaaSProductsMockup, WebAppsMockup, WebsitesMockup, EcommerceMockup, BrandingMockup, UIUXMockup, AutomationMockup } from './what-we-build/mockups/index';
 
@@ -52,9 +59,58 @@ function FadeUp({
 export function WhatWeBuild() {
   const { openLead } = useLead();
   const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   const displayServices = SERVICES_LIST.slice(0, 8);
+
+  useGSAP(() => {
+    const section = sectionRef.current;
+    const carousel = containerRef.current;
+    const nav = navRef.current;
+    if (!section || !carousel) return;
+
+    // Animate the carousel wrapper in
+    gsap.fromTo(
+      carousel,
+      { y: 36, opacity: 0, scale: 0.98 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.85,
+        ease: "power3.out",
+        clearProps: "transform,opacity,scale",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          once: true,
+        },
+      }
+    );
+
+    // Animate the nav controls in slightly after
+    if (nav) {
+      gsap.fromTo(
+        nav,
+        { y: 16, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+          delay: 0.1,
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }
+  }, { scope: sectionRef, dependencies: [] });
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % displayServices.length);
@@ -66,6 +122,7 @@ export function WhatWeBuild() {
 
   return (
     <section
+      ref={sectionRef}
       id="capabilities"
       className="relative w-full py-12 sm:py-16 lg:py-24 overflow-hidden"
     >
@@ -105,8 +162,8 @@ export function WhatWeBuild() {
           description="We engineer custom software, scalable web applications, and mobile platforms — with enterprise-grade reliability and zero unnecessary overhead."
         />
 
-        <div ref={containerRef} className="relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
-          <div className="flex items-center justify-center min-h-[580px] xs:min-h-[540px] sm:min-h-[500px] md:min-h-[460px] lg:min-h-96 relative w-full">
+        <div ref={containerRef} className="wwb-outer-card relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
+          <div className="flex items-center justify-center min-h-[520px] xs:min-h-[500px] sm:min-h-[460px] md:min-h-[420px] lg:min-h-[380px] xl:min-h-[380px] relative w-full">
             {displayServices.map((service, index) => {
               let offset = index - activeIndex;
               const half = Math.floor(displayServices.length / 2);
@@ -145,7 +202,7 @@ export function WhatWeBuild() {
                     opacity: { type: "tween", duration: 0.3, ease: "easeOut" },
                   }}
                   className={cn(
-                    "absolute top-0 w-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-5 pb-12 xs:p-6 xs:pb-14 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
+                    "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-5 pb-12 xs:p-6 xs:pb-14 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
                     "backdrop-blur-2xl border",
                     isActive
                       ? "bg-white/95 border-[rgba(146,47,85,0.15)] z-30 pointer-events-auto"
@@ -172,6 +229,7 @@ export function WhatWeBuild() {
                     }
                   }}
                 >
+                  <div className="wwb-card-content h-full w-full relative group-hover/wwb:translate-y-[-2px] transition-transform duration-500">
                   {/* Ambient glow — only on active */}
                   {isActive && (
                     <motion.div
@@ -193,7 +251,7 @@ export function WhatWeBuild() {
                     </motion.div>
                   )}
 
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center w-full relative z-10">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center w-full h-full relative z-10">
                     <div className="md:col-span-7 flex flex-col items-start text-left">
                       <AnimatePresence mode="wait">
                         {isActive && (
@@ -308,11 +366,12 @@ export function WhatWeBuild() {
                         animate={isActive ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.92, opacity: 0.6, y: 4 }}
                         transition={{ type: "spring", stiffness: 300, damping: 28 }}
                       >
-                        <div className="w-full max-w-xs h-44 sm:h-56 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-3">
+                        <div className="w-full max-w-xs h-40 sm:h-52 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-3">
                           <MockupComponent isActive={isActive} />
                         </div>
                       </motion.div>
                     </div>
+                  </div>
                   </div>
                 </motion.div>
               );
@@ -320,7 +379,7 @@ export function WhatWeBuild() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between max-w-4xl mx-auto px-2 font-satoshi w-full gap-2">
+        <div ref={navRef} className="wwb-nav flex items-center justify-between max-w-4xl mx-auto px-2 font-satoshi w-full gap-2">
           <div className="flex items-center gap-2 text-[#68666C]">
             <span className="hidden xs:inline text-xs sm:text-sm font-semibold text-[#68666C] select-none">
               Drag to explore

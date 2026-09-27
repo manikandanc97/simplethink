@@ -4,6 +4,13 @@ import { cn } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
 
 interface Hero3DCoderProps {
   className?: string;
@@ -63,6 +70,23 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
     mouseY.set(0);
   };
 
+  useGSAP(() => {
+    // Consolidated parallax scroll trigger — one trigger for all layers
+    // "top bottom" = animation starts as soon as element enters viewport
+    const st = {
+      trigger: containerRef.current,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1,
+    };
+
+    gsap.to(".parallax-glow-1",  { y: 60, ease: "none", scrollTrigger: st });
+    gsap.to(".parallax-glow-2",  { y: -40, ease: "none", scrollTrigger: st });
+    gsap.to(".parallax-char",    { y: 35, ease: "none", scrollTrigger: st });
+    gsap.to(".parallax-ui-left", { y: -50, ease: "none", scrollTrigger: st });
+    gsap.to(".parallax-ui-right",{ y: -25, ease: "none", scrollTrigger: st });
+  }, { scope: containerRef });
+
   return (
     <div
       ref={containerRef}
@@ -75,8 +99,8 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
       )}
     >
       {/* ── AMBIENT PURPLE & PINK GLOWS ── */}
-      <div className="absolute top-4 left-4 w-40 sm:w-80 md:w-96 h-40 sm:h-80 md:h-96 bg-[#E8D9FE]/60 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none -translate-x-1/4 -translate-y-1/4 z-0" />
-      <div className="absolute bottom-4 right-4 w-36 sm:w-72 md:w-96 h-36 sm:h-72 md:h-96 bg-[#F5D0E8]/50 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none translate-x-1/4 translate-y-1/4 z-0" />
+      <div className="parallax-glow-1 absolute top-4 left-4 w-40 sm:w-80 md:w-96 h-40 sm:h-80 md:h-96 bg-[#E8D9FE]/60 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none -translate-x-1/4 -translate-y-1/4 z-0" />
+      <div className="parallax-glow-2 absolute bottom-4 right-4 w-36 sm:w-72 md:w-96 h-36 sm:h-72 md:h-96 bg-[#F5D0E8]/50 rounded-full blur-[50px] sm:blur-[70px] pointer-events-none translate-x-1/4 translate-y-1/4 z-0" />
 
       {/* 3D Parallax Canvas */}
       <motion.div
@@ -84,7 +108,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
         className="relative w-full h-full flex items-center justify-center z-10"
       >
         {/* ── LEFT FLOATING WORKFLOW CARD (Behind desk/character) ── */}
-        <div className="absolute top-[2%] sm:top-[6%] left-0 xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto">
+        <div className="parallax-ui-left absolute top-[2%] sm:top-[6%] left-0 xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto">
           <motion.div
             animate={{ y: [3, -3, 3] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
@@ -188,12 +212,13 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
         </div>
 
         {/* ── CENTRAL 3D CHARACTER ── */}
-        <motion.div
-          animate={{ y: [-3, 3, -3] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transform: "translateZ(25px)" }}
-          className="relative z-10 w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px] h-[210px] xs:h-[240px] sm:h-[340px] md:h-[420px] lg:h-[500px] flex items-center justify-center pointer-events-none"
-        >
+        <div className="parallax-char relative z-10 w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px] h-[210px] xs:h-[240px] sm:h-[340px] md:h-[420px] lg:h-[500px] flex items-center justify-center pointer-events-none">
+          <motion.div
+            animate={{ y: [-3, 3, -3] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            style={{ transform: "translateZ(25px)" }}
+            className="w-full h-full flex items-center justify-center"
+          >
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
               src="/assets/simplehero.png"
@@ -204,10 +229,11 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
               priority
             />
           </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* ── RIGHT FLOATING FEATURE BADGES ── */}
-        <div className="absolute top-[8%] sm:top-[16%] right-0 sm:right-0 md:right-2 lg:-right-2 xl:-right-6 z-20 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-right pointer-events-none sm:pointer-events-auto">
+        <div className="parallax-ui-right absolute top-[8%] sm:top-[16%] right-0 sm:right-0 md:right-2 lg:-right-2 xl:-right-6 z-20 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-right pointer-events-none sm:pointer-events-auto">
           <div
             className="flex flex-col gap-2.5 sm:gap-3 font-satoshi"
             style={{ transform: "translateZ(35px) rotateY(-6deg) rotateZ(4deg)" }}
