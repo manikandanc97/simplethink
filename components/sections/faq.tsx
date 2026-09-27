@@ -62,7 +62,7 @@ export function FAQ() {
           />
 
           {/* Bottom Composite Card Component (Single Unified Card containing CTA, Character & Stats) */}
-          <div className="relative mt-2 sm:mt-6 pt-4">
+          <div className="relative mt-2 sm:mt-6 pt-8 lg:pt-10">
             
             {/* 1. "Still have a question?" Handwritten note & curved arrow */}
             <div className="absolute -top-5 left-1 sm:left-2 z-20 flex items-start gap-1 pointer-events-none select-none">
@@ -94,13 +94,13 @@ export function FAQ() {
             </div>
 
             {/* 2. Main Outer White Card */}
-            <div className="relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10 overflow-hidden">
+            <div className="relative z-10 w-full max-w-[22rem] sm:max-w-md bg-white dark:bg-zinc-900 rounded-[1.5rem] sm:rounded-3xl p-4 sm:p-5 shadow-[0_20px_50px_rgba(244,63,94,0.06),_0_0_1px_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-rose-50/60 dark:border-white/10 overflow-visible">
               
               {/* Upper Content Area: Left CTA + Right 3D Character */}
-              <div className="relative min-h-[11rem] sm:min-h-[12.5rem]">
+              <div className="relative min-h-[11rem] sm:min-h-[12.5rem] lg:min-h-[10rem]">
                 
                 {/* Left: Text & CTA Button */}
-                <div className="relative z-10 max-w-[60%] sm:max-w-56 flex flex-col items-start gap-2.5 sm:gap-3">
+                <div className="relative z-10 max-w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2.5 sm:gap-3">
                   <div className="flex flex-col items-start gap-1.5 sm:gap-2">
                     {/* Badge */}
                     <div className="inline-flex items-center gap-1.5 px-2 py-0.5 sm:py-1 rounded-full bg-rose-50/80 dark:bg-rose-950/40 border border-rose-100/80 dark:border-rose-900/40">
@@ -138,7 +138,7 @@ export function FAQ() {
                 </div>
 
                 {/* Right: 3D Character Sitting with Laptop */}
-                <div className="absolute -right-2 sm:-right-6 bottom-0 sm:bottom-0.5 w-32 xs:w-36 sm:w-[13.5rem] pointer-events-none select-none z-10">
+                <div className="absolute -right-2 sm:-right-6 lg:-right-4 -top-8 sm:-top-10 lg:-top-10 w-32 xs:w-36 sm:w-[13.5rem] lg:w-[45%] pointer-events-none select-none z-10">
                   {/* 3 accent lines radiating from hair */}
                   <div className="absolute -top-1 sm:-top-2 right-4 flex gap-1.5 rotate-[35deg]">
                     <div className="w-0.5 h-2.5 sm:h-3 bg-[#f43f5e] rounded-full" />
