@@ -33,14 +33,8 @@ export default function Home() {
         {/* 07 — Why SimpleThink */}
         <WhySimpleThink />
 
-        {/* 08 — INDUSTRIES */}
-        {/* <Industries /> */}
-
         {/* 09 — TECHNOLOGY */}
         <TechStack />
-
-        {/* 10 — TESTIMONIALS */}
-        {/* <Testimonials /> */}
 
         {/* 11 — FAQ */}
         <FAQ />
