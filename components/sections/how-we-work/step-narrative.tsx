@@ -1,0 +1,103 @@
+"use client";
+
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { STEPS } from "@/lib/data/how-we-work";
+
+interface StepNarrativeProps {
+  currentStep: (typeof STEPS)[number];
+  activeStepIndex: number;
+  totalSteps: number;
+  onNextStep: () => void;
+}
+
+export function StepNarrative({
+  currentStep,
+  activeStepIndex,
+  totalSteps,
+  onNextStep,
+}: StepNarrativeProps) {
+  return (
+    <div className="hww-narrative lg:col-span-6 flex flex-col gap-4 sm:gap-6 z-10">
+      <div className="flex flex-col gap-2.5 sm:gap-3">
+        {/* Step Kicker */}
+        <div className="flex items-center gap-2">
+          <span className="inline-block px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-[11px] sm:text-xs font-black tracking-widest text-[#E11D48] uppercase">
+            {currentStep.stepKicker}
+          </span>
+          <span className="hidden sm:inline-block text-[11px] font-mono text-neutral-400">
+            {activeStepIndex + 1} / {totalSteps}
+          </span>
+        </div>
+
+        {/* Big Headline */}
+        <h3 className="font-satoshi font-black text-2xl xs:text-3xl sm:text-3xl lg:text-3xl xl:text-4xl text-neutral-900 tracking-tight leading-[1.15]">
+          {currentStep.headlineFirst}{" "}
+          <span className="bg-gradient-to-r from-purple-600 via-rose-600 to-pink-600 bg-clip-text text-transparent">
+            {currentStep.headlineAccent}
+          </span>
+        </h3>
+
+        {/* Description Paragraph */}
+        <p className="text-neutral-500 text-xs sm:text-sm lg:text-sm font-normal leading-relaxed max-w-lg">
+          {currentStep.summary}
+        </p>
+      </div>
+
+      {/* 2x2 Feature Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+        {currentStep.features.map((feature, idx) => {
+          const FeatIcon = feature.icon;
+          return (
+            <div
+              key={idx}
+              className="bg-neutral-50/70 rounded-2xl border border-neutral-200/70 p-2 sm:p-2.5 hover:bg-white hover:shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:border-purple-200/80 transition-all flex items-start gap-2.5 group"
+            >
+              <div
+                className={cn(
+                  "w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-105",
+                  feature.iconBg,
+                  feature.iconColor
+                )}
+              >
+                <FeatIcon className="w-3.5 h-3.5" />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <span className="font-bold text-xs sm:text-xs text-neutral-900 leading-tight">
+                  {feature.title}
+                </span>
+                <span className="text-[11px] text-neutral-500 leading-snug line-clamp-2">
+                  {feature.desc}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Bottom Action Row: Primary Next Step Button */}
+      <div className="flex items-center gap-3 sm:gap-4 flex-wrap pt-1">
+        <button
+          type="button"
+          onClick={onNextStep}
+          className="bg-[#831843] hover:bg-[#6e1336] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg shadow-[#831843]/20 flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 group w-full sm:w-auto"
+        >
+          <span>
+            {activeStepIndex === totalSteps - 1
+              ? "Start Your Project"
+              : `Next Step: ${currentStep.nextStepName}`}
+          </span>
+          <AnimatedArrowRight size={15} className="text-white" />
+        </button>
+
+        {activeStepIndex < totalSteps - 1 && (
+          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-neutral-400 font-medium">
+            <span>or scroll down</span>
+            <ChevronDown className="w-3.5 h-3.5 text-rose-500 animate-bounce" />
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
