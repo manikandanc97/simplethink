@@ -4,7 +4,7 @@ import { useLead } from "@/components/leads/lead-provider";
 import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { useState, useRef } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FAQS } from "@/lib/data/faq";
@@ -149,8 +149,8 @@ export function FAQ() {
                     <div className="w-0.5 h-2.5 sm:h-3 bg-[#f43f5e] rounded-full" />
                   </div>
 
-                  <Image
-                    src="/assets/simplefaq.png"
+                  <CldImage
+                    src="simpluxe/faq/simplefaq"
                     alt="Technical Lead with laptop"
                     width={400}
                     height={480}

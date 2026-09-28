@@ -146,6 +146,23 @@ function BrowserMockup({ activeProject }: { activeProject: Project }) {
                   sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                 />
               </div>
+            ) : activeProject.image ? (
+              <div className="relative w-full h-full bg-[#0D0B12] flex items-center justify-center overflow-hidden group/thumb">
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 pointer-events-none"
+                  style={{ backgroundImage: `url(${activeProject.image})` }}
+                />
+                <img
+                  src={activeProject.image}
+                  alt={`${activeProject.name} Screenshot`}
+                  className="relative z-10 w-full h-full object-cover transition-transform duration-500 ease-out group-hover/thumb:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-10" />
+                <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[11px] text-white/90 shadow-md">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span className="font-medium">{activeProject.serviceType} Screenshot</span>
+                </div>
+              </div>
             ) : (
               <div className="absolute inset-0 w-full h-full bg-slate-50 flex flex-col items-center justify-center p-6 text-center gap-5">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shadow-sm">
@@ -340,12 +357,15 @@ export function SelectedWork() {
                           {project.number}
                         </span>
 
-                        {/* Logo (No Background) */}
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center">
+                        {/* Authentic Brand Logo */}
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center rounded-xl bg-white border border-slate-200/80 p-1.5 shadow-2xs">
                           <img
-                            src={`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
+                            src={project.logo || `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
                             alt={`${project.name} Logo`}
-                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo";
+                            }}
                           />
                         </div>
 

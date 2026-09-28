@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "@animateicons/react/lucide/chevron-right-icon";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import React from "react";
 
@@ -211,8 +211,8 @@ export function PageBanner({
               )}
             >
               <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src={`/images/tech-stack/${slug}.svg`}
+                <CldImage
+                  src={`simpluxe/tech/${slug}`}
                   alt={meta.label}
                   width={26}
                   height={26}

@@ -3,7 +3,7 @@
 
 import { type TechItem } from "@/types/tech";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 const SPRING = { type: "spring" as const, stiffness: 340, damping: 28 };
 
@@ -19,8 +19,8 @@ export function TechCard({ tech, index }: { tech: TechItem; index: number }) {
     >
       {/* Official Brand Logo Squircle Container */}
       <div className="relative w-15 h-15 rounded-2xl bg-[#F8FAFC] dark:bg-muted/40 border border-slate-100 dark:border-border/60 flex items-center justify-center p-3 shadow-2xs group-hover:scale-105 transition-transform duration-300">
-        <Image
-          src={`/images/tech-stack/${tech.slug}.svg`}
+        <CldImage
+          src={`simpluxe/tech/${tech.slug}`}
           alt={`${tech.name} logo`}
           width={38}
           height={38}

@@ -42,9 +42,7 @@ export const PROJECT_ENHANCEMENTS: Record<string, EnhancedProjectDetails> = {
     heroSubheadline:
       "An experiential travel & tour booking platform for Valparai tour packages, misty Western Ghats jungle safaris, and tea estate explorations.",
     gallery: [
-      "/images/projects/valparai_scenic_hero.jpg",
-      "/images/projects/valparai_waterfall.jpg",
-      "/images/projects/valparai_sunset.jpg",
+      "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/valparai",
     ],
     metrics: [
       { value: "+3600%", label: "Month 1 Bookings", iconType: "chart" },
@@ -69,9 +67,7 @@ export const PROJECT_ENHANCEMENTS: Record<string, EnhancedProjectDetails> = {
     heroSubheadline:
       "Brand website with architectural project portfolio, milestone estimation, and lead capture for high-ticket residential & commercial builds.",
     gallery: [
-      "/images/projects/grn_villa_thumb.jpg",
-      "/images/projects/grn_live.webp",
-      "/images/projects/grn.jpg",
+      "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/grn",
     ],
     metrics: [
       { value: "#1 Rank", label: "Google SEO Ranking", iconType: "chart" },
@@ -96,9 +92,7 @@ export const PROJECT_ENHANCEMENTS: Record<string, EnhancedProjectDetails> = {
     heroSubheadline:
       "Authentic generational Chettinad heritage e-commerce storefront with brass idol craftsmanship, Tanjore gold foil art, and sacred wooden artifacts.",
     gallery: [
-      "/images/projects/viha_pot_thumb.jpg",
-      "/images/projects/viha_live.png",
-      "/images/projects/viha.jpg",
+      "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/viha",
     ],
     metrics: [
       { value: "Pan-India", label: "Order Reach", iconType: "chart" },
@@ -121,7 +115,7 @@ export const PROJECT_ENHANCEMENTS: Record<string, EnhancedProjectDetails> = {
     heroHeadline: "ClixPro CRM",
     heroSubheadline:
       "Universal CRM for Indian SMBs with AI-driven automation, keyboard-first navigation, and real-time sales pipeline tracking.",
-    gallery: ["/images/projects/clixpro_crm.jpg"],
+    gallery: ["https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/clixpro_crm"],
     metrics: [
       { value: "10x", label: "Workflow Velocity", iconType: "chart" },
       { value: "5K+", label: "Active Pipelines", iconType: "users" },
@@ -143,7 +137,7 @@ export const PROJECT_ENHANCEMENTS: Record<string, EnhancedProjectDetails> = {
     heroHeadline: "GRN Construction App",
     heroSubheadline:
       "Field management mobile application for construction teams, live milestone tracking, and daily photo progress feeds.",
-    gallery: ["/images/projects/grn_app.jpg", "/images/projects/grn.jpg"],
+    gallery: ["https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/grn_app"],
     metrics: [
       { value: "Real-Time", label: "Milestone Sync", iconType: "chart" },
       { value: "1K+", label: "Daily Site Updates", iconType: "users" },

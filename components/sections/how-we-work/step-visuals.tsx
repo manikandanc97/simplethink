@@ -24,7 +24,7 @@ import {
   Wifi
 } from "lucide-react";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
   return (
@@ -233,8 +233,8 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
 
           {/* Layer 6: Foreground 3D Character at Desk (discover.png) */}
           <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
-            <Image
-              src="/assets/discover.png"
+            <CldImage
+              src="simpluxe/process/discover"
               alt="Discover Phase - SimpleThink"
               width={1774}
               height={887}
@@ -368,8 +368,8 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
 
           {/* Layer 6: Image */}
           <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
-            <Image
-              src="/assets/design-develop.png"
+            <CldImage
+              src="simpluxe/process/design-develop"
               alt="Design Phase - SimpleThink"
               width={1774}
               height={887}
@@ -495,8 +495,8 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
 
           {/* Layer 6: Image */}
           <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
-            <Image
-              src="/assets/design-develop.png"
+            <CldImage
+              src="simpluxe/process/design-develop"
               alt="Develop Phase - SimpleThink"
               width={1774}
               height={887}
@@ -632,8 +632,8 @@ export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
 
           {/* Layer 6: Image */}
           <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
-            <Image
-              src="/assets/launch.png"
+            <CldImage
+              src="simpluxe/process/launch"
               alt="Launch Phase - SimpleThink"
               width={1774}
               height={887}

@@ -1,7 +1,11 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { AnimatedX, AnimatedIcon } from "@/components/ui/animated-icon";
+import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon";
 import { type Project } from "@/types/project";
+import { Image as ImageIcon, Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface WorkFullscreenModalProps {
   isOpen: boolean;
@@ -12,52 +16,115 @@ interface WorkFullscreenModalProps {
 export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreenModalProps) {
   if (!isOpen || !project) return null;
 
+  const isWebsite = project.serviceType === "Websites" && Boolean(project.url);
+  const [modalMode, setModalMode] = useState<"live" | "screenshot">(isWebsite ? "live" : "screenshot");
+
+  useEffect(() => {
+    setModalMode(isWebsite ? "live" : "screenshot");
+  }, [project.id, isWebsite]);
+
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-black/80 backdrop-blur-md p-3 sm:p-6 animate-in fade-in duration-200">
-      <div className="flex-1 w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+    <div className="fixed inset-0 z-50 flex flex-col bg-black/85 backdrop-blur-md p-2 sm:p-5 animate-in fade-in duration-200">
+      <div className="flex-1 w-full bg-[#121115] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-white/10">
         {/* Fullscreen Header */}
-        <div className="h-12 bg-[#FBF9FA] border-b border-[#ECE6EB] px-4 sm:px-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
-            <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
-            <div className="w-3 h-3 rounded-full bg-[#10B981]" />
-            <span className="text-xs font-mono text-[#706B78] ml-2 hidden sm:inline">
-              {project.domain}
+        <div className="h-12 bg-[#1B1920] border-b border-white/10 px-4 sm:px-6 flex items-center justify-between gap-3">
+          {/* Traffic Dots + Project Info */}
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
+              <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
+              <div className="w-3 h-3 rounded-full bg-[#10B981]" />
+            </div>
+            <span className="text-xs font-bold text-white truncate ml-1">
+              {project.name}
+            </span>
+            <span className="text-xs font-mono text-[#8C8795] hidden md:inline truncate">
+              ({project.domain || project.serviceType})
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Center Mode Switch for Websites */}
+          {isWebsite && (
+            <div className="hidden sm:flex items-center bg-black/40 border border-white/10 p-0.5 rounded-full text-[11px] font-bold">
+              <button
+                type="button"
+                onClick={() => setModalMode("live")}
+                className={cn(
+                  "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
+                  modalMode === "live"
+                    ? "bg-white text-emerald-800 shadow-sm"
+                    : "text-[#A19CA8] hover:text-white"
+                )}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Live Site</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setModalMode("screenshot")}
+                className={cn(
+                  "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
+                  modalMode === "screenshot"
+                    ? "bg-white text-[#922F55] shadow-sm"
+                    : "text-[#A19CA8] hover:text-white"
+                )}
+              >
+                <ImageIcon size={11} />
+                <span>Screenshot</span>
+              </button>
+            </div>
+          )}
+
+          {/* Right Actions: External Link & Close */}
+          <div className="flex items-center gap-2 shrink-0">
             {project.url && (
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F4F0F4] hover:bg-[#EAE4E8] text-xs font-medium text-[#2E2934] transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors"
+                title="Open in new window"
               >
-                <span>Open in New Tab</span>
-                <AnimatedIcon name="external-link" size={12} />
+                <span className="hidden xs:inline">Open New Tab</span>
+                <AnimatedIcon icon={ExternalLinkIcon} size={11} />
               </a>
             )}
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-[#F4F0F4] hover:bg-[#EAE4E8] flex items-center justify-center text-[#55505C] transition-colors cursor-pointer"
+              aria-label="Close modal"
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
             >
               <AnimatedX size={16} />
             </button>
           </div>
         </div>
 
-        {/* Iframe View */}
-        <div className="flex-1 w-full bg-background relative">
-          {project.url ? (
+        {/* Viewport: Live Iframe or High-Res Screenshot */}
+        <div className="flex-1 w-full bg-[#0D0B12] relative overflow-auto flex items-center justify-center">
+          {modalMode === "live" && isWebsite ? (
             <iframe
               src={project.url}
-              className="w-full h-full border-none"
-              title={`${project.name} Live Preview`}
+              className="w-full h-full border-none bg-white"
+              title={`${project.name} Fullscreen Live Preview`}
+              sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             />
+          ) : project.image ? (
+            <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-6 overflow-auto">
+              {/* Ambient Glow */}
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-20 blur-3xl scale-110 pointer-events-none"
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
+              <img
+                src={project.image}
+                alt={`${project.name} High Resolution Preview`}
+                className="relative z-10 max-w-full max-h-full object-contain rounded-xl shadow-2xl border border-white/10"
+              />
+            </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center p-6 text-center text-muted-foreground">
-              No live preview available.
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center text-[#8C8795]">
+              <ImageIcon size={36} className="mb-2 opacity-50" />
+              <p className="text-sm font-medium">No preview image available</p>
             </div>
           )}
         </div>

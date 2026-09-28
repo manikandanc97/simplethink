@@ -66,7 +66,7 @@ export const STEPS: StepConfig[] = [
       },
     ],
     nextStepName: "Design",
-    imageSrc: "/assets/discover.png",
+    imageSrc: "simpluxe/process/discover",
   },
   {
     id: "design",
@@ -110,7 +110,7 @@ export const STEPS: StepConfig[] = [
       },
     ],
     nextStepName: "Develop",
-    imageSrc: "/assets/design-develop.png",
+    imageSrc: "simpluxe/process/design-develop",
   },
   {
     id: "develop",
@@ -154,7 +154,7 @@ export const STEPS: StepConfig[] = [
       },
     ],
     nextStepName: "Launch",
-    imageSrc: "/assets/design-develop.png",
+    imageSrc: "simpluxe/process/design-develop",
   },
   {
     id: "launch",
@@ -198,7 +198,7 @@ export const STEPS: StepConfig[] = [
       },
     ],
     nextStepName: "Start Project",
-    imageSrc: "/assets/launch.png",
+    imageSrc: "simpluxe/process/launch",
   },
 ];
 

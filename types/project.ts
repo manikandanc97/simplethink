@@ -23,6 +23,7 @@ export interface Project {
   year: string;
   url: string;
   image?: string;
+  logo?: string;
   badge: string;
   result: string;
   description: string;

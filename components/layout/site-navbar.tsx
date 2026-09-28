@@ -3,7 +3,7 @@
 import { NAV_ITEMS } from "@/config/nav";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -61,8 +61,8 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
             className="group flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-ring rounded-lg outline-none font-satoshi"
             aria-label="SimpleThink Home"
           >
-            <Image
-              src="/assets/logo.png"
+            <CldImage
+              src="simpluxe/logo/logo"
               alt="SimpleThink Logo"
               width={180}
               height={40}

@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import React, { useRef } from "react";
 
 import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
@@ -198,13 +198,14 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
             className="w-full h-full flex items-center justify-center"
           >
           <div className="relative w-full h-full flex items-center justify-center">
-            <Image
-              src="/assets/simplehero.png"
+            <CldImage
+              src="simpluxe/hero/simplehero"
               alt="SimpleThink 3D Developer Character"
               fill
               sizes="(max-width: 640px) 240px, (max-width: 1024px) 420px, 500px"
               className="object-contain drop-shadow-xl"
               priority
+              loading="eager"
             />
           </div>
           </motion.div>

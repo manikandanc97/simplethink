@@ -70,9 +70,9 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
         </div>
       </div>
 
-      {/* ── Visit Live Site Action Row ── */}
-      {project.url && project.serviceType === "Websites" && (
-        <div className="pt-2 flex items-center justify-between border-t border-[#EFE7EC]">
+      {/* ── Project Action Row ── */}
+      <div className="pt-2 flex items-center justify-between border-t border-[#EFE7EC]">
+        {project.serviceType === "Websites" && project.url ? (
           <a
             href={project.url}
             target="_blank"
@@ -82,11 +82,27 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
             <span>Visit Live Website</span>
             <AnimatedArrowRight size={15} />
           </a>
-          <span className="text-xs text-[#706B78] font-mono">
-            {project.domain}
-          </span>
-        </div>
-      )}
+        ) : project.serviceType === "Web Apps" && project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E1B4B] hover:bg-[#2E296A] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <span>Launch Web App Portal</span>
+            <AnimatedArrowRight size={15} />
+          </a>
+        ) : (
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4F0F4] border border-[#ECE5EB] text-xs font-semibold text-[#504C56]">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>{project.serviceType} Project Showcase</span>
+          </div>
+        )}
+
+        <span className="text-xs text-[#706B78] font-mono">
+          {project.domain || project.serviceType}
+        </span>
+      </div>
     </div>
   );
 }

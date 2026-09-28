@@ -31,12 +31,15 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
         {project.number}
       </span>
 
-      {/* ── Thumbnail Image ── */}
-      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shrink-0 border border-black/5 bg-[#F0EBEF]">
+      {/* ── Project Brand Logo ── */}
+      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-[#ECE5EC] bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-[#D8287A]/30 group-hover:shadow-sm">
         <img
-          src={project.image || "/images/projects/valparai.jpg"}
-          alt={project.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          src={project.logo || "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo"}
+          alt={`${project.name} Logo`}
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo";
+          }}
         />
       </div>
 

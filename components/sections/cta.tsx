@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageSquare, Zap } from "lucide-react";
 import { CalendarIcon } from "@animateicons/react/lucide/calendar-icon";
 import { motion } from "motion/react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { useRef } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -62,8 +62,8 @@ export function CTA({ onStartProject }: CTAProps) {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="relative w-full h-full"
               >
-                <Image
-                  src="/assets/simplemind.png"
+                <CldImage
+                  src="simpluxe/cta/simplemind"
                   alt="Turn your idea into a premium digital product"
                   fill
                   sizes="(max-width: 640px) 260px, (max-width: 1024px) 380px, 400px"

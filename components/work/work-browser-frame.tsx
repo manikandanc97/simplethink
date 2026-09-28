@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon";
 import { LockIcon } from "@animateicons/react/lucide/lock-icon";
-import { Maximize2, Lock } from "lucide-react";
+import { Maximize2, Image as ImageIcon } from "lucide-react";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
 import { type Project } from "@/types/project";
+import { cn } from "@/lib/utils";
 
 interface WorkBrowserFrameProps {
   project: Project;
@@ -14,67 +16,112 @@ interface WorkBrowserFrameProps {
 
 export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrameProps) {
   const isWebsite = project.serviceType === "Websites" && Boolean(project.url);
+  const [viewMode, setViewMode] = useState<"live" | "screenshot">("live");
+
+  // Keep viewMode synced: live for websites, screenshot for others
+  useEffect(() => {
+    setViewMode(isWebsite ? "live" : "screenshot");
+  }, [project.id, isWebsite]);
 
   return (
     <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E9E1E7] bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] flex flex-col">
       {/* ── Browser Header Bar ── */}
-      <div className="h-10 sm:h-11 bg-[#F8F9FA] border-b border-[#ECE6EB] px-4 flex items-center justify-between select-none">
+      <div className="h-10 sm:h-11 bg-[#F8F9FA] border-b border-[#ECE6EB] px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
         {/* Mac 3 dots */}
-        <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
-          <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
-          <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
         </div>
 
-        {/* Centered URL Pill */}
-        <div className="flex-1 flex justify-center px-2">
+        {/* Centered URL / Domain Pill */}
+        <div className="flex-1 flex justify-center px-1 sm:px-2 min-w-0">
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 bg-white border border-[#EAE3E9] shadow-xs rounded-md px-3.5 py-1 text-xs font-medium text-[#504C56] min-w-44 max-w-sm truncate hover:border-[#922F55]/40 hover:text-[#121114] transition-colors cursor-pointer group"
-            title={`Visit ${project.domain}`}
+            className="flex items-center justify-center gap-1.5 bg-white border border-[#EAE3E9] shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-[11px] sm:text-xs font-medium text-[#504C56] max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-[#922F55]/40 hover:text-[#121114] transition-colors cursor-pointer group"
+            title={`Visit ${project.domain || project.name}`}
           >
-            <AnimatedIcon icon={LockIcon} size={12} className="text-emerald-500 shrink-0" />
+            <AnimatedIcon icon={LockIcon} size={11} className="text-emerald-500 shrink-0" />
             <span className="truncate">{project.domain || project.url?.replace("https://", "")}</span>
-            <AnimatedIcon icon={ExternalLinkIcon} size={10} className="text-[#8C8894] opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0" />
+            <AnimatedIcon
+              icon={ExternalLinkIcon}
+              size={10}
+              className="text-[#8C8894] opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
+            />
           </a>
         </div>
 
-        {/* Right Action Controls: Live Status & Fullscreen */}
-        <div className="flex items-center gap-2">
-          {isWebsite && (
-            <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-[10px] font-bold text-emerald-700">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-              </span>
-              <span>LIVE</span>
+        {/* Right Controls: Mode Toggle / Badge & Fullscreen */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* If Website: show Live / Screenshot toggle pill */}
+          {isWebsite ? (
+            <div className="flex items-center bg-[#EDE7ED] p-0.5 rounded-full text-[10px] font-bold">
+              <button
+                type="button"
+                onClick={() => setViewMode("live")}
+                className={cn(
+                  "flex items-center gap-1.5 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
+                  viewMode === "live"
+                    ? "bg-white text-emerald-700 shadow-xs"
+                    : "text-[#706B78] hover:text-[#121114]"
+                )}
+                title="Live interactive website"
+              >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                </span>
+                <span>Live Site</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("screenshot")}
+                className={cn(
+                  "flex items-center gap-1 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
+                  viewMode === "screenshot"
+                    ? "bg-white text-[#922F55] shadow-xs"
+                    : "text-[#706B78] hover:text-[#121114]"
+                )}
+                title="View high-res screenshot"
+              >
+                <ImageIcon size={10} />
+                <span>Screenshot</span>
+              </button>
+            </div>
+          ) : (
+            /* If Not Website: show Screenshot Badge */
+            <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 border border-purple-200/70 text-[10px] font-bold text-purple-700">
+              <ImageIcon size={11} className="text-purple-600 shrink-0" />
+              <span>Screenshot</span>
             </div>
           )}
+
           <button
             type="button"
             onClick={onOpenFullscreen}
             aria-label="Expand Preview"
-            className="text-[#6B6673] hover:text-[#121114] transition-colors p-1 rounded-md hover:bg-[#EAE4E8] cursor-pointer group"
+            title="Expand Fullscreen"
+            className="text-[#6B6673] hover:text-[#121114] transition-colors p-1 rounded-md hover:bg-[#EAE4E8] cursor-pointer"
           >
             <Maximize2 size={14} />
           </button>
         </div>
       </div>
 
-      {/* ── Browser Viewport: Live Original Website (like Home Page) ── */}
-      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-slate-900">
+      {/* ── Browser Viewport: Live Preview or Screenshot ── */}
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[#0F0E13]">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, scale: 1.01 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.99 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full bg-white"
-          >
-            {isWebsite ? (
+          {viewMode === "live" && isWebsite ? (
+            <motion.div
+              key={`${project.id}-live`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full bg-white"
+            >
               <div className="absolute inset-0 w-[200%] h-[200%] origin-top-left scale-50">
                 <iframe
                   src={project.url}
@@ -83,25 +130,54 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
                   sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                 />
               </div>
-            ) : (
-              <div className="absolute inset-0 w-full h-full bg-[#FAF9FB] flex flex-col items-center justify-center p-6 text-center gap-5">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white border border-[#EAE3E9] flex items-center justify-center shadow-sm">
-                  <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-[#9A95A0]" strokeWidth={1.5} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={`${project.id}-screenshot`}
+              initial={{ opacity: 0, scale: 1.01 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.99 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              onClick={onOpenFullscreen}
+              className="group/viewport absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer select-none bg-[#0D0B12] overflow-hidden"
+            >
+              {/* Ambient Glow Backdrop from image */}
+              {project.image && (
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 pointer-events-none"
+                  style={{ backgroundImage: `url(${project.image})` }}
+                />
+              )}
+
+              {/* Main Screenshot Image */}
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.name} Screenshot`}
+                  className="relative z-10 w-full h-full object-cover transition-transform duration-500 ease-out group-hover/viewport:scale-[1.02]"
+                />
+              ) : (
+                <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center text-white/70">
+                  <ImageIcon size={32} className="mb-2 opacity-50" />
+                  <p className="text-sm font-medium">Screenshot preview available soon</p>
                 </div>
-                <div className="flex flex-col items-center gap-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#121114] tracking-tight">
-                    Building in Stealth
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#706B78] max-w-72 sm:max-w-xs leading-relaxed">
-                    This {project.serviceType?.toLowerCase()?.replace("s", "") || "product"} is currently under active development in our lab.
-                  </p>
-                </div>
-                <span className="px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold tracking-wide uppercase shadow-sm">
-                  Preview Coming Soon
-                </span>
+              )}
+
+              {/* Subtle Dark Vignette on Edges */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none z-10" />
+
+              {/* Bottom Tag: Service Tag & Fullscreen prompt */}
+              <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[11px] text-white/90 shadow-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span className="font-medium">{project.serviceType} Screenshot</span>
               </div>
-            )}
-          </motion.div>
+
+              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 hover:bg-white text-[#121114] text-[11px] font-bold shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-95">
+                <Maximize2 size={11} />
+                <span>View Full Size</span>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useLead } from "@/components/leads/lead-provider";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { NAV_ITEMS } from "@/config/nav";
 import { SITE } from "@/config/site";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { FOOTER_DATA } from "@/lib/data/footer";
 
@@ -40,8 +40,8 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                 className="inline-flex items-center focus-visible:ring-2 focus-visible:ring-ring outline-none"
                 aria-label="SimpleThink Home"
               >
-                <Image
-                  src="/assets/logo.png"
+                <CldImage
+                  src="simpluxe/logo/logo"
                   alt="SimpleThink"
                   width={160}
                   height={36}
@@ -266,13 +266,12 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
       {/* Giant Brand Logo (Adobe Style) */}
       <div className="w-full flex items-end justify-center pointer-events-none select-none relative z-0 overflow-hidden">
         <div className="relative w-full flex justify-center items-center -my-[6%] md:-my-[8%] lg:-my-[10%]">
-          <Image
-            src="/assets/logo.png"
+          <CldImage
+            src="simpluxe/logo/logo"
             alt="SimpleThink Logo"
             width={1920}
             height={400}
             className="w-full max-w-none  h-auto object-contain  opacity-100 dark:opacity-100"
-            priority
           />
         </div>
       </div>
