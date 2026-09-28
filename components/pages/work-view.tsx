@@ -10,6 +10,7 @@ import { WorkProjectCard } from "@/components/work/work-project-card";
 import { WorkBrowserFrame } from "@/components/work/work-browser-frame";
 import { WorkProjectDetails } from "@/components/work/work-project-details";
 import { WorkFullscreenModal } from "@/components/work/work-fullscreen-modal";
+import { AmbientBackground } from "@/components/ui/ambient-background";
 
 function WorkViewContent() {
   const searchParams = useSearchParams();
@@ -75,12 +76,9 @@ function WorkViewContent() {
 
   return (
     <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-28 sm:pt-36 pb-28">
-      {/* ── Background Atmospheric Layers ── */}
-      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-45 pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#FFD2E5]/50 via-[#F3E5FF]/40 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute top-20 -right-28 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-[#E8DCFF]/45 via-[#FFDFEF]/35 to-transparent blur-[110px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-[550px] h-[550px] rounded-full bg-gradient-to-tl from-[#F4DCFF]/40 via-[#FFE8F4]/30 to-transparent blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-40 -left-20 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-[#FFE0ED]/40 to-transparent blur-[110px] pointer-events-none" />
+      {/* ── Background Atmospheric Elements (Screen-Specific) ── */}
+      <AmbientBackground screen="work" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
       {/* ── Hero Section (Badges, Title, Floating Stickers) ── */}
       <WorkHero />

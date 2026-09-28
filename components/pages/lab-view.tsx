@@ -3,6 +3,7 @@
 import { ExperimentCard } from "@/components/sections/lab/experiment-card";
 import { PageBanner } from "@/components/ui/page-banner";
 import { EXPERIMENTS } from "@/lib/data/experiments";
+import { AmbientBackground } from "@/components/ui/ambient-background";
 import { motion } from "motion/react";
 
 export function LabView() {
@@ -10,7 +11,8 @@ export function LabView() {
   const rest = EXPERIMENTS.slice(1);
 
   return (
-    <div className="w-full">
+    <div className="w-full relative min-h-screen overflow-hidden">
+      <AmbientBackground variant="subpage" />
       <PageBanner
         breadcrumb={[
           { label: "Home", href: "/" },

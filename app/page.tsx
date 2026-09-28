@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 w-full relative">
 
-      <AmbientBackground />
+      <AmbientBackground screen="home" />
       <div className="relative z-10 w-full flex flex-col">
         {/* 02 — HERO */}
         <WorkbenchHero />

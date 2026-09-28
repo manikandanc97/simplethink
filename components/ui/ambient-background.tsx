@@ -3,54 +3,271 @@
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
-export function AmbientBackground({ className }: { className?: string }) {
-  // 3D Spheres (Pearls) of varying sizes and colors - scaled down on mobile to avoid covering content
-  const orbs = [
-    { top: "-2%", left: "-2%", size: "w-16 h-16 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "purple" },
-    { top: "5%", right: "-1%", size: "w-14 h-14 sm:w-24 sm:h-24 lg:w-32 lg:h-32", color: "pink" },
-    { top: "15%", right: "6%", size: "w-10 h-10 sm:w-16 sm:h-16 lg:w-24 lg:h-24", color: "white" },
-    { top: "25%", left: "-3%", size: "w-18 h-18 sm:w-32 sm:h-32 lg:w-48 lg:h-48", color: "blue" },
-    { top: "40%", left: "3%", size: "w-12 h-12 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "pink" },
-    { top: "35%", right: "-2%", size: "w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36", color: "purple" },
-    { top: "50%", right: "2%", size: "w-10 h-10 sm:w-14 sm:h-14 lg:w-20 lg:h-20", color: "white" },
-    { top: "60%", left: "-3%", size: "w-16 h-16 sm:w-30 sm:h-30 lg:w-44 lg:h-44", color: "purple" },
-    { top: "75%", right: "-4%", size: "w-20 h-20 sm:w-36 sm:h-36 lg:w-56 lg:h-56", color: "pink" },
-    { top: "85%", left: "-2%", size: "w-16 h-16 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "blue" },
-    { top: "95%", right: "4%", size: "w-14 h-14 sm:w-22 sm:h-22 lg:w-32 lg:h-32", color: "purple" },
-  ];
+export type ScreenType = "home" | "work" | "services" | "about" | "contact" | "subpage";
 
-  // Tiny scattered dots/spheres
-  const tinyOrbs = [
-    { top: "8%", left: "15%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
-    { top: "12%", right: "25%", color: "#c084fc", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
-    { top: "22%", left: "22%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
-    { top: "28%", right: "12%", color: "#fca5a5", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
-    { top: "45%", left: "30%", color: "#a78bfa", size: "w-2 h-2 sm:w-3 sm:h-3" },
-    { top: "55%", right: "15%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
-    { top: "65%", left: "18%", color: "#93c5fd", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
-    { top: "75%", right: "20%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
-    { top: "88%", left: "25%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
-    { top: "92%", right: "18%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
-  ];
+interface AmbientBackgroundProps {
+  className?: string;
+  variant?: "home" | "subpage";
+  screen?: ScreenType;
+}
 
-  const dotGrids = [
-    { top: "5%", right: "10%" },
-    { top: "15%", left: "5%" },
-    { top: "30%", right: "5%" },
-    { top: "45%", left: "8%" },
-    { top: "65%", right: "8%" },
-    { top: "80%", left: "10%" },
-    { top: "90%", right: "12%" },
-  ];
+export function AmbientBackground({
+  className,
+  variant,
+  screen = "home",
+}: AmbientBackgroundProps) {
+  // Determine effective screen key
+  const effectiveScreen: ScreenType = screen !== "home" ? screen : variant === "subpage" ? "work" : "home";
+
+  // 1. Curated Randomized 3D Spheres (Pearls) per screen
+  const orbConfigurations: Record<
+    ScreenType,
+    Array<{ top: string; left?: string; right?: string; size: string; color: "purple" | "pink" | "blue" | "white" }>
+  > = {
+    // ── HOME: Long Multi-section layout ──
+    home: [
+      { top: "1%", left: "1%", size: "w-16 h-16 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "purple" },
+      { top: "6%", right: "2%", size: "w-14 h-14 sm:w-24 sm:h-24 lg:w-32 lg:h-32", color: "pink" },
+      { top: "14%", right: "6%", size: "w-10 h-10 sm:w-16 sm:h-16 lg:w-24 lg:h-24", color: "white" },
+      { top: "24%", left: "2%", size: "w-18 h-18 sm:w-32 sm:h-32 lg:w-48 lg:h-48", color: "blue" },
+      { top: "38%", left: "4%", size: "w-12 h-12 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "pink" },
+      { top: "46%", right: "1%", size: "w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36", color: "purple" },
+      { top: "58%", left: "1%", size: "w-16 h-16 sm:w-30 sm:h-30 lg:w-44 lg:h-44", color: "purple" },
+      { top: "72%", right: "2%", size: "w-20 h-20 sm:w-36 sm:h-36 lg:w-56 lg:h-56", color: "pink" },
+      { top: "84%", left: "2%", size: "w-16 h-16 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "blue" },
+      { top: "94%", right: "3%", size: "w-14 h-14 sm:w-22 sm:h-22 lg:w-32 lg:h-32", color: "purple" },
+    ],
+
+    // ── WORK: Prominent pearls floating in Hero & along card gutters ──
+    work: [
+      { top: "2%", left: "1%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "purple" },
+      { top: "6%", right: "2%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-40 lg:h-40", color: "pink" },
+      { top: "14%", left: "7%", size: "w-12 h-12 sm:w-18 sm:h-18 lg:w-26 lg:h-26", color: "blue" },
+      { top: "20%", right: "6%", size: "w-14 h-14 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "white" },
+      { top: "34%", left: "0.5%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "blue" },
+      { top: "52%", right: "0.5%", size: "w-22 h-22 sm:w-36 sm:h-36 lg:w-48 lg:h-48", color: "purple" },
+      { top: "70%", left: "1%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "pink" },
+      { top: "86%", right: "1.5%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-42 lg:h-42", color: "blue" },
+      { top: "96%", left: "3%", size: "w-14 h-14 sm:w-22 sm:h-22 lg:w-28 lg:h-28", color: "white" },
+    ],
+
+    // ── SERVICES: Asymmetric distribution, focused around Architecture Blueprint ──
+    services: [
+      { top: "3%", right: "2%", size: "w-22 h-22 sm:w-36 sm:h-36 lg:w-48 lg:h-48", color: "blue" },
+      { top: "7%", left: "2%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "pink" },
+      { top: "15%", right: "8%", size: "w-12 h-12 sm:w-18 sm:h-18 lg:w-24 lg:h-24", color: "white" },
+      { top: "22%", left: "5%", size: "w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32", color: "purple" },
+      { top: "40%", right: "0.5%", size: "w-20 h-20 sm:w-34 sm:h-34 lg:w-46 lg:h-46", color: "purple" },
+      { top: "58%", left: "0.5%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-42 lg:h-42", color: "pink" },
+      { top: "74%", right: "1.5%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "blue" },
+      { top: "88%", left: "1.5%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "purple" },
+      { top: "96%", right: "4%", size: "w-14 h-14 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "white" },
+    ],
+
+    // ── ABOUT: Floating alongside Ethos, 3 Principles & Agency Matrix ──
+    about: [
+      { top: "2%", left: "2%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-46 lg:h-46", color: "pink" },
+      { top: "6%", right: "2%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-42 lg:h-42", color: "purple" },
+      { top: "13%", left: "8%", size: "w-14 h-14 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "blue" },
+      { top: "23%", right: "6%", size: "w-12 h-12 sm:w-18 sm:h-18 lg:w-24 lg:h-24", color: "white" },
+      { top: "36%", left: "0.5%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "white" },
+      { top: "52%", right: "0.5%", size: "w-22 h-22 sm:w-34 sm:h-34 lg:w-48 lg:h-48", color: "pink" },
+      { top: "68%", left: "1%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "blue" },
+      { top: "82%", right: "1%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "purple" },
+      { top: "95%", left: "3%", size: "w-14 h-14 sm:w-22 sm:h-22 lg:w-30 lg:h-30", color: "pink" },
+    ],
+
+    // ── CONTACT: Framing Direct Channels, 3-Step Process & Lead Form ──
+    contact: [
+      { top: "3%", right: "2%", size: "w-22 h-22 sm:w-34 sm:h-34 lg:w-48 lg:h-48", color: "purple" },
+      { top: "7%", left: "2%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-40 lg:h-40", color: "blue" },
+      { top: "16%", right: "6%", size: "w-14 h-14 sm:w-20 sm:h-20 lg:w-28 lg:h-28", color: "pink" },
+      { top: "25%", left: "4%", size: "w-12 h-12 sm:w-18 sm:h-18 lg:w-26 lg:h-26", color: "white" },
+      { top: "41%", left: "0.5%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "purple" },
+      { top: "60%", right: "0.5%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-42 lg:h-42", color: "white" },
+      { top: "76%", left: "1%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "pink" },
+      { top: "88%", right: "2%", size: "w-16 h-16 sm:w-26 sm:h-26 lg:w-36 lg:h-36", color: "blue" },
+      { top: "96%", left: "4%", size: "w-14 h-14 sm:w-20 sm:h-20 lg:w-26 lg:h-26", color: "purple" },
+    ],
+
+    // Fallback subpage
+    subpage: [
+      { top: "2%", left: "1%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "purple" },
+      { top: "7%", right: "2%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-40 lg:h-40", color: "pink" },
+      { top: "22%", left: "2%", size: "w-16 h-16 sm:w-28 sm:h-28 lg:w-40 lg:h-40", color: "blue" },
+      { top: "40%", right: "1%", size: "w-18 h-18 sm:w-30 sm:h-30 lg:w-42 lg:h-42", color: "purple" },
+      { top: "62%", left: "1%", size: "w-18 h-18 sm:w-28 sm:h-28 lg:w-38 lg:h-38", color: "pink" },
+      { top: "82%", right: "2%", size: "w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44", color: "blue" },
+      { top: "96%", left: "3%", size: "w-14 h-14 sm:w-22 sm:h-22 lg:w-28 lg:h-28", color: "white" },
+    ],
+  };
+
+  // 2. Randomized Tiny Scattered Beads per screen
+  const tinyOrbConfigurations: Record<
+    ScreenType,
+    Array<{ top: string; left?: string; right?: string; color: string; size: string }>
+  > = {
+    home: [
+      { top: "8%", left: "15%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "12%", right: "25%", color: "#c084fc", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
+      { top: "22%", left: "22%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+      { top: "45%", left: "30%", color: "#a78bfa", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "65%", left: "18%", color: "#93c5fd", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
+      { top: "88%", left: "25%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+    ],
+    work: [
+      { top: "4%", left: "12%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "9%", right: "16%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "18%", left: "20%", color: "#93c5fd", size: "w-2 h-2 sm:w-2.5 sm:h-2.5" },
+      { top: "32%", right: "10%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+      { top: "50%", left: "12%", color: "#a78bfa", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "68%", right: "14%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "84%", left: "15%", color: "#93c5fd", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "94%", right: "18%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+    ],
+    services: [
+      { top: "5%", right: "14%", color: "#c084fc", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "11%", left: "14%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "20%", right: "20%", color: "#93c5fd", size: "w-2 h-2 sm:w-2.5 sm:h-2.5" },
+      { top: "35%", left: "10%", color: "#a78bfa", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+      { top: "54%", right: "11%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "72%", left: "12%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "87%", right: "16%", color: "#93c5fd", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+    ],
+    about: [
+      { top: "4%", left: "16%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "8%", right: "12%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "17%", right: "24%", color: "#fca5a5", size: "w-2 h-2 sm:w-2.5 sm:h-2.5" },
+      { top: "30%", left: "12%", color: "#93c5fd", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "48%", right: "14%", color: "#a78bfa", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "66%", left: "10%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "85%", right: "12%", color: "#c084fc", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+    ],
+    contact: [
+      { top: "5%", right: "15%", color: "#c084fc", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+      { top: "10%", left: "12%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "21%", left: "18%", color: "#93c5fd", size: "w-2 h-2 sm:w-2.5 sm:h-2.5" },
+      { top: "36%", right: "12%", color: "#a78bfa", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+      { top: "52%", left: "14%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "70%", right: "10%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "89%", left: "16%", color: "#93c5fd", size: "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" },
+    ],
+    subpage: [
+      { top: "6%", left: "14%", color: "#fca5a5", size: "w-2 h-2 sm:w-3 sm:h-3" },
+      { top: "10%", right: "22%", color: "#c084fc", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
+      { top: "25%", left: "18%", color: "#fca5a5", size: "w-2.5 h-2.5 sm:w-4 sm:h-4" },
+      { top: "60%", left: "15%", color: "#93c5fd", size: "w-1.5 h-1.5 sm:w-2 sm:h-2" },
+      { top: "88%", right: "18%", color: "#c084fc", size: "w-2 h-2 sm:w-3 sm:h-3" },
+    ],
+  };
+
+  // 3. Dot Grids randomized per screen
+  const dotGridConfigurations: Record<
+    ScreenType,
+    Array<{ top: string; left?: string; right?: string }>
+  > = {
+    home: [
+      { top: "5%", right: "10%" },
+      { top: "15%", left: "5%" },
+      { top: "30%", right: "5%" },
+      { top: "45%", left: "8%" },
+      { top: "65%", right: "8%" },
+      { top: "80%", left: "10%" },
+      { top: "90%", right: "12%" },
+    ],
+    work: [
+      { top: "5%", left: "5%" },
+      { top: "18%", right: "4%" },
+      { top: "40%", left: "2%" },
+      { top: "64%", right: "3%" },
+      { top: "86%", left: "4%" },
+    ],
+    services: [
+      { top: "4%", right: "6%" },
+      { top: "16%", left: "4%" },
+      { top: "38%", right: "2%" },
+      { top: "60%", left: "3%" },
+      { top: "84%", right: "5%" },
+    ],
+    about: [
+      { top: "5%", left: "6%" },
+      { top: "24%", right: "4%" },
+      { top: "48%", left: "3%" },
+      { top: "72%", right: "4%" },
+      { top: "91%", left: "5%" },
+    ],
+    contact: [
+      { top: "4%", left: "7%" },
+      { top: "20%", right: "5%" },
+      { top: "44%", left: "3%" },
+      { top: "68%", right: "4%" },
+      { top: "89%", left: "6%" },
+    ],
+    subpage: [
+      { top: "4%", right: "8%" },
+      { top: "22%", left: "4%" },
+      { top: "45%", right: "6%" },
+      { top: "68%", left: "6%" },
+      { top: "88%", right: "8%" },
+    ],
+  };
+
+  // 4. Wave Paths randomized per screen
+  const waveCurves: Record<
+    ScreenType,
+    Array<{ d: string; stroke: string; width: string; dashed?: boolean }>
+  > = {
+    home: [
+      { d: "M-10,18 C 30,8 70,28 110,18", stroke: "#d8b4e2", width: "0.2", dashed: true },
+      { d: "M-10,34 C 40,44 60,14 110,24", stroke: "#fbcfe8", width: "0.1" },
+      { d: "M-10,58 C 25,48 75,68 110,58", stroke: "#c4b5fd", width: "0.2", dashed: true },
+      { d: "M-10,82 C 30,92 80,72 110,82", stroke: "#fbcfe8", width: "0.1" },
+    ],
+    work: [
+      { d: "M-10,14 C 25,24 65,4 110,16", stroke: "#d8b4e2", width: "0.22", dashed: true },
+      { d: "M-10,32 C 35,20 75,42 110,28", stroke: "#fbcfe8", width: "0.12" },
+      { d: "M-10,54 C 30,64 70,44 110,56", stroke: "#c4b5fd", width: "0.2", dashed: true },
+      { d: "M-10,78 C 40,68 80,88 110,76", stroke: "#fbcfe8", width: "0.12" },
+    ],
+    services: [
+      { d: "M-10,20 C 35,10 75,32 110,18", stroke: "#c4b5fd", width: "0.22", dashed: true },
+      { d: "M-10,38 C 25,48 65,18 110,30", stroke: "#fbcfe8", width: "0.12" },
+      { d: "M-10,62 C 40,50 80,72 110,60", stroke: "#d8b4e2", width: "0.2", dashed: true },
+      { d: "M-10,84 C 20,94 70,74 110,86", stroke: "#fbcfe8", width: "0.12" },
+    ],
+    about: [
+      { d: "M-10,16 C 40,6 60,26 110,14", stroke: "#fbcfe8", width: "0.14" },
+      { d: "M-10,36 C 20,46 80,24 110,34", stroke: "#d8b4e2", width: "0.22", dashed: true },
+      { d: "M-10,58 C 35,46 65,70 110,56", stroke: "#c4b5fd", width: "0.2", dashed: true },
+      { d: "M-10,80 C 45,90 75,70 110,82", stroke: "#fbcfe8", width: "0.12" },
+    ],
+    contact: [
+      { d: "M-10,15 C 30,25 70,5 110,17", stroke: "#d8b4e2", width: "0.2", dashed: true },
+      { d: "M-10,34 C 45,22 65,44 110,30", stroke: "#fbcfe8", width: "0.12" },
+      { d: "M-10,56 C 20,68 80,48 110,60", stroke: "#c4b5fd", width: "0.2", dashed: true },
+      { d: "M-10,82 C 35,72 75,92 110,80", stroke: "#fbcfe8", width: "0.12" },
+    ],
+    subpage: [
+      { d: "M-10,18 C 30,8 70,28 110,18", stroke: "#d8b4e2", width: "0.2", dashed: true },
+      { d: "M-10,34 C 40,44 60,14 110,24", stroke: "#fbcfe8", width: "0.1" },
+      { d: "M-10,58 C 25,48 75,68 110,58", stroke: "#c4b5fd", width: "0.2", dashed: true },
+      { d: "M-10,82 C 30,92 80,72 110,82", stroke: "#fbcfe8", width: "0.1" },
+    ],
+  };
+
+  const currentOrbs = orbConfigurations[effectiveScreen] || orbConfigurations.work;
+  const currentTinyOrbs = tinyOrbConfigurations[effectiveScreen] || tinyOrbConfigurations.work;
+  const currentDotGrids = dotGridConfigurations[effectiveScreen] || dotGridConfigurations.work;
+  const currentWaves = waveCurves[effectiveScreen] || waveCurves.work;
 
   const getOrbGradient = (color: string) => {
     switch (color) {
       case "purple":
-        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #e9d5ff 25%, #c084fc 70%, #9333ea 100%)";
+        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #ecdcf9 25%, #bf83fc 70%, #9333ea 100%)";
       case "pink":
-        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #fbcfe8 25%, #f472b6 70%, #db2777 100%)";
+        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #fed7eb 25%, #f472b6 70%, #db2777 100%)";
       case "blue":
-        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #dbeafe 25%, #93c5fd 70%, #3b82f6 100%)";
+        return "radial-gradient(circle at 30% 30%, #ffffff 0%, #e0edff 25%, #93c5fd 70%, #3b82f6 100%)";
       case "white":
       default:
         return "radial-gradient(circle at 30% 30%, #ffffff 0%, #f3f4f6 30%, #d1d5db 80%, #9ca3af 100%)";
@@ -64,118 +281,106 @@ export function AmbientBackground({ className }: { className?: string }) {
         className
       )}
     >
-      {/* 
-        This container spans the ENTIRE height of the page.
-        We place extremely large, highly blurred gradient shapes 
-        at various percentages of the page height to create a continuous atmosphere.
-      */}
+      {/* ── 1. Atmospheric Glowing Ambient Gradient Blurs ── */}
+      <div className="absolute top-0 left-[-4%] w-[75%] h-[550px] sm:h-[800px] lg:h-[1100px] max-w-[1200px] bg-[#F3EBF9]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-75 sm:opacity-90 transform-gpu pointer-events-none" />
+      <div className="absolute top-[4%] right-[-4%] w-[65%] h-[450px] sm:h-[700px] lg:h-[950px] max-w-[950px] bg-[#FAF0F6]/75 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
       
-      {/* 1. Hero -> What We Build (0% to 20%) */}
-      <div 
-        className="absolute top-0 left-[-8%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1200px] bg-[#F3EBF9]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-90 transform-gpu pointer-events-none" 
-      />
-      <div 
-        className="absolute top-[5%] right-[-8%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1000px] max-w-[900px] bg-[#FAF0F6]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
-      />
-      
-      {/* 2. What We Build -> Selected Work (15% to 40%) */}
-      <div 
-        className="absolute top-[20%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-70 transform-gpu pointer-events-none" 
-      />
-      <div 
-        className="absolute top-[30%] right-[0%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE4EC]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
-      />
+      <div className="absolute top-[24%] left-[4%] w-[70%] h-[500px] sm:h-[800px] lg:h-[1200px] max-w-[1000px] bg-[#EBEBFF]/55 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-75 transform-gpu pointer-events-none" />
+      <div className="absolute top-[36%] right-[-2%] w-[65%] h-[500px] sm:h-[800px] lg:h-[1100px] max-w-[950px] bg-[#FCE4EC]/55 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
 
-      {/* 3. How We Work -> Philosophy (40% to 65%) */}
-      <div 
-        className="absolute top-[45%] left-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1300px] max-w-[1100px] bg-[#F3E8FF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
-      />
-      <div 
-        className="absolute top-[55%] right-[8%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE7F3]/40 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70 transform-gpu pointer-events-none" 
-      />
+      <div className="absolute top-[54%] left-[-2%] w-[80%] h-[500px] sm:h-[850px] lg:h-[1200px] max-w-[1100px] bg-[#F3E8FF]/55 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
+      <div className="absolute top-[66%] right-[4%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1100px] max-w-[900px] bg-[#FCE7F3]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-75 transform-gpu pointer-events-none" />
 
-      {/* 4. Tech Stack -> FAQ -> CTA (65% to 100%) */}
-      <div 
-        className="absolute top-[70%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70 transform-gpu pointer-events-none" 
-      />
-      <div 
-        className="absolute top-[85%] right-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1100px] bg-[#FAF0F6]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
-      />
+      <div className="absolute top-[80%] left-[4%] w-[70%] h-[500px] sm:h-[850px] lg:h-[1200px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-75 transform-gpu pointer-events-none" />
+      <div className="absolute top-[90%] right-[-2%] w-[80%] h-[500px] sm:h-[850px] lg:h-[1100px] max-w-[1100px] bg-[#FAF0F6]/65 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
 
-      {/* 5. Delicate Dashed and Solid Sweeping Lines */}
-      <svg className="absolute top-0 left-0 w-full h-full opacity-20 sm:opacity-30 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-        {/* Dashed wave 1 */}
-        <path d="M-10,20 C 30,10 70,30 110,20" fill="none" stroke="#d8b4e2" strokeWidth="0.2" strokeDasharray="1 1" />
-        {/* Solid thin wave 2 */}
-        <path d="M-10,35 C 40,45 60,15 110,25" fill="none" stroke="#fbcfe8" strokeWidth="0.1" />
-        {/* Dashed wave 3 */}
-        <path d="M-10,60 C 25,50 75,70 110,60" fill="none" stroke="#c4b5fd" strokeWidth="0.2" strokeDasharray="1 1" />
-        {/* Solid thin wave 4 */}
-        <path d="M-10,85 C 30,95 80,75 110,85" fill="none" stroke="#fbcfe8" strokeWidth="0.1" />
+      {/* ── 2. Delicate Sweeping SVG Curves (Screen-Randomized) ── */}
+      <svg className="absolute top-0 left-0 w-full h-full opacity-25 sm:opacity-35 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        {currentWaves.map((wave, i) => (
+          <path
+            key={`wave-${i}`}
+            d={wave.d}
+            fill="none"
+            stroke={wave.stroke}
+            strokeWidth={wave.width}
+            strokeDasharray={wave.dashed ? "1 1" : undefined}
+          />
+        ))}
       </svg>
 
-      {/* 6. Dot Grids */}
-      {dotGrids.map((pos, i) => (
+      {/* ── 3. Dot Grid Matrices (Screen-Randomized) ── */}
+      {currentDotGrids.map((pos, i) => (
         <div 
           key={`dot-${i}`}
-          className="absolute w-20 h-20 sm:w-32 sm:h-32 opacity-15 sm:opacity-20 mix-blend-multiply pointer-events-none"
+          className="absolute w-24 h-24 sm:w-36 sm:h-36 opacity-20 sm:opacity-25 mix-blend-multiply pointer-events-none"
           style={{
             top: pos.top,
             ...(pos.left ? { left: pos.left } : { right: pos.right }),
             backgroundImage: "radial-gradient(circle at 2px 2px, #8b5cf6 1.5px, transparent 0)",
             backgroundSize: "12px 12px",
-            WebkitMaskImage: 'radial-gradient(circle at center, black 10%, transparent 70%)',
-            maskImage: 'radial-gradient(circle at center, black 10%, transparent 70%)'
+            WebkitMaskImage: 'radial-gradient(circle at center, black 15%, transparent 70%)',
+            maskImage: 'radial-gradient(circle at center, black 15%, transparent 70%)'
           }}
         />
       ))}
 
-      {/* 7. Large 3D Spheres (Pearls) */}
-      {orbs.map((orb, i) => (
-        <div
-          key={`orb-${i}`}
+      {/* ── 4. Prominent 3D Spheres (Pearls) with Organic Floating Animation (Screen-Randomized) ── */}
+      {currentOrbs.map((orb, i) => (
+        <motion.div
+          key={`orb-${effectiveScreen}-${i}`}
+          animate={{
+            y: [0, -10, 0],
+            x: [0, (i % 2 === 0 ? 5 : -5), 0],
+          }}
+          transition={{
+            duration: 5.5 + (i % 3) * 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: (i % 4) * 0.4,
+          }}
           className={cn(
-            "absolute rounded-full pointer-events-none opacity-40 sm:opacity-90",
+            "absolute rounded-full pointer-events-none opacity-85 sm:opacity-95 transition-opacity",
             orb.size
           )}
           style={{
             top: orb.top,
             ...(orb.left ? { left: orb.left } : { right: orb.right }),
             background: getOrbGradient(orb.color),
-            boxShadow: "0 12px 28px rgba(0,0,0,0.06), inset -6px -6px 14px rgba(0,0,0,0.08), inset 6px 6px 14px rgba(255,255,255,0.7)",
+            boxShadow:
+              "0 14px 34px rgba(0,0,0,0.08), inset -6px -6px 14px rgba(0,0,0,0.1), inset 6px 6px 14px rgba(255,255,255,0.85)",
           }}
         />
       ))}
 
-      {/* 8. Tiny Scattered Spheres */}
-      {tinyOrbs.map((orb, i) => (
+      {/* ── 5. Tiny Scattered Pearls (Screen-Randomized) ── */}
+      {currentTinyOrbs.map((orb, i) => (
         <div
-          key={`tiny-${i}`}
+          key={`tiny-${effectiveScreen}-${i}`}
           className={cn(
-            "absolute rounded-full",
+            "absolute rounded-full pointer-events-none",
             orb.size
           )}
           style={{
             top: orb.top,
             ...(orb.left ? { left: orb.left } : { right: orb.right }),
             backgroundColor: orb.color,
-            boxShadow: `0 2px 4px ${orb.color}60`,
-            opacity: 0.8,
+            boxShadow: `0 2px 6px ${orb.color}70`,
+            opacity: 0.9,
           }}
         />
       ))}
       
-      {/* 9. Subtle Global Noise Texture for Softness */}
+      {/* ── 6. Subtle Global Noise Texture for Softness ── */}
       <div 
-        className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
+        className="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none"
         style={{
           backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
         }}
       />
 
-      {/* 10. Subtle global noise/dot pattern */}
+      {/* ── 7. Subtle Global Dot Pattern ── */}
       <div 
-        className="absolute inset-0 opacity-[0.25]"
+        className="absolute inset-0 opacity-[0.25] pointer-events-none"
         style={{
           backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0)",
           backgroundSize: "32px 32px"
