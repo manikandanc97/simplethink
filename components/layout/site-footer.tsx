@@ -22,6 +22,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
 
   return (
     <footer className="w-full bg-background border-t border-border mt-auto relative overflow-hidden">
+      <div className="w-full h-full relative">
       {/* Soft ambient background glows */}
       <div className="pointer-events-none absolute -left-28 top-1/2 -translate-y-1/2 w-96 h-96 bg-primary/8 blur-[100px] rounded-full" />
       <div className="pointer-events-none absolute -right-24 -top-16 w-96 h-96 bg-primary/5 blur-[110px] rounded-full" />
@@ -274,6 +275,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
             priority
           />
         </div>
+      </div>
       </div>
     </footer>
   );

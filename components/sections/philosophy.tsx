@@ -18,13 +18,8 @@ export function WhySimpleThink() {
   return (
     <section
       id="why-SimpleThink"
-      className="relative w-full py-12 sm:py-16 lg:py-24 bg-[#FCFAFA] overflow-hidden font-satoshi"
+      className="relative w-full py-12 sm:py-16 lg:py-24 overflow-hidden font-satoshi"
     >
-      {/* ── Atmospheric Ambient Glowing Blobs & Dots ── */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-1/4 -left-32 w-full max-w-lg aspect-square bg-rose-100/40 rounded-full blur-3xl opacity-50" />
-        <div className="absolute bottom-1/4 -right-32 w-full max-w-lg aspect-square bg-purple-100/40 rounded-full blur-3xl opacity-50" />
-      </div>
 
       <div ref={containerRef} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
         <SectionHeader

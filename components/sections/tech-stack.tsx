@@ -9,16 +9,11 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TechCard } from "./tech-stack-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 // ─── Categories ───────────────────────────────────────────────────────────────
 
@@ -31,53 +26,6 @@ const SPRING = { type: "spring" as const, stiffness: 340, damping: 28 };
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<Category>("Frontend & Web");
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    const root = containerRef.current;
-    if (!root) return;
-
-    const tabs = root.querySelector<HTMLElement>(".ts-tabs");
-    const valueStrip = root.querySelector<HTMLElement>(".ts-value-strip");
-
-    if (tabs) {
-      gsap.fromTo(
-        tabs,
-        { y: 16, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-
-    if (valueStrip) {
-      gsap.fromTo(
-        valueStrip,
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          delay: 0.15,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-  }, { scope: containerRef });
 
   // Counts per category
   const categoryCounts = useMemo(() => {
@@ -112,7 +60,7 @@ export function TechStack() {
         <div className="relative text-center">
 
           {/* Floating "Fast Performant" Pill (Top Right, aligned near subtitle) */}
-          <div className="hidden lg:flex absolute top-10 right-2 xl:right-8 z-20 items-center">
+          <div className="ts-pill-wrapper hidden lg:flex absolute top-10 right-2 xl:right-8 z-20 items-center">
             <div
               className="ts-pill relative flex items-center gap-3 bg-white/95 dark:bg-card/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/70 dark:border-border/60 shadow-[0_8px_25px_rgba(0,0,0,0.05)]"
             >

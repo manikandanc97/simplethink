@@ -6,67 +6,15 @@ import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon"
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FAQS } from "@/lib/data/faq";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 export function FAQ() {
   const [openId, setOpenId] = useState<string | null>("faq-pricing");
   const { openLead } = useLead();
   const containerRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    const root = containerRef.current;
-    if (!root) return;
-
-    const faqCard = root.querySelector<HTMLElement>(".faq-card");
-    const faqItems = root.querySelectorAll<HTMLElement>(".faq-item");
-
-    if (faqCard) {
-      gsap.fromTo(
-        faqCard,
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-
-    if (faqItems.length > 0) {
-      gsap.fromTo(
-        Array.from(faqItems),
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-  }, { scope: containerRef });
 
   const toggle = (id: string) => {
     setOpenId((curr) => (curr === id ? null : id));
@@ -76,7 +24,7 @@ export function FAQ() {
     <section id="faq" ref={containerRef} className="relative scroll-mt-24 py-12 sm:py-16 lg:py-24">
 
       {/* Ambient background glows */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="faq-accent-decor absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
 
 
         {/* Top-left dot grid */}

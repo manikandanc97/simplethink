@@ -8,14 +8,9 @@ import { CalendarIcon } from "@animateicons/react/lucide/calendar-icon";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 interface CTAProps {
   onStartProject?: () => void;
@@ -26,62 +21,6 @@ export function CTA({ onStartProject }: CTAProps) {
   const ref = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const illustrationRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    const section = ref.current;
-    if (!section) return;
-
-    if (illustrationRef.current) {
-      gsap.fromTo(
-        illustrationRef.current,
-        { scale: 0.95, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.85,
-          ease: "power2.out",
-          clearProps: "transform,opacity,scale",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Subtle parallax on illustration
-      gsap.to(illustrationRef.current, {
-        y: 25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-
-    if (contentRef.current) {
-      gsap.fromTo(
-        contentRef.current,
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          delay: 0.1,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-  }, { scope: ref });
 
   const handleStart = () => {
     if (onStartProject) onStartProject();
@@ -102,8 +41,8 @@ export function CTA({ onStartProject }: CTAProps) {
 
 
       {/* Decorative Dot Matrix on corners */}
-      <div className="hidden lg:block pointer-events-none absolute top-12 left-8 w-28 h-28 hero-dots opacity-40" />
-      <div className="hidden lg:block pointer-events-none absolute bottom-12 right-10 w-28 h-28 hero-dots opacity-35" />
+      <div className="hidden lg:block pointer-events-none absolute top-12 left-8 w-28 h-28 hero-dots cta-dots opacity-40" />
+      <div className="hidden lg:block pointer-events-none absolute bottom-12 right-10 w-28 h-28 hero-dots cta-dots opacity-35" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">

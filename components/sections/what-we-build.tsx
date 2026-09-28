@@ -8,14 +8,9 @@ import { ChevronRightIcon } from "@animateicons/react/lucide/chevron-right-icon"
 import { MousePointer2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 import { MobileAppsMockup, SaaSProductsMockup, WebAppsMockup, WebsitesMockup, EcommerceMockup, BrandingMockup, UIUXMockup, AutomationMockup } from './what-we-build/mockups/index';
 
@@ -46,10 +41,10 @@ function FadeUp({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
-      transition={{ delay, duration: 0.38, ease: EASE }}
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ delay, duration: 0.36, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -60,57 +55,11 @@ export function WhatWeBuild() {
   const { openLead } = useLead();
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const parallaxWrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
 
   const displayServices = SERVICES_LIST.slice(0, 8);
-
-  useGSAP(() => {
-    const section = sectionRef.current;
-    const carousel = containerRef.current;
-    const nav = navRef.current;
-    if (!section || !carousel) return;
-
-    // Animate the carousel wrapper in
-    gsap.fromTo(
-      carousel,
-      { y: 36, opacity: 0, scale: 0.98 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.85,
-        ease: "power3.out",
-        clearProps: "transform,opacity,scale",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
-          once: true,
-        },
-      }
-    );
-
-    // Animate the nav controls in slightly after
-    if (nav) {
-      gsap.fromTo(
-        nav,
-        { y: 16, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          delay: 0.1,
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-  }, { scope: sectionRef, dependencies: [] });
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % displayServices.length);
@@ -162,7 +111,8 @@ export function WhatWeBuild() {
           description="We engineer custom software, scalable web applications, and mobile platforms — with enterprise-grade reliability and zero unnecessary overhead."
         />
 
-        <div ref={containerRef} className="wwb-outer-card relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
+        <div ref={parallaxWrapperRef} className="w-full">
+          <div ref={containerRef} className="wwb-outer-card relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
           <div className="flex items-center justify-center min-h-[520px] xs:min-h-[500px] sm:min-h-[460px] md:min-h-[420px] lg:min-h-[380px] xl:min-h-[380px] relative w-full">
             {displayServices.map((service, index) => {
               let offset = index - activeIndex;
@@ -378,6 +328,7 @@ export function WhatWeBuild() {
             })}
           </div>
         </div>
+      </div>
 
         <div ref={navRef} className="wwb-nav flex items-center justify-between max-w-4xl mx-auto px-2 font-satoshi w-full gap-2">
           <div className="flex items-center gap-2 text-[#68666C]">

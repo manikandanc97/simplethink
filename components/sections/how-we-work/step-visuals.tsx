@@ -28,12 +28,12 @@ import Image from "next/image";
 
 export function StepVisual({ activeStepIndex }: { activeStepIndex: number }) {
   return (
-    <div className="lg:col-span-6 relative flex items-end justify-center w-full">
+    <div className="hww-visual lg:col-span-6 relative flex items-end justify-center w-full">
       {/* Soft Radial Ambient Behind Graphic */}
       <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-80 h-72 sm:h-80 bg-gradient-to-tr from-pink-300/25 via-purple-200/20 to-rose-300/25 rounded-full blur-3xl" />
 
       {activeStepIndex === 0 && (
-        <div className="relative w-full h-[280px] xs:h-[320px] sm:h-96 lg:h-96 flex items-end justify-center overflow-visible">
+        <div className="relative w-full h-[280px] xs:h-[320px] sm:h-96 lg:h-[300px] xl:h-96 flex items-end justify-center overflow-visible">
           {/* Layer 1: Floating "Project Blueprint" Window Card */}
           <motion.div 
             animate={{ y: [-3, 3, -3], rotate: [-1, -1, -1] }}

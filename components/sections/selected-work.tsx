@@ -18,14 +18,9 @@ import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from "@/components/ui/section-header";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 const FILTER_TABS = ["Websites", "Web Apps", "Mobile Apps"] as const;
 
@@ -132,7 +127,7 @@ function BrowserMockup({ activeProject }: { activeProject: Project }) {
       </div>
         
       {/* Browser Viewport Area (Render Authentic High-End Mockup Hero) */}
-      <div className="relative w-full aspect-square sm:aspect-[16/10] overflow-hidden bg-slate-900">
+      <div className="sw-viewport relative w-full aspect-square sm:aspect-[16/10] overflow-hidden bg-slate-900">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.id}
@@ -140,7 +135,7 @@ function BrowserMockup({ activeProject }: { activeProject: Project }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.99 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full bg-white"
+            className="sw-mockup-content absolute inset-0 w-full h-full bg-white will-change-transform"
           >
             {activeProject.serviceType === "Websites" && activeProject.url ? (
               <div className="absolute inset-0 w-full h-full sm:w-[200%] sm:h-[200%] origin-top-left sm:scale-50">
@@ -186,88 +181,6 @@ export function SelectedWork() {
   const [activeId, setActiveId] = useState<string>(displayProjects[0]?.id || "");
   const containerRef = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    const root = containerRef.current;
-    if (!root) return;
-
-    const filterEls = root.querySelectorAll<HTMLElement>(".sw-filter");
-    const projectItems = root.querySelectorAll<HTMLElement>(".sw-project-item");
-    const browser = root.querySelector<HTMLElement>(".sw-browser");
-
-    // Filter tabs entrance
-    if (filterEls.length > 0) {
-      gsap.fromTo(
-        Array.from(filterEls),
-        { y: 12, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-
-    // Project cards stagger entrance
-    if (projectItems.length > 0) {
-      gsap.fromTo(
-        Array.from(projectItems),
-        { x: -16, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.08,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-    }
-
-    // Browser mockup reveal
-    if (browser) {
-      gsap.fromTo(
-        browser,
-        { y: 30, opacity: 0, scale: 0.98 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.85,
-          ease: "power3.out",
-          clearProps: "transform,opacity,scale",
-          scrollTrigger: {
-            trigger: root,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Subtle parallax on scroll
-      gsap.to(browser, {
-        y: 25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-  }, { scope: containerRef });
 
   useEffect(() => {
     if (!displayProjects.find((p) => p.id === activeId) && displayProjects.length > 0) {
@@ -531,7 +444,7 @@ export function SelectedWork() {
               {/* Right: Live Client Site Badge & Nav Buttons */}
               <div className="flex items-center gap-3 sm:gap-6 shrink-0">
                 {/* Handwritten "Live Client Site" badge positioned left of arrows */}
-                <div className="hidden sm:flex pointer-events-none items-center gap-2 z-30 select-none">
+                <div className="sw-live-badge hidden sm:flex pointer-events-none items-center gap-2 z-30 select-none">
                   <span className="font-handwriting text-lg text-[#922F55] font-bold -rotate-2 tracking-wide drop-shadow-sm">
                     Live Client Site
                   </span>

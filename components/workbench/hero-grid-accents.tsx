@@ -3,7 +3,7 @@
 
 export function HeroGridAccents() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
+    <div className="hero-grid-accents pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
       {/* ── Main SVG Background with Radial Glows & Translucent Glass Waves ── */}
       <svg
         className="absolute inset-0 h-full w-full"

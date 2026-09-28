@@ -71,51 +71,35 @@ export function AmbientBackground({ className }: { className?: string }) {
       */}
       
       {/* 1. Hero -> What We Build (0% to 20%) */}
-      <motion.div 
-        animate={{ y: [-15, 15, -15], x: [-6, 6, -6], scale: [1, 1.04, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-[-8%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1200px] bg-[#F3EBF9]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-90" 
+      <div 
+        className="absolute top-0 left-[-8%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1200px] bg-[#F3EBF9]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-90 transform-gpu pointer-events-none" 
       />
-      <motion.div 
-        animate={{ y: [15, -15, 15], x: [6, -6, 6], scale: [1, 1.04, 1] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute top-[5%] right-[-8%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1000px] max-w-[900px] bg-[#FAF0F6]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+      <div 
+        className="absolute top-[5%] right-[-8%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1000px] max-w-[900px] bg-[#FAF0F6]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
       />
       
       {/* 2. What We Build -> Selected Work (15% to 40%) */}
-      <motion.div 
-        animate={{ y: [-18, 18, -18], x: [8, -8, 8], scale: [1, 1.02, 1] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-[20%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-70" 
+      <div 
+        className="absolute top-[20%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-70 transform-gpu pointer-events-none" 
       />
-      <motion.div 
-        animate={{ y: [18, -18, 18], x: [-8, 8, -8], scale: [1, 1.05, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        className="absolute top-[30%] right-[0%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE4EC]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+      <div 
+        className="absolute top-[30%] right-[0%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE4EC]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
       />
 
       {/* 3. How We Work -> Philosophy (40% to 65%) */}
-      <motion.div 
-        animate={{ y: [-15, 15, -15], x: [-6, 6, -6], scale: [1, 1.03, 1] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-[45%] left-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1300px] max-w-[1100px] bg-[#F3E8FF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+      <div 
+        className="absolute top-[45%] left-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1300px] max-w-[1100px] bg-[#F3E8FF]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
       />
-      <motion.div 
-        animate={{ y: [20, -20, 20], x: [10, -10, 10], scale: [1, 1.05, 1] }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="absolute top-[55%] right-[8%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE7F3]/40 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
+      <div 
+        className="absolute top-[55%] right-[8%] w-[60%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[900px] bg-[#FCE7F3]/40 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70 transform-gpu pointer-events-none" 
       />
 
       {/* 4. Tech Stack -> FAQ -> CTA (65% to 100%) */}
-      <motion.div 
-        animate={{ y: [-12, 12, -12], x: [-10, 10, -10], scale: [1, 1.02, 1] }}
-        transition={{ duration: 17, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-        className="absolute top-[70%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70" 
+      <div 
+        className="absolute top-[70%] left-[8%] w-[70%] h-[600px] sm:h-[1000px] lg:h-[1400px] max-w-[1000px] bg-[#EBEBFF]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-55 sm:opacity-70 transform-gpu pointer-events-none" 
       />
-      <motion.div 
-        animate={{ y: [12, -12, 12], x: [8, -8, 8], scale: [1, 1.04, 1] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 3.5 }}
-        className="absolute top-[85%] right-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1100px] bg-[#FAF0F6]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80" 
+      <div 
+        className="absolute top-[85%] right-[-4%] w-[80%] h-[600px] sm:h-[900px] lg:h-[1200px] max-w-[1100px] bg-[#FAF0F6]/60 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-80 transform-gpu pointer-events-none" 
       />
 
       {/* 5. Delicate Dashed and Solid Sweeping Lines */}
@@ -132,9 +116,7 @@ export function AmbientBackground({ className }: { className?: string }) {
 
       {/* 6. Dot Grids */}
       {dotGrids.map((pos, i) => (
-        <motion.div 
-          animate={{ opacity: [0.12, 0.22, 0.12] }}
-          transition={{ duration: 4 + i % 3, repeat: Infinity, ease: "easeInOut" }}
+        <div 
           key={`dot-${i}`}
           className="absolute w-20 h-20 sm:w-32 sm:h-32 opacity-15 sm:opacity-20 mix-blend-multiply pointer-events-none"
           style={{
@@ -150,15 +132,10 @@ export function AmbientBackground({ className }: { className?: string }) {
 
       {/* 7. Large 3D Spheres (Pearls) */}
       {orbs.map((orb, i) => (
-        <motion.div
-          animate={{ 
-            y: [-8 + (i % 3), 8 - (i % 3), -8 + (i % 3)],
-            x: [(i % 2 === 0 ? -5 : 5), (i % 2 === 0 ? 5 : -5), (i % 2 === 0 ? -5 : 5)],
-          }}
-          transition={{ duration: 10 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+        <div
           key={`orb-${i}`}
           className={cn(
-            "absolute rounded-full pointer-events-none opacity-40 sm:opacity-90 transition-opacity",
+            "absolute rounded-full pointer-events-none opacity-40 sm:opacity-90",
             orb.size
           )}
           style={{
@@ -172,12 +149,7 @@ export function AmbientBackground({ className }: { className?: string }) {
 
       {/* 8. Tiny Scattered Spheres */}
       {tinyOrbs.map((orb, i) => (
-        <motion.div
-          animate={{ 
-            y: [-10 + (i % 3), 10 - (i % 3), -10 + (i % 3)],
-            opacity: [0.6, 1, 0.6]
-          }}
-          transition={{ duration: 5 + (i % 4), repeat: Infinity, ease: "easeInOut", delay: i * 0.1 }}
+        <div
           key={`tiny-${i}`}
           className={cn(
             "absolute rounded-full",

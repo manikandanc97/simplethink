@@ -4,13 +4,8 @@ import { cn } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 interface Hero3DCoderProps {
   className?: string;
@@ -57,7 +52,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
   }, [mouseX, mouseY]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || prefersReducedMotion()) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - (rect.left + rect.width / 2);
     const y = e.clientY - (rect.top + rect.height / 2);
@@ -69,23 +64,6 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
     mouseX.set(0);
     mouseY.set(0);
   };
-
-  useGSAP(() => {
-    // Consolidated parallax scroll trigger — one trigger for all layers
-    // "top bottom" = animation starts as soon as element enters viewport
-    const st = {
-      trigger: containerRef.current,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 1,
-    };
-
-    gsap.to(".parallax-glow-1",  { y: 60, ease: "none", scrollTrigger: st });
-    gsap.to(".parallax-glow-2",  { y: -40, ease: "none", scrollTrigger: st });
-    gsap.to(".parallax-char",    { y: 35, ease: "none", scrollTrigger: st });
-    gsap.to(".parallax-ui-left", { y: -50, ease: "none", scrollTrigger: st });
-    gsap.to(".parallax-ui-right",{ y: -25, ease: "none", scrollTrigger: st });
-  }, { scope: containerRef });
 
   return (
     <div

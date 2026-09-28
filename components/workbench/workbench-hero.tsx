@@ -6,16 +6,10 @@ import { PlayIcon } from "@animateicons/react/lucide/play-icon";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HERO_CONTENT } from "@/lib/data/hero";
 import { Hero3DCoder } from "./hero-3d-coder";
 import { HeroGridAccents } from "./hero-grid-accents";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
-}
+import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
 
 export function WorkbenchHero() {
   const { openLead } = useLead();
@@ -36,34 +30,6 @@ export function WorkbenchHero() {
     }
   };
 
-  useGSAP(() => {
-    const root = heroRef.current;
-    if (!root) return;
-
-    const line1 = root.querySelector<HTMLElement>(".hero-line-1");
-    const line2 = root.querySelector<HTMLElement>(".hero-line-2");
-    const desc = root.querySelector<HTMLElement>(".hero-desc");
-    const cta = root.querySelector<HTMLElement>(".hero-cta");
-    const artwork = root.querySelector<HTMLElement>(".hero-artwork");
-    const scroll = root.querySelector<HTMLElement>(".hero-scroll");
-
-    const tl = gsap.timeline({
-      defaults: { ease: "power3.out" },
-      onComplete: () => {
-        gsap.set([line1, line2, desc, cta, artwork, scroll].filter(Boolean), {
-          clearProps: "transform,opacity,scale",
-        });
-      },
-    });
-
-    if (line1) tl.fromTo(line1, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75 }, 0.05);
-    if (line2) tl.fromTo(line2, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75 }, 0.18);
-    if (desc) tl.fromTo(desc, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.3);
-    if (cta) tl.fromTo(cta, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.42);
-    if (artwork) tl.fromTo(artwork, { scale: 0.94, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0 }, 0.15);
-    if (scroll) tl.fromTo(scroll, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 1.0);
-  }, { scope: heroRef });
-
   return (
     <section
       id="hero"
@@ -77,51 +43,52 @@ export function WorkbenchHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center w-full">
           
           {/* LEFT: Text Content */}
-          <div className="lg:col-span-5 xl:col-span-6 flex flex-col items-start text-left max-w-xl z-10 gap-6 sm:gap-10">
+          <div className="hero-text-col lg:col-span-5 xl:col-span-6 flex flex-col items-start text-left max-w-xl z-10 gap-6 sm:gap-10">
             <div className="flex flex-col gap-4 sm:gap-6">
-
-            {/* Pill Tag */}
-            
 
             {/* Headline */}
             <h1 
               className="font-satoshi font-extrabold tracking-tighter text-[#121114] leading-[1.08] sm:leading-none text-4xl xs:text-5xl sm:text-6xl lg:text-7xl flex flex-col gap-1.5 sm:gap-2"
             >
-              <span className="block hero-line-1">{HERO_CONTENT.headlineLine1}</span>
-              <span className="block relative inline-block hero-line-2">
-                {HERO_CONTENT.headlineLine2Prefix}
-                <span className="relative inline-block brand-gradient-text">
-                  {HERO_CONTENT.headlineHighlight}
-                  {/* Hand-drawn style SVG underline stroke */}
-                  <svg 
-                    className="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-[#922F55] overflow-visible pointer-events-none" 
-                    viewBox="0 0 240 24" 
-                    fill="none" 
-                    preserveAspectRatio="none"
-                  >
-                    <path 
-                      d="M4 14 C60 4, 150 6, 230 12" 
-                      stroke="currentColor" 
-                      strokeWidth="4.5" 
-                      strokeLinecap="round" 
-                    />
-                    <path 
-                      d="M40 18 C105 13, 175 14, 215 17" 
-                      stroke="#D23D78" 
-                      strokeWidth="2.5" 
-                      strokeLinecap="round" 
-                      strokeOpacity="0.85" 
-                    />
-                    <path 
-                      d="M224 8 L234 12 L227 18" 
-                      stroke="#6C2BB8" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                    />
-                  </svg>
+              <div className="overflow-hidden pb-1 -mb-1">
+                <span className="block hero-line-1 will-change-transform">{HERO_CONTENT.headlineLine1}</span>
+              </div>
+              <div className="overflow-hidden pb-3 -mb-3">
+                <span className="block relative inline-block hero-line-2 will-change-transform">
+                  {HERO_CONTENT.headlineLine2Prefix}
+                  <span className="relative inline-block brand-gradient-text">
+                    {HERO_CONTENT.headlineHighlight}
+                    {/* Hand-drawn style SVG underline stroke */}
+                    <svg 
+                      className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-[#922F55] overflow-visible pointer-events-none" 
+                      viewBox="0 0 240 24" 
+                      fill="none" 
+                      preserveAspectRatio="none"
+                    >
+                      <path 
+                        d="M4 14 C60 4, 150 6, 230 12" 
+                        stroke="currentColor" 
+                        strokeWidth="4.5" 
+                        strokeLinecap="round" 
+                      />
+                      <path 
+                        d="M40 18 C105 13, 175 14, 215 17" 
+                        stroke="#D23D78" 
+                        strokeWidth="2.5" 
+                        strokeLinecap="round" 
+                        strokeOpacity="0.85" 
+                      />
+                      <path 
+                        d="M224 8 L234 12 L227 18" 
+                        stroke="#6C2BB8" 
+                        strokeWidth="2" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                      />
+                    </svg>
+                  </span>
                 </span>
-              </span>
+              </div>
             </h1>
 
             {/* Paragraph */}

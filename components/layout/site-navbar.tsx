@@ -20,7 +20,10 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
   const { openLead } = useLead();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -40,8 +43,13 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
       <motion.header
         role="banner"
         className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6"
-        animate={{ y: scrolled ? 0 : 8 }}
-        transition={{ type: "spring", stiffness: 380, damping: 38, mass: 0.8 }}
+        initial={{ y: -6, opacity: 0.92 }}
+        animate={{ y: scrolled ? 0 : 8, opacity: 1 }}
+        transition={
+          mounted
+            ? { type: "spring", stiffness: 380, damping: 38, mass: 0.8 }
+            : { duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
+        }
       >
         {/* ── Content row (Pill) ── */}
         <motion.div
