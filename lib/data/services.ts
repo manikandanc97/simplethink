@@ -32,6 +32,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "SEO & Sub-second Speed",
     ],
     brandColor: "#922F55",
+    image: "/images/mockups/websites.jpg",
   },
   {
     id: "web-apps",
@@ -53,6 +54,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Secure Role-based Auth",
     ],
     brandColor: "#6C2BB8",
+    image: "/images/mockups/web-apps.jpg",
   },
   {
     id: "ecommerce",
@@ -74,6 +76,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Inventory & Order System",
     ],
     brandColor: "#0891B2",
+    image: "/images/mockups/ecommerce.jpg",
   },
   {
     id: "mobile-apps",
@@ -95,6 +98,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "App Store & Play Store",
     ],
     brandColor: "#D23D78",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "saas",
@@ -116,6 +120,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Product Telemetry & Analytics",
     ],
     brandColor: "#5B21B6",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "branding",
@@ -137,6 +142,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Digital Asset Kit",
     ],
     brandColor: "#F97316",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "ui-ux",
@@ -158,6 +164,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Design Token Systems",
     ],
     brandColor: "#7C3AED",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "automation",
@@ -179,6 +186,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Tool Integrations",
     ],
     brandColor: "#059669",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "custom-software",
@@ -193,6 +201,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Custom REST/GraphQL APIs & third-party system bridges",
       "Robust relational database design & performance tuning",
     ],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
   },
 ];
 

@@ -79,7 +79,7 @@ export function WhatWeBuildCard({
   const isActive = offset === 0;
   const isVisible = Math.abs(offset) <= 1;
 
-  const MockupComponent = MOCKUPS[service.id];
+  const MockupComponent = MOCKUPS[service.id] || MOCKUPS["websites"];
   const IconComponent = service.icon;
 
   return (

@@ -1,0 +1,179 @@
+"use client";
+
+import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { 
+  CheckCircle2, Target, Rocket, Building, Shield, RefreshCw, 
+  Briefcase, Award, Crown, ShoppingBag, Truck, Zap, Repeat, 
+  Smartphone, Users, Package, Sparkles, Layout, Play, Code, 
+  TrendingDown, Headphones, FileText, Unlock, Cpu, type LucideIcon
+} from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+const IconMap: Record<string, LucideIcon> = {
+  rocket: Rocket,
+  crown: Crown,
+  briefcase: Briefcase,
+  award: Award,
+  building: Building,
+  shield: Shield,
+  refresh: RefreshCw,
+  "shopping-bag": ShoppingBag,
+  truck: Truck,
+  zap: Zap,
+  repeat: Repeat,
+  smartphone: Smartphone,
+  users: Users,
+  package: Package,
+  sparkles: Sparkles,
+  layout: Layout,
+  play: Play,
+  code: Code,
+  "trending-down": TrendingDown,
+  headphones: Headphones,
+  "file-text": FileText,
+  unlock: Unlock,
+  cpu: Cpu,
+};
+
+const ColorMap: Record<string, { primary: string; fill: string; bg: string; border: string }> = {
+  websites: { primary: "text-[#922F55]", fill: "fill-[#922F55]/10", bg: "bg-rose-50", border: "border-rose-100" },
+  "web-apps": { primary: "text-[#7C3AED]", fill: "fill-[#7C3AED]/10", bg: "bg-purple-50", border: "border-purple-100" },
+  ecommerce: { primary: "text-[#0891B2]", fill: "fill-[#0891B2]/10", bg: "bg-cyan-50", border: "border-cyan-100" },
+  "mobile-apps": { primary: "text-[#DB2777]", fill: "fill-[#DB2777]/10", bg: "bg-pink-50", border: "border-pink-100" },
+  saas: { primary: "text-[#5B21B6]", fill: "fill-[#5B21B6]/10", bg: "bg-violet-50", border: "border-violet-100" },
+  branding: { primary: "text-[#EA580C]", fill: "fill-[#EA580C]/10", bg: "bg-orange-50", border: "border-orange-100" },
+  "ui-ux": { primary: "text-[#7C3AED]", fill: "fill-[#7C3AED]/10", bg: "bg-purple-50", border: "border-purple-100" },
+  automation: { primary: "text-[#059669]", fill: "fill-[#059669]/10", bg: "bg-emerald-50", border: "border-emerald-100" },
+  "custom-software": { primary: "text-[#2563EB]", fill: "fill-[#2563EB]/10", bg: "bg-blue-50", border: "border-blue-100" },
+};
+
+interface ServicesDeliverablesAudienceProps {
+  service: ServiceDetailItem;
+}
+
+export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAudienceProps) {
+  // Split deliverables into 2 balanced columns
+  const half = Math.ceil(service.deliverables.length / 2);
+  const col1 = service.deliverables.slice(0, half);
+  const col2 = service.deliverables.slice(half);
+
+  const colors = ColorMap[service.id] || ColorMap.websites;
+
+  return (
+    <div className="w-full relative z-20 mb-16 sm:mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        {/* ── Left Column: Deliverables (7 cols) ── */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left justify-center">
+          <div>
+            <span className={`text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.2em] ${colors.primary} font-satoshi mb-1.5 block transition-colors duration-300`}>
+              DELIVERABLES
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-black text-[#121114] tracking-tight font-satoshi">
+              Everything included
+            </h3>
+            <p className="text-xs sm:text-sm text-[#706B78] mt-1 mb-6 sm:mb-8 font-normal">
+              A complete solution from planning to launch.
+            </p>
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.28 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-3 sm:gap-y-4 w-full"
+            >
+              {/* Column 1 */}
+              <div className="flex flex-col gap-3 sm:gap-3.5">
+                {col1.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2
+                      size={17}
+                      className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
+                    />
+                    <span className="text-xs sm:text-sm font-semibold text-[#2A2330]">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Column 2 */}
+              <div className="flex flex-col gap-3 sm:gap-3.5">
+                {col2.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2
+                      size={17}
+                      className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
+                    />
+                    <span className="text-xs sm:text-sm font-semibold text-[#2A2330]">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ── Right Column: Perfect For Card (5 cols) ── */}
+        <div className="lg:col-span-5 flex">
+          <div className="w-full p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-[#EFE5EC] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between text-left">
+            <div>
+              {/* Header */}
+              <div className="flex items-start gap-3 mb-5">
+                <div className={`w-10 h-10 rounded-2xl ${colors.bg} border ${colors.border} flex items-center justify-center ${colors.primary} shrink-0 transition-colors duration-300`}>
+                  <Target size={20} />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-black text-[#121114] tracking-tight">
+                    Perfect for
+                  </h4>
+                  <p className="text-[11px] sm:text-xs text-[#8C8494] mt-0.5">
+                    Tailored for your business stage
+                  </p>
+                </div>
+              </div>
+
+              {/* Audience Items List */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -8 }}
+                  transition={{ duration: 0.28 }}
+                  className="flex flex-col gap-3.5"
+                >
+                  {service.perfectFor.map((item, idx) => {
+                    const IconComponent = IconMap[item.icon] || Target;
+                    return (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FAF7FC] transition-colors group"
+                      >
+                        <div className={`w-8 h-8 rounded-xl ${colors.bg} ${colors.primary} flex items-center justify-center shrink-0 border ${colors.border}/60 transition-colors duration-300`}>
+                          <IconComponent size={15} />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-xs sm:text-sm font-bold text-[#121114] leading-tight group-hover:text-black transition-colors">
+                            {item.title}
+                          </span>
+                          <span className="text-[10px] sm:text-[11px] text-[#706B78] mt-0.5 leading-tight">
+                            {item.desc}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

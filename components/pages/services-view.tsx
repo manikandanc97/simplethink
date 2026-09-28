@@ -1,80 +1,62 @@
 "use client";
 
-import { useLead } from "@/components/leads/lead-provider";
+import { useState, useMemo } from "react";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 import { ServicesHero } from "@/components/services/services-hero";
-import { useServicesConfigurator } from "@/hooks/use-services-configurator";
-import { ServicesFilterBar } from "@/components/services/services-filter-bar";
-import { ServicesCapabilitiesList } from "@/components/services/services-capabilities-list";
-import { ServicesBlueprintPanel } from "@/components/services/services-blueprint-panel";
-import { ServicesStandards } from "@/components/services/services-standards";
-import { ServicesFaq } from "@/components/services/services-faq";
+import { ServicesTabsBar } from "@/components/services/services-tabs-bar";
+import { ServicesActiveShowcase } from "@/components/services/services-active-showcase";
+import { ServicesWhatWeBuild } from "@/components/services/services-what-we-build";
+import { ServicesDeliverablesAudience } from "@/components/services/services-deliverables-audience";
+import { ServicesTechStack } from "@/components/services/services-tech-stack";
+import { ServicesFaqSection } from "@/components/services/services-faq-section";
+import { ServicesCtaBanner } from "@/components/services/services-cta-banner";
+import { SERVICES_PAGE_DATA } from "@/lib/data/services-page-data";
 
 export function ServicesView() {
-  const { openLead } = useLead();
-  const {
-    selected,
-    activeCategory,
-    setActiveCategory,
-    searchQuery,
-    setSearchQuery,
-    toggleService,
-    clearSelection,
-    resetFilters,
-    filteredServices,
-    selectedServices,
-    estimatedSprints,
-    handleStartProject,
-  } = useServicesConfigurator();
+  // Default to "websites" as requested by user
+  const [activeServiceId, setActiveServiceId] = useState<string>("websites");
+
+  const activeService = useMemo(() => {
+    return (
+      SERVICES_PAGE_DATA.find((s) => s.id === activeServiceId) ||
+      SERVICES_PAGE_DATA[1]
+    );
+  }, [activeServiceId]);
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-28 sm:pt-36 pb-28">
-      {/* ── Background Atmospheric Elements (Screen-Specific) ── */}
+    <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-20 sm:pt-24 pb-16 sm:pb-24">
+      {/* ── Background Atmospheric Elements ── */}
       <AmbientBackground screen="services" />
-      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
-      {/* ── Hero Section (Badges, Title, Floating Stickers) ── */}
+      {/* ── 1. Hero Section (Title, CTAs, Highlights & Cloudinary 3D Section Banner) ── */}
       <ServicesHero />
 
-      {/* ── Main Showcase Container ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="bg-white/95 backdrop-blur-2xl rounded-[32px] sm:rounded-[40px] border border-[#EFE5EC] shadow-[0_24px_64px_-16px_rgba(146,47,85,0.08),0_4px_24px_rgba(0,0,0,0.02)] p-5 sm:p-7 lg:p-9">
-          
-          {/* ── Top Controls: Category Tabs & Search ── */}
-          <ServicesFilterBar
-            activeCategory={activeCategory}
-            onSelectCategory={setActiveCategory}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            selectedCount={selected.size}
-          />
+      {/* ── Main Structured Showcase Area ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-6 sm:-mt-10">
+        {/* ── 2. The 9 Service Category Tabs Bar ── */}
+        <ServicesTabsBar
+          activeId={activeServiceId}
+          onSelect={setActiveServiceId}
+        />
 
-          {/* ── Split Pane: Left Capabilities List (5) & Right Interactive Blueprint (7) ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-9 items-start pt-6 sm:pt-8">
-            <ServicesCapabilitiesList
-              services={filteredServices}
-              selected={selected}
-              onToggleService={toggleService}
-              onClearAll={clearSelection}
-              onResetFilters={resetFilters}
-            />
+        {/* ── 3. Active Service Showcase (Metrics, Description & Interactive Mockup) ── */}
+        <ServicesActiveShowcase service={activeService} />
 
-            <ServicesBlueprintPanel
-              selectedServices={selectedServices}
-              selectedCount={selected.size}
-              estimatedSprints={estimatedSprints}
-              onClearSelection={clearSelection}
-              onStartProject={() => handleStartProject(openLead)}
-            />
-          </div>
+        {/* ── 4. What We Build (4 Capabilities with Prev/Next Controls) ── */}
+        <ServicesWhatWeBuild service={activeService} />
 
-          {/* ── Middle Section: Engineering Standards & Guarantees ── */}
-          <ServicesStandards />
+        {/* ── 5. Everything Included & Perfect For ── */}
+        <ServicesDeliverablesAudience service={activeService} />
 
-          {/* ── Bottom Section: Scoping FAQ Accordion ── */}
-          <ServicesFaq />
+        {/* ── 6. Technology by Service (Cloudinary Tech Stack Icons) ── */}
+        <ServicesTechStack service={activeService} />
 
-        </div>
+        {/* ── 8. Frequently Asked Questions & Still Have Questions Card ── */}
+        <ServicesFaqSection service={activeService} />
+
+        {/* ── 9. Bottom CTA Section Banner (Ready to build?) ── */}
+        <ServicesCtaBanner />
       </div>
     </div>
   );

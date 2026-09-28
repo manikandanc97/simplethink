@@ -16,4 +16,5 @@ export interface ServiceItem {
   shortTagline?: string;
   deliverables?: string[];
   brandColor?: string; 
+  image?: string;
 }
