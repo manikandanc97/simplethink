@@ -5,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 
 export function ContactProcess() {
   return (
-    <Card className="bg-transparent border-none shadow-none p-0 text-left">
-      <CardHeader className="mb-4">
-        <div className="flex items-center gap-2 mb-2">
+    <Card className="flex flex-col gap-6 bg-transparent border-none shadow-none p-0 text-left">
+      <CardHeader>
+        <div className="flex items-center gap-2">
           <Badge variant="outline" size="lg">
             <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
             Expectations

@@ -1,10 +1,15 @@
 import { z } from "zod";
 
 export const PROJECT_TYPES = [
-  "Website",
-  "Mobile App",
-  "Brand",
-  "SaaS / Digital Product",
+  "Websites",
+  "Web applications",
+  "E-commerce",
+  "Mobile apps",
+  "SaaS products",
+  "Branding & identity",
+  "UI/UX design",
+  "AI automation",
+  "Custom software",
   "Something Else",
   "Not Sure Yet",
 ] as const;
@@ -22,11 +27,16 @@ const LEAD_SOURCES = [
 ] as const;
 
 export const leadSchema = z.object({
-  name: z
+  firstName: z
     .string()
     .trim()
-    .min(2, "Name must be at least 2 characters")
-    .max(100, "Name must be less than 100 characters"),
+    .min(2, "First name must be at least 2 characters")
+    .max(50, "First name must be less than 50 characters"),
+  lastName: z
+    .string()
+    .trim()
+    .min(2, "Last name must be at least 2 characters")
+    .max(50, "Last name must be less than 50 characters"),
   email: z
     .string()
     .trim()

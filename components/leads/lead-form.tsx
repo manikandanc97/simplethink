@@ -24,7 +24,7 @@ const initialState: LeadState = {
 export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
   const [state, formAction, isPending] = useActionState(submitLead, initialState);
   const [selectedProjectType, setSelectedProjectType] = useState<string>(
-    prefill?.projectType || "Website"
+    prefill?.projectType || "Websites"
   );
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [mountTime] = useState(() => Date.now());
@@ -102,119 +102,64 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
         </div>
       )}
 
-      {/* Project Category Dropdown */}
-      <FormField className="relative">
-        <FormLabel required>Project Category</FormLabel>
 
-        <div className="relative">
-          <button
-            type="button"
-            onClick={() => setIsDropdownOpen((prev) => !prev)}
-            className={cn(
-              "w-full h-10 sm:h-10.5 px-4.5 py-2 rounded-xl bg-card border border-border text-xs sm:text-sm font-medium flex items-center justify-between transition-all duration-150 cursor-pointer shadow-2xs hover:border-primary/40 outline-none",
-              isDropdownOpen && "border-primary ring-2 ring-primary/15"
-            )}
-          >
-            <div className="flex items-center gap-2 truncate">
-              <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-              <span className="text-foreground font-semibold truncate">
-                {selectedProjectType}
-              </span>
-            </div>
-            <ChevronDown
-              size={16}
-              className={cn(
-                "text-muted-foreground transition-transform duration-200 shrink-0",
-                isDropdownOpen && "rotate-180 text-primary"
-              )}
-            />
-          </button>
-
-          <input type="hidden" name="projectType" value={selectedProjectType} />
-
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <>
-              <div
-                className="fixed inset-0 z-30"
-                onClick={() => setIsDropdownOpen(false)}
-              />
-              <div className="absolute left-0 right-0 top-full mt-2 bg-card rounded-2xl shadow-elevated border border-border py-1.5 z-40 animate-in fade-in zoom-in-95 duration-150 max-h-64 overflow-y-auto">
-                {PROJECT_TYPES.map((type) => {
-                  const isSelected = selectedProjectType === type;
-                  return (
-                    <button
-                      key={type}
-                      type="button"
-                      onClick={() => {
-                        setSelectedProjectType(type);
-                        setIsDropdownOpen(false);
-                      }}
-                      className={cn(
-                        "w-full text-left px-4.5 py-2.5 text-xs sm:text-sm font-medium flex items-center justify-between hover:bg-muted/60 transition-colors cursor-pointer",
-                        isSelected
-                          ? "text-primary font-bold bg-primary/5"
-                          : "text-foreground"
-                      )}
-                    >
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={cn(
-                            "w-1.5 h-1.5 rounded-full transition-colors",
-                            isSelected ? "bg-primary" : "bg-transparent"
-                          )}
-                        />
-                        <span>{type}</span>
-                      </div>
-                      {isSelected && <Check size={14} className="text-primary" />}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
-          )}
-        </div>
-      </FormField>
-
-      {/* Name */}
-      <FormField>
-        <FormLabel htmlFor="lead-name" required>
-          Name
-        </FormLabel>
-        <Input
-          id="lead-name"
-          name="name"
-          required
-          defaultValue={prefill?.name || ""}
-          placeholder="Enter your full name"
-          aria-required="true"
-          aria-invalid={Boolean(state.fieldErrors?.name)}
-          aria-describedby={state.fieldErrors?.name ? "lead-name-error" : undefined}
-        />
-        <FormMessage id="lead-name-error">{state.fieldErrors?.name?.[0]}</FormMessage>
-      </FormField>
-
-      {/* Email */}
-      <FormField>
-        <FormLabel htmlFor="lead-email" required>
-          Email
-        </FormLabel>
-        <Input
-          id="lead-email"
-          name="email"
-          type="email"
-          required
-          defaultValue={prefill?.email || ""}
-          placeholder="Enter your email address"
-          aria-required="true"
-          aria-invalid={Boolean(state.fieldErrors?.email)}
-          aria-describedby={state.fieldErrors?.email ? "lead-email-error" : undefined}
-        />
-        <FormMessage id="lead-email-error">{state.fieldErrors?.email?.[0]}</FormMessage>
-      </FormField>
-
-      {/* Phone / WhatsApp & Company (2-col grid) */}
+      {/* First Name & Last Name (2-col grid) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <FormField>
+          <FormLabel htmlFor="lead-first-name" required>
+            First Name
+          </FormLabel>
+          <Input
+            id="lead-first-name"
+            name="firstName"
+            required
+            defaultValue={prefill?.firstName || ""}
+            placeholder="First name"
+            aria-required="true"
+            aria-invalid={Boolean(state.fieldErrors?.firstName)}
+            aria-describedby={state.fieldErrors?.firstName ? "lead-first-name-error" : undefined}
+          />
+          <FormMessage id="lead-first-name-error">{state.fieldErrors?.firstName?.[0]}</FormMessage>
+        </FormField>
+
+        <FormField>
+          <FormLabel htmlFor="lead-last-name" required>
+            Last Name
+          </FormLabel>
+          <Input
+            id="lead-last-name"
+            name="lastName"
+            required
+            defaultValue={prefill?.lastName || ""}
+            placeholder="Last name"
+            aria-required="true"
+            aria-invalid={Boolean(state.fieldErrors?.lastName)}
+            aria-describedby={state.fieldErrors?.lastName ? "lead-last-name-error" : undefined}
+          />
+          <FormMessage id="lead-last-name-error">{state.fieldErrors?.lastName?.[0]}</FormMessage>
+        </FormField>
+      </div>
+
+      {/* Email & Phone (2-col grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <FormField>
+          <FormLabel htmlFor="lead-email" required>
+            Email
+          </FormLabel>
+          <Input
+            id="lead-email"
+            name="email"
+            type="email"
+            required
+            defaultValue={prefill?.email || ""}
+            placeholder="Enter your email address"
+            aria-required="true"
+            aria-invalid={Boolean(state.fieldErrors?.email)}
+            aria-describedby={state.fieldErrors?.email ? "lead-email-error" : undefined}
+          />
+          <FormMessage id="lead-email-error">{state.fieldErrors?.email?.[0]}</FormMessage>
+        </FormField>
+
         <FormField>
           <FormLabel htmlFor="lead-phone">
             WhatsApp / Phone (optional)
@@ -230,7 +175,85 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
           />
           <FormMessage id="lead-phone-error">{state.fieldErrors?.phone?.[0]}</FormMessage>
         </FormField>
+      </div>
 
+      {/* Project Category & Company (2-col grid) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Project Category Dropdown */}
+        <FormField className="relative z-20">
+          <FormLabel required>Project Category</FormLabel>
+
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              className={cn(
+                "w-full h-10 sm:h-10.5 px-4.5 py-2 rounded-xl bg-card border border-border text-xs sm:text-sm font-medium flex items-center justify-between transition-all duration-150 cursor-pointer shadow-2xs hover:border-primary/40 outline-none",
+                isDropdownOpen && "border-primary ring-2 ring-primary/15"
+              )}
+            >
+              <div className="flex items-center gap-2 truncate">
+                <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                <span className="text-foreground font-semibold truncate">
+                  {selectedProjectType}
+                </span>
+              </div>
+              <ChevronDown
+                size={16}
+                className={cn(
+                  "text-muted-foreground transition-transform duration-200 shrink-0",
+                  isDropdownOpen && "rotate-180 text-primary"
+                )}
+              />
+            </button>
+
+            <input type="hidden" name="projectType" value={selectedProjectType} />
+
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-30"
+                  onClick={() => setIsDropdownOpen(false)}
+                />
+                <div className="absolute left-0 right-0 top-full mt-2 bg-card rounded-2xl shadow-elevated border border-border py-1.5 z-40 animate-in fade-in zoom-in-95 duration-150 max-h-64 overflow-y-auto">
+                  {PROJECT_TYPES.map((type) => {
+                    const isSelected = selectedProjectType === type;
+                    return (
+                      <button
+                        key={type}
+                        type="button"
+                        onClick={() => {
+                          setSelectedProjectType(type);
+                          setIsDropdownOpen(false);
+                        }}
+                        className={cn(
+                          "w-full text-left px-4.5 py-2.5 text-xs sm:text-sm font-medium flex items-center justify-between hover:bg-muted/60 transition-colors cursor-pointer",
+                          isSelected
+                            ? "text-primary font-bold bg-primary/5"
+                            : "text-foreground"
+                        )}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={cn(
+                              "w-1.5 h-1.5 rounded-full transition-colors",
+                              isSelected ? "bg-primary" : "bg-transparent"
+                            )}
+                          />
+                          <span>{type}</span>
+                        </div>
+                        {isSelected && <Check size={14} className="text-primary" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+        </FormField>
+
+        {/* Company */}
         <FormField>
           <FormLabel htmlFor="lead-company">
             Company (optional)

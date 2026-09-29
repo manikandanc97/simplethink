@@ -31,12 +31,12 @@ export function ContactView() {
 
           {/* ── RIGHT COLUMN: Interactive Lead Form Card ── */}
           <div className="lg:col-span-7">
-            <Card variant="elevated" padding="default" className="relative overflow-hidden text-left">
+            <Card variant="elevated" padding="default" className="relative flex flex-col gap-6 overflow-hidden text-left">
               {/* Subtle Ambient Backing Glow */}
               <div className="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full bg-rose-100/40 blur-3xl -z-10" />
 
-              <CardHeader className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
+              <CardHeader>
+                <div className="flex items-center gap-2">
                   <Badge variant="outline" size="lg">
                     <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
                     Technical Scoping Engine

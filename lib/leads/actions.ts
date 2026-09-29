@@ -9,7 +9,8 @@ export async function submitLead(
   formData: FormData
 ): Promise<LeadState> {
   const rawData: Record<string, unknown> = {
-    name: formData.get("name"),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
     email: formData.get("email"),
     phone: formData.get("phone") || undefined,
     company: formData.get("company") || undefined,
@@ -55,7 +56,7 @@ export async function submitLead(
   if (!supabaseUrl || !supabaseKey) {
     if (process.env.NODE_ENV !== "production") {
       console.log("[Dev Lead Capture Received]:", {
-        name: data.name,
+        name: `${data.firstName} ${data.lastName}`,
         email: data.email,
         phone: data.phone,
         company: data.company,
@@ -89,7 +90,7 @@ export async function submitLead(
     });
 
     const { error } = await supabase.from("leads").insert({
-      name: data.name,
+      name: `${data.firstName} ${data.lastName}`,
       email: data.email,
       phone: data.phone || null,
       company: data.company || null,
