@@ -1,11 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { CONTACT_FAQS } from "@/lib/data/contact";
 import { type FAQItem } from "@/types/faq";
-import { SectionHeader } from "@/components/ui/section-header";
-import { FaqContactCard } from "@/components/sections/faq/faq-contact-card";
-import { FaqAccordionItem } from "@/components/sections/faq/faq-accordion-item";
 import {
   Clock,
   ShieldCheck,
@@ -15,13 +12,9 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { SharedFaqSection } from "@/components/shared/faq-section";
+
 export function ContactFaq() {
-  const [openId, setOpenId] = useState<string | null>("contact-faq-0");
-
-  const toggle = (id: string) => {
-    setOpenId((curr) => (curr === id ? null : id));
-  };
-
   const formattedFaqs: FAQItem[] = useMemo(() => {
     const icons = [Clock, ShieldCheck, CreditCard, Code2, RefreshCw];
     const highlightSets = [
@@ -59,33 +52,14 @@ export function ContactFaq() {
   }, []);
 
   return (
-    <section id="contact-faq" className="relative scroll-mt-24 pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
-        {/* ── Left Column (5 Cols) — Sticky on lg ── */}
-        <div className="lg:col-span-5 flex flex-col justify-start gap-6 sm:gap-6 lg:sticky lg:top-32">
-          <SectionHeader
-            eyebrow="SCOPING FAQ"
-            title={<>Engagement & <br /></>}
-            highlightedText="Contract Details."
-            className="items-start text-left mx-0"
-            maxWidth="max-w-md"
-          />
-
-          <FaqContactCard />
-        </div>
-
-        {/* ── Right Column (7 Cols) — FAQ Accordion List ── */}
-        <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-4 pt-0 lg:pt-1">
-          {formattedFaqs.map((faq) => (
-            <FaqAccordionItem
-              key={faq.id}
-              faq={faq}
-              isOpen={openId === faq.id}
-              onToggle={() => toggle(faq.id)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <SharedFaqSection
+      id="contact-faq"
+      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]"
+      faqs={formattedFaqs}
+      eyebrow="SCOPING FAQ"
+      title={<>Engagement & <br /></>}
+      highlightedText="Contract Details."
+    />
   );
 }
+

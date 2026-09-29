@@ -13,8 +13,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
-import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
-
 interface CTAProps {
   onStartProject?: () => void;
 }

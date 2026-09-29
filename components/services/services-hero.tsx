@@ -1,7 +1,5 @@
 "use client";
 
-import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { CldImage } from "next-cloudinary";
 import { motion } from "motion/react";
 import {
@@ -20,14 +18,6 @@ import {
 import { Container } from "@/components/ui/container";
 
 export function ServicesHero() {
-  const { openLead } = useLead();
-
-  const handleScrollToTabs = () => {
-    const el = document.getElementById("services-tabs-container");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   return (
     <Container className="relative pt-24 sm:pt-28 lg:pt-36 pb-8 sm:pb-12 lg:pb-16">

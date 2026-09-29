@@ -1,10 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { type FAQItem } from "@/types/faq";
-import { SectionHeader } from "@/components/ui/section-header";
-import { FaqContactCard } from "@/components/sections/faq/faq-contact-card";
-import { FaqAccordionItem } from "@/components/sections/faq/faq-accordion-item";
 import {
   Code2,
   ShieldCheck,
@@ -82,41 +78,18 @@ const WORK_FAQS: FAQItem[] = [
   },
 ];
 
+import { SharedFaqSection } from "@/components/shared/faq-section";
+
 export function WorkFaqSection() {
-  const [openId, setOpenId] = useState<string | null>("work-faq-1");
-
-  const toggle = (id: string) => {
-    setOpenId((curr) => (curr === id ? null : id));
-  };
-
   return (
-    <section id="work-faq" className="relative scroll-mt-24 pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
-        {/* ── Left Column (5 Cols) — Sticky on lg ── */}
-        <div className="lg:col-span-5 flex flex-col justify-start gap-6 sm:gap-6 lg:sticky lg:top-32">
-          <SectionHeader
-            eyebrow="CLIENT FAQ"
-            title={<>Project & Delivery <br /></>}
-            highlightedText="Questions."
-            className="items-start text-left mx-0"
-            maxWidth="max-w-md"
-          />
-
-          <FaqContactCard />
-        </div>
-
-        {/* ── Right Column (7 Cols) — FAQ Accordion List ── */}
-        <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-4 pt-0 lg:pt-1">
-          {WORK_FAQS.map((faq) => (
-            <FaqAccordionItem
-              key={faq.id}
-              faq={faq}
-              isOpen={openId === faq.id}
-              onToggle={() => toggle(faq.id)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <SharedFaqSection
+      id="work-faq"
+      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]"
+      faqs={WORK_FAQS}
+      eyebrow="CLIENT FAQ"
+      title={<>Project & Delivery <br /></>}
+      highlightedText="Questions."
+    />
   );
 }
+

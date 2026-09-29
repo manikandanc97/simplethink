@@ -11,8 +11,6 @@ import { useRef } from "react";
 import { HERO_CONTENT } from "@/lib/data/hero";
 import { Hero3DCoder } from "./hero-3d-coder";
 import { HeroGridAccents } from "./hero-grid-accents";
-import { prefersReducedMotion, SCROLL_EASE } from "@/lib/motion-system";
-
 export function WorkbenchHero() {
   const { openLead } = useLead();
   const heroRef = useRef<HTMLElement>(null);

@@ -10,7 +10,7 @@ interface ServicesWhatWeBuildProps {
 }
 
 export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [_currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? service.whatWeBuild.length - 1 : prev - 1));
