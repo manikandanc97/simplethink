@@ -21,14 +21,14 @@ export function ServicesBusinessNeeds({ onSelectServiceTab }: ServicesBusinessNe
     <div className="w-full relative z-20 mb-16 sm:mb-20">
       {/* ── Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
-        <div className="flex flex-col items-start text-left">
-          <span className="text-xs sm:text-xs font-extrabold uppercase tracking-[0.2em] text-primary font-satoshi mb-1.5 block">
+        <div className="flex flex-col gap-1 items-start text-left">
+          <span className="text-xs sm:text-xs font-extrabold uppercase tracking-[0.2em] text-primary font-satoshi block">
             5 USE CASES
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
             Built business need
           </h3>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-1 font-normal max-w-xl">
+          <p className="text-xs sm:text-sm text-muted-foreground font-normal max-w-xl">
             <span className="font-semibold text-foreground">Built around the problem, not the technology.</span>{" "}
             Different businesses, Different goals, The same capable partner.
           </p>
@@ -54,10 +54,10 @@ export function ServicesBusinessNeeds({ onSelectServiceTab }: ServicesBusinessNe
             key={item.id}
             type="button"
             onClick={() => handleSelect(item.targetTab)}
-            className="group p-4 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left cursor-pointer"
+            className="group p-4 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 items-start text-left cursor-pointer"
           >
             {/* Top Icon */}
-            <div className="w-10 h-10 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center mb-4.5 group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
               {idx === 0 && <Rocket size={18} className="text-[var(--primary)]" />}
               {idx === 1 && <Sliders size={18} className="text-[var(--chart-1)]" />}
               {idx === 2 && <ShoppingCart size={18} className="text-[var(--chart-4)]" />}
@@ -65,18 +65,20 @@ export function ServicesBusinessNeeds({ onSelectServiceTab }: ServicesBusinessNe
               {idx === 4 && <Sparkles size={18} className="text-[var(--primary)]" />}
             </div>
 
-            {/* Title */}
-            <h4 className="text-sm sm:text-base font-extrabold text-foreground group-hover:text-primary transition-colors">
-              {item.title}
-            </h4>
+            <div className="flex flex-col gap-1">
+              {/* Title */}
+              <h4 className="text-sm sm:text-base font-extrabold text-foreground group-hover:text-primary transition-colors">
+                {item.title}
+              </h4>
 
-            {/* Subtitle / Need */}
-            <p className="text-xs sm:text-xs text-muted-foreground mt-1 mb-4.5 leading-tight font-medium">
-              {item.subtitle}
-            </p>
+              {/* Subtitle / Need */}
+              <p className="text-xs sm:text-xs text-muted-foreground leading-tight font-medium">
+                {item.subtitle}
+              </p>
+            </div>
 
             {/* Service Pills */}
-            <div className="flex flex-col gap-1 w-full mt-auto pt-2 border-t border-[var(--surface-elevated)]">
+            <div className="flex flex-col gap-1 w-full mt-auto pt-4 border-t border-[var(--surface-elevated)]">
               {item.services.map((srv, sIdx) => (
                 <span
                   key={sIdx}

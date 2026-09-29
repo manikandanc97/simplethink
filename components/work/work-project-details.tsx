@@ -33,7 +33,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
                 <div className="text-sm sm:text-base font-extrabold text-foreground leading-tight truncate">
                   {m.value}
                 </div>
-                <div className="text-xs text-muted-foreground font-medium truncate mt-0.5">
+                <div className="text-xs text-muted-foreground font-medium truncate">
                   {m.label}
                 </div>
               </div>
@@ -43,8 +43,8 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
       </div>
 
       {/* ── Project Overview ── */}
-      <div className="pt-1">
-        <h4 className="text-sm sm:text-base font-bold text-foreground mb-1.5">
+      <div className="pt-1 flex flex-col gap-1.5">
+        <h4 className="text-sm sm:text-base font-bold text-foreground">
           Project Overview
         </h4>
         <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
@@ -53,8 +53,8 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
       </div>
 
       {/* ── Tech Stack Row ── */}
-      <div className="pt-1">
-        <div className="text-xs font-semibold text-foreground mb-2.5">
+      <div className="pt-1 flex flex-col gap-2.5">
+        <div className="text-xs font-semibold text-foreground">
           Tech Stack
         </div>
         <div className="flex flex-wrap items-center gap-2">

@@ -44,19 +44,21 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
       </div>
 
       {/* ── Project Meta ── */}
-      <div className="flex-1 min-w-0">
-        <div className="text-xs font-medium text-[var(--muted-foreground)] mb-0.5">
-          {project.year}
+      <div className="flex-1 min-w-0 flex flex-col gap-2">
+        <div className="flex flex-col">
+          <div className="text-xs font-medium text-[var(--muted-foreground)]">
+            {project.year}
+          </div>
+          <h3 className="text-sm sm:text-base font-bold text-foreground truncate tracking-tight">
+            {project.name}
+          </h3>
+          <p className="text-xs text-[var(--muted-foreground)] truncate">
+            {project.category}
+          </p>
         </div>
-        <h3 className="text-sm sm:text-base font-bold text-foreground truncate tracking-tight">
-          {project.name}
-        </h3>
-        <p className="text-xs text-[var(--muted-foreground)] truncate mt-0.5">
-          {project.category}
-        </p>
 
         {/* ── Tech Tag Pills ── */}
-        <div className="flex flex-wrap gap-1.5 mt-2">
+        <div className="flex flex-wrap gap-1.5">
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}

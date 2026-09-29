@@ -11,9 +11,9 @@ export function AboutMetrics() {
         return (
           <div
             key={i}
-            className="p-6 rounded-3xl border border-[var(--surface-elevated)] bg-white/80 hover:bg-white shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+            className="p-6 rounded-3xl border border-[var(--surface-elevated)] bg-white/80 hover:bg-white shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group gap-6"
           >
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                 <Icon size={18} />
               </div>
@@ -22,14 +22,14 @@ export function AboutMetrics() {
               </span>
             </div>
 
-            <div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors mb-1 font-satoshi">
+            <div className="flex flex-col gap-1">
+              <div className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors font-satoshi">
                 {metric.value}
               </div>
               <h3 className="text-sm font-bold text-foreground tracking-tight">
                 {metric.label}
               </h3>
-              <p className="text-xs text-muted-foreground mt-1 leading-snug">
+              <p className="text-xs text-muted-foreground leading-snug">
                 {metric.sub}
               </p>
             </div>

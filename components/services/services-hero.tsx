@@ -43,24 +43,28 @@ export function ServicesHero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
         {/* ── Left Column: Headline, CTAs, Highlights ── */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 mb-2 sm:mb-2.5 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
-            <a href="/" className="hover:text-foreground transition-colors">Home</a>
-            <span className="text-[var(--border)]">/</span>
-            <span className="text-primary font-semibold">Services</span>
-          </nav>
+        <div className="lg:col-span-7 flex flex-col gap-8 sm:gap-12 items-start text-left z-10">
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex flex-col gap-2 sm:gap-2.5">
+              {/* Breadcrumb */}
+              <nav className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
+                <a href="/" className="hover:text-foreground transition-colors">Home</a>
+                <span className="text-[var(--border)]">/</span>
+                <span className="text-primary font-semibold">Services</span>
+              </nav>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi mb-4 sm:mb-6 max-w-2xl">
-            Digital services for <span className="text-primary">your business.</span>
-          </h1>
+              {/* Main Title */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi max-w-2xl">
+                Digital services for <span className="text-primary">your business.</span>
+              </h1>
+            </div>
 
-          {/* Description */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-12 font-normal">
-            From websites and mobile products to AI-powered systems, we design
-            and build the exact digital capabilities your business needs.
-          </p>
+            {/* Description */}
+            <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed font-normal">
+              From websites and mobile products to AI-powered systems, we design
+              and build the exact digital capabilities your business needs.
+            </p>
+          </div>
 
           {/* 3 Core Value Props in a Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-[var(--surface-elevated)]/80 w-full">
@@ -69,11 +73,11 @@ export function ServicesHero() {
               <div className="w-10 h-10 rounded-2xl bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100/80">
                 <Grid size={18} className="text-primary" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   9 capabilities
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   End-to-end digital services
                 </span>
               </div>
@@ -84,11 +88,11 @@ export function ServicesHero() {
               <div className="w-10 h-10 rounded-2xl bg-purple-50 flex items-center justify-center shrink-0 border border-purple-100/80">
                 <Zap size={18} className="text-[var(--chart-2)]" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   Design + Development
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   Modern and scalable
                 </span>
               </div>
@@ -99,11 +103,11 @@ export function ServicesHero() {
               <div className="w-10 h-10 rounded-2xl bg-pink-50 flex items-center justify-center shrink-0 border border-pink-100/80">
                 <TrendingUp size={18} className="text-[var(--primary)]" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   Built for growth
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   Real business outcomes
                 </span>
               </div>

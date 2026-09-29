@@ -86,19 +86,21 @@ export function ServicesTechStack({ service }: ServicesTechStackProps) {
   return (
     <div className="w-full relative z-20 mb-16 sm:mb-20">
       {/* ── Header ── */}
-      <div className="flex flex-col items-start text-left mb-8 sm:mb-12">
-        <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-4">
+      <div className="flex flex-col gap-4 items-start text-left mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs">
           <span className="w-2 h-2 rounded-full bg-primary inline-block" />
           <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
             Tech Stack
           </span>
         </div>
-        <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
-          Technology we use
-        </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground mt-1 font-normal">
-          The right tools for the right solution, categorized by necessity.
-        </p>
+        <div className="flex flex-col gap-1">
+          <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
+            Technology we use
+          </h3>
+          <p className="text-xs sm:text-sm text-muted-foreground font-normal">
+            The right tools for the right solution, categorized by necessity.
+          </p>
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
@@ -118,8 +120,8 @@ export function ServicesTechStack({ service }: ServicesTechStackProps) {
             const isFirst = category === categoryOrder.find((c) => categorizedTech[c]?.length > 0);
 
             return (
-              <div key={category}>
-                <h4 className="text-sm sm:text-base font-bold text-foreground mb-4 flex items-center gap-2">
+              <div key={category} className="flex flex-col gap-4">
+                <h4 className="text-sm sm:text-base font-bold text-foreground flex items-center gap-2">
                   <div className={`w-1.5 h-1.5 rounded-full ${isFirst ? colors.bg : "bg-[var(--muted-foreground)]"} transition-colors duration-300`} />
                   {CATEGORY_TITLES[category]}
                 </h4>

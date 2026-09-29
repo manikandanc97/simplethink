@@ -10,7 +10,7 @@ export function AboutPrinciples() {
   const [activePrinciple, setActivePrinciple] = useState<number>(0);
 
   return (
-    <div className="w-full pt-16 md:pt-20 border-t border-border">
+    <div className="w-full pt-16 md:pt-20 border-t border-border flex flex-col gap-12 sm:gap-16">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Guiding Philosophy"
@@ -19,7 +19,7 @@ export function AboutPrinciples() {
         description="The core tenets that guide every architectural decision, interface, and line of code we ship."
         centered
         maxWidth="max-w-2xl"
-        className="mb-12 sm:mb-16 mx-auto"
+        className="mx-auto"
       />
 
       {/* ── 3 Principles Grid ── */}
@@ -43,9 +43,9 @@ export function AboutPrinciples() {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-hover" />
               )}
 
-              <div>
+              <div className="flex flex-col gap-6">
                 {/* Number and Tag */}
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between">
                   <span
                     className={cn(
                       "text-3xl sm:text-4xl font-black font-mono tracking-tight transition-colors",
@@ -66,24 +66,28 @@ export function AboutPrinciples() {
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="type-h3 text-foreground mb-2">
-                  {principle.title}
-                </h3>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    {/* Title */}
+                    <h3 className="type-h3 text-foreground">
+                      {principle.title}
+                    </h3>
 
-                {/* Summary */}
-                <p className="text-sm font-semibold text-primary mb-4">
-                  {principle.summary}
-                </p>
+                    {/* Summary */}
+                    <p className="text-sm font-semibold text-primary">
+                      {principle.summary}
+                    </p>
+                  </div>
 
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {principle.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {principle.description}
+                  </p>
+                </div>
               </div>
 
               {/* Deliverable footnote */}
-              <div className="mt-8 pt-4 border-t border-border flex items-center gap-2 type-label text-muted-foreground">
+              <div className="mt-auto pt-6 border-t border-border flex items-center gap-2 type-label text-muted-foreground">
                 <CheckCircle2 size={15} className="text-primary shrink-0" />
                 <span>{principle.deliverable}</span>
               </div>

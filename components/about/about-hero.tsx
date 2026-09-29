@@ -28,28 +28,32 @@ export function AboutHero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
         {/* ── Left Column: Headline, Description & 3 Value Props ── */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 mb-4 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
-            <a href="/" className="hover:text-foreground transition-colors">
-              Home
-            </a>
-            <span className="text-muted-foreground/60">/</span>
-            <span className="text-primary font-semibold">About</span>
-          </nav>
+        <div className="lg:col-span-7 flex flex-col gap-8 sm:gap-12 items-start text-left z-10">
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <div className="flex flex-col gap-2 sm:gap-2.5">
+              {/* Breadcrumb */}
+              <nav className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
+                <a href="/" className="hover:text-foreground transition-colors">
+                  Home
+                </a>
+                <span className="text-muted-foreground/60">/</span>
+                <span className="text-primary font-semibold">About</span>
+              </nav>
 
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi mb-4 sm:mb-6 max-w-2xl">
-            Engineering excellence shaped around{" "}
-            <span className="text-primary">your vision.</span>
-          </h1>
+              {/* Main Title */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi max-w-2xl">
+                Engineering excellence shaped around{" "}
+                <span className="text-primary">your vision.</span>
+              </h1>
+            </div>
 
-          {/* Description */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-12 font-normal">
-            We are a dedicated software studio built on the conviction that
-            digital products should be clear, lightning-fast, and engineered to
-            solve real business challenges without bureaucratic overhead.
-          </p>
+            {/* Description */}
+            <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed font-normal">
+              We are a dedicated software studio built on the conviction that
+              digital products should be clear, lightning-fast, and engineered to
+              solve real business challenges without bureaucratic overhead.
+            </p>
+          </div>
 
           {/* 3 Core Value Props in a Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-4 border-t border-border w-full">
@@ -58,11 +62,11 @@ export function AboutHero() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                 <Sparkles size={18} className="text-primary" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   High Craft
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   Pixel-perfect execution
                 </span>
               </div>
@@ -73,11 +77,11 @@ export function AboutHero() {
               <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center shrink-0 border border-border">
                 <Zap size={18} className="text-foreground/80" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   Zero Bloat
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   Lean, rapid architecture
                 </span>
               </div>
@@ -88,11 +92,11 @@ export function AboutHero() {
               <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 border border-primary/15">
                 <ShieldCheck size={18} className="text-primary" />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
                   Production-Ready
                 </span>
-                <span className="text-xs text-muted-foreground leading-tight mt-0.5">
+                <span className="text-xs text-muted-foreground leading-tight">
                   Scale with confidence
                 </span>
               </div>

@@ -40,34 +40,38 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="w-full"
+              className="w-full flex flex-col gap-8 sm:gap-12"
             >
-              {/* Kicker with Number & Category */}
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-primary font-black text-base sm:text-lg tracking-tight font-satoshi">
-                  {service.number}
-                </span>
-                <span className="text-primary font-black">•</span>
-                <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-muted-foreground font-satoshi">
-                  {service.name}
-                </span>
+              <div className="flex flex-col gap-6 sm:gap-8">
+                <div className="flex flex-col gap-4">
+                  {/* Kicker with Number & Category */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-primary font-black text-base sm:text-lg tracking-tight font-satoshi">
+                      {service.number}
+                    </span>
+                    <span className="text-primary font-black">•</span>
+                    <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-muted-foreground font-satoshi">
+                      {service.name}
+                    </span>
+                  </div>
+
+                  {/* Dynamic Headline */}
+                  <h2 className="text-3xl sm:text-4xl lg:text-4xl sm:text-5xl font-black text-foreground tracking-tight leading-[1.12] font-satoshi">
+                    {service.headline.normal}
+                    <span className="text-primary">
+                      {service.headline.highlight}
+                    </span>
+                  </h2>
+                </div>
+
+                {/* Dynamic Description */}
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-normal">
+                  {service.description}
+                </p>
               </div>
 
-              {/* Dynamic Headline */}
-              <h2 className="text-3xl sm:text-4xl lg:text-4xl sm:text-5xl font-black text-foreground tracking-tight leading-[1.12] font-satoshi mb-4 sm:mb-6">
-                {service.headline.normal}
-                <span className="text-primary">
-                  {service.headline.highlight}
-                </span>
-              </h2>
-
-              {/* Dynamic Description */}
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 sm:mb-8 font-normal">
-                {service.description}
-              </p>
-
               {/* Dual Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-4 mb-8 sm:mb-12">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-4">
                 <button
                   type="button"
                   onClick={() =>
@@ -97,7 +101,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                     <span className="text-xl sm:text-2xl lg:text-3xl font-black text-foreground tracking-tight font-satoshi">
                       {st.value}
                     </span>
-                    <span className="text-xs sm:text-xs text-muted-foreground font-medium leading-tight mt-1">
+                    <span className="text-xs sm:text-xs text-muted-foreground font-medium leading-tight">
                       {st.label}
                     </span>
                   </div>
@@ -189,11 +193,11 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                 {/* Right Content Area */}
                 <div className="col-span-9 sm:col-span-9 flex flex-col gap-4 sm:gap-4 pl-1 sm:pl-2">
                   {/* Greeting */}
-                  <div>
+                  <div className="flex flex-col gap-1">
                     <h3 className="text-xs sm:text-sm font-extrabold text-foreground tracking-tight">
                       Welcome back, Mani 👋
                     </h3>
-                    <p className="text-xs sm:text-xs text-[var(--muted-foreground)] mt-0.5">
+                    <p className="text-xs sm:text-xs text-[var(--muted-foreground)]">
                       Here&apos;s what&apos;s happening with your {service.name.toLowerCase()} today.
                     </p>
                   </div>
@@ -247,7 +251,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-stretch">
                     {/* Project Overview Chart */}
                     <div className="sm:col-span-7 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
-                      <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center justify-between">
                         <span className="text-xs sm:text-xs font-bold text-foreground">
                           Project Overview
                         </span>
@@ -304,7 +308,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
 
                     {/* Recent Activity List */}
                     <div className="sm:col-span-5 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between">
                         <span className="text-xs sm:text-xs font-bold text-foreground">
                           Recent Activity
                         </span>

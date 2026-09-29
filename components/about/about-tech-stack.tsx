@@ -53,7 +53,7 @@ const STACK_CATEGORIES = [
 
 export function AboutTechStack() {
   return (
-    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)] flex flex-col gap-12 sm:gap-16">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Engineering Stack"
@@ -62,7 +62,7 @@ export function AboutTechStack() {
         description="We intentionally curate our stack to maximize runtime velocity, developer joy, and long-term codebase maintainability."
         centered
         maxWidth="max-w-2xl"
-        className="mb-12 sm:mb-16 mx-auto"
+        className="mx-auto"
       />
 
       {/* ── 4 Category Grid ── */}
@@ -74,8 +74,8 @@ export function AboutTechStack() {
               key={i}
               className="p-6 rounded-3xl bg-white/90 border border-[var(--surface-elevated)] shadow-card hover:border-primary/30 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
                   <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-primary">
                     <Icon size={18} />
                   </div>
@@ -84,20 +84,20 @@ export function AboutTechStack() {
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight mb-4">
+                <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight">
                   {cat.title}
                 </h3>
 
-                <div className="space-y-2.5">
+                <div className="flex flex-col gap-2.5">
                   {cat.technologies.map((t, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] hover:border-primary/30 hover:bg-white transition-colors"
+                      className="p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] hover:border-primary/30 hover:bg-white transition-colors flex flex-col gap-0.5"
                     >
                       <div className="text-xs font-bold text-foreground">
                         {t.name}
                       </div>
-                      <div className="text-xs text-muted-foreground mt-0.5">
+                      <div className="text-xs text-muted-foreground">
                         {t.desc}
                       </div>
                     </div>
