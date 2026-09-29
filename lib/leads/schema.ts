@@ -9,7 +9,7 @@ export const PROJECT_TYPES = [
   "Not Sure Yet",
 ] as const;
 
-export const LEAD_SOURCES = [
+const LEAD_SOURCES = [
   "cta",
   "cta-schedule",
   "navbar",

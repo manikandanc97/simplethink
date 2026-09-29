@@ -1,6 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
-export interface HeroStat {
+interface HeroStat {
   value: string;
   label: string;
   icon?: LucideIcon;

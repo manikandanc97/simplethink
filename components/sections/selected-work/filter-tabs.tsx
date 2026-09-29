@@ -7,8 +7,8 @@ import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { motion } from "motion/react";
 import { PROJECTS } from "@/lib/data/projects";
 
-export const FILTER_TABS = ["Websites", "Web Apps", "Mobile Apps"] as const;
-export type FilterTabType = typeof FILTER_TABS[number];
+const FILTER_TABS = ["Websites", "Web Apps", "Mobile Apps"] as const;
+type FilterTabType = typeof FILTER_TABS[number];
 
 interface FilterTabsListProps {
   activeFilter: string;

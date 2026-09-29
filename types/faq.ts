@@ -1,6 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
-export interface FAQHighlight {
+interface FAQHighlight {
   text: string;
   icon: LucideIcon;
 }

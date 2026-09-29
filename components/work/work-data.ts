@@ -13,13 +13,13 @@ import {
   ReactIcon,
 } from "./tech-icons";
 
-export interface MetricItem {
+interface MetricItem {
   value: string;
   label: string;
   iconType: "chart" | "users" | "star" | "shield";
 }
 
-export interface TechItem {
+interface TechItem {
   name: string;
   icon: React.FC<{ className?: string }>;
 }

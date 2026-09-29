@@ -1,6 +1,6 @@
-export type ServiceType = "Websites" | "Web Apps" | "Mobile Apps";
+type ServiceType = "Websites" | "Web Apps" | "Mobile Apps";
 
-export interface ProjectPreviewTheme {
+interface ProjectPreviewTheme {
   primaryColor: string;
   badgeBg: string;
   badgeText: string;

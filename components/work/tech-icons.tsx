@@ -18,7 +18,7 @@ export function NextJsIcon({ className }: { className?: string }) {
   );
 }
 
-export function TypeScriptIcon({ className }: { className?: string }) {
+function TypeScriptIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 128 128">
       <rect width="128" height="128" rx="20" fill="#3178C6" />
@@ -65,7 +65,7 @@ export function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-export function FigmaIcon({ className }: { className?: string }) {
+function FigmaIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 38 57" fill="none">
       <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE" />

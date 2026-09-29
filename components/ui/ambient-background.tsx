@@ -10,7 +10,7 @@ import {
   WAVE_CURVES,
 } from "@/lib/data/ambient-background";
 
-export type { ScreenType };
+;
 
 interface AmbientBackgroundProps {
   className?: string;

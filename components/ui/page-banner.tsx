@@ -10,7 +10,7 @@ import {
 } from "./page-banner-breadcrumb";
 import { PageBannerFloatingTech } from "./page-banner-floating-tech";
 
-export type { BreadcrumbItem };
+;
 
 export interface PageBannerProps {
   breadcrumb: BreadcrumbItem[];

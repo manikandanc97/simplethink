@@ -1389,13 +1389,13 @@ export const SERVICES_LIST: ServiceData[] = [
   }
 ];
 
-export const CATEGORY_ORDER = [
+const CATEGORY_ORDER = [
   "Client Interface",
   "Core Systems",
   "Foundation"
 ];
 
-export const BUILT_BUSINESS_NEEDS = [
+const BUILT_BUSINESS_NEEDS = [
   {
     "id": "launch",
     "title": "Launch",

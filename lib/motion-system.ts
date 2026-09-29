@@ -7,13 +7,13 @@
  * - Ambient background movement: 1.0
  */
 
-export const SCROLL_EASE = {
+const SCROLL_EASE = {
   primary: 0.6,
   cinematic: 0.8,
   ambient: 1.0,
 } as const;
 
-export const MOTION_EASE = {
+const MOTION_EASE = {
   // Ultra-smooth deceleration for entrances & masked reveals
   expoOut: "power4.out",
   smoothOut: "power3.out",
@@ -23,7 +23,7 @@ export const MOTION_EASE = {
   inOut: "power2.inOut",
 } as const;
 
-export const MOTION_DURATION = {
+const MOTION_DURATION = {
   micro: 0.25,
   fast: 0.45,
   standard: 0.65,
@@ -43,7 +43,7 @@ export function prefersReducedMotion(): boolean {
 /**
  * Check if screen is mobile (< 768px)
  */
-export function isMobileScreen(): boolean {
+function isMobileScreen(): boolean {
   if (typeof window === "undefined") return false;
   return window.innerWidth < 768;
 }
@@ -51,7 +51,7 @@ export function isMobileScreen(): boolean {
 /**
  * Safely reset elements so they are permanently visible
  */
-export function ensureVisible(elements: (Element | null | undefined)[]) {
+function ensureVisible(elements: (Element | null | undefined)[]) {
   const valid = elements.filter(Boolean);
   if (valid.length > 0) {
     valid.forEach((el) => {

@@ -5,7 +5,7 @@ export interface ContactStep {
   description: string;
 }
 
-export interface ContactFaq {
+interface ContactFaq {
   question: string;
   answer: string;
 }
@@ -31,7 +31,7 @@ export const CONTACT_STEPS: ContactStep[] = [
   },
 ];
 
-export const CONTACT_FAQS: ContactFaq[] = [
+const CONTACT_FAQS: ContactFaq[] = [
   {
     question: "How fast can we kick off a build?",
     answer: "Most projects begin within 3-7 days after architectural sign-off.",

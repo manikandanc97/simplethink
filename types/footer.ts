@@ -1,6 +1,6 @@
 import { AnimatedIconName } from "@/components/ui/animated-icon";
 
-export interface FooterCapabilityItem {
+interface FooterCapabilityItem {
   label: string;
   icon: AnimatedIconName;
   id?: string;
