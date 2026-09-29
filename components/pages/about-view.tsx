@@ -8,8 +8,6 @@ import { AboutMetrics } from "@/components/about/about-metrics";
 import { AboutPrinciples } from "@/components/about/about-principles";
 import { AboutComparison } from "@/components/about/about-comparison";
 import { AboutTechStack } from "@/components/about/about-tech-stack";
-import { AboutFaqSection } from "@/components/about/about-faq-section";
-import { AboutCta } from "@/components/about/about-cta";
 import { Container } from "@/components/ui/container";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { MapPin, ShieldCheck, Zap, Code2 } from "lucide-react";
@@ -72,7 +70,7 @@ export function AboutView() {
                   </CardTitle>
                 </div>
                 <CardDescription className="text-sm leading-relaxed">
-                  When you collaborate with SimpleThink, you don&apos;t get passed through account managers, junior coordinators, or fragmented offshore tiers. Every architecture decision, database schema, and interface interaction is authored and reviewed by battle-tested engineers.
+                  When you collaborate with Simpluxe, you don&apos;t get passed through account managers, junior coordinators, or fragmented offshore tiers. Every architecture decision, database schema, and interface interaction is authored and reviewed by battle-tested engineers.
                 </CardDescription>
               </Card>
 
@@ -116,18 +114,11 @@ export function AboutView() {
         {/* ── 3. Guiding Philosophy (Interactive Principle Cards) ── */}
         <AboutPrinciples />
 
-        {/* ── 4. The SimpleThink Advantage vs Traditional Agencies ── */}
+        {/* ── 4. The Simpluxe Advantage vs Traditional Agencies ── */}
         <AboutComparison />
 
         {/* ── 5. Modern Engineering Stack & Tech Philosophy ── */}
         <AboutTechStack />
-
-        {/* ── 6. Studio Frequently Asked Questions ── */}
-        <AboutFaqSection />
-
-        {/* ── 7. Luxury Bottom CTA Banner ── */}
-        <AboutCta />
-
       </Container>
     </div>
   );

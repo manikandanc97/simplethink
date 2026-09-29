@@ -22,7 +22,7 @@ const ABOUT_FAQS: FAQItem[] = [
     icon: Users,
     question: "Why do you work directly with senior engineers instead of account managers?",
     answer:
-      "Traditional agencies use account managers who act as communication bottlenecks between you and the developers. At SimpleThink, you communicate directly with the senior software engineers designing your system. This eliminates lost requirements, speeds up iterations, and guarantees architectural integrity.",
+      "Traditional agencies use account managers who act as communication bottlenecks between you and the developers. At Simpluxe, you communicate directly with the senior software engineers designing your system. This eliminates lost requirements, speeds up iterations, and guarantees architectural integrity.",
     highlights: [
       { text: "Zero Miscommunication", icon: Users },
       { text: "Direct Developer Line", icon: Sparkles },
@@ -33,7 +33,7 @@ const ABOUT_FAQS: FAQItem[] = [
     num: "02",
     category: "LOCATION & TIMEZONES",
     icon: MapPin,
-    question: "Where is SimpleThink based and how do you work with remote clients?",
+    question: "Where is Simpluxe based and how do you work with remote clients?",
     answer:
       "Our physical studio base is in Udumalpet, Tamil Nadu, India, but we operate globally. We have streamlined asynchronous workflows with daily check-ins, sprint video walkthroughs, and guaranteed overlapping hours for clients across North America, Europe, Singapore, and India.",
     highlights: [
@@ -97,7 +97,7 @@ export function AboutFaqSection() {
           <SectionHeader
             eyebrow="STUDIO FAQ"
             title={<>Working With <br /></>}
-            highlightedText="SimpleThink."
+            highlightedText="Simpluxe."
             className="items-start text-left mx-0"
             maxWidth="max-w-md"
           />

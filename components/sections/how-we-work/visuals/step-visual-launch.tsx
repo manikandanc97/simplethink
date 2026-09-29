@@ -138,7 +138,7 @@ export function StepVisualLaunch() {
       <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
         <CldImage
           src="simpluxe/process/launch"
-          alt="Launch Phase - SimpleThink"
+          alt="Launch Phase - Simpluxe"
           width={1774}
           height={887}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"

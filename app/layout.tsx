@@ -95,22 +95,22 @@ const caveat = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "SimpleThink — Keep It Simple. Make It Luxury.",
-    template: "%s · SimpleThink",
+    default: "Simpluxe — Keep It Simple. Make It Luxury.",
+    template: "%s · Simpluxe",
   },
   description:
-    "SimpleThink is a premium digital studio that engineers custom software, scalable web applications, mobile apps, SaaS platforms, and enterprise solutions.",
+    "Simpluxe is a premium digital studio that engineers custom software, scalable web applications, mobile apps, SaaS platforms, and enterprise solutions.",
   openGraph: {
-    title: "SimpleThink — Keep It Simple. Make It Luxury.",
+    title: "Simpluxe — Keep It Simple. Make It Luxury.",
     description:
       "Premium digital studio engineering custom software, scalable web applications, mobile apps, SaaS platforms, and enterprise solutions.",
     url: SITE.url,
-    siteName: "SimpleThink",
+    siteName: "Simpluxe",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpleThink — Keep It Simple. Make It Luxury.",
+    title: "Simpluxe — Keep It Simple. Make It Luxury.",
     description:
       "Premium digital studio engineering custom software, scalable web applications, mobile apps, SaaS platforms, and enterprise solutions.",
   },

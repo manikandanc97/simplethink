@@ -128,7 +128,7 @@ export function StepVisualEngineering() {
       <div className="relative z-20 w-full flex items-end justify-center pointer-events-none">
         <CldImage
           src="simpluxe/process/design-develop"
-          alt="Develop Phase - SimpleThink"
+          alt="Develop Phase - Simpluxe"
           width={1774}
           height={887}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 500px, 600px"

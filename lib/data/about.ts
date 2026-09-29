@@ -16,7 +16,7 @@ export interface AboutPrinciple {
 export interface AboutComparison {
   aspect: string;
   traditional: string;
-  simplethink: string;
+  simpluxe: string;
 }
 
 export const METRICS: AboutMetric[] = [
@@ -76,21 +76,21 @@ export const COMPARISONS: AboutComparison[] = [
   {
     aspect: "Engineering Team",
     traditional: "Layers of account managers, junior temps, and outsourced developers.",
-    simplethink: "Direct daily collaboration with the senior software engineers crafting your system.",
+    simpluxe: "Direct daily collaboration with the senior software engineers crafting your system.",
   },
   {
     aspect: "Technology Foundation",
     traditional: "Bloated off-the-shelf WordPress themes, brittle plugins, and slow templates.",
-    simplethink: "Custom Next.js, TypeScript, React Native, and high-performance cloud backends.",
+    simpluxe: "Custom Next.js, TypeScript, React Native, and high-performance cloud backends.",
   },
   {
     aspect: "Delivery Velocity",
     traditional: "Months of bureaucratic 'discovery' decks before touching working code.",
-    simplethink: "Rapid 1-2 week release sprints with live staging previews and continuous feedback.",
+    simpluxe: "Rapid 1-2 week release sprints with live staging previews and continuous feedback.",
   },
   {
     aspect: "Code Ownership & IP",
     traditional: "Proprietary lock-in, licensing dependencies, and captive hosting fees.",
-    simplethink: "100% intellectual property ownership transferred to your GitHub repository.",
+    simpluxe: "100% intellectual property ownership transferred to your GitHub repository.",
   },
 ];

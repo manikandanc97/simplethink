@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 /**
  * Loading
  * ─────────────────────────────────────────────────────────────────
- * Branded full-viewport Suspense fallback for SimpleThink.
+ * Branded full-viewport Suspense fallback for Simpluxe.
  *
  * Slot: replaces only <main> children while a page streams in.
  * TopBar / SiteNavbar / MobileBottomNav remain mounted above/around.
@@ -14,7 +14,7 @@ import { motion } from "motion/react";
  * Anatomy
  * 1. Two blurred ambient glow discs (max 2, lightweight)
  * 2. CENTRAL PIECE: Animated "Live Diff" card cycling through snippets
- * 3. Wordmark text "Simple" + "Diff" beneath the mark, stagger-fade
+ * 3. Wordmark text "Simpluxe" beneath the mark, stagger-fade
  * 4. Three micro-dot "thinking" indicator, staggered opacity/scale
  * 5. Visually-hidden accessible label
  *
@@ -42,7 +42,7 @@ export default function Loading() {
       )}
     >
       {/* ── Accessible hidden label ─────────────────────────────── */}
-      <span className="sr-only">Loading SimpleThink…</span>
+      <span className="sr-only">Loading Simpluxe…</span>
 
       {/* ── Ambient glow discs (max 2, pointer-events-none) ─────── */}
       <motion.div

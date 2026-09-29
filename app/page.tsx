@@ -2,7 +2,7 @@ import { WorkbenchHero } from "@/components/workbench/workbench-hero";
 import { WhatWeBuild } from "@/components/sections/what-we-build";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { HowWeWork } from "@/components/sections/how-we-work";
-import { WhySimpleThink } from "@/components/sections/philosophy";
+import { WhySimpluxe } from "@/components/sections/philosophy";
 import { TechStack } from "@/components/sections/tech-stack";
 import { FAQ } from "@/components/sections/faq";
 import { CTA } from "@/components/sections/cta";
@@ -27,8 +27,8 @@ export default function Home() {
         {/* 06 — HOW WE WORK */}
         <HowWeWork />
 
-        {/* 07 — Why SimpleThink */}
-        <WhySimpleThink />
+        {/* 07 — Why Simpluxe */}
+        <WhySimpluxe />
 
         {/* 09 — TECHNOLOGY */}
         <TechStack />

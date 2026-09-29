@@ -159,7 +159,7 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
         <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white shadow-elevated border border-rose-50 flex flex-col items-center justify-center p-3 sm:p-4">
           <CldImage
             src="simpluxe/logo/logo"
-            alt="SimpleThink Logo"
+            alt="Simpluxe Logo"
             width={180}
             height={40}
             className="w-[90%] h-auto object-contain drop-shadow-sm select-none"

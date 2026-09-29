@@ -12,7 +12,7 @@ export function MobileFlowGrid() {
         <div className="w-24 h-24 xs:w-28 xs:h-28 rounded-full bg-white shadow-elevated border border-rose-100 flex flex-col items-center justify-center p-3">
           <CldImage
             src="simpluxe/logo/logo"
-            alt="SimpleThink Logo"
+            alt="Simpluxe Logo"
             width={140}
             height={32}
             className="w-[90%] h-auto object-contain drop-shadow-sm select-none"

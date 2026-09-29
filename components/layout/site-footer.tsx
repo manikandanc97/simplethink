@@ -38,11 +38,11 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
               <Link
                 href="/"
                 className="inline-flex items-center focus-visible:ring-2 focus-visible:ring-ring outline-none"
-                aria-label="SimpleThink Home"
+                aria-label="Simpluxe Home"
               >
                 <CldImage
                   src="simpluxe/logo/logo"
-                  alt="SimpleThink"
+                  alt="Simpluxe"
                   width={160}
                   height={36}
                   className="h-8 w-auto object-contain"
@@ -239,7 +239,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
         {/* Copyright & Bottom Bar */}
         <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-xs text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} SimpleThink Digital Studio. All rights reserved.
+            &copy; {new Date().getFullYear()} Simpluxe Digital Studio. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
@@ -268,7 +268,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
         <div className="relative w-full flex justify-center items-center -my-[6%] md:-my-[8%] lg:-my-[10%]">
           <CldImage
             src="simpluxe/logo/logo"
-            alt="SimpleThink Logo"
+            alt="Simpluxe Logo"
             width={1920}
             height={400}
             className="w-full max-w-none  h-auto object-contain  opacity-100 dark:opacity-100"

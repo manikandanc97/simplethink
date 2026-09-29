@@ -52,8 +52,8 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
 
   const encodedSummary = encodeURIComponent(
     prefill?.description
-      ? `Hi SimpleThink, I'm interested in discussing this project: ${prefill.description.slice(0, 100)}...`
-      : "Hi SimpleThink, I'd like to discuss a project."
+      ? `Hi Simpluxe, I'm interested in discussing this project: ${prefill.description.slice(0, 100)}...`
+      : "Hi Simpluxe, I'd like to discuss a project."
   );
 
   return (

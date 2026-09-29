@@ -1,5 +1,5 @@
 /**
- * Standardized Motion System for SimpleThink
+ * Standardized Motion System for Simpluxe
  * Editorial, Cinematic, Premium, Smooth, Spatial, Connected, Intentional
  * Single Scroll Motion Language:
  * - Primary scrub: 0.6

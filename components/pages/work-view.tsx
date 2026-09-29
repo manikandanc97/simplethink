@@ -11,8 +11,6 @@ import { WorkBrowserFrame } from "@/components/work/work-browser-frame";
 import { WorkProjectDetails } from "@/components/work/work-project-details";
 import { WorkFullscreenModal } from "@/components/work/work-fullscreen-modal";
 import { WorkEngineeringStandards } from "@/components/work/work-engineering-standards";
-import { WorkFaqSection } from "@/components/work/work-faq-section";
-import { WorkCtaBanner } from "@/components/work/work-cta-banner";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 import { Container } from "@/components/ui/container";
 
@@ -156,12 +154,6 @@ function WorkViewContent() {
 
         {/* ── 3. Engineering Quality Standards (4 Pillars) ── */}
         <WorkEngineeringStandards />
-
-        {/* ── 4. Frequently Asked Questions & Still Have Questions Card ── */}
-        <WorkFaqSection />
-
-        {/* ── 5. Bottom Luxury CTA Banner ── */}
-        <WorkCtaBanner />
       </Container>
 
       {/* ── Fullscreen Live Iframe Preview Modal ── */}

@@ -9,18 +9,18 @@ import { PhilosophyOutcomes } from "./philosophy/philosophy-outcomes";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 
-export function WhySimpleThink() {
+export function WhySimpluxe() {
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-60px" });
 
   return (
     <Section
-      id="why-SimpleThink"
+      id="why-simpluxe"
       className="overflow-hidden font-satoshi"
     >
       <Container ref={containerRef} className="relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
         <SectionHeader
-          eyebrow="WHY SIMPLETHINK"
+          eyebrow="WHY SIMPLUXE"
           centered
           title="Built simple. Delivered"
           highlightedText="sharp."

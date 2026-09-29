@@ -136,7 +136,7 @@ export function ContactHero() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-[5] hidden sm:flex items-center gap-1.5 px-4 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
+              className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-1.5 px-4 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available</span>

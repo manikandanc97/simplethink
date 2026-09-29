@@ -10,7 +10,7 @@ export function ServicesStandards() {
           Technical Rigor
         </span>
         <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-          The SimpleThink Engineering Standard
+          The Simpluxe Engineering Standard
         </h3>
         <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mt-2">
           Every project, regardless of tier, is delivered with production-ready benchmarks built in.

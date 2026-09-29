@@ -200,7 +200,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
           <div className="relative w-full h-full flex items-center justify-center">
             <CldImage
               src="simpluxe/hero/simplehero"
-              alt="SimpleThink 3D Developer Character"
+              alt="Simpluxe 3D Developer Character"
               fill
               sizes="(max-width: 640px) 240px, (max-width: 1024px) 420px, 500px"
               className="object-contain drop-shadow-xl"

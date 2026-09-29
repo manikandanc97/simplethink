@@ -39,7 +39,7 @@ export function CTA({ onStartProject }: CTAProps) {
       ref={ref}
       className="select-none overflow-hidden"
     >
-      {/* ── Soft Ambient Glows & Dot Patterns Matching SimpleThink Theme ── */}
+      {/* ── Soft Ambient Glows & Dot Patterns Matching Simpluxe Theme ── */}
 
 
       {/* Decorative Dot Matrix on corners */}

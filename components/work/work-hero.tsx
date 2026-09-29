@@ -139,7 +139,7 @@ export function WorkHero() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-[5] hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[var(--surface-elevated)] shadow-xs text-[9.5px] sm:text-xs font-bold text-muted-foreground whitespace-nowrap"
+              className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[var(--surface-elevated)] shadow-xs text-[9.5px] sm:text-xs font-bold text-muted-foreground whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Production</span>

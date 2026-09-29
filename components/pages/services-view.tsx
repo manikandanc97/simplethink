@@ -8,8 +8,6 @@ import { ServicesActiveShowcase } from "@/components/services/services-active-sh
 import { ServicesWhatWeBuild } from "@/components/services/services-what-we-build";
 import { ServicesDeliverablesAudience } from "@/components/services/services-deliverables-audience";
 import { ServicesTechStack } from "@/components/services/services-tech-stack";
-import { ServicesFaqSection } from "@/components/services/services-faq-section";
-import { ServicesCtaBanner } from "@/components/services/services-cta-banner";
 import { SERVICES_PAGE_DATA } from "@/lib/data/services-page-data";
 import { Container } from "@/components/ui/container";
 
@@ -52,12 +50,6 @@ export function ServicesView() {
 
         {/* ── 6. Technology by Service (Cloudinary Tech Stack Icons) ── */}
         <ServicesTechStack service={activeService} />
-
-        {/* ── 8. Frequently Asked Questions & Still Have Questions Card ── */}
-        <ServicesFaqSection service={activeService} />
-
-        {/* ── 9. Bottom CTA Section Banner (Ready to build?) ── */}
-        <ServicesCtaBanner />
       </Container>
     </div>
   );

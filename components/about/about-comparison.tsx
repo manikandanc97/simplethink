@@ -11,7 +11,7 @@ export function AboutComparison() {
       <SectionHeader
         eyebrow="Comparative Standards"
         title="Why Founders Choose"
-        highlightedText="SimpleThink."
+        highlightedText="Simpluxe."
         description="A stark, transparent comparison between old-school agency bureaucracy and our streamlined senior software model."
         centered
         maxWidth="max-w-2xl"
@@ -29,7 +29,7 @@ export function AboutComparison() {
             Traditional Agencies
           </div>
           <div className="md:col-span-5 text-primary uppercase tracking-wider hidden md:flex items-center gap-2">
-            <span>The SimpleThink Studio Model</span>
+            <span>The Simpluxe Studio Model</span>
             <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[var(--background)] text-primary border border-[var(--surface-elevated)]">
               RECOMMENDED
             </span>
@@ -54,10 +54,10 @@ export function AboutComparison() {
                 <span>{row.traditional}</span>
               </div>
 
-              {/* SimpleThink Model */}
+              {/* Simpluxe Model */}
               <div className="md:col-span-5 flex items-start gap-2 text-xs sm:text-sm text-foreground font-semibold bg-[var(--background)]/70 p-4.5 rounded-2xl border border-[var(--surface-elevated)]/80 shadow-2xs">
                 <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
-                <span>{row.simplethink}</span>
+                <span>{row.simpluxe}</span>
               </div>
             </div>
           ))}

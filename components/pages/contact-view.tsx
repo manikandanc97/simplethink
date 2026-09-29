@@ -2,7 +2,6 @@ import { AmbientBackground } from "@/components/ui/ambient-background";
 import { ContactHero } from "@/components/contact/contact-hero";
 import { ContactChannels } from "@/components/contact/contact-channels";
 import { ContactProcess } from "@/components/contact/contact-process";
-import { ContactFaq } from "@/components/contact/contact-faq";
 import { LeadForm } from "@/components/leads/lead-form";
 import { Container } from "@/components/ui/container";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -59,9 +58,6 @@ export function ContactView() {
           </div>
 
         </div>
-
-        {/* ── 3. Frequently Asked Scoping Questions & Contact Card ── */}
-        <ContactFaq />
 
       </Container>
     </div>

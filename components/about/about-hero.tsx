@@ -7,6 +7,8 @@ import {
   Zap,
   Code2,
   Sparkles,
+  Layers,
+  CheckCircle2,
 } from "lucide-react";
 import { NextJsIcon } from "@/components/work/tech-icons";
 import { Container } from "@/components/ui/container";
@@ -134,7 +136,7 @@ export function AboutHero() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-[5] hidden sm:flex items-center gap-1.5 px-4 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
+              className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-1.5 px-4 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Full Stack</span>
@@ -161,6 +163,68 @@ export function AboutHero() {
                   100% Type-Safe
                 </div>
               </div>
+            </motion.div>
+
+            {/* ── Floating Badge 4 (Mid Left): System Design ── */}
+            <motion.div
+              animate={{ y: [0, 5, 0], x: [0, -2, 0] }}
+              transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              className="absolute top-28 sm:top-32 -left-2 sm:-left-3 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-card"
+            >
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-secondary text-foreground flex items-center justify-center border border-border shrink-0">
+                <Layers size={14} />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-foreground leading-tight">
+                  System Design
+                </div>
+                <div className="text-[10px] font-semibold text-muted-foreground leading-tight">
+                  Scalable Patterns
+                </div>
+              </div>
+            </motion.div>
+
+            {/* ── Floating Badge 5 (Mid Right): Performance ── */}
+            <motion.div
+              animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
+              transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute top-28 sm:top-32 -right-2 sm:-right-2 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-card"
+            >
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0">
+                <Zap size={14} />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-foreground leading-tight">
+                  Sub-Second Speed
+                </div>
+                <div className="text-[10px] font-semibold text-primary leading-tight">
+                  Edge Optimized
+                </div>
+              </div>
+            </motion.div>
+
+            {/* ── Floating Badge 6 (Bottom Left): Uptime ── */}
+            <motion.div
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+              className="absolute bottom-3 sm:bottom-4 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card/95 backdrop-blur-md border border-border shadow-2xs"
+            >
+              <CheckCircle2 size={12} className="text-emerald-500" />
+              <span className="text-[10px] sm:text-xs font-bold text-foreground">
+                99.9% Uptime
+              </span>
+            </motion.div>
+
+            {/* ── Floating Badge 7 (Bottom Right): Secure ── */}
+            <motion.div
+              animate={{ y: [0, 4, 0] }}
+              transition={{ duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+              className="absolute bottom-3 sm:bottom-4 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card/95 backdrop-blur-md border border-border shadow-2xs"
+            >
+              <ShieldCheck size={12} className="text-primary" />
+              <span className="text-[10px] sm:text-xs font-bold text-foreground">
+                Enterprise Secure
+              </span>
             </motion.div>
 
             {/* ── 3D Character Illustration with Smooth Bottom Gradient Fade ── */}

@@ -55,11 +55,11 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
           <Link
             href="/"
             className="group flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-ring rounded-lg outline-none shrink-0"
-            aria-label="SimpleThink Home"
+            aria-label="Simpluxe Home"
           >
             <CldImage
               src="simpluxe/logo/logo"
-              alt="SimpleThink Logo"
+              alt="Simpluxe Logo"
               width={180}
               height={40}
               className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
