@@ -10,7 +10,7 @@ interface ServicesWhatWeBuildProps {
 
 export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
   return (
-    <div className="w-full relative z-20 mb-16 sm:mb-20">
+    <div className="w-full relative z-20">
       {/* ── Section Header ── */}
       <div className="mb-6 sm:mb-8">
         <SectionHeader
@@ -28,16 +28,16 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
         >
           {service.whatWeBuild.map((item, idx) => (
             <div
               key={idx}
-              className="group p-6 sm:p-6 rounded-2xl bg-white border border-surface-elevated hover:border-primary/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4 items-start text-left"
+              className="group p-4 sm:p-6 rounded-2xl bg-white border border-surface-elevated hover:border-primary/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col gap-3 sm:gap-4 items-start text-left"
             >
               {/* Icon Container with soft pastel tint */}
               <div
-                className={`w-12 h-12 rounded-2xl ${item.bgColor} flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl ${item.bgColor} flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}
               >
                 <div className={item.iconColor}>
                   {idx === 0 && <Layout size={22} />}

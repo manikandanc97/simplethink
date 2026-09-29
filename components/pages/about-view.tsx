@@ -1,5 +1,3 @@
-"use client";
-
 import { SITE } from "@/config/site";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 import { SectionHeader } from "@/components/ui/section-header";

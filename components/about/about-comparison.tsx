@@ -1,5 +1,3 @@
-"use client";
-
 import { XCircle, CheckCircle2 } from "lucide-react";
 import { COMPARISONS } from "@/lib/data/about";
 import { SectionHeader } from "@/components/ui/section-header";

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { SERVICES_LIST } from "@/lib/data/services";
+import { motion } from "motion/react";
 
 interface ServicesTabsBarProps {
   activeId: string;
@@ -11,7 +12,6 @@ interface ServicesTabsBarProps {
 
 export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const activeBtnRef = useRef<HTMLButtonElement>(null);
 
   // Drag to scroll logic
   const isDown = useRef(false);
@@ -56,13 +56,22 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
     containerRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
-  // Center active tab into view when activeId changes
+  // Reorder array so the active item is always first (acting like a loop)
+  const activeIndex = SERVICES_LIST.findIndex((s) => s.id === activeId);
+  const reorderedServices =
+    activeIndex >= 0
+      ? [
+          ...SERVICES_LIST.slice(activeIndex),
+          ...SERVICES_LIST.slice(0, activeIndex),
+        ]
+      : SERVICES_LIST;
+
+  // Scroll to the absolute left since the active item is always at index 0 now
   useEffect(() => {
-    if (activeBtnRef.current && containerRef.current) {
-      activeBtnRef.current.scrollIntoView({
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        left: 0,
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       });
     }
   }, [activeId]);
@@ -70,7 +79,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
   return (
     <div
       id="services-tabs-container"
-      className="w-full relative z-20 mb-8 sm:mb-12 pb-6 sm:pb-6 border-b border-surface-elevated"
+      className="w-full relative z-20 pb-6 sm:pb-6 border-b border-surface-elevated"
     >
       <div
         ref={containerRef}
@@ -80,15 +89,15 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
-        {SERVICES_LIST.map((service) => {
+        {reorderedServices.map((service) => {
           const isActive = service.id === activeId;
           const Icon = service.icon;
           const count = parseInt(service.number, 10);
 
           return (
-            <button
+            <motion.button
+              layout
               key={service.id}
-              ref={isActive ? activeBtnRef : undefined}
               type="button"
               onClick={() => {
                 if (isDragging.current) return;
@@ -121,7 +130,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
               >
                 {count}
               </span>
-            </button>
+            </motion.button>
           );
         })}
       </div>

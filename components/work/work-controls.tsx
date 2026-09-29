@@ -32,7 +32,7 @@ export function WorkControls({
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-surface-elevated">
       {/* ── Filter Pills ── */}
-      <div className="flex flex-wrap items-center gap-2 sm:gap-2">
+      <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2 w-full sm:w-auto">
         {FILTER_SERVICES.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeFilter === tab.id;
@@ -46,7 +46,7 @@ export function WorkControls({
               key={tab.id}
               onClick={() => onFilterChange(tab.id)}
               className={cn(
-                "group relative flex items-center gap-2 px-4.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
+                "group relative flex items-center justify-center sm:justify-start gap-2 px-4.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer w-full sm:w-auto",
                 isActive
                   ? "bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] text-white shadow-elevated scale-[1.02]"
                   : "bg-white/90 hover:bg-white text-muted-foreground border border-surface-elevated hover:border-primary/30 shadow-2xs"

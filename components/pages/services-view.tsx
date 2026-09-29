@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 import { ServicesHero } from "@/components/services/services-hero";
 import { ServicesTabsBar } from "@/components/services/services-tabs-bar";
@@ -14,6 +14,28 @@ import { Container } from "@/components/ui/container";
 export function ServicesView() {
   // Default to "websites" as requested by user
   const [activeServiceId, setActiveServiceId] = useState<string>("websites");
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && SERVICES_LIST.some((s) => s.id === hash)) {
+        setActiveServiceId(hash);
+        
+        // Scroll to the tabs area smoothly
+        setTimeout(() => {
+          const el = document.getElementById("services-tabs-container");
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }, 100);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const activeService = useMemo(() => {
     return (

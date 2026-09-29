@@ -9,11 +9,11 @@ export const FOOTER_DATA: FooterData = {
     "/contact": "mail",
   },
   capabilities: [
-    { label: "Websites & Landing Pages", icon: "globe" },
-    { label: "Web Applications", icon: "laptop" },
-    { label: "Mobile Apps (iOS & Android)", icon: "smartphone" },
-    { label: "SaaS Platforms", icon: "layers" },
-    { label: "Branding & Identity", icon: "palette" },
-    { label: "AI Automation & Agents", icon: "cpu" },
+    { label: "Websites & Landing Pages", icon: "globe", id: "websites" },
+    { label: "Web Applications", icon: "laptop", id: "web-apps" },
+    { label: "Mobile Apps (iOS & Android)", icon: "smartphone", id: "mobile-apps" },
+    { label: "SaaS Platforms", icon: "layers", id: "saas" },
+    { label: "Branding & Identity", icon: "palette", id: "branding" },
+    { label: "AI Automation & Agents", icon: "cpu", id: "automation" },
   ],
 };

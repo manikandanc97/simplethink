@@ -61,7 +61,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
   const colors = ColorMap[service.id] || ColorMap.websites;
 
   return (
-    <div className="w-full relative z-20 mb-16 sm:mb-20">
+    <div className="w-full relative z-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
         {/* ── Left Column: Deliverables (7 cols) ── */}
         <div className="lg:col-span-7 flex flex-col items-start text-left justify-center">
@@ -143,13 +143,13 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                     return (
                       <div
                         key={idx}
-                        className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-background transition-colors group"
+                        className="flex items-center gap-4 p-2.5 rounded-xl sm:hover:bg-background transition-colors group"
                       >
                         <div className={`w-8 h-8 rounded-xl ${colors.bg} ${colors.primary} flex items-center justify-center shrink-0 border ${colors.border}/60 transition-colors duration-300`}>
                           <IconComponent size={15} />
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-xs sm:text-sm font-bold text-foreground leading-tight group-hover:text-black transition-colors">
+                          <span className="text-xs sm:text-sm font-bold text-foreground leading-tight sm:group-hover:text-black transition-colors">
                             {item.title}
                           </span>
                           <span className="text-xs sm:text-xs text-muted-foreground mt-0.5 leading-tight">

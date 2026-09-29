@@ -38,7 +38,7 @@ export function StepNavigation({
               className={cn(
                 "relative group flex items-center gap-2 sm:gap-4 transition-all duration-300 cursor-pointer text-left rounded-2xl select-none overflow-hidden",
                 isActive
-                  ? "bg-white px-4.5 sm:px-4 py-2 sm:py-2.5 shadow-lg shadow-pink-500/10 border border-pink-200/90 ring-1 ring-pink-100"
+                  ? "bg-white px-4.5 sm:px-4 py-2 sm:py-2.5 border border-pink-200/90 ring-1 ring-pink-100"
                   : isCompleted
                   ? "px-4 py-2 bg-white/60 hover:bg-white rounded-2xl border border-neutral-200/70"
                   : "px-4 py-2 hover:bg-white/80 rounded-2xl border border-transparent hover:border-neutral-200/80"
@@ -87,15 +87,7 @@ export function StepNavigation({
                 </span>
               </div>
 
-              {/* Active Step Real-time Scroll Fill Line */}
-              {isActive && (
-                <div className="absolute bottom-0 left-3 right-3 h-[2px] bg-pink-100 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-purple-600 via-rose-500 to-pink-600 rounded-full transition-all duration-100 ease-out"
-                    style={{ width: `${Math.min(100, Math.max(8, stepProgress * 100))}%` }}
-                  />
-                </div>
-              )}
+
             </button>
 
             {/* Dotted Curved Arrow to Next Step */}

@@ -1,5 +1,3 @@
-"use client";
-
 import { CONTACT_STEPS } from "@/lib/data/contact";
 import { ShieldCheck, FileCheck, Code2 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";

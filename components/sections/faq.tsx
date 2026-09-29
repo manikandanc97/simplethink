@@ -8,7 +8,7 @@ export function FAQ() {
   return (
     <SharedFaqSection
       id="faq"
-      className="py-12 sm:py-16 lg:py-24"
+      className="py-8 sm:py-8 lg:py-16"
       faqs={FAQS}
       defaultOpenId="faq-pricing"
       eyebrow="FAQ"

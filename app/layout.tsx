@@ -131,17 +131,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={cn("h-full antialiased scroll-smooth", inter.variable, manrope.variable, caveat.variable, "font-sans")}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <head>
         <link rel="preload" href="/fonts/satoshi-variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap"
-          rel="stylesheet"
-        />
+        
+        
       </head>
       <body className="min-h-full flex flex-col">
         {/* Skip to main content for accessibility */}

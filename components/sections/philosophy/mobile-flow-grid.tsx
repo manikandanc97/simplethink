@@ -1,5 +1,3 @@
-"use client";
-
 import { FLOW_NODES } from "@/lib/data/philosophy";
 import { Box, LayoutGrid, Lightbulb, TrendingUp, Users } from "lucide-react";
 import { CldImage } from "next-cloudinary";

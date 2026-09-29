@@ -26,52 +26,44 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
   return (
     <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-surface-elevated bg-white shadow-card flex flex-col">
       {/* ── Browser Header Bar ── */}
-      <div className="h-10 sm:h-11 bg-background border-b border-surface-elevated px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
-        {/* Mac 3 dots */}
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
-          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
-          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
-        </div>
+      <div className="h-12 sm:h-14 bg-[#F8F9FA] dark:bg-background border-b border-surface-elevated px-3.5 sm:px-4 flex items-center justify-between select-none gap-2 relative">
+        {/* Left: Mac 3 dots & Lock Icon */}
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0 w-[80px] sm:w-[120px]">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] border border-black/10 shadow-xs" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] border border-black/10 shadow-xs" />
+          </div>
 
-        {/* Centered URL / Domain Pill */}
-        <div className="flex-1 flex justify-center px-1 sm:px-2 min-w-0">
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 bg-white border border-surface-elevated shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-xs sm:text-xs font-medium text-muted-foreground max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-primary/40 hover:text-foreground transition-colors cursor-pointer group"
+            className="hidden xs:flex items-center justify-center bg-white border border-border shadow-sm rounded-md w-9 h-7 hover:bg-gray-50 transition-colors"
             title={`Visit ${project.domain || project.name}`}
           >
-            <AnimatedIcon icon={LockIcon} size={11} className="text-emerald-500 shrink-0" />
-            <span className="truncate">{project.domain || project.url?.replace("https://", "")}</span>
-            <AnimatedIcon
-              icon={ExternalLinkIcon}
-              size={10}
-              className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
-            />
+            <AnimatedIcon icon={LockIcon} size={14} className="text-emerald-500" />
           </a>
         </div>
 
-        {/* Right Controls: Mode Toggle / Badge & Fullscreen */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {/* If Website: show Live / Screenshot toggle pill */}
+        {/* Center: Live / Screenshot Toggle */}
+        <div className="flex-1 flex justify-center min-w-0">
           {isWebsite ? (
-            <div className="flex items-center bg-[var(--surface-elevated)] p-0.5 rounded-full text-xs font-bold">
+            <div className="flex items-center bg-[var(--surface-elevated)] p-1 rounded-full text-xs sm:text-sm font-semibold shadow-inner">
               <button
                 type="button"
                 onClick={() => setViewMode("live")}
                 className={cn(
-                  "flex items-center gap-1.5 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
+                  "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer",
                   viewMode === "live"
-                    ? "bg-white text-emerald-700 shadow-xs"
+                    ? "bg-white text-emerald-700 shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
                 )}
                 title="Live interactive website"
               >
-                <span className="relative flex h-1.5 w-1.5">
+                <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-500" />
                 </span>
                 <span>Live Site</span>
               </button>
@@ -79,33 +71,35 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
                 type="button"
                 onClick={() => setViewMode("screenshot")}
                 className={cn(
-                  "flex items-center gap-1 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
+                  "flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer",
                   viewMode === "screenshot"
-                    ? "bg-white text-primary shadow-xs"
+                    ? "bg-white text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
                 )}
                 title="View high-res screenshot"
               >
-                <ImageIcon size={10} />
+                <ImageIcon size={14} />
                 <span>Screenshot</span>
               </button>
             </div>
           ) : (
-            /* If Not Website: show Screenshot Badge */
-            <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 border border-purple-200/70 text-xs font-bold text-purple-700">
-              <ImageIcon size={11} className="text-purple-600 shrink-0" />
+            <div className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200/70 text-xs sm:text-sm font-bold text-purple-700">
+              <ImageIcon size={14} className="text-purple-600 shrink-0" />
               <span>Screenshot</span>
             </div>
           )}
+        </div>
 
+        {/* Right Controls: Fullscreen */}
+        <div className="flex items-center justify-end shrink-0 w-[80px] sm:w-[120px]">
           <button
             type="button"
             onClick={onOpenFullscreen}
             aria-label="Expand Preview"
             title="Expand Fullscreen"
-            className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-[var(--surface-elevated)] cursor-pointer"
+            className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-md hover:bg-[var(--surface-elevated)] cursor-pointer"
           >
-            <Maximize2 size={14} />
+            <Maximize2 size={16} />
           </button>
         </div>
       </div>

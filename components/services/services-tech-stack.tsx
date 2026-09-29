@@ -84,7 +84,7 @@ export function ServicesTechStack({ service }: ServicesTechStackProps) {
   const categoryOrder = ["core", "infrastructure", "ai", "design"];
 
   return (
-    <div className="w-full relative z-20 mb-16 sm:mb-20">
+    <div className="w-full relative z-20">
       {/* ── Header ── */}
       <div className="flex flex-col gap-4 items-start text-left mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs">

@@ -1,5 +1,3 @@
-"use client";
-
 import { StepVisualBlueprint } from "./visuals/step-visual-blueprint";
 import { StepVisualDesign } from "./visuals/step-visual-design";
 import { StepVisualEngineering } from "./visuals/step-visual-engineering";

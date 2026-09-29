@@ -1,5 +1,3 @@
-"use client";
-
 import { BarChart3, ShieldCheck, Star, Users } from "lucide-react";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
 import { buttonVariants } from "@/components/ui/button";

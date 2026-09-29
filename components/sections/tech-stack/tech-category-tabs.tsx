@@ -96,7 +96,7 @@ export function TechCategoryTabs({
 
               {/* Count Pill */}
               <span
-                className={`relative z-10 text-xs font-medium px-2 py-0.5 rounded-full ${
+                className={`relative z-10 text-xs font-medium px-2 py-0.5 rounded-full hidden sm:inline-block ${
                   isActive
                     ? "bg-white/20 text-white"
                     : "bg-slate-100 dark:bg-muted/60 text-slate-500 dark:text-muted-foreground"

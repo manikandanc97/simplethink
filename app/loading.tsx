@@ -37,7 +37,7 @@ export default function Loading() {
       role="status"
       aria-live="polite"
       className={cn(
-        "relative flex min-h-[60vh] w-full flex-col items-center justify-center",
+        "relative flex min-h-screen w-full flex-col items-center justify-center",
         "bg-background overflow-hidden"
       )}
     >
@@ -86,7 +86,7 @@ export default function Loading() {
       {/* ── Live Diff Card ──────────────────────────────────────── */}
       <motion.div
         className="relative z-10 w-64 rounded-xl border border-border/70 bg-card/90 backdrop-blur-md shadow-sm overflow-hidden flex flex-col mb-8"
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
@@ -198,13 +198,13 @@ export default function Loading() {
       {/* ── Wordmark text ────────────────────────────────────────── */}
       <motion.div
         className="relative z-10 flex items-baseline gap-0 select-none mb-8"
-        initial="hidden"
+        initial="visible"
         animate="visible"
       >
         {/* "Simple" — foreground */}
         <motion.span
           className="text-xl font-bold tracking-tight text-foreground"
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -215,7 +215,7 @@ export default function Loading() {
         <motion.span
           className="font-mono text-xs font-bold select-none leading-none"
           style={{ color: "var(--primary)", opacity: 0.75, margin: "0 1px" }}
-          initial={{ opacity: 0, scale: 0.6 }}
+          initial={{ opacity: 0.75, scale: 1 }}
           animate={{ opacity: 0.75, scale: 1 }}
           transition={{ duration: 0.35, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -226,7 +226,7 @@ export default function Loading() {
         <motion.span
           className="text-xl font-bold tracking-tight"
           style={{ color: "var(--primary)" }}
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -238,7 +238,7 @@ export default function Loading() {
       <motion.div
         role="presentation"
         className="relative z-10 flex items-center gap-1.5"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 1.1 }}
       >

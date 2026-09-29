@@ -10,6 +10,8 @@ import { SITE } from "@/config/site";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { FOOTER_DATA } from "@/lib/data/footer";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface SiteFooterProps {
   onStartProject?: () => void;
@@ -17,6 +19,7 @@ interface SiteFooterProps {
 
 export function SiteFooter({ onStartProject }: SiteFooterProps) {
   const { openLead } = useLead();
+  const pathname = usePathname();
 
   const handleStart = () => {
     if (onStartProject) onStartProject();
@@ -114,7 +117,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="w-9 h-9 rounded-full bg-[var(--primary)] text-white flex items-center justify-center hover:bg-[var(--primary)] hover:scale-110 active:scale-95 transition-all shadow-sm"
+                  className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary hover:scale-110 active:scale-95 transition-all shadow-sm"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.547 12 3.547 12 3.547s-7.505 0-9.377.503a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.503 9.377.503 9.377.503s7.505 0 9.377-.503a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -145,20 +148,21 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
             <ul className="flex flex-col gap-4.5">
               {NAV_ITEMS.map((item) => {
                 const iconName = FOOTER_DATA.navIcons[item.route] || "sparkles";
+                const isActive = pathname === item.route || (item.route !== "/" && pathname?.startsWith(item.route));
                 return (
                   <li key={item.route}>
                     <Link
                       href={item.route}
-                      className="group text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-4"
+                      className={cn("group text-sm transition-colors inline-flex items-center gap-4", isActive ? "text-primary" : "text-muted-foreground hover:text-foreground")}
                     >
-                      <span className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <span className={cn("w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors", isActive ? "bg-primary text-white shadow-sm" : "bg-primary/10 text-primary group-hover:bg-primary/20")}>
                         <AnimatedIcon
                           name={iconName}
                           size={13}
-                          className="text-primary"
+                          className="currentColor"
                         />
                       </span>
-                      <span className="font-medium">{item.label}</span>
+                      <span className={cn("font-medium", isActive && "font-bold")}>{item.label}</span>
                     </Link>
                   </li>
                 );
@@ -172,20 +176,34 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
               CAPABILITIES
             </h4>
             <ul className="flex flex-col gap-4.5 text-sm text-muted-foreground">
-              {FOOTER_DATA.capabilities.map((cap) => (
-                <li key={cap.label} className="group flex items-center gap-4 cursor-default">
-                  <span className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <AnimatedIcon
-                      name={cap.icon}
-                      size={13}
-                      className="text-primary"
-                    />
-                  </span>
-                  <span className="font-medium group-hover:text-foreground transition-colors whitespace-nowrap">
-                    {cap.label}
-                  </span>
-                </li>
-              ))}
+              {FOOTER_DATA.capabilities.map((cap) => {
+                const content = (
+                  <>
+                    <span className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 text-primary group-hover:bg-primary/20 transition-colors">
+                      <AnimatedIcon
+                        name={cap.icon}
+                        size={13}
+                        className="currentColor"
+                      />
+                    </span>
+                    <span className="font-medium group-hover:text-foreground transition-colors whitespace-nowrap">
+                      {cap.label}
+                    </span>
+                  </>
+                );
+
+                return (
+                  <li key={cap.label} className="group flex items-center gap-4 cursor-pointer">
+                    {cap.id ? (
+                      <Link href={`/services#${cap.id}`} className="flex items-center gap-4 w-full">
+                        {content}
+                      </Link>
+                    ) : (
+                      content
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -282,3 +300,10 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
     </footer>
   );
 }
+
+
+
+
+
+
+

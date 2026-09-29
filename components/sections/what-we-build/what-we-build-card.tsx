@@ -197,11 +197,11 @@ export function WhatWeBuildCard({
                   </FadeUp>
 
                   {/* Tags */}
-                  <FadeUp delay={0.21} className="flex flex-wrap gap-2">
-                    {service.deliverables?.map((item, i) => (
+                  <FadeUp delay={0.21} className="flex flex-nowrap whitespace-nowrap overflow-hidden gap-2">
+                    {service.shortDeliverables?.slice(0, 2).map((item, i) => (
                       <motion.span
                         key={i}
-                        className="inline-flex items-center px-4 py-1 rounded-full bg-secondary border border-border text-foreground type-label"
+                        className="inline-flex items-center px-4 py-1 rounded-full bg-secondary border border-border text-foreground type-label truncate max-w-full"
                         initial={{ opacity: 0, scale: 0.88 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.26 + i * 0.055, duration: 0.3, ease: "easeOut" }}

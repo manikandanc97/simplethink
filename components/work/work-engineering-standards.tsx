@@ -1,5 +1,3 @@
-"use client";
-
 import { Gauge, ShieldCheck, Code2, Sparkles, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 

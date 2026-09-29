@@ -67,7 +67,8 @@ export function HowWeWork() {
               centered
               title="How We"
               highlightedText="Work."
-              className="gap-1.5 sm:gap-2 max-w-2xl"
+              className="gap-1.5 sm:gap-2"
+              maxWidth="max-w-4xl"
               description={
                 <>
                   A clear 4-step delivery process to turn your ideas into real, scalable digital products.
