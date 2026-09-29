@@ -1,7 +1,7 @@
 "use client";
 
 import { BarChart3, ShieldCheck, Star, Users } from "lucide-react";
-import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
 import { type Project } from "@/types/project";
 import { type EnhancedProjectDetails } from "./work-data";
 

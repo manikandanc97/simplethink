@@ -1,7 +1,7 @@
 "use client";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
 import { type ServiceData } from "@/lib/data/services";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";

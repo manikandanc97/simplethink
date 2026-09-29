@@ -4,7 +4,7 @@ import { useLead } from "@/components/leads/lead-provider";
 import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { PlayIcon } from "@animateicons/react/lucide/play-icon";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
-import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { useRef } from "react";

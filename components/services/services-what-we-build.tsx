@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { type ServiceData } from "@/lib/data/services";
-import { ChevronLeft, ChevronRight, Layout, Users, Sliders, Database } from "lucide-react";
+import { Layout, Users, Sliders, Database } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ServicesWhatWeBuildProps {
@@ -10,16 +9,6 @@ interface ServicesWhatWeBuildProps {
 }
 
 export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
-  const [_currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? service.whatWeBuild.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === service.whatWeBuild.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <div className="w-full relative z-20 mb-16 sm:mb-20">
       {/* ── Section Header ── */}
@@ -40,28 +29,6 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
             </p>
           </div>
         </div>
-
-        {/* Carousel / Prev Next Buttons */}
-        {service.whatWeBuild.length > 4 && (
-          <div className="flex items-center gap-2 self-start sm:self-auto">
-            <button
-              type="button"
-              onClick={handlePrev}
-              aria-label="Previous capability"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center text-muted-foreground hover:text-foreground shadow-xs active:scale-90 transition-all cursor-pointer"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              aria-label="Next capability"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center text-muted-foreground hover:text-foreground shadow-xs active:scale-90 transition-all cursor-pointer"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-        )}
       </div>
 
       {/* ── 4 Feature Cards ── */}

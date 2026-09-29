@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { AnimatedIcon, type AnimatedIconName } from "@/components/ui/animated-icon";
-import { AnimatedX } from "@/components/ui/animated-icons/convenience-icons";;
+import { AnimatedX } from "@/components/ui/animated-icons/convenience-icons";
 import { cn } from "@/lib/utils";
 import { FILTER_SERVICES } from "./work-data";
 import { type Project } from "@/types/project";
