@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { Button } from "@/components/ui/button";
 
 interface SiteNavbarProps {

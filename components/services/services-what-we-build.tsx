@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { type ServiceData } from "@/lib/data/services";
 import { ChevronLeft, ChevronRight, Layout, Users, Sliders, Database } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ServicesWhatWeBuildProps {
-  service: ServiceDetailItem;
+  service: ServiceData;
 }
 
 export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {

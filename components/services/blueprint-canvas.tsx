@@ -3,15 +3,15 @@
 import { AnimatePresence } from "motion/react";
 import { Terminal } from "lucide-react";
 import { CATEGORY_ORDER } from "@/lib/data/services";
-import { type ServiceItem } from "@/types/service";
+import { type ServiceData } from "@/lib/data/services";
 import { BlueprintNode } from "./blueprint-node";
 
-export function BlueprintCanvas({ selectedServices }: { selectedServices: ServiceItem[] }) {
+export function BlueprintCanvas({ selectedServices }: { selectedServices: ServiceData[] }) {
   const grouped = selectedServices.reduce((acc, service) => {
     if (!acc[service.category]) acc[service.category] = [];
     acc[service.category].push(service);
     return acc;
-  }, {} as Record<string, ServiceItem[]>);
+  }, {} as Record<string, ServiceData[]>);
 
   if (selectedServices.length === 0) {
     return (
@@ -47,7 +47,7 @@ export function BlueprintCanvas({ selectedServices }: { selectedServices: Servic
             {/* Nodes */}
             <div className="flex flex-wrap justify-center gap-3 w-full">
               <AnimatePresence mode="popLayout">
-                {servicesInCategory.map((service: ServiceItem) => (
+                {servicesInCategory.map((service: ServiceData) => (
                   <BlueprintNode key={service.id} service={service} />
                 ))}
               </AnimatePresence>

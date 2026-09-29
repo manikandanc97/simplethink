@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { type ServiceItem } from "@/types/service";
+import { type ServiceData } from "@/lib/data/services";
 
-export function BlueprintNode({ service }: { service: ServiceItem }) {
+export function BlueprintNode({ service }: { service: ServiceData }) {
   const Icon = service.icon;
   return (
     <motion.div

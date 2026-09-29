@@ -1,11 +1,11 @@
 "use client";
 
 import { CldImage } from "next-cloudinary";
-import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { type ServiceData } from "@/lib/data/services";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ServicesTechStackProps {
-  service: ServiceDetailItem;
+  service: ServiceData;
 }
 
 const TECH_DETAILS: Record<string, { name: string; category: string; invertDark?: boolean }> = {

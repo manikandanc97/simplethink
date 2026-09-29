@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { SERVICES_PAGE_DATA } from "@/lib/data/services-page-data";
+import { SERVICES_LIST } from "@/lib/data/services";
 
 interface ServicesTabsBarProps {
   activeId: string;
@@ -80,7 +80,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
       >
-        {SERVICES_PAGE_DATA.map((service) => {
+        {SERVICES_LIST.map((service) => {
           const isActive = service.id === activeId;
           const Icon = service.icon;
           const count = parseInt(service.number, 10);

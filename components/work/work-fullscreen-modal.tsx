@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatedX, AnimatedIcon } from "@/components/ui/animated-icon";
+import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { AnimatedX } from "@/components/ui/animated-icons/convenience-icons";;
 import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon";
 import { type Project } from "@/types/project";
-import { Image as ImageIcon, Globe } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface WorkFullscreenModalProps {

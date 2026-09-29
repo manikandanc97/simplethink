@@ -1,6 +1,6 @@
 "use client";
 
-import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { type ServiceData } from "@/lib/data/services";
 import { 
   CheckCircle2, Target, Rocket, Building, Shield, RefreshCw, 
   Briefcase, Award, Crown, ShoppingBag, Truck, Zap, Repeat, 
@@ -48,7 +48,7 @@ const ColorMap: Record<string, { primary: string; fill: string; bg: string; bord
 };
 
 interface ServicesDeliverablesAudienceProps {
-  service: ServiceDetailItem;
+  service: ServiceData;
 }
 
 export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAudienceProps) {

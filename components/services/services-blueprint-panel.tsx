@@ -1,13 +1,13 @@
 "use client";
 
-import { AnimatedRotateCcw, AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedRotateCcw, AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { type ServiceItem } from "@/types/service";
+import { type ServiceData } from "@/lib/data/services";
 import { BlueprintCanvas } from "./blueprint-canvas";
 
 interface ServicesBlueprintPanelProps {
-  selectedServices: ServiceItem[];
+  selectedServices: ServiceData[];
   selectedCount: number;
   estimatedSprints: string;
   onClearSelection: () => void;

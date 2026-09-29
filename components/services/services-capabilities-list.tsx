@@ -3,10 +3,10 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { type ServiceItem } from "@/types/service";
+import { type ServiceData } from "@/lib/data/services";
 
 interface ServicesCapabilitiesListProps {
-  services: ServiceItem[];
+  services: ServiceData[];
   selected: Set<string>;
   onToggleService: (id: string) => void;
   onClearAll: () => void;

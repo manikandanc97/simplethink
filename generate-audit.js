@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const dirsToScan = ['components', 'app'];
 const regex = /\b(m[tbyxlr]-\d+|space-[xy]-\d+)\b/g;

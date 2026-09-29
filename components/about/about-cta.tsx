@@ -1,7 +1,7 @@
 "use client";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { Send } from "lucide-react";
 
 export function AboutCta() {

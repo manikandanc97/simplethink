@@ -51,7 +51,6 @@ import { SOLID_ICON_MAP, solidVariants } from "./animated-icons/solid-icons";
 export * from "./animated-icons/types";
 export * from "./animated-icons/custom-motion-icons";
 export * from "./animated-icons/solid-icons";
-export * from "./animated-icons/convenience-icons";
 
 const ICON_COMPONENT_MAP: Record<AnimatedIconName, React.ComponentType<IconBaseProps>> = {
   "arrow-right": ArrowRightIcon as unknown as React.ComponentType<IconBaseProps>,

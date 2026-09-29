@@ -1,7 +1,7 @@
 "use client";
 
-import { BUILT_BUSINESS_NEEDS } from "@/lib/data/services-page-data";
-import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { BUILT_BUSINESS_NEEDS } from "@/lib/data/services";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { Rocket, Sliders, ShoppingCart, BarChart3, Sparkles } from "lucide-react";
 
 interface ServicesBusinessNeedsProps {

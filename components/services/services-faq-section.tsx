@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { type ServiceData } from "@/lib/data/services";
 import { type FAQItem } from "@/types/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FaqContactCard } from "@/components/sections/faq/faq-contact-card";
@@ -17,7 +17,7 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 
 interface ServicesFaqSectionProps {
-  service: ServiceDetailItem;
+  service: ServiceData;
 }
 
 export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {

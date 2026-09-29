@@ -1,7 +1,8 @@
 "use client";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { NAV_ITEMS } from "@/config/nav";
 import { SITE } from "@/config/site";
 import { CldImage } from "next-cloudinary";

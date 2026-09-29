@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import type { Experiment } from "@/lib/data/experiments";
 import { motion } from "motion/react";
 

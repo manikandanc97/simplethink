@@ -1,7 +1,8 @@
 "use client";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageSquare, Zap } from "lucide-react";
 import { CalendarIcon } from "@animateicons/react/lucide/calendar-icon";

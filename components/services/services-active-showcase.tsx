@@ -1,8 +1,8 @@
 "use client";
 
 import { useLead } from "@/components/leads/lead-provider";
-import { AnimatedArrowRight } from "@/components/ui/animated-icon";
-import { type ServiceDetailItem } from "@/lib/data/services-page-data";
+import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";;
+import { type ServiceData } from "@/lib/data/services";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import {
@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 interface ServicesActiveShowcaseProps {
-  service: ServiceDetailItem;
+  service: ServiceData;
 }
 
 export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps) {
