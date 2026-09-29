@@ -28,14 +28,14 @@ export function FloatingCallButton() {
           className={cn(
             "fixed bottom-[88px] right-4 z-50 md:hidden",
             "flex items-center justify-center w-[3.25rem] h-[3.25rem] rounded-full",
-            "bg-[#922F55] text-white shadow-[0_8px_30px_rgba(146,47,85,0.4)]",
+            "bg-primary text-white shadow-elevated",
             "border border-white/20 backdrop-blur-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
           )}
           aria-label="Call Us"
         >
           {/* Pulse effect for attention */}
           <span
-            className="absolute inline-flex h-full w-full rounded-full bg-[#922F55] opacity-40 animate-ping"
+            className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-40 animate-ping"
             style={{ animationDuration: "3s" }}
           />
           <Phone size={22} className="relative z-10" strokeWidth={2.5} />

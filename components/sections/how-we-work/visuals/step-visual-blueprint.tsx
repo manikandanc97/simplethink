@@ -21,12 +21,12 @@ export function StepVisualBlueprint() {
       <motion.div
         animate={{ y: [-3, 3, -3], rotate: [-1, -1, -1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
+        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-card p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
       >
         {/* Window Header */}
         <div className="w-full flex items-center gap-2 ml-4 sm:ml-8">
-          <GitFork className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#475569]" />
-          <span className="font-bold text-sm sm:text-base text-[#1E293B] tracking-tight">
+          <GitFork className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--muted-foreground)]" />
+          <span className="font-bold text-sm sm:text-base text-[var(--muted-foreground)] tracking-tight">
             Project Blueprint
           </span>
         </div>
@@ -34,7 +34,7 @@ export function StepVisualBlueprint() {
         {/* Blueprint Flowchart Diagram */}
         <div className="flex flex-col items-center">
           {/* Root Node */}
-          <div className="bg-white border border-neutral-100 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1.5 text-xs sm:text-xs font-semibold text-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.03)]">
+          <div className="bg-white border border-neutral-100 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1.5 text-xs sm:text-xs font-semibold text-neutral-800 shadow-card">
             <Users className="w-3 h-3 text-purple-600" />
             <span>Business Goals</span>
           </div>
@@ -46,11 +46,11 @@ export function StepVisualBlueprint() {
 
           {/* Child Nodes Row */}
           <div className="flex items-center justify-between w-full max-w-48 sm:max-w-64 gap-1.5 sm:gap-2">
-            <div className="bg-white border border-neutral-100 rounded-full px-2 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.03)]">
+            <div className="bg-white border border-neutral-100 rounded-full px-2 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1 text-xs sm:text-xs font-semibold text-neutral-800 shadow-card">
               <Target className="w-3 h-3 text-rose-500" />
               <span>User Research</span>
             </div>
-            <div className="bg-white border border-neutral-100 rounded-full px-2 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.03)]">
+            <div className="bg-white border border-neutral-100 rounded-full px-2 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1 text-xs sm:text-xs font-semibold text-neutral-800 shadow-card">
               <FileText className="w-3 h-3 text-purple-600" />
               <span>Feature Scope</span>
             </div>
@@ -62,7 +62,7 @@ export function StepVisualBlueprint() {
           </svg>
 
           {/* Bottom Node */}
-          <div className="bg-white border border-neutral-100 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1.5 text-xs sm:text-xs font-semibold text-neutral-800 shadow-[0_2px_8px_rgba(0,0,0,0.03)]">
+          <div className="bg-white border border-neutral-100 rounded-full px-2.5 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1.5 text-xs sm:text-xs font-semibold text-neutral-800 shadow-card">
             <Layers className="w-3 h-3 text-blue-600" />
             <span>Technical Plan</span>
           </div>
@@ -81,14 +81,14 @@ export function StepVisualBlueprint() {
             Ideas
           </span>
         </div>
-        <div className="font-handwriting text-[11px] sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
+        <div className="font-handwriting text-xs sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
           <div>• Business Goals</div>
           <div>• Target Audience</div>
         </div>
 
         {/* Hand-drawn Red Arrow pointing to Blueprint */}
         <svg
-          className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48]"
+          className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]"
           viewBox="0 0 28 28"
           fill="none"
         >
@@ -114,11 +114,11 @@ export function StepVisualBlueprint() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute top-2 sm:top-18 right-2 sm:right-52 z-10 text-right pointer-events-none select-none scale-85 sm:scale-100 origin-top-right"
       >
-        <span className="font-handwriting font-bold text-xs sm:text-sm text-[#E11D48] tracking-tight block transform -rotate-3 leading-tight">
+        <span className="font-handwriting font-bold text-xs sm:text-sm text-[var(--primary)] tracking-tight block transform -rotate-3 leading-tight">
           From Strategy <br /> to Product
         </span>
         <svg
-          className="w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48] ml-auto -mt-1 transform rotate-12"
+          className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)] ml-auto -mt-1 transform rotate-12"
           viewBox="0 0 28 28"
           fill="none"
         >
@@ -149,7 +149,7 @@ export function StepVisualBlueprint() {
           <span className="font-bold text-xs sm:text-xs text-neutral-800">
             Market Research
           </span>
-          <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E11D48]" />
+          <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--primary)]" />
         </div>
 
         {/* Skeletal bars */}
@@ -162,19 +162,19 @@ export function StepVisualBlueprint() {
         <div className="flex flex-col gap-1 sm:gap-1.5">
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3 h-3 text-purple-600 shrink-0" />
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-700 truncate">
+            <span className="text-xs sm:text-xs font-semibold text-neutral-700 truncate">
               Competitor Analysis
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3 h-3 text-purple-600 shrink-0" />
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-700 truncate">
+            <span className="text-xs sm:text-xs font-semibold text-neutral-700 truncate">
               User Insights
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3 h-3 text-purple-600 shrink-0" />
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-700 truncate">
+            <span className="text-xs sm:text-xs font-semibold text-neutral-700 truncate">
               Feature Priorities
             </span>
           </div>
@@ -182,7 +182,7 @@ export function StepVisualBlueprint() {
 
         {/* Downward Hand-drawn Arrow */}
         <svg
-          className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[#E11D48] transform -rotate-12"
+          className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[var(--primary)] transform -rotate-12"
           viewBox="0 0 32 48"
           fill="none"
         >

@@ -1,45 +1,68 @@
+"use client";
+
 import { CONTACT_STEPS } from "@/lib/data/contact";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, FileCheck, Code2 } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export function ContactProcess() {
   return (
-    <div className="p-6 sm:p-7 rounded-3xl border border-[#EFE5EC] bg-white space-y-4">
-      <div>
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#922F55]">
-          Roadmap & Expectations
-        </span>
-        <h3 className="text-lg font-bold text-[#121114] tracking-tight mt-0.5">
-          What Happens Next?
-        </h3>
-      </div>
+    <Card variant="default" padding="default" className="text-left">
+      <CardHeader className="mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <Badge variant="outline" size="lg">
+            <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
+            Roadmap & Expectations
+          </Badge>
+        </div>
+        <CardTitle className="text-xl sm:text-2xl">What Happens Next?</CardTitle>
+        <CardDescription>
+          A disciplined, zero-ambiguity execution framework from intake to launch.
+        </CardDescription>
+      </CardHeader>
 
-      <div className="space-y-4 pt-1">
+      <CardContent className="gap-5">
         {CONTACT_STEPS.map((step) => (
-          <div key={step.number} className="flex items-start gap-3">
-            <div className="w-7 h-7 rounded-full bg-[#FAF0F6] border border-[#F3DBE9] text-[#922F55] text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+          <div key={step.number} className="flex items-start gap-4 group">
+            <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-200">
               {step.number}
             </div>
-            <div className="flex-1">
+            <div className="flex-1 flex flex-col gap-1">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="text-xs sm:text-sm font-bold text-[#121114]">
+                <h4 className="text-sm font-bold text-foreground font-satoshi">
                   {step.title}
                 </h4>
-                <span className="text-[10px] font-mono font-bold text-[#922F55] shrink-0">
+                <Badge variant="default" size="sm" className="font-mono">
                   {step.time}
-                </span>
+                </Badge>
               </div>
-              <p className="text-xs text-[#64606D] mt-0.5 leading-snug">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
             </div>
           </div>
         ))}
-      </div>
+      </CardContent>
 
-      <div className="pt-3 border-t border-[#F5EDF3] flex items-center gap-2 text-xs text-[#706B78]">
-        <ShieldCheck size={16} className="text-[#922F55] shrink-0" />
-        <span>Mutual NDA signed prior to code audits or proprietary disclosures.</span>
-      </div>
-    </div>
+      <CardFooter className="flex-col items-start gap-3 pt-5">
+        <span className="text-xs font-mono font-bold text-foreground uppercase tracking-wider">
+          Enterprise Commitments
+        </span>
+        <div className="flex flex-col gap-2.5 w-full text-xs text-muted-foreground">
+          <div className="flex items-start gap-2.5">
+            <ShieldCheck size={16} className="text-primary shrink-0 mt-0.5" />
+            <span><strong className="text-foreground">Mutual NDA Ready:</strong> Complete confidentiality before project review.</span>
+          </div>
+          <div className="flex items-start gap-2.5">
+            <FileCheck size={16} className="text-emerald-600 shrink-0 mt-0.5" />
+            <span><strong className="text-foreground">100% IP Transfer:</strong> Full repository ownership on final milestone.</span>
+          </div>
+          <div className="flex items-start gap-2.5">
+            <Code2 size={16} className="text-primary/80 shrink-0 mt-0.5" />
+            <span><strong className="text-foreground">0% Vendor Lock-in:</strong> Clean TypeScript Next.js code any team can run.</span>
+          </div>
+        </div>
+      </CardFooter>
+    </Card>
   );
 }

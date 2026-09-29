@@ -1,45 +1,62 @@
+"use client";
+
 import { XCircle, CheckCircle2 } from "lucide-react";
 import { COMPARISONS } from "@/lib/data/about";
+import { SectionHeader } from "@/components/ui/section-header";
 
 export function AboutComparison() {
   return (
-    <div className="pt-10 border-t border-[#EFE5EC]">
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#922F55] block mb-2">
-          Comparative Standards
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#121114]">
-          Why Founders Choose SimpleThink
-        </h2>
-        <p className="text-xs sm:text-sm text-[#64606D] mt-2">
-          A stark comparison between old-school agency bureaucracy and our streamlined senior model.
-        </p>
-      </div>
+    <div className="w-full pt-14 sm:pt-20 border-t border-[var(--surface-elevated)]">
+      {/* ── Section Header ── */}
+      <SectionHeader
+        eyebrow="Comparative Standards"
+        title="Why Founders Choose"
+        highlightedText="SimpleThink."
+        description="A stark, transparent comparison between old-school agency bureaucracy and our streamlined senior software model."
+        centered
+        maxWidth="max-w-2xl"
+        className="mb-10 sm:mb-14 mx-auto"
+      />
 
-      <div className="border border-[#EFE5EC] rounded-3xl overflow-hidden bg-white shadow-xs">
-        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[#EFE5EC] bg-[#FAF7FC] p-4 sm:p-5 font-mono text-xs font-bold text-[#121114]">
-          <div className="md:col-span-3 text-[#706B78] uppercase">Dimension</div>
-          <div className="md:col-span-4 text-[#D8287A] hidden md:block">Traditional Agencies</div>
-          <div className="md:col-span-5 text-[#922F55] hidden md:block">The SimpleThink Model</div>
+      {/* ── Comparison Table Card ── */}
+      <div className="border border-[var(--surface-elevated)] rounded-3xl overflow-hidden bg-white shadow-card text-left">
+        {/* Table Header Bar */}
+        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--surface-elevated)] bg-[var(--background)] p-4 sm:p-5 font-mono text-xs font-bold text-foreground">
+          <div className="md:col-span-3 text-muted-foreground uppercase tracking-wider">
+            Evaluation Metric
+          </div>
+          <div className="md:col-span-4 text-[var(--muted-foreground)] uppercase tracking-wider hidden md:block">
+            Traditional Agencies
+          </div>
+          <div className="md:col-span-5 text-primary uppercase tracking-wider hidden md:flex items-center gap-2">
+            <span>The SimpleThink Studio Model</span>
+            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[var(--background)] text-primary border border-[var(--surface-elevated)]">
+              RECOMMENDED
+            </span>
+          </div>
         </div>
 
-        <div className="divide-y divide-[#EFE5EC]">
+        {/* Table Rows */}
+        <div className="divide-y divide-[var(--surface-elevated)]">
           {COMPARISONS.map((row, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-3 sm:gap-4 items-center hover:bg-[#FAF8FB] transition-colors"
+              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-3 sm:gap-4 items-center hover:bg-[var(--background)] transition-colors"
             >
-              <div className="md:col-span-3 font-bold text-sm text-[#121114]">
+              {/* Metric Title */}
+              <div className="md:col-span-3 font-bold text-sm text-foreground font-satoshi">
                 {row.aspect}
               </div>
 
-              <div className="md:col-span-4 flex items-start gap-2.5 text-xs sm:text-sm text-[#706B78]">
+              {/* Traditional Agencies */}
+              <div className="md:col-span-4 flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
                 <XCircle size={16} className="text-[#EF4444] shrink-0 mt-0.5" />
                 <span>{row.traditional}</span>
               </div>
 
-              <div className="md:col-span-5 flex items-start gap-2.5 text-xs sm:text-sm text-[#121114] font-medium bg-[#FAF0F6]/50 p-3 rounded-xl border border-[#F3DBE9]/60">
-                <CheckCircle2 size={16} className="text-[#922F55] shrink-0 mt-0.5" />
+              {/* SimpleThink Model */}
+              <div className="md:col-span-5 flex items-start gap-2.5 text-xs sm:text-sm text-foreground font-semibold bg-[var(--background)]/70 p-3.5 rounded-2xl border border-[var(--surface-elevated)]/80 shadow-2xs">
+                <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
                 <span>{row.simplethink}</span>
               </div>
             </div>

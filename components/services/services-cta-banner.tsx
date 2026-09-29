@@ -8,37 +8,42 @@ export function ServicesCtaBanner() {
   const { openLead } = useLead();
 
   return (
-    <div className="w-full relative z-20">
-      <div className="relative p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-white via-[#FFF7FA] to-[#FAF5FF] border border-[#EFE5EC] shadow-[0_16px_40px_rgba(146,47,85,0.06)] flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 overflow-hidden text-left">
-        {/* Subtle Ambient Glow inside */}
-        <div
-          className="pointer-events-none absolute -right-10 -bottom-10 w-60 h-60 rounded-full bg-gradient-to-tr from-[#922F55]/10 to-transparent blur-2xl"
-          aria-hidden="true"
+    <div className="w-full relative z-20 mb-16 sm:mb-24 mt-12 sm:mt-16">
+      <div className="relative p-8 sm:p-12 lg:p-16 rounded-3xl sm:rounded-4xl bg-foreground text-white border border-[var(--foreground)] shadow-cta flex flex-col xl:flex-row xl:items-center justify-between gap-10 sm:gap-12 overflow-hidden text-left">
+        
+        {/* ── Abstract Glows ── */}
+        <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[var(--primary)]/40 to-[var(--primary)]/40 blur-3xl opacity-60" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[var(--chart-2)]/30 to-[#3B82F6]/30 blur-3xl opacity-60" />
+        
+        {/* ── Subtle Dot Pattern Overlay ── */}
+        <div 
+          className="absolute inset-0 opacity-[0.07] pointer-events-none" 
+          style={{ backgroundImage: "radial-gradient(circle at center, #ffffff 1px, transparent 1px)", backgroundSize: "24px 24px" }} 
         />
 
-        {/* Left Side: Icon + Headline + Subtitle */}
-        <div className="flex items-start gap-4 sm:gap-5 max-w-2xl relative z-10">
-          {/* Paper Airplane Icon in rounded square */}
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-[#922F55] to-[#DB2777] text-white flex items-center justify-center shrink-0 shadow-[0_6px_20px_rgba(146,47,85,0.25)]">
-            <Send size={22} className="rotate-[-15deg] translate-x-0.5" />
+        {/* ── Left Side: Icon + Headline + Subtitle ── */}
+        <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8 max-w-2xl relative z-10">
+          {/* Paper Airplane Icon in glowing shape */}
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary)] flex items-center justify-center shrink-0 shadow-elevated ring-1 ring-white/15">
+            <Send size={28} className="text-white rotate-[-15deg] translate-x-0.5" />
           </div>
 
-          <div className="flex flex-col items-start">
-            <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.2em] text-[#922F55] font-satoshi mb-1 block">
-              READY TO BUILD?
+          <div className="flex flex-col items-start pt-1 sm:pt-2">
+            <span className="text-xs sm:text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)] font-satoshi mb-2 sm:mb-3 block">
+              Ready to build?
             </span>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#121114] tracking-tight font-satoshi">
-              Know what you need? Let&apos;s scope it properly.
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-satoshi leading-tight mb-3 sm:mb-4">
+              Know what you need? <br className="hidden lg:block"/> Let&apos;s scope it properly.
             </h3>
-            <p className="text-xs sm:text-sm text-[#706B78] mt-1.5 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed font-normal max-w-lg">
               Tell us what you&apos;re trying to build, improve or automate. We&apos;ll help
               define the right service, scope and technical direction.
             </p>
           </div>
         </div>
 
-        {/* Right Side: Dual Action Buttons */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 relative z-10 shrink-0">
+        {/* ── Right Side: Dual Action Buttons ── */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 relative z-10 shrink-0 w-full xl:w-auto mt-4 xl:mt-0">
           <button
             type="button"
             onClick={() =>
@@ -47,10 +52,10 @@ export function ServicesCtaBanner() {
                 description: "Ready to build: Scope definition requested.",
               })
             }
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#922F55] hover:bg-[#7D2748] text-white text-xs sm:text-sm font-bold shadow-[0_6px_20px_rgba(146,47,85,0.28)] hover:shadow-[0_8px_24px_rgba(146,47,85,0.36)] hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 sm:py-4.5 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] hover:from-[var(--primary-hover)] hover:to-[var(--primary)] text-white text-sm sm:text-base font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-1 transition-all cursor-pointer"
           >
             <span>Start a project</span>
-            <AnimatedArrowRight size={13} className="text-white" />
+            <AnimatedArrowRight size={15} className="text-white" />
           </button>
 
           <button
@@ -61,7 +66,7 @@ export function ServicesCtaBanner() {
                 description: "Tell us what you need custom request.",
               })
             }
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-[#FAF7FC] text-[#121114] border border-[#E5DEE6] shadow-xs text-xs sm:text-sm font-bold hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-7 py-4 sm:py-4.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md text-sm sm:text-base font-medium hover:-translate-y-1 transition-all cursor-pointer"
           >
             <span>Tell us what you need</span>
           </button>

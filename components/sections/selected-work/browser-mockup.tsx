@@ -9,9 +9,9 @@ import { AnimatePresence, motion } from "motion/react";
 
 export function BrowserMockup({ activeProject }: { activeProject: Project }) {
   return (
-    <div className="relative w-full rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.14)] border border-slate-200/90 bg-white overflow-hidden flex flex-col z-20">
+    <div className="relative w-full rounded-2xl shadow-card border border-slate-200/90 bg-white overflow-hidden flex flex-col z-20">
       {/* Browser Window Header Chrome */}
-      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-[#F8F9FA] rounded-t-2xl border-b border-slate-200/80 select-none">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-[var(--background)] rounded-t-2xl border-b border-slate-200/80 select-none">
         {/* 3 Traffic Dots */}
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
@@ -70,7 +70,7 @@ export function BrowserMockup({ activeProject }: { activeProject: Project }) {
                 />
               </div>
             ) : activeProject.image ? (
-              <div className="relative w-full h-full bg-[#0D0B12] flex items-center justify-center overflow-hidden group/thumb">
+              <div className="relative w-full h-full bg-[var(--foreground)] flex items-center justify-center overflow-hidden group/thumb">
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 pointer-events-none"
                   style={{ backgroundImage: `url(${activeProject.image})` }}
@@ -81,7 +81,7 @@ export function BrowserMockup({ activeProject }: { activeProject: Project }) {
                   className="relative z-10 w-full h-full object-cover transition-transform duration-500 ease-out group-hover/thumb:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none z-10" />
-                <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[11px] text-white/90 shadow-md">
+                <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs text-white/90 shadow-md">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   <span className="font-medium">{activeProject.serviceType} Screenshot</span>
                 </div>

@@ -24,16 +24,16 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
           return (
             <div
               key={idx}
-              className="p-3 sm:p-3.5 rounded-2xl bg-[#FAF7F9] border border-[#EFE7EC] flex items-center gap-2.5"
+              className="p-3 sm:p-3.5 rounded-2xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center gap-2.5"
             >
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#D8287A]/15 to-[#FF7B92]/10 flex items-center justify-center text-[#D8287A] shrink-0">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[var(--primary)]/15 to-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] shrink-0">
                 <IconComponent size={16} />
               </div>
               <div className="min-w-0">
-                <div className="text-sm sm:text-base font-extrabold text-[#121114] leading-tight truncate">
+                <div className="text-sm sm:text-base font-extrabold text-foreground leading-tight truncate">
                   {m.value}
                 </div>
-                <div className="text-[11px] text-[#706B78] font-medium truncate mt-0.5">
+                <div className="text-xs text-muted-foreground font-medium truncate mt-0.5">
                   {m.label}
                 </div>
               </div>
@@ -44,24 +44,24 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
 
       {/* ── Project Overview ── */}
       <div className="pt-1">
-        <h4 className="text-sm sm:text-base font-bold text-[#121114] mb-1.5">
+        <h4 className="text-sm sm:text-base font-bold text-foreground mb-1.5">
           Project Overview
         </h4>
-        <p className="text-xs sm:text-sm text-[#5B5664] leading-relaxed">
+        <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
           {enhancement.overview}
         </p>
       </div>
 
       {/* ── Tech Stack Row ── */}
       <div className="pt-1">
-        <div className="text-xs font-semibold text-[#121114] mb-2.5">
+        <div className="text-xs font-semibold text-foreground mb-2.5">
           Tech Stack
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {enhancement.techStack.map((tech) => (
             <div
               key={tech.name}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF7F9] border border-[#EBE4EA] text-xs font-medium text-[#2E2934] shadow-sm hover:border-[#D8287A]/30 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-medium text-[var(--foreground)] shadow-sm hover:border-[var(--primary)]/30 transition-colors"
             >
               <tech.icon className="w-3.5 h-3.5" />
               <span>{tech.name}</span>
@@ -71,13 +71,13 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
       </div>
 
       {/* ── Project Action Row ── */}
-      <div className="pt-2 flex items-center justify-between border-t border-[#EFE7EC]">
+      <div className="pt-2 flex items-center justify-between border-t border-[var(--surface-elevated)]">
         {project.serviceType === "Websites" && project.url ? (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#922F55] hover:bg-[#7D2748] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#922F55]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-[var(--primary)]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Visit Live Website</span>
             <AnimatedArrowRight size={15} />
@@ -87,19 +87,19 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E1B4B] hover:bg-[#2E296A] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--chart-2)] hover:bg-[var(--chart-2)] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Launch Web App Portal</span>
             <AnimatedArrowRight size={15} />
           </a>
         ) : (
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4F0F4] border border-[#ECE5EB] text-xs font-semibold text-[#504C56]">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-semibold text-[var(--muted-foreground)]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>{project.serviceType} Project Showcase</span>
           </div>
         )}
 
-        <span className="text-xs text-[#706B78] font-mono">
+        <span className="text-xs text-muted-foreground font-mono">
           {project.domain || project.serviceType}
         </span>
       </div>

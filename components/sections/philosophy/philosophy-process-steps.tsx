@@ -12,8 +12,8 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
     <div className="flex flex-col gap-4 relative z-20">
       {/* Header */}
       <div className="flex items-center gap-2 px-1">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D23D78]" />
-        <span className="text-[11px] font-bold tracking-[0.2em] text-[#D23D78] uppercase">
+        <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+        <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">
           PROCESS / 04
         </span>
       </div>
@@ -30,15 +30,15 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
               transition={{ duration: 0.4, delay: 0.15 + idx * 0.08 }}
               className={`relative rounded-[22px] p-2.5 sm:p-3 pr-4 flex items-center gap-3 bg-white border transition-all duration-300 ${
                 step.active
-                  ? "border-rose-100/80 shadow-[0_8px_30px_rgba(210,61,120,0.06)]"
-                  : "border-neutral-100/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md"
+                  ? "border-rose-100/80 shadow-elevated"
+                  : "border-neutral-100/80 shadow-card hover:shadow-md"
               }`}
             >
               {/* Number pill */}
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-black shrink-0 font-mono ${
                   step.active
-                    ? "bg-[#831843] text-white shadow-sm"
+                    ? "bg-[var(--primary-hover)] text-white shadow-sm"
                     : "bg-neutral-50/80 text-neutral-800"
                 }`}
               >
@@ -48,7 +48,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
               {/* Icon */}
               <div
                 className={`flex items-center justify-center shrink-0 ${
-                  step.active ? "text-[#D23D78]" : "text-[#D23D78]/70"
+                  step.active ? "text-primary" : "text-primary/70"
                 }`}
               >
                 <StepIcon className="w-4 h-4" strokeWidth={2.5} />
@@ -59,7 +59,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
                 <span className="text-sm font-bold text-neutral-900 leading-tight">
                   {step.title}
                 </span>
-                <span className="text-[11px] text-neutral-500 leading-snug">
+                <span className="text-xs text-neutral-500 leading-snug">
                   {step.desc} {step.subDesc}
                 </span>
               </div>
@@ -68,7 +68,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
               {step.active && (
                 <div className="hidden xl:block absolute -right-1.5 top-1/2 -translate-y-1/2 z-40 pointer-events-none">
                   {/* Dot */}
-                  <span className="block w-2.5 h-2.5 rounded-full bg-[#831843] border-2 border-white shadow-sm" />
+                  <span className="block w-2.5 h-2.5 rounded-full bg-[var(--primary-hover)] border-2 border-white shadow-sm" />
 
                   {/* Single unbroken swooping curved dashed line from Card 01 dot to Direct access card */}
                   <svg
@@ -104,13 +104,13 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
         transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
         className="relative pt-2 pl-4 select-none pointer-events-none"
       >
-        <span className="font-handwriting text-sm sm:text-base text-[#831843] block -rotate-3 leading-tight drop-shadow-sm">
+        <span className="font-handwriting text-sm sm:text-base text-[var(--primary-hover)] block -rotate-3 leading-tight drop-shadow-sm">
           Simple Process
           <br />
           Real Results
         </span>
         <svg
-          className="w-8 h-8 text-[#831843] ml-20 -mt-1 rotate-12"
+          className="w-8 h-8 text-[var(--primary-hover)] ml-20 -mt-1 rotate-12"
           viewBox="0 0 28 28"
           fill="none"
         >

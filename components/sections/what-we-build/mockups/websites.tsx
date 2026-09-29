@@ -29,12 +29,12 @@ export function WebsitesMockup({ isActive }: { isActive?: boolean }) {
           >
             <div className="grid grid-cols-12 gap-3 items-center">
               <div className="col-span-6 flex flex-col gap-2">
-                <h4 className="text-sm sm:text-base font-extrabold tracking-tight text-[#121114] leading-snug">
+                <h4 className="text-sm sm:text-base font-extrabold tracking-tight text-foreground leading-snug">
                   Build Your Next Idea
                 </h4>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="w-16 h-5 rounded-md bg-[#922F55] flex items-center justify-center shadow-sm cursor-pointer"
+                  className="w-16 h-5 rounded-md bg-primary flex items-center justify-center shadow-sm cursor-pointer"
                 >
                   <div className="w-9 h-1.5 rounded-full bg-white/90" />
                 </motion.div>
@@ -71,14 +71,14 @@ export function WebsitesMockup({ isActive }: { isActive?: boolean }) {
             <motion.div
               animate={isActive ? { backgroundColor: ["#ffffff", "#f8f9fa", "#ffffff"] } : { backgroundColor: "#ffffff" }}
               transition={{ duration: 2, repeat: isActive ? Infinity : 0 }}
-              className="w-6 h-6 rounded-md bg-white shadow-xs flex items-center justify-center text-[#922F55]"
+              className="w-6 h-6 rounded-md bg-white shadow-xs flex items-center justify-center text-primary"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             </motion.div>
-            <div className="w-6 h-6 rounded-md flex items-center justify-center text-[#68666C]">
+            <div className="w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground">
               <span className="text-xs font-bold">Tt</span>
             </div>
-            <div className="w-6 h-6 rounded-md flex items-center justify-center text-[#68666C]">
+            <div className="w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </div>
           </div>

@@ -130,7 +130,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                       )}
                     </div>
                     <div className="w-full h-1.5 rounded-full bg-slate-200" />
-                    <span className="text-[9px] font-bold text-[#121114]">{product.label}</span>
+                    <span className="text-[9px] font-bold text-foreground">{product.label}</span>
 
                     {/* "Tap" ripple on selected */}
                     {stage === "selected" && i === SELECTED_PRODUCT && (
@@ -150,7 +150,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                 <div className="flex-1 bg-slate-50 border border-black/[0.05] rounded-lg p-1.5 flex items-center gap-1.5">
                   <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0891B2]/25 to-[#0891B2]/50 flex-shrink-0" />
                   <div className="flex flex-col gap-0.5 flex-1">
-                    <span className="text-[9px] font-semibold text-[#121114] leading-none">{PRODUCTS[SELECTED_PRODUCT].name}</span>
+                    <span className="text-[9px] font-semibold text-foreground leading-none">{PRODUCTS[SELECTED_PRODUCT].name}</span>
                     <span className="text-[8px] text-[#0891B2] font-bold">{PRODUCTS[SELECTED_PRODUCT].label}</span>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                     : { scale: 1, backgroundColor: "#0891B2" }
                   }
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  className="h-10 px-3.5 rounded-lg flex items-center justify-center text-white text-[10px] font-bold gap-1"
+                  className="h-10 px-3.5 rounded-lg flex items-center justify-center text-white text-xs font-bold gap-1"
                 >
                   {stage === "selected" ? (
                     <>
@@ -204,7 +204,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                     <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
                   </svg>
                 </div>
-                <span className="text-[10px] font-bold text-[#121114]">Secure Checkout</span>
+                <span className="text-xs font-bold text-foreground">Secure Checkout</span>
                 <div className="ml-auto flex items-center gap-1">
                   <div className="w-3 h-3 rounded-full bg-emerald-400" />
                   <span className="text-[8px] text-emerald-600 font-semibold">SSL</span>
@@ -215,10 +215,10 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
               <div className="bg-slate-50 rounded-xl p-2 flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0891B2]/25 to-[#0891B2]/50 flex-shrink-0" />
                 <div className="flex-1">
-                  <div className="text-[9px] font-semibold text-[#121114]">{PRODUCTS[SELECTED_PRODUCT].name}</div>
-                  <div className="text-[9px] text-[#68666C]">Qty: 1</div>
+                  <div className="text-[9px] font-semibold text-foreground">{PRODUCTS[SELECTED_PRODUCT].name}</div>
+                  <div className="text-[9px] text-muted-foreground">Qty: 1</div>
                 </div>
-                <span className="text-[10px] font-black text-[#121114]">{PRODUCTS[SELECTED_PRODUCT].label}</span>
+                <span className="text-xs font-black text-foreground">{PRODUCTS[SELECTED_PRODUCT].label}</span>
               </div>
 
               {/* Card input (mock) */}
@@ -229,7 +229,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                     <rect x="2" y="7" width="10" height="6" rx="1" fill="#FFD700"/>
                   </svg>
                   <div className="flex-1 h-1.5 rounded-full bg-slate-200" />
-                  <span className="text-[8px] font-mono text-[#68666C]">••••</span>
+                  <span className="text-[8px] font-mono text-muted-foreground">••••</span>
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
                   <div className="bg-white border border-black/[0.07] rounded-lg px-2 py-1.5 h-5 flex items-center">
@@ -245,7 +245,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
               <motion.div
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                className="w-full h-8 rounded-xl flex items-center justify-center gap-2 text-white text-[10px] font-bold"
+                className="w-full h-8 rounded-xl flex items-center justify-center gap-2 text-white text-xs font-bold"
                 style={{ background: "linear-gradient(90deg, #0891B2, #0e7490, #06b6d4, #0891B2)", backgroundSize: "300% 100%" }}
               >
                 {/* Spinner */}
@@ -260,7 +260,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
               {/* Security badges */}
               <div className="flex items-center justify-center gap-3">
                 {["Razorpay", "Stripe", "UPI"].map((p) => (
-                  <span key={p} className="text-[7px] font-semibold text-[#68666C] bg-slate-100 px-1.5 py-0.5 rounded">{p}</span>
+                  <span key={p} className="text-[7px] font-semibold text-muted-foreground bg-slate-100 px-1.5 py-0.5 rounded">{p}</span>
                 ))}
               </div>
             </motion.div>
@@ -313,8 +313,8 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                 transition={{ delay: 0.4 }}
                 className="flex flex-col items-center gap-1 text-center"
               >
-                <span className="text-sm font-extrabold tracking-tight text-[#121114]">Order Placed! 🎉</span>
-                <span className="text-[9px] text-[#68666C] font-medium">{PRODUCTS[SELECTED_PRODUCT].name} · {PRODUCTS[SELECTED_PRODUCT].label}</span>
+                <span className="text-sm font-extrabold tracking-tight text-foreground">Order Placed! 🎉</span>
+                <span className="text-[9px] text-muted-foreground font-medium">{PRODUCTS[SELECTED_PRODUCT].name} · {PRODUCTS[SELECTED_PRODUCT].label}</span>
               </motion.div>
 
               {/* Order ID + ETA */}
@@ -325,11 +325,11 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
                 className="w-full bg-emerald-50 border border-emerald-100 rounded-xl p-2 flex items-center justify-between"
               >
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[8px] text-[#68666C]">Order ID</span>
-                  <span className="text-[9px] font-mono font-bold text-[#121114]">#ST-{Math.floor(8000 + Math.random() * 999)}</span>
+                  <span className="text-[8px] text-muted-foreground">Order ID</span>
+                  <span className="text-[9px] font-mono font-bold text-foreground">#ST-{Math.floor(8000 + Math.random() * 999)}</span>
                 </div>
                 <div className="flex flex-col gap-0.5 items-end">
-                  <span className="text-[8px] text-[#68666C]">Delivery ETA</span>
+                  <span className="text-[8px] text-muted-foreground">Delivery ETA</span>
                   <span className="text-[9px] font-bold text-emerald-600">2–3 days</span>
                 </div>
               </motion.div>

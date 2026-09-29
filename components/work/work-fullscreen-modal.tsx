@@ -25,27 +25,27 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-black/85 backdrop-blur-md p-2 sm:p-5 animate-in fade-in duration-200">
-      <div className="flex-1 w-full bg-[#121115] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-white/10">
+      <div className="flex-1 w-full bg-[var(--foreground)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-white/10">
         {/* Fullscreen Header */}
-        <div className="h-12 bg-[#1B1920] border-b border-white/10 px-4 sm:px-6 flex items-center justify-between gap-3">
+        <div className="h-12 bg-[var(--foreground)] border-b border-white/10 px-4 sm:px-6 flex items-center justify-between gap-3">
           {/* Traffic Dots + Project Info */}
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="flex items-center gap-1.5 shrink-0">
               <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
-              <div className="w-3 h-3 rounded-full bg-[#10B981]" />
+              <div className="w-3 h-3 rounded-full bg-[var(--chart-5)]" />
             </div>
             <span className="text-xs font-bold text-white truncate ml-1">
               {project.name}
             </span>
-            <span className="text-xs font-mono text-[#8C8795] hidden md:inline truncate">
+            <span className="text-xs font-mono text-[var(--muted-foreground)] hidden md:inline truncate">
               ({project.domain || project.serviceType})
             </span>
           </div>
 
           {/* Center Mode Switch for Websites */}
           {isWebsite && (
-            <div className="hidden sm:flex items-center bg-black/40 border border-white/10 p-0.5 rounded-full text-[11px] font-bold">
+            <div className="hidden sm:flex items-center bg-black/40 border border-white/10 p-0.5 rounded-full text-xs font-bold">
               <button
                 type="button"
                 onClick={() => setModalMode("live")}
@@ -53,7 +53,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                   "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "live"
                     ? "bg-white text-emerald-800 shadow-sm"
-                    : "text-[#A19CA8] hover:text-white"
+                    : "text-[var(--muted-foreground)] hover:text-white"
                 )}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -65,8 +65,8 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                 className={cn(
                   "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "screenshot"
-                    ? "bg-white text-[#922F55] shadow-sm"
-                    : "text-[#A19CA8] hover:text-white"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-[var(--muted-foreground)] hover:text-white"
                 )}
               >
                 <ImageIcon size={11} />
@@ -100,7 +100,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
         </div>
 
         {/* Viewport: Live Iframe or High-Res Screenshot */}
-        <div className="flex-1 w-full bg-[#0D0B12] relative overflow-auto flex items-center justify-center">
+        <div className="flex-1 w-full bg-[var(--foreground)] relative overflow-auto flex items-center justify-center">
           {modalMode === "live" && isWebsite ? (
             <iframe
               src={project.url}
@@ -122,7 +122,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
               />
             </div>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center text-[#8C8795]">
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center text-[var(--muted-foreground)]">
               <ImageIcon size={36} className="mb-2 opacity-50" />
               <p className="text-sm font-medium">No preview image available</p>
             </div>

@@ -4,6 +4,7 @@ import { ExperimentCard } from "@/components/sections/lab/experiment-card";
 import { PageBanner } from "@/components/ui/page-banner";
 import { EXPERIMENTS } from "@/lib/data/experiments";
 import { AmbientBackground } from "@/components/ui/ambient-background";
+import { Container } from "@/components/ui/container";
 import { motion } from "motion/react";
 
 export function LabView() {
@@ -28,7 +29,7 @@ export function LabView() {
         techStack={["openai", "huggingface", "langchain", "pytorch", "fastapi", "typescript"]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <Container className="py-12 md:py-16 lg:py-20">
 
       {/* Editorial Grid: Featured canvas + Asymmetric cards */}
       <div className="space-y-8">
@@ -56,7 +57,7 @@ export function LabView() {
           ))}
         </motion.div>
       </div>
-      </div>
+      </Container>
     </div>
   );
 }

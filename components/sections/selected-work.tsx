@@ -11,6 +11,8 @@ import { useSelectedWork } from "@/hooks/use-selected-work";
 import { BrowserMockup } from "./selected-work/browser-mockup";
 import { FilterTabsList, NavButtons } from "./selected-work/filter-tabs";
 import { SelectedWorkProjectItem } from "./selected-work/project-item";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export function SelectedWork() {
   const containerRef = useRef<HTMLElement>(null);
@@ -27,10 +29,10 @@ export function SelectedWork() {
   } = useSelectedWork();
 
   return (
-    <section 
+    <Section 
       id="selected-work" 
       ref={containerRef}
-      className="relative w-full py-12 sm:py-16 lg:py-24 font-satoshi selection:bg-[#922F55]/20 selection:text-[#922F55] overflow-hidden"
+      className="font-satoshi selection:bg-primary/20 selection:text-primary overflow-hidden"
     >
       {/* ── Background Decorative Elements ── */}
       <div 
@@ -43,7 +45,7 @@ export function SelectedWork() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
            
           {/* ── LEFT COLUMN: Heading & Project List ── */}
@@ -93,7 +95,7 @@ export function SelectedWork() {
             <div className="flex items-center justify-between">
               <Link 
                 href="/portfolio" 
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#121114] hover:text-[#922F55] transition-colors group"
+                className="inline-flex items-center gap-2 text-sm font-bold text-foreground hover:text-primary transition-colors group"
               >
                 View complete portfolio archive 
                 <AnimatedIcon icon={ArrowRightIcon} size={15} className="group-hover:translate-x-1 transition-transform" />
@@ -121,10 +123,10 @@ export function SelectedWork() {
               <div className="flex items-center gap-3 sm:gap-6 shrink-0">
                 {/* Handwritten "Live Client Site" badge positioned left of arrows */}
                 <div className="sw-live-badge hidden sm:flex pointer-events-none items-center gap-2 z-30 select-none">
-                  <span className="font-handwriting text-lg text-[#922F55] font-bold -rotate-2 tracking-wide drop-shadow-sm">
+                  <span className="font-handwriting text-lg text-primary font-bold -rotate-2 tracking-wide drop-shadow-sm">
                     Live Client Site
                   </span>
-                  <svg width="42" height="34" viewBox="0 0 42 34" fill="none" className="text-[#922F55] -ml-1 drop-shadow-sm">
+                  <svg width="42" height="34" viewBox="0 0 42 34" fill="none" className="text-primary -ml-1 drop-shadow-sm">
                     <path d="M4 4 C 14 10, 24 18, 30 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
                     <path d="M22 28 L 30 26 L 32 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
@@ -144,7 +146,7 @@ export function SelectedWork() {
 
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

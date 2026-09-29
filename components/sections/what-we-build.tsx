@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { SERVICES_LIST } from "@/lib/data/services";
 import { WhatWeBuildCard } from "./what-we-build/what-we-build-card";
 import { WhatWeBuildNav } from "./what-we-build/what-we-build-nav";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export function WhatWeBuild() {
   const { openLead } = useLead();
@@ -32,43 +34,17 @@ export function WhatWeBuild() {
   };
 
   return (
-    <section
+    <Section
       ref={sectionRef}
       id="capabilities"
-      className="relative w-full py-12 sm:py-16 lg:py-24 overflow-hidden"
+      className="overflow-hidden"
     >
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8">
+      <Container className="relative z-10 flex flex-col gap-6 sm:gap-8">
         <SectionHeader
           eyebrow="WHAT WE BUILD"
           centered
-          title={
-            <>
-              From Ideas to{" "}
-              <span className="relative inline-block brand-gradient-text">
-                Impact.
-                <svg
-                  className="absolute -bottom-2 sm:-bottom-2.5 left-0 w-full h-3 text-primary overflow-visible pointer-events-none"
-                  viewBox="0 0 200 20"
-                  fill="none"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M4 12 C50 4, 130 5, 195 10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M30 15 C90 11, 150 12, 185 14"
-                    stroke="#D23D78"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeOpacity="0.8"
-                  />
-                </svg>
-              </span>
-            </>
-          }
+          title="From Ideas to"
+          highlightedText="Impact."
           description="We engineer custom software, scalable web applications, and mobile platforms — with enterprise-grade reliability and zero unnecessary overhead."
         />
 
@@ -99,7 +75,7 @@ export function WhatWeBuild() {
           onPrev={handlePrev}
           onNext={handleNext}
         />
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

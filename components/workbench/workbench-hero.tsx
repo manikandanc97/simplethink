@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { PlayIcon } from "@animateicons/react/lucide/play-icon";
 import { AnimatedIcon, AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 import { useRef } from "react";
 import { HERO_CONTENT } from "@/lib/data/hero";
 import { Hero3DCoder } from "./hero-3d-coder";
@@ -39,7 +40,7 @@ export function WorkbenchHero() {
       {/* Background Elements */}
       <HeroGridAccents />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
+      <Container className="relative z-10 flex-1 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center w-full">
           
           {/* LEFT: Text Content */}
@@ -48,7 +49,7 @@ export function WorkbenchHero() {
 
             {/* Headline */}
             <h1 
-              className="font-satoshi font-extrabold tracking-tighter text-[#121114] leading-[1.08] sm:leading-none text-4xl xs:text-5xl sm:text-6xl lg:text-7xl flex flex-col gap-1.5 sm:gap-2"
+              className="font-satoshi font-extrabold tracking-tighter text-foreground leading-[1.08] sm:leading-none text-4xl xs:text-5xl sm:text-6xl lg:text-7xl flex flex-col gap-1.5 sm:gap-2"
             >
               <div className="overflow-hidden pb-1 -mb-1">
                 <span className="block hero-line-1 will-change-transform">{HERO_CONTENT.headlineLine1}</span>
@@ -60,7 +61,7 @@ export function WorkbenchHero() {
                     {HERO_CONTENT.headlineHighlight}
                     {/* Hand-drawn style SVG underline stroke */}
                     <svg 
-                      className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-[#922F55] overflow-visible pointer-events-none" 
+                      className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-primary overflow-visible pointer-events-none" 
                       viewBox="0 0 240 24" 
                       fill="none" 
                       preserveAspectRatio="none"
@@ -108,7 +109,7 @@ export function WorkbenchHero() {
                 id="hero-start-project"
                 onClick={() => openLead({ source: "cta" })}
                 size="lg"
-                className="group rounded-full shadow-[0_6px_20px_rgba(146,47,85,0.25)] h-12 sm:h-12 w-auto justify-center px-5 sm:px-8"
+                className="group rounded-full shadow-elevated h-12 sm:h-12 w-auto justify-center px-5 sm:px-8"
               >
                 <span className="text-sm sm:text-base whitespace-nowrap">Start a project</span>
                 <AnimatedArrowRight size={16} className="text-white ml-1 shrink-0" />
@@ -118,12 +119,12 @@ export function WorkbenchHero() {
                 type="button"
                 className="group flex items-center justify-start gap-2.5 sm:gap-3.5 hover:opacity-85 transition-opacity py-1 w-auto"
               >
-                <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-[#121114] group-hover:scale-105 transition-transform pl-0.5 shrink-0">
+                <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-foreground group-hover:scale-105 transition-transform pl-0.5 shrink-0">
                   <AnimatedIcon icon={PlayIcon} size={13} className="fill-current" />
                 </div>
                 <div className="flex flex-col text-left shrink-0">
-                  <span className="text-[13px] sm:text-base font-bold text-[#121114] leading-tight tracking-tight whitespace-nowrap">See our work</span>
-                  <span className="text-[10px] sm:text-xs font-medium text-[#68666C] mt-0.5 whitespace-nowrap">2 min overview</span>
+                  <span className="text-xs sm:text-base font-bold text-foreground leading-tight tracking-tight whitespace-nowrap">See our work</span>
+                  <span className="text-xs sm:text-xs font-medium text-muted-foreground mt-0.5 whitespace-nowrap">2 min overview</span>
                 </div>
               </button>
             </div>
@@ -139,7 +140,7 @@ export function WorkbenchHero() {
           </div>
           
         </div>
-      </div>
+      </Container>
       
       {/* Interactive scroll indicator button */}
       <button

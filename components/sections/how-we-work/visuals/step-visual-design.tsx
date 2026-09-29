@@ -16,12 +16,12 @@ export function StepVisualDesign() {
       <motion.div
         animate={{ y: [-3, 3, -3], rotate: [-1, -1, -1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
+        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-card p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
       >
         {/* Window Header */}
         <div className="w-full flex items-center gap-2 ml-4 sm:ml-8">
-          <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#475569]" />
-          <span className="font-bold text-sm sm:text-base text-[#1E293B] tracking-tight">
+          <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--muted-foreground)]" />
+          <span className="font-bold text-sm sm:text-base text-[var(--muted-foreground)] tracking-tight">
             Design System
           </span>
         </div>
@@ -30,10 +30,10 @@ export function StepVisualDesign() {
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           {/* Colors */}
           <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-neutral-100 rounded-full px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-sm">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#E11D48] shadow-inner" />
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#9333EA] shadow-inner" />
+            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--primary)] shadow-inner" />
+            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--chart-2)] shadow-inner" />
             <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#3B82F6] shadow-inner" />
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#10B981] shadow-inner" />
+            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--chart-5)] shadow-inner" />
           </div>
 
           <svg className="w-24 sm:w-32 h-3 sm:h-4 text-neutral-200" viewBox="0 0 100 16" fill="none">
@@ -43,7 +43,7 @@ export function StepVisualDesign() {
           {/* Typography */}
           <div className="bg-white border border-neutral-100 rounded-2xl px-4 sm:px-5 py-2 sm:py-3 shadow-sm flex flex-col items-center">
             <span className="font-satoshi font-black text-xl sm:text-2xl text-neutral-900">Aa</span>
-            <span className="text-[11px] sm:text-xs text-neutral-500 font-medium">Satoshi / Inter</span>
+            <span className="text-xs sm:text-xs text-neutral-500 font-medium">Satoshi / Inter</span>
           </div>
         </div>
       </motion.div>
@@ -60,11 +60,11 @@ export function StepVisualDesign() {
             UI / UX
           </span>
         </div>
-        <div className="font-handwriting text-[11px] sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
+        <div className="font-handwriting text-xs sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
           <div>• Pixel Perfect</div>
           <div>• User First</div>
         </div>
-        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48]" viewBox="0 0 28 28" fill="none">
+        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" viewBox="0 0 28 28" fill="none">
           <path d="M 6 4 C 10 12, 14 16, 22 22" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 14 22 L 22 22 L 20 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -76,10 +76,10 @@ export function StepVisualDesign() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute top-2 sm:top-18 right-2 sm:right-52 z-10 text-right pointer-events-none select-none scale-85 sm:scale-100 origin-top-right"
       >
-        <span className="font-handwriting font-bold text-xs sm:text-sm text-[#E11D48] tracking-tight block transform -rotate-3 leading-tight">
+        <span className="font-handwriting font-bold text-xs sm:text-sm text-[var(--primary)] tracking-tight block transform -rotate-3 leading-tight">
           Beautiful & <br /> Intuitive
         </span>
-        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48] ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)] ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
           <path d="M 4 18 C 10 10, 18 10, 24 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 16 6 L 24 6 L 22 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -99,7 +99,7 @@ export function StepVisualDesign() {
         </div>
         
         <div className="flex flex-col gap-1.5 sm:gap-2">
-          <div className="w-full h-5 sm:h-6 bg-[#E11D48] rounded-md flex items-center justify-center">
+          <div className="w-full h-5 sm:h-6 bg-[var(--primary)] rounded-md flex items-center justify-center">
             <div className="w-8 h-1 bg-white/50 rounded-full" />
           </div>
           <div className="w-full h-5 sm:h-6 bg-neutral-100 border border-neutral-200 rounded-md flex items-center px-2">
@@ -113,7 +113,7 @@ export function StepVisualDesign() {
           </div>
         </div>
 
-        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[#E11D48] transform -rotate-12" viewBox="0 0 32 48" fill="none">
+        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[var(--primary)] transform -rotate-12" viewBox="0 0 32 48" fill="none">
           <path d="M 12 4 C 12 20, 20 30, 20 44" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 12 36 L 20 44 L 28 36" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

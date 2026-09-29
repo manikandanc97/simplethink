@@ -27,7 +27,7 @@ export function TechCategoryTabs({
         >
           Tools<br />we love
         </span>
-        <div className="ml-0.5 sm:ml-1 text-[#9F1239] dark:text-rose-400">
+        <div className="ml-0.5 sm:ml-1 text-[var(--primary-hover)] dark:text-rose-400">
           <svg width="34" height="34" viewBox="0 0 38 38" fill="none" className="w-7 h-7 sm:w-9 sm:h-9">
             <path
               d="M 4 4 C 15 4, 28 12, 24 28"
@@ -66,9 +66,9 @@ export function TechCategoryTabs({
               aria-selected={isActive}
               onClick={() => onSelectCategory(cat)}
               id={`tech-tab-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-              className={`relative px-2.5 xs:px-3 sm:px-4.5 py-2 rounded-full text-[10px] xs:text-[11px] sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 w-full sm:w-auto ${
+              className={`relative px-2.5 xs:px-3 sm:px-4.5 py-2 rounded-full text-xs xs:text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 w-full sm:w-auto ${
                 isActive
-                  ? "text-white shadow-lg shadow-[#881337]/25"
+                  ? "text-white shadow-lg shadow-[var(--primary-hover)]/25"
                   : "border border-slate-200/80 dark:border-border/70 text-slate-600 dark:text-muted-foreground bg-white dark:bg-card/80 hover:text-slate-900 dark:hover:text-foreground hover:border-slate-300 dark:hover:border-border"
               }`}
             >
@@ -76,7 +76,7 @@ export function TechCategoryTabs({
               {isActive && (
                 <motion.span
                   layoutId="tech-active-pill"
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4C0519] via-[#6D0E31] to-[#881337]"
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--primary-hover)] via-[var(--primary-hover)] to-[var(--primary-hover)]"
                   style={{ zIndex: -1 }}
                   transition={SPRING}
                 />

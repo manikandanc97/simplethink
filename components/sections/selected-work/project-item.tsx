@@ -26,8 +26,8 @@ export function SelectedWorkProjectItem({
       className={cn(
         "sw-project-item group p-3 sm:p-3.5 rounded-2xl flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
         isActive
-          ? "bg-white border-[#FCE4EC] shadow-[0_12px_30px_rgba(146,47,85,0.15)] ring-1 ring-[#FCE4EC] translate-x-0 lg:translate-x-3 z-10"
-          : "bg-transparent border-transparent hover:bg-white/40 hover:border-slate-100 hover:translate-x-0 lg:hover:translate-x-1"
+          ? "bg-card border-primary/20 shadow-elevated ring-1 ring-primary/20 translate-x-0 lg:translate-x-3 z-10"
+          : "bg-transparent border-transparent hover:bg-card/40 hover:border-border hover:translate-x-0 lg:hover:translate-x-1"
       )}
     >
       {/* Top Row: Number, Logo, Details, Chevron */}
@@ -36,7 +36,7 @@ export function SelectedWorkProjectItem({
         <span 
           className={cn(
             "text-base sm:text-base font-bold w-6 shrink-0 transition-colors",
-            isActive ? "text-[#922F55]" : "text-slate-400"
+            isActive ? "text-primary" : "text-slate-400"
           )}
         >
           {project.number}
@@ -61,7 +61,7 @@ export function SelectedWorkProjectItem({
             <h4 
               className={cn(
                 "font-bold text-sm sm:text-base truncate tracking-tight transition-colors max-w-full",
-                isActive ? "text-[#121114]" : "text-slate-800 group-hover:text-[#121114]"
+                isActive ? "text-foreground" : "text-slate-800 group-hover:text-foreground"
               )}
             >
               {project.name}
@@ -88,7 +88,7 @@ export function SelectedWorkProjectItem({
               {project.stack.slice(0, 3).map((tag) => (
                 <span 
                   key={tag} 
-                  className="text-xs sm:text-xs bg-[#F1F5F9]/80 text-[#64748B] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
+                  className="text-xs sm:text-xs bg-[var(--background)]/80 text-[var(--muted-foreground)] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
                 >
                   {tag}
                 </span>
@@ -102,7 +102,7 @@ export function SelectedWorkProjectItem({
           className={cn(
             "shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
             isActive 
-              ? "bg-[#922F55] border-[#922F55] text-white shadow-md" 
+              ? "bg-primary border-primary text-white shadow-md" 
               : "bg-white/80 border-slate-100 text-slate-400 group-hover:text-slate-700 shadow-sm group-hover:translate-x-1"
           )}
         >

@@ -49,7 +49,7 @@ export function StepNavigation({
                 className={cn(
                   "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-black transition-colors shrink-0",
                   isActive
-                    ? "bg-[#831843] text-white shadow-xs"
+                    ? "bg-[var(--primary-hover)] text-white shadow-xs"
                     : isCompleted
                     ? "bg-emerald-50 text-emerald-700 font-bold border border-emerald-200/60"
                     : "bg-purple-50 text-purple-700 font-bold group-hover:bg-purple-100"
@@ -82,7 +82,7 @@ export function StepNavigation({
                 >
                   {step.title}
                 </span>
-                <span className="text-[11px] sm:text-xs text-neutral-400 font-medium leading-tight whitespace-nowrap mt-0.5">
+                <span className="text-xs sm:text-xs text-neutral-400 font-medium leading-tight whitespace-nowrap mt-0.5">
                   {step.subtitle}
                 </span>
               </div>
@@ -105,7 +105,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-5 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[#E11D48] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 24"
                     fill="none"
@@ -129,7 +129,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-6 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[#E11D48] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 32"
                     fill="none"
@@ -153,7 +153,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-5 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[#E11D48] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 24"
                     fill="none"

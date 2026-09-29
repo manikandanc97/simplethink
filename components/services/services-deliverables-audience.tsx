@@ -36,15 +36,15 @@ const IconMap: Record<string, LucideIcon> = {
 };
 
 const ColorMap: Record<string, { primary: string; fill: string; bg: string; border: string }> = {
-  websites: { primary: "text-[#922F55]", fill: "fill-[#922F55]/10", bg: "bg-rose-50", border: "border-rose-100" },
-  "web-apps": { primary: "text-[#7C3AED]", fill: "fill-[#7C3AED]/10", bg: "bg-purple-50", border: "border-purple-100" },
-  ecommerce: { primary: "text-[#0891B2]", fill: "fill-[#0891B2]/10", bg: "bg-cyan-50", border: "border-cyan-100" },
-  "mobile-apps": { primary: "text-[#DB2777]", fill: "fill-[#DB2777]/10", bg: "bg-pink-50", border: "border-pink-100" },
-  saas: { primary: "text-[#5B21B6]", fill: "fill-[#5B21B6]/10", bg: "bg-violet-50", border: "border-violet-100" },
-  branding: { primary: "text-[#EA580C]", fill: "fill-[#EA580C]/10", bg: "bg-orange-50", border: "border-orange-100" },
-  "ui-ux": { primary: "text-[#7C3AED]", fill: "fill-[#7C3AED]/10", bg: "bg-purple-50", border: "border-purple-100" },
-  automation: { primary: "text-[#059669]", fill: "fill-[#059669]/10", bg: "bg-emerald-50", border: "border-emerald-100" },
-  "custom-software": { primary: "text-[#2563EB]", fill: "fill-[#2563EB]/10", bg: "bg-blue-50", border: "border-blue-100" },
+  websites: { primary: "text-primary", fill: "fill-[var(--primary)]/10", bg: "bg-rose-50", border: "border-rose-100" },
+  "web-apps": { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-purple-50", border: "border-purple-100" },
+  ecommerce: { primary: "text-[var(--chart-3)]", fill: "fill-[var(--chart-3)]/10", bg: "bg-cyan-50", border: "border-cyan-100" },
+  "mobile-apps": { primary: "text-[var(--primary)]", fill: "fill-[var(--primary)]/10", bg: "bg-pink-50", border: "border-pink-100" },
+  saas: { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-violet-50", border: "border-violet-100" },
+  branding: { primary: "text-[var(--chart-4)]", fill: "fill-[var(--chart-4)]/10", bg: "bg-orange-50", border: "border-orange-100" },
+  "ui-ux": { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-purple-50", border: "border-purple-100" },
+  automation: { primary: "text-[var(--chart-5)]", fill: "fill-[var(--chart-5)]/10", bg: "bg-emerald-50", border: "border-emerald-100" },
+  "custom-software": { primary: "text-[var(--chart-1)]", fill: "fill-[var(--chart-1)]/10", bg: "bg-blue-50", border: "border-blue-100" },
 };
 
 interface ServicesDeliverablesAudienceProps {
@@ -65,13 +65,16 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
         {/* ── Left Column: Deliverables (7 cols) ── */}
         <div className="lg:col-span-7 flex flex-col items-start text-left justify-center">
           <div>
-            <span className={`text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.2em] ${colors.primary} font-satoshi mb-1.5 block transition-colors duration-300`}>
-              DELIVERABLES
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-[#121114] tracking-tight font-satoshi">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-3">
+              <span className="w-2 h-2 rounded-full bg-primary inline-block" />
+              <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
+                Deliverables
+              </span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
               Everything included
             </h3>
-            <p className="text-xs sm:text-sm text-[#706B78] mt-1 mb-6 sm:mb-8 font-normal">
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1 mb-6 sm:mb-8 font-normal">
               A complete solution from planning to launch.
             </p>
           </div>
@@ -93,7 +96,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
                     />
-                    <span className="text-xs sm:text-sm font-semibold text-[#2A2330]">
+                    <span className="text-xs sm:text-sm font-semibold text-[var(--foreground)]">
                       {item}
                     </span>
                   </div>
@@ -108,7 +111,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
                     />
-                    <span className="text-xs sm:text-sm font-semibold text-[#2A2330]">
+                    <span className="text-xs sm:text-sm font-semibold text-[var(--foreground)]">
                       {item}
                     </span>
                   </div>
@@ -120,7 +123,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
 
         {/* ── Right Column: Perfect For Card (5 cols) ── */}
         <div className="lg:col-span-5 flex">
-          <div className="w-full p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-[#EFE5EC] shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between text-left">
+          <div className="w-full p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-[var(--surface-elevated)] shadow-card flex flex-col justify-between text-left">
             <div>
               {/* Header */}
               <div className="flex items-start gap-3 mb-5">
@@ -128,10 +131,10 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                   <Target size={20} />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-black text-[#121114] tracking-tight">
+                  <h4 className="text-base sm:text-lg font-black text-foreground tracking-tight">
                     Perfect for
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-[#8C8494] mt-0.5">
+                  <p className="text-xs sm:text-xs text-[var(--muted-foreground)] mt-0.5">
                     Tailored for your business stage
                   </p>
                 </div>
@@ -152,16 +155,16 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                     return (
                       <div
                         key={idx}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FAF7FC] transition-colors group"
+                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[var(--background)] transition-colors group"
                       >
                         <div className={`w-8 h-8 rounded-xl ${colors.bg} ${colors.primary} flex items-center justify-center shrink-0 border ${colors.border}/60 transition-colors duration-300`}>
                           <IconComponent size={15} />
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-xs sm:text-sm font-bold text-[#121114] leading-tight group-hover:text-black transition-colors">
+                          <span className="text-xs sm:text-sm font-bold text-foreground leading-tight group-hover:text-black transition-colors">
                             {item.title}
                           </span>
-                          <span className="text-[10px] sm:text-[11px] text-[#706B78] mt-0.5 leading-tight">
+                          <span className="text-xs sm:text-xs text-muted-foreground mt-0.5 leading-tight">
                             {item.desc}
                           </span>
                         </div>

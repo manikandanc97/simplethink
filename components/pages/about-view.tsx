@@ -2,98 +2,133 @@
 
 import { SITE } from "@/config/site";
 import { AmbientBackground } from "@/components/ui/ambient-background";
+import { SectionHeader } from "@/components/ui/section-header";
 import { AboutHero } from "@/components/about/about-hero";
 import { AboutMetrics } from "@/components/about/about-metrics";
 import { AboutPrinciples } from "@/components/about/about-principles";
 import { AboutComparison } from "@/components/about/about-comparison";
+import { AboutTechStack } from "@/components/about/about-tech-stack";
+import { AboutFaqSection } from "@/components/about/about-faq-section";
 import { AboutCta } from "@/components/about/about-cta";
-import { MapPin } from "lucide-react";
+import { Container } from "@/components/ui/container";
+import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+import { MapPin, ShieldCheck, Zap, Code2 } from "lucide-react";
 
 export function AboutView() {
   return (
-    <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-28 sm:pt-36 pb-28">
-      {/* ── Background Atmospheric Elements (Screen-Specific) ── */}
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-hidden">
+      {/* ── Background Atmospheric Elements ── */}
       <AmbientBackground screen="about" />
-      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] opacity-35 pointer-events-none" />
 
-      {/* ── Hero Section (Badges, Title, Floating Stickers) ── */}
+      {/* ── 1. Hero Section (Breadcrumb, Title, Value Props & 3D Studio Showcase) ── */}
       <AboutHero />
 
-      {/* ── Main Showcase Container ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="bg-white/95 backdrop-blur-2xl rounded-[32px] sm:rounded-[40px] border border-[#EFE5EC] shadow-[0_24px_64px_-16px_rgba(146,47,85,0.08),0_4px_24px_rgba(0,0,0,0.02)] p-5 sm:p-7 lg:p-9 space-y-16">
-          
-          {/* ── Section 1: Who We Are & Story ── */}
-          <div className="space-y-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-              <div className="lg:col-span-4">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#922F55] block mb-2">
-                  Our Ethos & Origin
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#121114] leading-tight">
-                  Who We{" "}
-                  <span className="relative inline-block text-[#922F55]">
-                    Are
-                    <svg
-                      className="absolute -bottom-1.5 left-0 w-full h-2 text-[#D8287A] overflow-visible pointer-events-none"
-                      viewBox="0 0 100 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 5.5C28 2 68 2 98 5"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </h2>
-                
-                {/* Location indicator */}
-                {SITE.location && (
-                  <div className="mt-6 p-4 rounded-2xl bg-[#FAF7FC] border border-[#EAE3E9] flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#FAF0F6] text-[#922F55] flex items-center justify-center shrink-0">
-                      <MapPin size={16} />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-mono text-[#706B78] uppercase">Studio Base</div>
-                      <div className="text-xs font-bold text-[#121114]">
-                        {SITE.location} &bull; Serving Clients Globally
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+      {/* ── Main Structured Showcase Area ── */}
+      <Container className="relative z-20 pb-16 md:pb-20 lg:pb-24 flex flex-col gap-16 sm:gap-20">
+        
+        {/* ── 2. Studio Story & Origin (Executive Bento & 4 Metrics) ── */}
+        <div className="w-full pt-4 flex flex-col gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column: Authoritative Header & Global Base */}
+            <div className="lg:col-span-5 flex flex-col items-start text-left">
+              <SectionHeader
+                eyebrow="Our Ethos & Origin"
+                title="Engineered for"
+                highlightedText="High-Stakes Scale."
+                description="We are a senior-only software development studio partnering directly with founders, CEOs, and engineering leaders who demand architectural rigor over agency overhead."
+                className="items-start text-left mx-0"
+                maxWidth="max-w-lg"
+              />
 
-              <div className="lg:col-span-8 space-y-5 text-sm sm:text-base text-[#64606D] leading-relaxed">
-                <p className="text-lg sm:text-xl font-bold text-[#121114] leading-relaxed">
-                  We are a dedicated software development company working directly with founders, business owners, and engineering leaders who value architectural precision over bureaucratic overhead.
-                </p>
-                <p>
-                  When you collaborate with SimpleThink, you don&apos;t get handed off through account managers, junior coordinators, or outsourced layers. You work directly with the senior software engineers crafting your system.
-                </p>
-                <p>
-                  Our methodology combines deep brand taste with modern fullstack engineering — ensuring that every website, web application, mobile app, and SaaS system we launch looks world-class and performs under pressure.
-                </p>
-              </div>
+              {/* Global Studio Base Card */}
+              {SITE.location && (
+                <Card variant="default" padding="compact" className="mt-8 flex flex-row items-center gap-4 w-full max-w-md">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/20">
+                    <MapPin size={18} />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider font-semibold">
+                      Global Delivery Base
+                    </span>
+                    <span className="text-sm font-bold text-foreground">
+                      {SITE.location} &bull; Remote Engineering Worldwide
+                    </span>
+                  </div>
+                </Card>
+              )}
             </div>
 
-            {/* 4 Metric Cards */}
-            <AboutMetrics />
+            {/* Right Column: 3 Strategic Pillars Bento */}
+            <div className="lg:col-span-7 flex flex-col gap-4 text-left">
+              {/* Pillar 1: Hero Card */}
+              <Card variant="default" padding="default" className="relative overflow-hidden">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0">
+                    <Zap size={18} />
+                  </div>
+                  <CardTitle className="text-base sm:text-lg font-bold">
+                    Direct partnership with principal engineers — zero junior delegation
+                  </CardTitle>
+                </div>
+                <CardDescription className="text-sm leading-relaxed">
+                  When you collaborate with SimpleThink, you don&apos;t get passed through account managers, junior coordinators, or fragmented offshore tiers. Every architecture decision, database schema, and interface interaction is authored and reviewed by battle-tested engineers.
+                </CardDescription>
+              </Card>
+
+              {/* Pillar 2 & 3: Dual Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Card variant="default" padding="compact" className="flex flex-col justify-between">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Code2 size={16} />
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                        Architectural Longevity
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      Zero framework bloat. We build maintainable Next.js 15 and React systems with strict TypeScript typing that your internal team can inherit effortlessly.
+                    </p>
+                  </div>
+                </Card>
+
+                <Card variant="default" padding="compact" className="flex flex-col justify-between">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-primary">
+                      <ShieldCheck size={16} />
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider">
+                        100% IP & Code Ownership
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      You own every line of code, design file, and deployment credential from Day 1. Full Git repository transfer with zero recurring vendor lock-in.
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </div>
           </div>
 
-          {/* ── Section 2: Guiding Philosophy (Interactive Principle Cards) ── */}
-          <AboutPrinciples />
-
-          {/* ── Section 3: The SimpleThink Advantage vs Traditional Agencies ── */}
-          <AboutComparison />
-
-          {/* ── Section 4: Direct Engineering Line / CTA ── */}
-          <AboutCta />
-
+          {/* 4 Metric Cards */}
+          <AboutMetrics />
         </div>
-      </div>
+
+        {/* ── 3. Guiding Philosophy (Interactive Principle Cards) ── */}
+        <AboutPrinciples />
+
+        {/* ── 4. The SimpleThink Advantage vs Traditional Agencies ── */}
+        <AboutComparison />
+
+        {/* ── 5. Modern Engineering Stack & Tech Philosophy ── */}
+        <AboutTechStack />
+
+        {/* ── 6. Studio Frequently Asked Questions ── */}
+        <AboutFaqSection />
+
+        {/* ── 7. Luxury Bottom CTA Banner ── */}
+        <AboutCta />
+
+      </Container>
     </div>
   );
 }

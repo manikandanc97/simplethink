@@ -38,27 +38,23 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
   };
 
   return (
-    <>
-      {/* ── Navbar shell ── */}
-      <motion.header
-        role="banner"
-        className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6"
-        initial={{ y: -6, opacity: 0.92 }}
-        animate={{ y: scrolled ? 0 : 8, opacity: 1 }}
-        transition={
-          mounted
-            ? { type: "spring", stiffness: 380, damping: 38, mass: 0.8 }
-            : { duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
-        }
-      >
-        {/* ── Content row (Pill) ── */}
-        <motion.div
-          className="w-[92vw] max-w-7xl mx-auto px-5 sm:px-8 py-3 flex items-center justify-between bg-[rgba(255,255,255,0.72)] backdrop-blur-[16px] border border-[rgba(30,24,30,0.08)] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
-        >
+    <motion.header
+      role="banner"
+      className="fixed top-3 sm:top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8"
+      initial={{ y: -6, opacity: 0.92 }}
+      animate={{ y: scrolled ? 0 : 6, opacity: 1 }}
+      transition={
+        mounted
+          ? { type: "spring", stiffness: 380, damping: 38, mass: 0.8 }
+          : { duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }
+      }
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="w-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between bg-card/90 backdrop-blur-xl border border-border rounded-full shadow-card font-satoshi">
           {/* Brand Logo */}
           <Link
             href="/"
-            className="group flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-ring rounded-lg outline-none font-satoshi"
+            className="group flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-ring rounded-lg outline-none shrink-0"
             aria-label="SimpleThink Home"
           >
             <CldImage
@@ -74,7 +70,7 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
           {/* Desktop Navigation */}
           <nav
             aria-label="Primary navigation"
-            className="hidden lg:flex items-center gap-8 xl:gap-10 font-satoshi"
+            className="hidden lg:flex items-center gap-8 xl:gap-10"
           >
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.route;
@@ -84,17 +80,17 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
                   href={item.route}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "relative text-base font-semibold tracking-tight transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-ring flex flex-col items-center",
+                    "relative text-sm font-semibold tracking-tight transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-ring flex flex-col items-center py-1",
                     isActive
-                      ? "text-[#922F55]"
-                      : "text-[#121114] hover:text-[#922F55]"
+                      ? "text-primary"
+                      : "text-foreground/80 hover:text-primary"
                   )}
                 >
                   <span>{item.label}</span>
                   {isActive && (
                     <motion.span 
                       layoutId="nav-indicator"
-                      className="w-1.5 h-1.5 rounded-full bg-[#922F55] absolute -bottom-2.5" 
+                      className="w-1.5 h-1.5 rounded-full bg-primary absolute -bottom-1" 
                     />
                   )}
                 </Link>
@@ -103,13 +99,16 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-2.5 font-satoshi">
-            <div className="hidden xl:flex items-center gap-2.5 border-l border-[rgba(30,24,30,0.08)] pl-5 py-1 mr-1">
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            {/* Availability status badge */}
+            <div className="hidden xl:flex items-center gap-2 border-l border-border pl-4 py-1">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#08B875] opacity-60" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#08B875]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-sm font-medium text-[#121114]/90 tracking-tight">Available for projects</span>
+              <span className="text-xs font-medium text-muted-foreground tracking-tight">
+                Available for projects
+              </span>
             </div>
             
             {/* Start a project CTA Button */}
@@ -117,14 +116,14 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
               size="sm"
               onClick={handleStart}
               id="navbar-start-project"
-              className="flex group font-bold text-sm sm:text-base tracking-tight h-9 sm:h-11 px-4 sm:px-6 rounded-full bg-[#922F55] text-white hover:bg-[#7D2748] active:scale-95 cursor-pointer transition-all duration-200 items-center gap-1.5 shadow-[0_4px_14px_rgba(146,47,85,0.25)] border-0"
+              className="shadow-elevated gap-1.5"
             >
               <span>Start a project</span>
-              <AnimatedArrowRight size={15} className="ml-0.5 text-white" />
+              <AnimatedArrowRight size={14} className="text-white" />
             </Button>
           </div>
-        </motion.div>
-      </motion.header>
-    </>
+        </div>
+      </div>
+    </motion.header>
   );
 }

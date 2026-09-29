@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import { AnimatedArrowRight } from "@/components/ui/animated-icon";
+import { Button } from "@/components/ui/button";
 import { SERVICES_LIST } from "@/lib/data/services";
 import {
   MobileAppsMockup,
@@ -111,8 +112,8 @@ export function WhatWeBuildCard({
         "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-5 pb-12 xs:p-6 xs:pb-14 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
         "backdrop-blur-2xl border",
         isActive
-          ? "bg-white/95 border-[rgba(146,47,85,0.15)] z-30 pointer-events-auto"
-          : "bg-white/55 border-[rgba(30,24,30,0.05)] z-10 pointer-events-auto"
+          ? "bg-card border-primary/20 z-30 pointer-events-auto"
+          : "bg-card/60 border-border z-10 pointer-events-auto"
       )}
       style={{
         transformStyle: "preserve-3d",
@@ -183,16 +184,14 @@ export function WhatWeBuildCard({
                     </motion.div>
                   </FadeUp>
 
-                  {/* Title */}
                   <FadeUp delay={0.07}>
-                    <h3 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-tighter text-[#121114] leading-tight">
+                    <h3 className="type-h3 text-foreground mb-1">
                       {service.name}
                     </h3>
                   </FadeUp>
 
-                  {/* Description */}
                   <FadeUp delay={0.14}>
-                    <p className="text-sm sm:text-base text-[#68666C] leading-relaxed font-medium">
+                    <p className="type-small text-muted-foreground">
                       {service.shortTagline}
                     </p>
                   </FadeUp>
@@ -202,7 +201,7 @@ export function WhatWeBuildCard({
                     {service.deliverables?.map((item, i) => (
                       <motion.span
                         key={i}
-                        className="inline-flex items-center px-3 py-1 rounded-full bg-slate-50 border border-[rgba(30,24,30,0.06)] text-xs font-semibold text-[#121114]/85 tracking-tight"
+                        className="inline-flex items-center px-3 py-1 rounded-full bg-secondary border border-border text-foreground type-label"
                         initial={{ opacity: 0, scale: 0.88 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.26 + i * 0.055, duration: 0.3, ease: "easeOut" }}
@@ -212,19 +211,17 @@ export function WhatWeBuildCard({
                     ))}
                   </FadeUp>
 
-                  {/* CTA */}
                   <FadeUp delay={0.28}>
-                    <button
-                      type="button"
+                    <Button
+                      size="default"
                       onClick={(e) => {
                         e.stopPropagation();
                         onOpenLead(service.name);
                       }}
-                      className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-[#922F55] text-white text-sm font-bold hover:bg-[#7D2748] active:scale-95 transition-all shadow-[0_4px_16px_rgba(146,47,85,0.28)]"
                     >
                       <span>Explore {service.name}</span>
                       <AnimatedArrowRight size={15} className="text-white" />
-                    </button>
+                    </Button>
                   </FadeUp>
                 </motion.div>
               )}
@@ -252,10 +249,10 @@ export function WhatWeBuildCard({
                       <IconComponent className="w-4 h-4 stroke-[2.2]" />
                     </div>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-[#121114] leading-tight">
+                  <h3 className="type-h3 text-foreground">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-[#68666C] leading-relaxed font-medium line-clamp-2">
+                  <p className="type-small text-muted-foreground line-clamp-2">
                     {service.shortTagline}
                   </p>
                 </motion.div>

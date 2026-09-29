@@ -8,6 +8,8 @@ import { TechCard } from "./tech-stack-card";
 import { TechPerformancePill } from "./tech-stack/tech-performance-pill";
 import { TechCategoryTabs } from "./tech-stack/tech-category-tabs";
 import { TechValueStrip } from "./tech-stack/tech-value-strip";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<Category>("Frontend & Web");
@@ -28,16 +30,13 @@ export function TechStack() {
   }, [activeCategory]);
 
   return (
-    <section
-      id="tech-stack"
-      className="relative w-full py-12 sm:py-16 lg:py-24"
-    >
+    <Section id="tech-stack">
       {/* Decorative dot matrix in corners */}
       <div className="pointer-events-none absolute top-8 left-8 w-32 h-32 hero-dots opacity-40 dark:opacity-20" />
       <div className="pointer-events-none absolute bottom-8 left-8 w-36 h-36 hero-dots opacity-40 dark:opacity-20" />
       <div className="pointer-events-none absolute bottom-8 right-8 w-36 h-36 hero-dots opacity-40 dark:opacity-20" />
 
-      <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
+      <Container ref={containerRef} className="relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
         {/* ── Top Header with Floating Performance Pill ──────────────────────── */}
         <div className="relative text-center">
           <TechPerformancePill />
@@ -102,12 +101,12 @@ export function TechStack() {
           className="ts-footer flex items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto w-full px-2"
         >
           <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
-          <p className="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 text-center leading-relaxed">
+          <p className="text-xs sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 text-center leading-relaxed">
             We choose tools that fit your project — not the other way around.
           </p>
           <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

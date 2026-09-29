@@ -21,22 +21,22 @@ export function FAQ() {
         {/* Top-left dot grid */}
         <div className="absolute top-12 left-6 sm:left-12 grid grid-cols-4 gap-2.5 opacity-35">
           {Array.from({ length: 28 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#f43f5e]" />
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
         </div>
 
         {/* Right edge dot grid */}
         <div className="absolute top-1/3 right-4 sm:right-10 grid grid-cols-4 gap-2.5 opacity-30">
           {Array.from({ length: 32 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#f43f5e]" />
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
         </div>
 
         {/* Top-right diagonal accent lines */}
         <div className="absolute top-10 right-16 flex gap-1.5 rotate-[35deg] opacity-75">
-          <div className="w-0.5 h-4 bg-[#f43f5e] rounded-full" />
-          <div className="w-0.5 h-5 bg-[#f43f5e] rounded-full -translate-y-1" />
-          <div className="w-0.5 h-4 bg-[#f43f5e] rounded-full" />
+          <div className="w-0.5 h-4 bg-[var(--primary)] rounded-full" />
+          <div className="w-0.5 h-5 bg-[var(--primary)] rounded-full -translate-y-1" />
+          <div className="w-0.5 h-4 bg-[var(--primary)] rounded-full" />
         </div>
       </div>
 

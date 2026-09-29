@@ -43,7 +43,7 @@ export function BrandingMockup({ isActive }: { isActive?: boolean }) {
         </div>
 
         <div className="bg-slate-50 border border-black/[0.04] rounded-xl p-2.5 flex flex-col gap-1">
-          <span className="text-lg font-black tracking-tighter text-[#121114] leading-none">Aa</span>
+          <span className="text-lg font-black tracking-tighter text-foreground leading-none">Aa</span>
           <div className="flex gap-1.5">
             <div className="w-12 h-1.5 rounded-full bg-slate-300" />
             <div className="w-8 h-1.5 rounded-full bg-slate-200" />
@@ -51,7 +51,7 @@ export function BrandingMockup({ isActive }: { isActive?: boolean }) {
           </div>
           <div className="flex gap-1 mt-1">
             {["Inter", "Satoshi", "Mono"].map((f, i) => (
-              <span key={i} className="text-[8px] px-1.5 py-0.5 rounded-full bg-white border border-slate-200 text-[#68666C] font-medium">{f}</span>
+              <span key={i} className="text-[8px] px-1.5 py-0.5 rounded-full bg-white border border-slate-200 text-muted-foreground font-medium">{f}</span>
             ))}
           </div>
         </div>

@@ -1,26 +1,41 @@
 import { METRICS } from "@/lib/data/about";
+import { Users, Zap, ShieldCheck, Clock } from "lucide-react";
+
+const METRIC_ICONS = [Users, Zap, ShieldCheck, Clock];
 
 export function AboutMetrics() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-      {METRICS.map((metric, i) => (
-        <div
-          key={i}
-          className="p-5 rounded-2xl border border-[#EFE5EC] bg-white/70 hover:bg-white hover:shadow-xs transition-all flex flex-col justify-between"
-        >
-          <div className="text-3xl sm:text-4xl font-black text-[#922F55] tracking-tight mb-2">
-            {metric.value}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 pt-4">
+      {METRICS.map((metric, i) => {
+        const Icon = METRIC_ICONS[i % METRIC_ICONS.length];
+        return (
+          <div
+            key={i}
+            className="p-6 rounded-3xl border border-[var(--surface-elevated)] bg-white/80 hover:bg-white shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                <Icon size={18} />
+              </div>
+              <span className="text-xs font-mono font-bold tracking-wider text-primary uppercase px-2 py-0.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)]">
+                VERIFIED
+              </span>
+            </div>
+
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight group-hover:text-primary transition-colors mb-1 font-satoshi">
+                {metric.value}
+              </div>
+              <h3 className="text-sm font-bold text-foreground tracking-tight">
+                {metric.label}
+              </h3>
+              <p className="text-xs text-muted-foreground mt-1 leading-snug">
+                {metric.sub}
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-[#121114]">
-              {metric.label}
-            </h3>
-            <p className="text-xs text-[#706B78] mt-1 leading-snug">
-              {metric.sub}
-            </p>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

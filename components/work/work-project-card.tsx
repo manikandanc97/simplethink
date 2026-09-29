@@ -17,22 +17,22 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
       className={cn(
         "group w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center gap-3.5 sm:gap-4 border cursor-pointer",
         isActive
-          ? "bg-[#FFF5F8] border-[#F4A7C2] shadow-[0_4px_20px_rgba(216,40,122,0.08)]"
-          : "bg-transparent border-transparent hover:bg-[#FAF7F9] hover:border-[#EFE7EC]"
+          ? "bg-white border-primary shadow-elevated ring-1 ring-[var(--primary)]/20"
+          : "bg-transparent border-[var(--surface-elevated)] hover:bg-white/60 hover:border-primary/30 hover:shadow-2xs"
       )}
     >
       {/* ── Number (01, 02, etc.) ── */}
       <span
         className={cn(
-          "font-black text-base sm:text-lg w-7 shrink-0 transition-colors",
-          isActive ? "text-[#D8287A]" : "text-[#121114]"
+          "font-mono font-bold text-sm sm:text-base w-7 shrink-0 transition-colors",
+          isActive ? "text-primary" : "text-muted-foreground"
         )}
       >
         {project.number}
       </span>
 
       {/* ── Project Brand Logo ── */}
-      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-[#ECE5EC] bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-[#D8287A]/30 group-hover:shadow-sm">
+      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-[var(--surface-elevated)] bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-[var(--primary)]/30 group-hover:shadow-sm">
         <img
           src={project.logo || "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo"}
           alt={`${project.name} Logo`}
@@ -45,13 +45,13 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
 
       {/* ── Project Meta ── */}
       <div className="flex-1 min-w-0">
-        <div className="text-[11px] font-medium text-[#8C8894] mb-0.5">
+        <div className="text-xs font-medium text-[var(--muted-foreground)] mb-0.5">
           {project.year}
         </div>
-        <h3 className="text-sm sm:text-base font-bold text-[#121114] truncate tracking-tight">
+        <h3 className="text-sm sm:text-base font-bold text-foreground truncate tracking-tight">
           {project.name}
         </h3>
-        <p className="text-xs text-[#6B6673] truncate mt-0.5">
+        <p className="text-xs text-[var(--muted-foreground)] truncate mt-0.5">
           {project.category}
         </p>
 
@@ -60,7 +60,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 rounded-md bg-[#F4F0F4] text-[#55505C] text-[10px] sm:text-[11px] font-medium border border-[#ECE5EB]"
+              className="px-2 py-0.5 rounded-md bg-[var(--background)] text-[var(--muted-foreground)] text-xs sm:text-xs font-medium border border-[var(--surface-elevated)]"
             >
               {tag}
             </span>
@@ -73,8 +73,8 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
         className={cn(
           "w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all ml-1",
           isActive
-            ? "bg-white border-[#F4A7C2] text-[#D8287A] shadow-sm translate-x-0.5"
-            : "bg-white border-[#E9E2E8] text-[#6B6673] group-hover:border-[#922F55] group-hover:text-[#922F55] group-hover:translate-x-0.5"
+            ? "bg-white border-[var(--accent-soft)] text-[var(--primary)] shadow-sm translate-x-0.5"
+            : "bg-white border-[var(--surface-elevated)] text-[var(--muted-foreground)] group-hover:border-primary group-hover:text-primary group-hover:translate-x-0.5"
         )}
       >
         <AnimatedChevronRight size={16} />

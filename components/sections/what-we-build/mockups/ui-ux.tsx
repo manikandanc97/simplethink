@@ -214,8 +214,8 @@ function SplitLayout() {
               transition={{ delay: 0.2 + i * 0.07 }}
               className="bg-white rounded-xl p-2 border border-black/[0.04] shadow-xs"
             >
-              <div className="text-[5px] text-[#68666C] font-medium">{s.label}</div>
-              <div className="text-[10px] font-black" style={{ color: s.color }}>{s.val}</div>
+              <div className="text-[5px] text-muted-foreground font-medium">{s.label}</div>
+              <div className="text-xs font-black" style={{ color: s.color }}>{s.val}</div>
             </motion.div>
           ))}
         </div>
@@ -331,7 +331,7 @@ export function UIUXMockup({ isActive }: { isActive?: boolean }) {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-1.5 h-1.5 rounded-full"
             />
-            <span className="text-[7px] text-[#68666C] font-medium">Layout preview</span>
+            <span className="text-[7px] text-muted-foreground font-medium">Layout preview</span>
           </div>
           <div className="flex gap-1">
             {LAYOUTS.map((l, i) => (

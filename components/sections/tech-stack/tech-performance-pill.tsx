@@ -3,7 +3,7 @@ import { Zap } from "lucide-react";
 export function TechPerformancePill() {
   return (
     <div className="ts-pill-wrapper hidden lg:flex absolute top-10 right-2 xl:right-8 z-20 items-center">
-      <div className="ts-pill relative flex items-center gap-3 bg-white/95 dark:bg-card/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/70 dark:border-border/60 shadow-[0_8px_25px_rgba(0,0,0,0.05)]">
+      <div className="ts-pill relative flex items-center gap-3 bg-white/95 dark:bg-card/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200/70 dark:border-border/60 shadow-card">
         {/* Radiating Accent Sparks on Top-Left */}
         <div className="absolute -top-3.5 -left-3 pointer-events-none text-rose-400">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">

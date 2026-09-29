@@ -10,7 +10,11 @@ import { WorkProjectCard } from "@/components/work/work-project-card";
 import { WorkBrowserFrame } from "@/components/work/work-browser-frame";
 import { WorkProjectDetails } from "@/components/work/work-project-details";
 import { WorkFullscreenModal } from "@/components/work/work-fullscreen-modal";
+import { WorkEngineeringStandards } from "@/components/work/work-engineering-standards";
+import { WorkFaqSection } from "@/components/work/work-faq-section";
+import { WorkCtaBanner } from "@/components/work/work-cta-banner";
 import { AmbientBackground } from "@/components/ui/ambient-background";
+import { Container } from "@/components/ui/container";
 
 function WorkViewContent() {
   const searchParams = useSearchParams();
@@ -75,17 +79,21 @@ function WorkViewContent() {
     PROJECT_ENHANCEMENTS[activeProject?.id] || PROJECT_ENHANCEMENTS["proj-valparai"];
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-28 sm:pt-36 pb-28">
-      {/* ── Background Atmospheric Elements (Screen-Specific) ── */}
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-hidden">
+      {/* ── Background Atmospheric Elements ── */}
       <AmbientBackground screen="work" />
-      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] opacity-35 pointer-events-none" />
 
-      {/* ── Hero Section (Badges, Title, Floating Stickers) ── */}
+      {/* ── 1. Hero Section (Breadcrumb, Title, CTAs, Highlights & Interactive Mockup) ── */}
       <WorkHero />
 
-      {/* ── Main Showcase Container ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="bg-white/95 backdrop-blur-2xl rounded-[32px] sm:rounded-[40px] border border-[#EFE5EC] shadow-[0_24px_64px_-16px_rgba(146,47,85,0.08),0_4px_24px_rgba(0,0,0,0.02)] p-5 sm:p-7 lg:p-9">
+      {/* ── Main Structured Showcase Area ── */}
+      <Container
+        id="work-projects-container"
+        className="relative z-20 pb-16 md:pb-20 lg:pb-24 flex flex-col gap-14 sm:gap-18"
+      >
+        {/* ── 2. Showcase Controls and Split View (Clean transparent layout without white box or inner side padding) ── */}
+        <div className="w-full">
           {/* Top Control Bar: Filters, Search & Sort */}
           <WorkControls
             activeFilter={activeFilter}
@@ -97,13 +105,13 @@ function WorkViewContent() {
             allProjects={PROJECTS}
           />
 
-          {/* Split Pane: Left Project List (5) & Right Interactive Canvas */}
+          {/* Split Pane: Left Project List & Right Interactive Canvas */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-9 items-start pt-6 sm:pt-8">
             {/* ── LEFT COLUMN: Project Selector List ── */}
             <div className="lg:col-span-5 flex flex-col gap-3">
               {filteredProjects.length === 0 ? (
-                <div className="text-center py-16 px-4 bg-[#FBF9FB] rounded-2xl border border-dashed border-[#EAE3E9]">
-                  <p className="text-sm text-[#706B78] font-medium">
+                <div className="text-center py-16 px-4 bg-[var(--background)] rounded-2xl border border-dashed border-[var(--surface-elevated)]">
+                  <p className="text-sm text-muted-foreground font-medium">
                     No projects found matching your criteria.
                   </p>
                   <button
@@ -111,7 +119,7 @@ function WorkViewContent() {
                       setActiveFilter("all");
                       setSearchQuery("");
                     }}
-                    className="mt-3 text-xs font-bold text-[#922F55] hover:underline cursor-pointer"
+                    className="mt-3 text-xs font-bold text-primary hover:underline cursor-pointer"
                   >
                     Reset Filters
                   </button>
@@ -145,7 +153,16 @@ function WorkViewContent() {
             </div>
           </div>
         </div>
-      </div>
+
+        {/* ── 3. Engineering Quality Standards (4 Pillars) ── */}
+        <WorkEngineeringStandards />
+
+        {/* ── 4. Frequently Asked Questions & Still Have Questions Card ── */}
+        <WorkFaqSection />
+
+        {/* ── 5. Bottom Luxury CTA Banner ── */}
+        <WorkCtaBanner />
+      </Container>
 
       {/* ── Fullscreen Live Iframe Preview Modal ── */}
       <WorkFullscreenModal
@@ -161,8 +178,8 @@ export function WorkView() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-[#FAF7FC]">
-          <div className="w-9 h-9 border-3 border-[#922F55]/30 border-t-[#922F55] rounded-full animate-spin" />
+        <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
+          <div className="w-9 h-9 border-3 border-primary/30 border-t-[var(--primary)] rounded-full animate-spin" />
         </div>
       }
     >

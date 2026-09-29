@@ -16,13 +16,13 @@ export function BlueprintCanvas({ selectedServices }: { selectedServices: Servic
   if (selectedServices.length === 0) {
     return (
       <div className="w-full h-full flex flex-col items-center justify-center text-center p-8 min-h-[300px]">
-        <div className="w-14 h-14 rounded-2xl bg-[#FAF0F6] border border-[#F3DBE9] flex items-center justify-center mb-4 text-[#922F55]">
-          <Terminal className="w-6 h-6 text-[#922F55]" />
+        <div className="w-14 h-14 rounded-2xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center mb-4 text-primary">
+          <Terminal className="w-6 h-6 text-primary" />
         </div>
-        <h3 className="text-base font-bold text-[#121114] mb-1.5">
+        <h3 className="text-base font-bold text-foreground mb-1.5">
           Awaiting Module Selection
         </h3>
-        <p className="text-xs sm:text-sm text-[#706B78] max-w-xs leading-relaxed">
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-xs leading-relaxed">
           Select capabilities from the left library to dynamically visualize your project architecture.
         </p>
       </div>
@@ -38,10 +38,10 @@ export function BlueprintCanvas({ selectedServices }: { selectedServices: Servic
         return (
           <div key={category} className="w-full max-w-md flex flex-col items-center">
             {/* Category Ribbon */}
-            <div className="text-[11px] font-mono font-bold text-[#922F55] uppercase tracking-widest mb-3 flex items-center gap-2">
-              <span className="w-6 h-px bg-[#922F55]/30" />
+            <div className="text-xs font-mono font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+              <span className="w-6 h-px bg-primary/30" />
               {category} Layer
-              <span className="w-6 h-px bg-[#922F55]/30" />
+              <span className="w-6 h-px bg-primary/30" />
             </div>
 
             {/* Nodes */}

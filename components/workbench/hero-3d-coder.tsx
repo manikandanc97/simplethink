@@ -91,35 +91,35 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
             animate={{ y: [3, -3, 3] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
             style={{ transform: "translateZ(-10px) rotateY(6deg) rotateZ(-6deg)" }}
-            className="bg-white/85 backdrop-blur-xl border border-[rgba(30,24,30,0.08)] shadow-[0_16px_36px_-10px_rgba(0,0,0,0.07),0_2px_8px_rgba(0,0,0,0.02)] rounded-3xl p-3 sm:p-3.5 flex gap-2.5 sm:gap-3.5 font-satoshi relative"
+            className="bg-white/85 backdrop-blur-xl border border-[rgba(30,24,30,0.08)] shadow-card rounded-3xl p-3 sm:p-3.5 flex gap-2.5 sm:gap-3.5 font-satoshi relative"
           >
             {/* Menu Column */}
             <div className="flex flex-col gap-1.5 w-20 sm:w-24 justify-center">
               {/* Ideas */}
-              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#68666C]">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#68666C]">
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-muted-foreground">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-muted-foreground">
                   <path d="M12 2L2 12l10 10 10-10L12 2z" />
                 </svg>
                 <span>Ideas</span>
               </div>
               {/* Design */}
-              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#68666C]">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#68666C]">
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-muted-foreground">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-muted-foreground">
                   <circle cx="12" cy="12" r="10" />
                   <circle cx="12" cy="12" r="4" />
                 </svg>
                 <span>Design</span>
               </div>
               {/* Develop (Active State) */}
-              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#922F55] text-xs font-semibold text-white shadow-sm">
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-primary text-xs font-semibold text-white shadow-sm">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
                 </svg>
                 <span>Develop</span>
               </div>
               {/* Launch */}
-              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#68666C]">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#68666C]">
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-muted-foreground">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-muted-foreground">
                   <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
                   <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-2.05 9.05A22 22 0 0 1 15 12z"/>
                 </svg>
@@ -166,7 +166,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                 height="34"
                 viewBox="0 0 40 50"
                 fill="none"
-                className="text-[#922F55] -mb-1"
+                className="text-primary -mb-1"
               >
                 {/* Curved arrow pointing down to workflow card */}
                 <path
@@ -221,9 +221,9 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
             <motion.div
               animate={{ y: [2, -2, 2] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-[0_10px_24px_-8px_rgba(0,0,0,0.05),0_1px_3px_rgba(0,0,0,0.02)] rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
+              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#922F55]/10 flex items-center justify-center text-[#922F55]">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 2a14.5 14.5 0 0 0 0 20 10 10 0 0 0 9.5-6.5" />
@@ -232,41 +232,41 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                   <circle cx="16" cy="10" r="1.5" fill="currentColor" />
                 </svg>
               </div>
-              <span className="text-sm font-bold text-[#121114] tracking-tight">Modern Design</span>
+              <span className="text-sm font-bold text-foreground tracking-tight">Modern Design</span>
             </motion.div>
 
             {/* Card 2: Clean Code */}
             <motion.div
               animate={{ y: [3, -3, 3] }}
               transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-[0_10px_24px_-8px_rgba(0,0,0,0.05),0_1px_3px_rgba(0,0,0,0.02)] rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
+              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#922F55]/10 flex items-center justify-center text-[#922F55]">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
                 </svg>
               </div>
-              <span className="text-sm font-bold text-[#121114] tracking-tight">Clean Code</span>
+              <span className="text-sm font-bold text-foreground tracking-tight">Clean Code</span>
             </motion.div>
 
             {/* Card 3: Scalable Solutions */}
             <motion.div
               animate={{ y: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-[0_10px_24px_-8px_rgba(0,0,0,0.05),0_1px_3px_rgba(0,0,0,0.02)] rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
+              className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#922F55]/10 flex items-center justify-center text-[#922F55]">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 3v18h18" />
                   <path d="m19 9-5 5-4-4-3 3" />
                 </svg>
               </div>
-              <span className="text-sm font-bold text-[#121114] tracking-tight">Scalable Solutions</span>
+              <span className="text-sm font-bold text-foreground tracking-tight">Scalable Solutions</span>
             </motion.div>
 
             {/* Handwritten Annotation: Ideas into Impact */}
             <div
-              className="flex flex-col items-center self-end mr-2 text-[#922F55] pointer-events-none mt-0.5"
+              className="flex flex-col items-center self-end mr-2 text-primary pointer-events-none mt-0.5"
               style={{ transform: "translateZ(15px)" }}
             >
               <svg
@@ -274,7 +274,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                 height="34"
                 viewBox="0 0 50 60"
                 fill="none"
-                className="text-[#922F55] -mr-3"
+                className="text-primary -mr-3"
               >
                 {/* Curved arrow from card down-left to text */}
                 <path

@@ -9,6 +9,8 @@ import { StepVisual } from "./how-we-work/step-visuals";
 import { StepNavigation } from "./how-we-work/step-navigation";
 import { StepNarrative } from "./how-we-work/step-narrative";
 import { SectionHeader } from "@/components/ui/section-header";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export function HowWeWork() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -46,20 +48,18 @@ export function HowWeWork() {
   };
 
   return (
-    <section
+    <Section
       id="how-we-work"
       ref={sectionRef}
-      className="relative w-full select-none"
+      className="select-none"
     >
-      <div className="relative w-full">
-        <div className="w-full flex flex-col justify-center items-center py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
-          {/* Decorative Dotted Grid Accents */}
-          <div className="hidden lg:block pointer-events-none absolute top-16 left-8 w-28 h-28 hero-dots hww-dots opacity-40" />
-          <div className="hidden lg:block pointer-events-none absolute top-1/2 left-3 w-20 h-28 hero-dots hww-dots opacity-35" />
-          <div className="hidden lg:block pointer-events-none absolute top-28 right-10 w-24 h-24 hero-dots hww-dots opacity-35" />
+      {/* Decorative Dotted Grid Accents */}
+      <div className="hidden lg:block pointer-events-none absolute top-16 left-8 w-28 h-28 hero-dots hww-dots opacity-40" />
+      <div className="hidden lg:block pointer-events-none absolute top-1/2 left-3 w-20 h-28 hero-dots hww-dots opacity-35" />
+      <div className="hidden lg:block pointer-events-none absolute top-28 right-10 w-24 h-24 hero-dots hww-dots opacity-35" />
 
-          {/* Main Content Box */}
-          <div className="w-full max-w-7xl mx-auto relative z-10 flex flex-col gap-8 sm:gap-10 lg:gap-12 justify-center">
+      {/* Main Content Box */}
+      <Container className="relative z-10 flex flex-col gap-8 sm:gap-10 lg:gap-12 justify-center">
             
             {/* SECTION HEADER */}
             <SectionHeader
@@ -85,7 +85,7 @@ export function HowWeWork() {
             />
 
             {/* MAIN BENTO CARD (Left Narrative + Right 3D Visual Scene) */}
-            <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] p-4 xs:p-5 sm:p-6 lg:p-7 relative overflow-hidden min-h-[400px] lg:h-auto lg:flex-1 lg:max-h-[500px] flex items-center">
+            <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-card p-4 xs:p-5 sm:p-6 lg:p-7 relative overflow-hidden min-h-[400px] lg:h-auto lg:flex-1 lg:max-h-[500px] flex items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentStep.id}
@@ -111,10 +111,10 @@ export function HowWeWork() {
             <div className="pt-3 border-t border-neutral-200/60 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center sm:text-left text-xs font-mono text-neutral-500">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span className="text-[11px] sm:text-xs">Dedicated senior engineers · Direct communication · Production warranty.</span>
+                <span className="text-xs sm:text-xs">Dedicated senior engineers · Direct communication · Production warranty.</span>
               </div>
 
-              <div className="hidden sm:flex items-center gap-2 text-[11px] text-neutral-400 uppercase tracking-wider font-semibold">
+              <div className="hidden sm:flex items-center gap-2 text-xs text-neutral-400 uppercase tracking-wider font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
                 {activeStepIndex === STEPS.length - 1 ? (
                   <span className="text-rose-600 font-bold">Step 04 / 04 · Scroll down to continue</span>
@@ -124,9 +124,7 @@ export function HowWeWork() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

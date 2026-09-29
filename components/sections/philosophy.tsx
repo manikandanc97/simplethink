@@ -6,19 +6,21 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { FlowDiagram } from "./philosophy/flow-diagram";
 import { PhilosophyProcessSteps } from "./philosophy/philosophy-process-steps";
 import { PhilosophyOutcomes } from "./philosophy/philosophy-outcomes";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 export function WhySimpleThink() {
   const containerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-60px" });
 
   return (
-    <section
+    <Section
       id="why-SimpleThink"
-      className="relative w-full py-12 sm:py-16 lg:py-24 overflow-hidden font-satoshi"
+      className="overflow-hidden font-satoshi"
     >
-      <div ref={containerRef} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
+      <Container ref={containerRef} className="relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
         <SectionHeader
-          eyebrow="WHY SIMPLEPRIME"
+          eyebrow="WHY SIMPLETHINK"
           centered
           title="Built simple. Delivered"
           highlightedText="sharp."
@@ -36,7 +38,7 @@ export function WhySimpleThink() {
           {/* 3. RIGHT COLUMN: REAL OUTCOMES */}
           <PhilosophyOutcomes inView={inView} />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

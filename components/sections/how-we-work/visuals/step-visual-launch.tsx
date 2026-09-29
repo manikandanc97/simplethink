@@ -17,12 +17,12 @@ export function StepVisualLaunch() {
       <motion.div
         animate={{ y: [-3, 3, -3], rotate: [-1, -1, -1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
+        className="absolute top-4 sm:top-24 bottom-6 sm:bottom-6 left-0 sm:left-4 right-0 sm:right-16 bg-white/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white shadow-card p-3 sm:p-6 z-0 overflow-hidden select-none flex flex-col items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom"
       >
         {/* Window Header */}
         <div className="w-full flex items-center gap-2 ml-4 sm:ml-8">
-          <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#10B981]" />
-          <span className="font-bold text-sm sm:text-base text-[#1E293B] tracking-tight">
+          <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--chart-5)]" />
+          <span className="font-bold text-sm sm:text-base text-[var(--muted-foreground)] tracking-tight">
             Live & Growing
           </span>
         </div>
@@ -31,10 +31,10 @@ export function StepVisualLaunch() {
         <div className="flex flex-col items-center w-full max-w-44 sm:max-w-60 gap-1.5 sm:gap-2">
           <div className="flex items-center justify-between w-full">
             <div className="flex flex-col">
-              <span className="text-[10px] sm:text-xs text-neutral-500 font-semibold uppercase">Active Users</span>
+              <span className="text-xs sm:text-xs text-neutral-500 font-semibold uppercase">Active Users</span>
               <span className="text-lg sm:text-2xl font-black text-neutral-900">10.4k</span>
             </div>
-            <div className="px-2 py-0.5 sm:py-1 rounded-full bg-emerald-50 text-emerald-600 text-[11px] sm:text-xs font-bold flex items-center gap-1">
+            <div className="px-2 py-0.5 sm:py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs sm:text-xs font-bold flex items-center gap-1">
               <TrendingUp className="w-3 h-3" /> +42%
             </div>
           </div>
@@ -63,11 +63,11 @@ export function StepVisualLaunch() {
             Go Live
           </span>
         </div>
-        <div className="font-handwriting text-[11px] sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
+        <div className="font-handwriting text-xs sm:text-xs text-neutral-700 leading-tight flex flex-col gap-0.5">
           <div>• SEO Ready</div>
           <div>• Fast Load</div>
         </div>
-        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48]" viewBox="0 0 28 28" fill="none">
+        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" viewBox="0 0 28 28" fill="none">
           <path d="M 6 4 C 10 12, 14 16, 22 22" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 14 22 L 22 22 L 20 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -79,10 +79,10 @@ export function StepVisualLaunch() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute top-2 sm:top-18 right-2 sm:right-52 z-10 text-right pointer-events-none select-none scale-85 sm:scale-100 origin-top-right"
       >
-        <span className="font-handwriting font-bold text-xs sm:text-sm text-[#E11D48] tracking-tight block transform -rotate-3 leading-tight">
+        <span className="font-handwriting font-bold text-xs sm:text-sm text-[var(--primary)] tracking-tight block transform -rotate-3 leading-tight">
           We are <br /> Live!
         </span>
-        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#E11D48] ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)] ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
           <path d="M 4 18 C 10 10, 18 10, 24 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 16 6 L 24 6 L 22 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -103,20 +103,20 @@ export function StepVisualLaunch() {
         
         <div className="flex flex-col gap-1 sm:gap-1.5">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-600">SSL</span>
-            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-[11px] sm:text-xs font-bold text-neutral-800">Active</span></div>
+            <span className="text-xs sm:text-xs font-semibold text-neutral-600">SSL</span>
+            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-xs sm:text-xs font-bold text-neutral-800">Active</span></div>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-600">CDN</span>
-            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-[11px] sm:text-xs font-bold text-neutral-800">Global</span></div>
+            <span className="text-xs sm:text-xs font-semibold text-neutral-600">CDN</span>
+            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-xs sm:text-xs font-bold text-neutral-800">Global</span></div>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-[11px] sm:text-xs font-semibold text-neutral-600">Uptime</span>
-            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-[11px] sm:text-xs font-bold text-neutral-800">99.9%</span></div>
+            <span className="text-xs sm:text-xs font-semibold text-neutral-600">Uptime</span>
+            <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /><span className="text-xs sm:text-xs font-bold text-neutral-800">99.9%</span></div>
           </div>
         </div>
 
-        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[#E11D48] transform -rotate-12" viewBox="0 0 32 48" fill="none">
+        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[var(--primary)] transform -rotate-12" viewBox="0 0 32 48" fill="none">
           <path d="M 12 4 C 12 20, 20 30, 20 44" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 12 36 L 20 44 L 28 36" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

@@ -11,6 +11,7 @@ import { ServicesTechStack } from "@/components/services/services-tech-stack";
 import { ServicesFaqSection } from "@/components/services/services-faq-section";
 import { ServicesCtaBanner } from "@/components/services/services-cta-banner";
 import { SERVICES_PAGE_DATA } from "@/lib/data/services-page-data";
+import { Container } from "@/components/ui/container";
 
 export function ServicesView() {
   // Default to "websites" as requested by user
@@ -24,16 +25,16 @@ export function ServicesView() {
   }, [activeServiceId]);
 
   return (
-    <div className="relative min-h-screen w-full bg-[#FAF7FC] text-[#121114] overflow-hidden pt-20 sm:pt-24 pb-16 sm:pb-24">
+    <div className="relative min-h-screen w-full bg-background text-foreground overflow-hidden">
       {/* ── Background Atmospheric Elements ── */}
       <AmbientBackground screen="services" />
-      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d3ccd8_1px,transparent_1px)]  opacity-35 pointer-events-none" />
 
       {/* ── 1. Hero Section (Title, CTAs, Highlights & Cloudinary 3D Section Banner) ── */}
       <ServicesHero />
 
       {/* ── Main Structured Showcase Area ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-6 sm:-mt-10">
+      <Container className="relative z-20 pb-16 md:pb-20 lg:pb-24 flex flex-col gap-16 sm:gap-20">
         {/* ── 2. The 9 Service Category Tabs Bar ── */}
         <ServicesTabsBar
           activeId={activeServiceId}
@@ -57,7 +58,7 @@ export function ServicesView() {
 
         {/* ── 9. Bottom CTA Section Banner (Ready to build?) ── */}
         <ServicesCtaBanner />
-      </div>
+      </Container>
     </div>
   );
 }

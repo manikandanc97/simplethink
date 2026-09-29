@@ -24,9 +24,9 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
   }, [project.id, isWebsite]);
 
   return (
-    <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E9E1E7] bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.12)] flex flex-col">
+    <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--surface-elevated)] bg-white shadow-card flex flex-col">
       {/* ── Browser Header Bar ── */}
-      <div className="h-10 sm:h-11 bg-[#F8F9FA] border-b border-[#ECE6EB] px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
+      <div className="h-10 sm:h-11 bg-[var(--background)] border-b border-[var(--surface-elevated)] px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
         {/* Mac 3 dots */}
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
@@ -40,7 +40,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 bg-white border border-[#EAE3E9] shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-[11px] sm:text-xs font-medium text-[#504C56] max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-[#922F55]/40 hover:text-[#121114] transition-colors cursor-pointer group"
+            className="flex items-center justify-center gap-1.5 bg-white border border-[var(--surface-elevated)] shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-xs sm:text-xs font-medium text-[var(--muted-foreground)] max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-primary/40 hover:text-foreground transition-colors cursor-pointer group"
             title={`Visit ${project.domain || project.name}`}
           >
             <AnimatedIcon icon={LockIcon} size={11} className="text-emerald-500 shrink-0" />
@@ -48,7 +48,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             <AnimatedIcon
               icon={ExternalLinkIcon}
               size={10}
-              className="text-[#8C8894] opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
+              className="text-[var(--muted-foreground)] opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
             />
           </a>
         </div>
@@ -57,7 +57,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* If Website: show Live / Screenshot toggle pill */}
           {isWebsite ? (
-            <div className="flex items-center bg-[#EDE7ED] p-0.5 rounded-full text-[10px] font-bold">
+            <div className="flex items-center bg-[var(--surface-elevated)] p-0.5 rounded-full text-xs font-bold">
               <button
                 type="button"
                 onClick={() => setViewMode("live")}
@@ -65,7 +65,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
                   "flex items-center gap-1.5 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
                   viewMode === "live"
                     ? "bg-white text-emerald-700 shadow-xs"
-                    : "text-[#706B78] hover:text-[#121114]"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
                 title="Live interactive website"
               >
@@ -81,8 +81,8 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
                 className={cn(
                   "flex items-center gap-1 px-2.5 py-0.5 rounded-full transition-all cursor-pointer",
                   viewMode === "screenshot"
-                    ? "bg-white text-[#922F55] shadow-xs"
-                    : "text-[#706B78] hover:text-[#121114]"
+                    ? "bg-white text-primary shadow-xs"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
                 title="View high-res screenshot"
               >
@@ -92,7 +92,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             </div>
           ) : (
             /* If Not Website: show Screenshot Badge */
-            <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 border border-purple-200/70 text-[10px] font-bold text-purple-700">
+            <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-50 border border-purple-200/70 text-xs font-bold text-purple-700">
               <ImageIcon size={11} className="text-purple-600 shrink-0" />
               <span>Screenshot</span>
             </div>
@@ -103,7 +103,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             onClick={onOpenFullscreen}
             aria-label="Expand Preview"
             title="Expand Fullscreen"
-            className="text-[#6B6673] hover:text-[#121114] transition-colors p-1 rounded-md hover:bg-[#EAE4E8] cursor-pointer"
+            className="text-[var(--muted-foreground)] hover:text-foreground transition-colors p-1 rounded-md hover:bg-[var(--surface-elevated)] cursor-pointer"
           >
             <Maximize2 size={14} />
           </button>
@@ -111,7 +111,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
       </div>
 
       {/* ── Browser Viewport: Live Preview or Screenshot ── */}
-      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[#0F0E13]">
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[var(--foreground)]">
         <AnimatePresence mode="wait">
           {viewMode === "live" && isWebsite ? (
             <motion.div
@@ -139,7 +139,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
               exit={{ opacity: 0, scale: 0.99 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
               onClick={onOpenFullscreen}
-              className="group/viewport absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer select-none bg-[#0D0B12] overflow-hidden"
+              className="group/viewport absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer select-none bg-[var(--foreground)] overflow-hidden"
             >
               {/* Ambient Glow Backdrop from image */}
               {project.image && (
@@ -167,12 +167,12 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none z-10" />
 
               {/* Bottom Tag: Service Tag & Fullscreen prompt */}
-              <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[11px] text-white/90 shadow-md">
+              <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-xs text-white/90 shadow-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span className="font-medium">{project.serviceType} Screenshot</span>
               </div>
 
-              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 hover:bg-white text-[#121114] text-[11px] font-bold shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-95">
+              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 hover:bg-white text-foreground text-xs font-bold shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-95">
                 <Maximize2 size={11} />
                 <span>View Full Size</span>
               </div>

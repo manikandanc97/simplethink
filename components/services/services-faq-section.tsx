@@ -71,22 +71,22 @@ export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {
         {/* Top-left dot grid */}
         <div className="absolute top-10 left-4 sm:left-8 grid grid-cols-4 gap-2.5 opacity-25">
           {Array.from({ length: 24 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#f43f5e]" />
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
         </div>
 
         {/* Right edge dot grid */}
         <div className="absolute top-1/3 right-2 sm:right-6 grid grid-cols-4 gap-2.5 opacity-20">
           {Array.from({ length: 28 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#f43f5e]" />
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
         </div>
 
         {/* Top-right diagonal accent lines */}
         <div className="absolute top-8 right-12 flex gap-1.5 rotate-[35deg] opacity-60">
-          <div className="w-0.5 h-3.5 bg-[#f43f5e] rounded-full" />
-          <div className="w-0.5 h-4.5 bg-[#f43f5e] rounded-full -translate-y-1" />
-          <div className="w-0.5 h-3.5 bg-[#f43f5e] rounded-full" />
+          <div className="w-0.5 h-3.5 bg-[var(--primary)] rounded-full" />
+          <div className="w-0.5 h-4.5 bg-[var(--primary)] rounded-full -translate-y-1" />
+          <div className="w-0.5 h-3.5 bg-[var(--primary)] rounded-full" />
         </div>
       </div>
 

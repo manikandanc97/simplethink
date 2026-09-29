@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { type ServiceDetailItem } from "@/lib/data/services-page-data";
-import { ChevronLeft, ChevronRight, Layout, Users, Sliders, Database, Sparkles, LucideIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, Layout, Users, Sliders, Database } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ServicesWhatWeBuildProps {
@@ -25,13 +25,16 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
       {/* ── Section Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
         <div className="flex flex-col items-start text-left">
-          <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.2em] text-[#922F55] font-satoshi mb-1.5">
-            {service.whatWeBuild.length} CAPABILITIES
-          </span>
-          <h3 className="text-2xl sm:text-3xl font-black text-[#121114] tracking-tight font-satoshi">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-3">
+            <span className="w-2 h-2 rounded-full bg-primary inline-block" />
+            <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
+              {service.whatWeBuild.length} Capabilities
+            </span>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
             What we build
           </h3>
-          <p className="text-xs sm:text-sm text-[#706B78] mt-1 font-normal">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1 font-normal">
             {service.whatWeBuildSubtitle}
           </p>
         </div>
@@ -43,7 +46,7 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
               type="button"
               onClick={handlePrev}
               aria-label="Previous capability"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[#FAF7FC] border border-[#ECE5EB] flex items-center justify-center text-[#524E59] hover:text-[#121114] shadow-xs active:scale-90 transition-all cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center text-muted-foreground hover:text-foreground shadow-xs active:scale-90 transition-all cursor-pointer"
             >
               <ChevronLeft size={16} />
             </button>
@@ -51,7 +54,7 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
               type="button"
               onClick={handleNext}
               aria-label="Next capability"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[#FAF7FC] border border-[#ECE5EB] flex items-center justify-center text-[#524E59] hover:text-[#121114] shadow-xs active:scale-90 transition-all cursor-pointer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center text-muted-foreground hover:text-foreground shadow-xs active:scale-90 transition-all cursor-pointer"
             >
               <ChevronRight size={16} />
             </button>
@@ -72,7 +75,7 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
           {service.whatWeBuild.map((item, idx) => (
             <div
               key={idx}
-              className="group p-5 sm:p-6 rounded-2xl bg-white border border-[#EFE5EC] hover:border-[#D8287A]/30 shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_32px_rgba(146,47,85,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left"
+              className="group p-5 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left"
             >
               {/* Icon Container with soft pastel tint */}
               <div
@@ -87,12 +90,12 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
               </div>
 
               {/* Title */}
-              <h4 className="text-base sm:text-lg font-bold text-[#121114] tracking-tight mb-2 group-hover:text-[#922F55] transition-colors">
+              <h4 className="text-base sm:text-lg font-bold text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors">
                 {item.title}
               </h4>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm text-[#706B78] leading-relaxed">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
             </div>

@@ -33,20 +33,20 @@ export function FilterTabsList({
             onClick={() => onSelectFilter(tab)}
             className={cn(
               "relative px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors duration-300 cursor-pointer outline-none select-none",
-              isActiveTab ? "text-white" : "text-slate-600 hover:text-[#922F55]"
+              isActiveTab ? "text-white" : "text-slate-600 hover:text-primary"
             )}
           >
             {isActiveTab && (
               <motion.div 
                 layoutId={`activeFilterTab-${layoutIdPrefix}`}
-                className="absolute inset-0 bg-gradient-to-r from-[#922F55] to-[#6C2BB8] rounded-full shadow-md z-0"
+                className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--chart-2)] rounded-full shadow-md z-0"
                 transition={{ type: "spring", stiffness: 350, damping: 28 }}
               />
             )}
             <span className="relative z-10">{tab}</span>
             <span 
               className={cn(
-                "relative z-10 px-1.5 py-0.2 rounded-full text-[10px] sm:text-xs font-bold flex items-center justify-center min-w-[20px] transition-all duration-300",
+                "relative z-10 px-1.5 py-0.2 rounded-full text-xs sm:text-xs font-bold flex items-center justify-center min-w-[20px] transition-all duration-300",
                 isActiveTab ? "bg-white/20 text-white shadow-sm" : "bg-white text-slate-500 shadow-sm border border-slate-200/60"
               )}
             >
@@ -70,7 +70,7 @@ export function NavButtons({ onPrev, onNext }: NavButtonsProps) {
       <button 
         onClick={onPrev} 
         aria-label="Previous Project"
-        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[#121114] hover:bg-slate-100 hover:text-[#922F55] transition-colors cursor-pointer active:scale-95 outline-none"
+        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-foreground hover:bg-slate-100 hover:text-primary transition-colors cursor-pointer active:scale-95 outline-none"
       >
         <AnimatedIcon icon={ChevronLeftIcon} size={15} />
       </button>
@@ -78,7 +78,7 @@ export function NavButtons({ onPrev, onNext }: NavButtonsProps) {
       <button 
         onClick={onNext} 
         aria-label="Next Project"
-        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[#121114] hover:bg-slate-100 hover:text-[#922F55] transition-colors cursor-pointer active:scale-95 outline-none"
+        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-foreground hover:bg-slate-100 hover:text-primary transition-colors cursor-pointer active:scale-95 outline-none"
       >
         <AnimatedIcon icon={ChevronRightIcon} size={15} />
       </button>

@@ -18,7 +18,7 @@ export function WebAppsMockup({ isActive }: { isActive?: boolean }) {
             <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
             <div className="w-2 h-2 rounded-full bg-[#27C93F]" />
           </div>
-          <span className="text-xs font-mono text-[#68666C]">app.simpleprime.io</span>
+          <span className="text-xs font-mono text-muted-foreground">app.simpleprime.io</span>
         </div>
 
         <div className="grid grid-cols-12 gap-2.5 relative">
@@ -30,7 +30,7 @@ export function WebAppsMockup({ isActive }: { isActive?: boolean }) {
               opacity: [0, 1, 1, 1, 1, 1, 1, 0]
             } : { x: 60, y: 40, scale: 1, opacity: 0 }}
             transition={{ duration: 8, repeat: isActive ? Infinity : 0, ease: "easeInOut" }}
-            className="absolute bottom-0 right-10 z-30 pointer-events-none drop-shadow-md text-[#121114]"
+            className="absolute bottom-0 right-10 z-30 pointer-events-none drop-shadow-md text-foreground"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="white" strokeWidth="1.5">
               <path d="M3 3l7 18 3-7 7-3L3 3z" />
@@ -61,18 +61,18 @@ export function WebAppsMockup({ isActive }: { isActive?: boolean }) {
             >
               <div className="grid grid-cols-2 gap-1.5">
                 <div className="bg-slate-50 border border-black/[0.04] rounded-lg p-1.5">
-                  <span className="text-xs text-[#68666C] block">Users</span>
-                  <span className="text-xs font-bold text-[#121114]">14.2k</span>
+                  <span className="text-xs text-muted-foreground block">Users</span>
+                  <span className="text-xs font-bold text-foreground">14.2k</span>
                 </div>
                 <div className="bg-slate-50 border border-black/[0.04] rounded-lg p-1.5">
-                  <span className="text-xs text-[#68666C] block">Uptime</span>
+                  <span className="text-xs text-muted-foreground block">Uptime</span>
                   <span className="text-xs font-bold text-[#08B875]">99.9%</span>
                 </div>
               </div>
 
               <div className="bg-slate-50 border border-black/[0.04] rounded-lg p-2 flex items-end justify-between h-14 gap-1.5 overflow-hidden">
                 <motion.div animate={isActive ? { height: ["40%", "70%", "40%"] } : { height: "40%" }} transition={{ duration: 3, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0 }} className="w-full bg-[#E8D9FE] rounded-t" />
-                <motion.div animate={isActive ? { height: ["75%", "50%", "75%"] } : { height: "75%" }} transition={{ duration: 3.5, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0.2 }} className="w-full bg-[#922F55] rounded-t" />
+                <motion.div animate={isActive ? { height: ["75%", "50%", "75%"] } : { height: "75%" }} transition={{ duration: 3.5, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0.2 }} className="w-full bg-primary rounded-t" />
                 <motion.div animate={isActive ? { height: ["95%", "80%", "95%"] } : { height: "95%" }} transition={{ duration: 4, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0.4 }} className="w-full bg-[#6C2BB8] rounded-t" />
                 <motion.div animate={isActive ? { height: ["60%", "90%", "60%"] } : { height: "60%" }} transition={{ duration: 3.2, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0.1 }} className="w-full bg-[#F05BAD] rounded-t" />
                 <motion.div animate={isActive ? { height: ["80%", "45%", "80%"] } : { height: "80%" }} transition={{ duration: 3.8, repeat: isActive ? Infinity : 0, ease: "easeInOut", delay: 0.3 }} className="w-full bg-[#4BA8FF] rounded-t" />

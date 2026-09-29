@@ -25,7 +25,7 @@ export function AutomationMockup({ isActive }: { isActive?: boolean }) {
             <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
             <div className="w-2 h-2 rounded-full bg-[#27C93F]" />
           </div>
-          <span className="text-[10px] font-semibold text-[#68666C] ml-1">ai-agent · running</span>
+          <span className="text-xs font-semibold text-muted-foreground ml-1">ai-agent · running</span>
           <motion.div
             animate={isActive ? { opacity: [1, 0, 1] } : { opacity: 1 }}
             transition={{ duration: 1, repeat: isActive ? Infinity : 0 }}
@@ -57,13 +57,13 @@ export function AutomationMockup({ isActive }: { isActive?: boolean }) {
               <motion.div
                 animate={isActive ? { opacity: [0.6, 1, 0.6] } : { opacity: 1 }}
                 transition={{ duration: 1.2, delay: node.delay, repeat: isActive ? Infinity : 0 }}
-                className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+                className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 text-xs font-bold"
                 style={{ backgroundColor: `${node.color}18`, color: node.color }}
               >
                 {node.icon}
               </motion.div>
 
-              <span className="text-[10px] font-semibold text-[#2D2B32] flex-1">{node.label}</span>
+              <span className="text-xs font-semibold text-[#2D2B32] flex-1">{node.label}</span>
 
               {/* Active pulse bar */}
               {isActive && (
@@ -83,10 +83,10 @@ export function AutomationMockup({ isActive }: { isActive?: boolean }) {
           <motion.div
             animate={isActive ? { opacity: [1, 0, 1] } : { opacity: 1 }}
             transition={{ duration: 0.8, repeat: isActive ? Infinity : 0 }}
-            className="w-1 h-3 rounded-full bg-[#121114]/40 flex-shrink-0"
+            className="w-1 h-3 rounded-full bg-foreground/40 flex-shrink-0"
           />
           <span className="text-[#059669] font-semibold">Processing</span>
-          <span className="text-[#68666C]"> 3 workflows · </span>
+          <span className="text-muted-foreground"> 3 workflows · </span>
           <span className="text-[#0891B2] font-semibold">98% faster</span>
         </div>
 

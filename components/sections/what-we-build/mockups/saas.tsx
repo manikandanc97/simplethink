@@ -45,11 +45,11 @@ export function SaaSProductsMockup({ isActive }: { isActive?: boolean }) {
         <div className="flex items-center justify-between gap-2 pt-1 relative">
           <div className="flex-1 bg-slate-50 border border-black/[0.04] rounded-lg p-1.5 flex items-center gap-2">
             <motion.div animate={isActive ? { scale: [1, 1.5, 1], opacity: [1, 0.5, 1] } : { scale: 1, opacity: 1 }} transition={{ duration: 1.5, repeat: isActive ? Infinity : 0 }} className="w-2 h-2 rounded-full bg-[#08B875]" />
-            <span className="text-xs font-mono text-[#121114]">Postgres DB</span>
+            <span className="text-xs font-mono text-foreground">Postgres DB</span>
           </div>
           <div className="flex-1 bg-slate-50 border border-black/[0.04] rounded-lg p-1.5 flex items-center gap-2">
             <motion.div animate={isActive ? { opacity: [0.3, 1, 0.3] } : { opacity: 1 }} transition={{ duration: 2, repeat: isActive ? Infinity : 0 }} className="w-2 h-2 rounded-full bg-[#6C2BB8]" />
-            <span className="text-xs font-mono text-[#121114]">Edge API</span>
+            <span className="text-xs font-mono text-foreground">Edge API</span>
           </div>
 
           {isActive && (

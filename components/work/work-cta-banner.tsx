@@ -4,7 +4,7 @@ import { useLead } from "@/components/leads/lead-provider";
 import { AnimatedArrowRight } from "@/components/ui/animated-icon";
 import { Send } from "lucide-react";
 
-export function AboutCta() {
+export function WorkCtaBanner() {
   const { openLead } = useLead();
 
   return (
@@ -32,13 +32,13 @@ export function AboutCta() {
 
           <div className="flex flex-col items-start pt-1 sm:pt-2">
             <span className="text-xs sm:text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)] font-satoshi mb-2 sm:mb-3 block">
-              Direct Engineering Access
+              Start Your Project
             </span>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-satoshi leading-tight mb-3 sm:mb-4">
-              Ready to build with <br className="hidden lg:block" /> senior engineers?
+              Have an ambitious vision? <br className="hidden lg:block" /> Let&apos;s engineer it right.
             </h3>
             <p className="text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed font-normal max-w-lg">
-              Skip the agency bloat. Connect directly with the developers who will architect, design, and ship your software.
+              Whether you need a high-converting website, custom web application, or cross-platform mobile app, we are ready to discuss your goals and provide a structured scope.
             </p>
           </div>
         </div>
@@ -49,8 +49,8 @@ export function AboutCta() {
             type="button"
             onClick={() =>
               openLead({
-                source: "about",
-                description: "About page CTA: Start a project requested.",
+                source: "cta",
+                description: "Work page CTA: Start a project requested.",
               })
             }
             className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 sm:py-4.5 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] hover:from-[var(--primary-hover)] hover:to-[var(--primary)] text-white text-sm sm:text-base font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-1 transition-all cursor-pointer"
@@ -63,13 +63,13 @@ export function AboutCta() {
             type="button"
             onClick={() =>
               openLead({
-                source: "about",
-                description: "About page CTA: Engineering consultation requested.",
+                source: "cta",
+                description: "Work page CTA: Book scoping session requested.",
               })
             }
             className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-7 py-4 sm:py-4.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md text-sm sm:text-base font-medium hover:-translate-y-1 transition-all cursor-pointer"
           >
-            <span>Talk to an engineer</span>
+            <span>Book scoping session</span>
           </button>
         </div>
       </div>

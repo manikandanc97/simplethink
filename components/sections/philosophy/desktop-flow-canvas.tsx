@@ -99,22 +99,22 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.25 }}
-          className="relative bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_24px_rgba(0,0,0,0.03)] p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
+          className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-md border shadow-sm bg-rose-50 text-[#D23D78] border-rose-200/60 uppercase tracking-widest leading-none">
+            <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md border shadow-sm bg-rose-50 text-primary border-rose-200/60 uppercase tracking-widest leading-none">
               <LayoutGrid className="w-3 h-3" strokeWidth={2.5} /> {FLOW_NODES.topLeft.badge}
             </span>
           </div>
           <div className="flex items-start gap-3 pt-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[#D23D78] bg-rose-50/50 rounded-full">
+            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-primary bg-rose-50/50 rounded-full">
               <Lightbulb className="w-[18px] h-[18px]" strokeWidth={2.5} />
             </div>
             <div className="flex flex-col gap-1.5">
               <p className="font-bold text-sm text-neutral-900 leading-tight">
                 {FLOW_NODES.topLeft.title}
               </p>
-              <p className="text-[11px] text-neutral-500 leading-snug">
+              <p className="text-xs text-neutral-500 leading-snug">
                 {FLOW_NODES.topLeft.desc}
               </p>
             </div>
@@ -126,22 +126,22 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="relative bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_24px_rgba(0,0,0,0.03)] p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
+          className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-md border shadow-sm bg-purple-50 text-[#7C3AED] border-purple-200/60 uppercase tracking-widest leading-none">
+            <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md border shadow-sm bg-purple-50 text-[var(--chart-2)] border-purple-200/60 uppercase tracking-widest leading-none">
               <LayoutGrid className="w-3 h-3" strokeWidth={2.5} /> {FLOW_NODES.topRight.badge}
             </span>
           </div>
           <div className="flex items-start gap-3 pt-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[#7C3AED] bg-purple-50/50 rounded-full">
+            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[var(--chart-2)] bg-purple-50/50 rounded-full">
               <TrendingUp className="w-[18px] h-[18px]" strokeWidth={2.5} />
             </div>
             <div className="flex flex-col gap-1.5">
               <p className="font-bold text-sm text-neutral-900 leading-tight">
                 {FLOW_NODES.topRight.title}
               </p>
-              <p className="text-[11px] text-neutral-500 leading-snug">
+              <p className="text-xs text-neutral-500 leading-snug">
                 {FLOW_NODES.topRight.desc}
               </p>
             </div>
@@ -156,7 +156,7 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
         transition={{ duration: 0.55, delay: 0.38, type: "spring", stiffness: 220 }}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none flex flex-col items-center justify-center"
       >
-        <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white shadow-[0_20px_60px_rgba(210,61,120,0.2),0_4px_16px_rgba(0,0,0,0.04)] border border-rose-50 flex flex-col items-center justify-center p-3 sm:p-4">
+        <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white shadow-elevated border border-rose-50 flex flex-col items-center justify-center p-3 sm:p-4">
           <CldImage
             src="simpluxe/logo/logo"
             alt="SimpleThink Logo"
@@ -174,22 +174,22 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.35 }}
-          className="relative bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_24px_rgba(0,0,0,0.03)] p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
+          className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-md border shadow-sm bg-rose-50 text-[#D23D78] border-rose-200/60 uppercase tracking-widest leading-none">
+            <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md border shadow-sm bg-rose-50 text-primary border-rose-200/60 uppercase tracking-widest leading-none">
               <LayoutGrid className="w-3 h-3" strokeWidth={2.5} /> {FLOW_NODES.bottomLeft.badge}
             </span>
           </div>
           <div className="flex items-start gap-3 pt-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[#D23D78] bg-rose-50/50 rounded-full">
+            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-primary bg-rose-50/50 rounded-full">
               <Box className="w-[18px] h-[18px]" strokeWidth={2.5} />
             </div>
             <div className="flex flex-col gap-1.5">
               <p className="font-bold text-sm text-neutral-900 leading-tight">
                 {FLOW_NODES.bottomLeft.title}
               </p>
-              <p className="text-[11px] text-neutral-500 leading-snug">
+              <p className="text-xs text-neutral-500 leading-snug">
                 {FLOW_NODES.bottomLeft.desc}
               </p>
             </div>
@@ -201,22 +201,22 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="relative bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_24px_rgba(0,0,0,0.03)] p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
+          className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-md border shadow-sm bg-purple-50 text-[#7C3AED] border-purple-200/60 uppercase tracking-widest leading-none">
+            <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-md border shadow-sm bg-purple-50 text-[var(--chart-2)] border-purple-200/60 uppercase tracking-widest leading-none">
               <LayoutGrid className="w-3 h-3" strokeWidth={2.5} /> {FLOW_NODES.bottomRight.badge}
             </span>
           </div>
           <div className="flex items-start gap-3 pt-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[#7C3AED] bg-purple-50/50 rounded-full">
+            <div className="w-8 h-8 flex items-center justify-center shrink-0 text-[var(--chart-2)] bg-purple-50/50 rounded-full">
               <Users className="w-[18px] h-[18px]" strokeWidth={2.5} />
             </div>
             <div className="flex flex-col gap-1.5">
               <p className="font-bold text-sm text-neutral-900 leading-tight">
                 {FLOW_NODES.bottomRight.title}
               </p>
-              <p className="text-[11px] text-neutral-500 leading-snug">
+              <p className="text-xs text-neutral-500 leading-snug">
                 {FLOW_NODES.bottomRight.desc}
               </p>
             </div>

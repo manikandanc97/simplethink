@@ -1,68 +1,91 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { CONTACT_FAQS } from "@/lib/data/contact";
-import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { type FAQItem } from "@/types/faq";
+import { SectionHeader } from "@/components/ui/section-header";
+import { FaqContactCard } from "@/components/sections/faq/faq-contact-card";
+import { FaqAccordionItem } from "@/components/sections/faq/faq-accordion-item";
+import {
+  Clock,
+  ShieldCheck,
+  CreditCard,
+  Code2,
+  RefreshCw,
+  Sparkles,
+} from "lucide-react";
 
 export function ContactFaq() {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [openId, setOpenId] = useState<string | null>("contact-faq-0");
+
+  const toggle = (id: string) => {
+    setOpenId((curr) => (curr === id ? null : id));
+  };
+
+  const formattedFaqs: FAQItem[] = useMemo(() => {
+    const icons = [Clock, ShieldCheck, CreditCard, Code2, RefreshCw];
+    const highlightSets = [
+      [
+        { text: "3-7 Days Kickoff", icon: Clock },
+        { text: "Rapid Onboarding", icon: Sparkles },
+      ],
+      [
+        { text: "Mutual NDA Signed", icon: ShieldCheck },
+        { text: "100% Confidential", icon: ShieldCheck },
+      ],
+      [
+        { text: "Fixed Milestones", icon: CreditCard },
+        { text: "Zero Hidden Fees", icon: Sparkles },
+      ],
+      [
+        { text: "TypeScript & Next.js", icon: Code2 },
+        { text: "Supabase & Cloud", icon: Sparkles },
+      ],
+      [
+        { text: "Full Code Audit", icon: RefreshCw },
+        { text: "Modern Migration", icon: Sparkles },
+      ],
+    ];
+
+    return CONTACT_FAQS.map((faq, idx) => ({
+      id: `contact-faq-${idx}`,
+      num: String(idx + 1).padStart(2, "0"),
+      category: "SCOPING & ENGAGEMENT",
+      icon: icons[idx % icons.length],
+      question: faq.question,
+      answer: faq.answer,
+      highlights: highlightSets[idx % highlightSets.length],
+    }));
+  }, []);
 
   return (
-    <div className="pt-10 border-t border-[#EFE5EC]">
-      <div className="text-center max-w-xl mx-auto mb-8">
-        <span className="text-[11px] font-mono font-bold tracking-widest text-[#922F55] uppercase block mb-1">
-          Scoping & Engagement FAQ
-        </span>
-        <h3 className="text-xl sm:text-2xl font-black text-[#121114] tracking-tight">
-          Frequently Asked Questions
-        </h3>
-      </div>
+    <section id="contact-faq" className="relative scroll-mt-24 pt-14 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
+        {/* ── Left Column (5 Cols) — Sticky on lg ── */}
+        <div className="lg:col-span-5 flex flex-col justify-start gap-5 sm:gap-6 lg:sticky lg:top-32">
+          <SectionHeader
+            eyebrow="SCOPING FAQ"
+            title={<>Engagement & <br /></>}
+            highlightedText="Contract Details."
+            className="items-start text-left mx-0"
+            maxWidth="max-w-md"
+          />
 
-      <div className="max-w-3xl mx-auto space-y-3">
-        {CONTACT_FAQS.map((faq, index) => {
-          const isOpen = openFaqIndex === index;
-          return (
-            <div
-              key={index}
-              className="border border-[#EFE5EC] rounded-2xl bg-white/70 overflow-hidden transition-all"
-            >
-              <button
-                type="button"
-                onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                className="w-full text-left p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-[#FAF7FC] transition-colors"
-              >
-                <span className="text-sm sm:text-base font-bold text-[#121114]">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  size={18}
-                  className={cn(
-                    "text-[#706B78] transition-transform duration-300 shrink-0",
-                    isOpen && "rotate-180 text-[#922F55]"
-                  )}
-                />
-              </button>
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-5 pt-0 text-xs sm:text-sm text-[#64606D] leading-relaxed border-t border-[#F5EDF3]">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
+          <FaqContactCard />
+        </div>
+
+        {/* ── Right Column (7 Cols) — FAQ Accordion List ── */}
+        <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4 pt-0 lg:pt-1">
+          {formattedFaqs.map((faq) => (
+            <FaqAccordionItem
+              key={faq.id}
+              faq={faq}
+              isOpen={openId === faq.id}
+              onToggle={() => toggle(faq.id)}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

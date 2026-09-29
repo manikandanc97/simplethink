@@ -31,7 +31,7 @@ export function MockupWrapper({
       <motion.div
         animate={isActive ? { y: [-floatY, floatY, -floatY] } : { y: 0 }}
         transition={{ duration: floatDuration, repeat: isActive ? Infinity : 0, ease: "easeInOut" }}
-        className={`relative w-full bg-white/90 backdrop-blur-xl border border-white/80 rounded-2xl shadow-[0_16px_36px_-10px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.03)] flex flex-col ${innerClassName}`}
+        className={`relative w-full bg-white/90 backdrop-blur-xl border border-white/80 rounded-2xl shadow-card flex flex-col ${innerClassName}`}
       >
         {children}
       </motion.div>
