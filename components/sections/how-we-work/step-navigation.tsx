@@ -105,7 +105,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-5 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-primary drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 24"
                     fill="none"
@@ -129,7 +129,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-6 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-primary drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 32"
                     fill="none"
@@ -153,7 +153,7 @@ export function StepNavigation({
                   <svg
                     className={cn(
                       "w-8 lg:w-12 h-5 shrink-0 transition-colors duration-500",
-                      activeStepIndex > index ? "text-[var(--primary)] drop-shadow-sm" : "text-pink-300/80"
+                      activeStepIndex > index ? "text-primary drop-shadow-sm" : "text-pink-300/80"
                     )}
                     viewBox="0 0 56 24"
                     fill="none"

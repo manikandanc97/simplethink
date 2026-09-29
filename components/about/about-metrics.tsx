@@ -11,13 +11,13 @@ export function AboutMetrics() {
         return (
           <div
             key={i}
-            className="p-6 rounded-3xl border border-[var(--surface-elevated)] bg-white/80 hover:bg-white shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group gap-6"
+            className="p-6 rounded-3xl border border-surface-elevated bg-white/80 hover:bg-white shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group gap-6"
           >
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                 <Icon size={18} />
               </div>
-              <span className="text-xs font-mono font-bold tracking-wider text-primary uppercase px-2 py-0.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)]">
+              <span className="text-xs font-mono font-bold tracking-wider text-primary uppercase px-2 py-0.5 rounded-full bg-background border border-surface-elevated">
                 VERIFIED
               </span>
             </div>

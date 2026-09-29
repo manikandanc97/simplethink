@@ -43,10 +43,10 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.98, y: -10 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative w-full rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-[var(--surface-elevated)] shadow-elevated overflow-hidden p-4.5 sm:p-6 text-left"
+          className="relative w-full rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-surface-elevated shadow-elevated overflow-hidden p-4.5 sm:p-6 text-left"
         >
           {/* Window Header */}
-          <div className="flex items-center justify-between pb-4.5 sm:pb-4 border-b border-[var(--surface-elevated)]">
+          <div className="flex items-center justify-between pb-4.5 sm:pb-4 border-b border-surface-elevated">
             <div className="flex items-center gap-2 sm:gap-4">
               {/* Brand Tag */}
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-white">
@@ -55,21 +55,21 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                   SIMPLUXE
                 </span>
               </div>
-              <span className="hidden sm:inline-block text-xs font-semibold text-[var(--muted-foreground)]">
+              <span className="hidden sm:inline-block text-xs font-semibold text-muted-foreground">
                 {service.mockup.badge}
               </span>
             </div>
 
             {/* Right controls: Search bar & User Avatar */}
             <div className="flex items-center gap-2 sm:gap-4">
-              <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-[var(--muted-foreground)] text-xs">
+              <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background border border-surface-elevated text-muted-foreground text-xs">
                 <Search size={12} />
                 <span className="text-xs">Search...</span>
               </div>
-              <div className="w-7 h-7 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center text-muted-foreground">
+              <div className="w-7 h-7 rounded-full bg-background border border-surface-elevated flex items-center justify-center text-muted-foreground">
                 <Bell size={12} />
               </div>
-              <div className="flex items-center gap-1.5 pl-1.5 border-l border-[var(--surface-elevated)]">
+              <div className="flex items-center gap-1.5 pl-1.5 border-l border-surface-elevated">
                 <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[var(--primary)] to-[var(--primary)] text-white text-xs font-bold flex items-center justify-center shadow-xs">
                   M
                 </div>
@@ -83,7 +83,7 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
           {/* Window Body: Mini Sidebar + Main Content */}
           <div className="grid grid-cols-12 gap-4 sm:gap-4 pt-4.5 sm:pt-4">
             {/* Mini Sidebar */}
-            <div className="col-span-3 sm:col-span-3 border-r border-[var(--surface-elevated)] pr-2 sm:pr-3 flex flex-col gap-1">
+            <div className="col-span-3 sm:col-span-3 border-r border-surface-elevated pr-2 sm:pr-3 flex flex-col gap-1">
               {sidebarNav.map((nav, idx) => {
                 const NavIcon = nav.icon;
                 return (
@@ -92,7 +92,7 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                     className={`flex items-center gap-2 px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                       nav.active
                         ? "bg-primary/10 text-primary font-bold"
-                        : "text-muted-foreground hover:bg-[var(--background)] hover:text-foreground"
+                        : "text-muted-foreground hover:bg-background hover:text-foreground"
                     }`}
                   >
                     <NavIcon size={13} className="shrink-0" />
@@ -109,14 +109,14 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                 <h3 className="text-xs sm:text-sm font-extrabold text-foreground tracking-tight">
                   Welcome back, Mani 👋
                 </h3>
-                <p className="text-xs sm:text-xs text-[var(--muted-foreground)]">
+                <p className="text-xs sm:text-xs text-muted-foreground">
                   Here&apos;s what&apos;s happening with your {service.name.toLowerCase()} today.
                 </p>
               </div>
 
               {/* 3 KPI Cards */}
               <div className="grid grid-cols-3 gap-1.5 sm:gap-4">
-                <div className="p-2 sm:p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col">
+                <div className="p-2 sm:p-2.5 rounded-xl bg-background border border-surface-elevated flex flex-col">
                   <span className="text-[9px] sm:text-xs font-semibold text-muted-foreground">
                     Total Projects
                   </span>
@@ -127,7 +127,7 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                     </span>
                   </div>
                 </div>
-                <div className="p-2 sm:p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col">
+                <div className="p-2 sm:p-2.5 rounded-xl bg-background border border-surface-elevated flex flex-col">
                   <span className="text-[9px] sm:text-xs font-semibold text-muted-foreground">
                     Active Clients
                   </span>
@@ -138,7 +138,7 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                     </span>
                   </div>
                 </div>
-                <div className="p-2 sm:p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col">
+                <div className="p-2 sm:p-2.5 rounded-xl bg-background border border-surface-elevated flex flex-col">
                   <span className="text-[9px] sm:text-xs font-semibold text-muted-foreground">
                     Revenue
                   </span>
@@ -154,7 +154,7 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
               {/* Chart + Recent Activity */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-stretch">
                 {/* Project Overview Chart */}
-                <div className="sm:col-span-7 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
+                <div className="sm:col-span-7 p-2.5 sm:p-4 rounded-xl bg-background border border-surface-elevated flex flex-col justify-between">
                   <div className="flex items-center justify-between">
                     <span className="text-xs sm:text-xs font-bold text-foreground">Project Overview</span>
                     <span className="text-[9px] font-semibold text-muted-foreground">Last 6 Mos</span>
@@ -176,13 +176,13 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                     </svg>
                   </div>
 
-                  <div className="flex justify-between text-[8px] sm:text-[9px] text-[var(--muted-foreground)] mt-1 pt-1 border-t border-[var(--surface-elevated)]">
+                  <div className="flex justify-between text-[8px] sm:text-[9px] text-muted-foreground mt-1 pt-1 border-t border-surface-elevated">
                     <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
                   </div>
                 </div>
 
                 {/* Recent Activity List */}
-                <div className="sm:col-span-5 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
+                <div className="sm:col-span-5 p-2.5 sm:p-4 rounded-xl bg-background border border-surface-elevated flex flex-col justify-between">
                   <div className="flex items-center justify-between">
                     <span className="text-xs sm:text-xs font-bold text-foreground">Recent Activity</span>
                     <span className="text-[9px] text-primary font-bold cursor-pointer">View all</span>
@@ -192,21 +192,21 @@ export function ServicesMockupWindow({ service }: ServicesMockupWindowProps) {
                       <CheckCircle2 size={11} className="text-emerald-500 shrink-0 mt-0.5" />
                       <div className="flex flex-col">
                         <span className="text-xs font-bold text-foreground leading-tight">New project started</span>
-                        <span className="text-[8px] text-[var(--muted-foreground)]">2 hrs ago</span>
+                        <span className="text-[8px] text-muted-foreground">2 hrs ago</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-1.5">
                       <Clock size={11} className="text-primary shrink-0 mt-0.5" />
                       <div className="flex flex-col">
                         <span className="text-xs font-bold text-foreground leading-tight">Design approved</span>
-                        <span className="text-[8px] text-[var(--muted-foreground)]">5 hrs ago</span>
+                        <span className="text-[8px] text-muted-foreground">5 hrs ago</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-1.5">
                       <CheckCircle2 size={11} className="text-blue-500 shrink-0 mt-0.5" />
                       <div className="flex flex-col">
                         <span className="text-xs font-bold text-foreground leading-tight">Deployment complete</span>
-                        <span className="text-[8px] text-[var(--muted-foreground)]">Yesterday</span>
+                        <span className="text-[8px] text-muted-foreground">Yesterday</span>
                       </div>
                     </div>
                   </div>

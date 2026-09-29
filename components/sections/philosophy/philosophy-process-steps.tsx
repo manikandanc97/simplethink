@@ -12,7 +12,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
     <div className="flex flex-col gap-4 relative z-20">
       {/* Header */}
       <div className="flex items-center gap-2 px-1">
-        <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
+        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
         <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">
           PROCESS / 04
         </span>

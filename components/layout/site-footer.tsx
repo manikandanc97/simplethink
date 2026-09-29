@@ -3,6 +3,8 @@
 import { useLead } from "@/components/leads/lead-provider";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 import { NAV_ITEMS } from "@/config/nav";
 import { SITE } from "@/config/site";
 import { CldImage } from "next-cloudinary";
@@ -28,7 +30,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
       <div className="pointer-events-none absolute -left-28 top-1/2 -translate-y-1/2 w-96 h-96 bg-primary/8 blur-[100px] rounded-full" />
       <div className="pointer-events-none absolute -right-24 -top-16 w-96 h-96 bg-primary/5 blur-[110px] rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
+      <Container className="pt-16 pb-12 relative z-10">
         {/* Top Grid: Brand, Explore, Capabilities, Connect Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-border/80 items-start">
 
@@ -225,13 +227,13 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                   </p>
                 </div>
 
-                <button
+                <Button
                   onClick={handleStart}
-                  className="w-full h-12 rounded-full text-sm font-bold text-primary-foreground bg-primary hover:bg-primary-hover flex items-center justify-center gap-2 shadow-elevated hover:shadow-elevated transition-all active:scale-[0.98] cursor-pointer group"
+                  className="w-full h-12 group"
                 >
                   <span>Start a project</span>
                   <AnimatedArrowRight size={16} className="text-primary-foreground group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -262,7 +264,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Giant Brand Logo (Adobe Style) */}
       <div className="w-full flex items-end justify-center pointer-events-none select-none relative z-0 overflow-hidden">

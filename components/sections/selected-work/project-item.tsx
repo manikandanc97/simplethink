@@ -88,7 +88,7 @@ export function SelectedWorkProjectItem({
               {project.stack.slice(0, 3).map((tag) => (
                 <span 
                   key={tag} 
-                  className="text-xs sm:text-xs bg-[var(--background)]/80 text-[var(--muted-foreground)] px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
+                  className="text-xs sm:text-xs bg-background/80 text-muted-foreground px-1.5 py-0.5 rounded font-medium whitespace-nowrap"
                 >
                   {tag}
                 </span>

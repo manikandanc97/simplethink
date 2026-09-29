@@ -18,7 +18,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
         "group w-full text-left p-4.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center gap-4.5 sm:gap-4 border cursor-pointer",
         isActive
           ? "bg-white border-primary shadow-elevated ring-1 ring-[var(--primary)]/20"
-          : "bg-transparent border-[var(--surface-elevated)] hover:bg-white/60 hover:border-primary/30 hover:shadow-2xs"
+          : "bg-transparent border-surface-elevated hover:bg-white/60 hover:border-primary/30 hover:shadow-2xs"
       )}
     >
       {/* ── Number (01, 02, etc.) ── */}
@@ -32,7 +32,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
       </span>
 
       {/* ── Project Brand Logo ── */}
-      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-[var(--surface-elevated)] bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-[var(--primary)]/30 group-hover:shadow-sm">
+      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-surface-elevated bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-sm">
         <img
           src={project.logo || "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo"}
           alt={`${project.name} Logo`}
@@ -46,13 +46,13 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
       {/* ── Project Meta ── */}
       <div className="flex-1 min-w-0 flex flex-col gap-2">
         <div className="flex flex-col">
-          <div className="text-xs font-medium text-[var(--muted-foreground)]">
+          <div className="text-xs font-medium text-muted-foreground">
             {project.year}
           </div>
           <h3 className="text-sm sm:text-base font-bold text-foreground truncate tracking-tight">
             {project.name}
           </h3>
-          <p className="text-xs text-[var(--muted-foreground)] truncate">
+          <p className="text-xs text-muted-foreground truncate">
             {project.category}
           </p>
         </div>
@@ -62,7 +62,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 rounded-md bg-[var(--background)] text-[var(--muted-foreground)] text-xs sm:text-xs font-medium border border-[var(--surface-elevated)]"
+              className="px-2 py-0.5 rounded-md bg-background text-muted-foreground text-xs sm:text-xs font-medium border border-surface-elevated"
             >
               {tag}
             </span>
@@ -75,8 +75,8 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
         className={cn(
           "w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all ml-1",
           isActive
-            ? "bg-white border-[var(--accent-soft)] text-[var(--primary)] shadow-sm translate-x-0.5"
-            : "bg-white border-[var(--surface-elevated)] text-[var(--muted-foreground)] group-hover:border-primary group-hover:text-primary group-hover:translate-x-0.5"
+            ? "bg-white border-[var(--accent-soft)] text-primary shadow-sm translate-x-0.5"
+            : "bg-white border-surface-elevated text-muted-foreground group-hover:border-primary group-hover:text-primary group-hover:translate-x-0.5"
         )}
       >
         <AnimatedChevronRight size={16} />

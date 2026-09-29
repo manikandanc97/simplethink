@@ -25,8 +25,8 @@ export function StepVisualBlueprint() {
       >
         {/* Window Header */}
         <div className="w-full flex items-center gap-2 ml-4 sm:ml-8">
-          <GitFork className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--muted-foreground)]" />
-          <span className="font-bold text-sm sm:text-base text-[var(--muted-foreground)] tracking-tight">
+          <GitFork className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
+          <span className="font-bold text-sm sm:text-base text-muted-foreground tracking-tight">
             Project Blueprint
           </span>
         </div>
@@ -88,7 +88,7 @@ export function StepVisualBlueprint() {
 
         {/* Hand-drawn Red Arrow pointing to Blueprint */}
         <svg
-          className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]"
+          className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-primary"
           viewBox="0 0 28 28"
           fill="none"
         >
@@ -114,11 +114,11 @@ export function StepVisualBlueprint() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute top-2 sm:top-18 right-2 sm:right-52 z-10 text-right pointer-events-none select-none scale-85 sm:scale-100 origin-top-right"
       >
-        <span className="font-handwriting font-bold text-xs sm:text-sm text-[var(--primary)] tracking-tight block transform -rotate-3 leading-tight">
+        <span className="font-handwriting font-bold text-xs sm:text-sm text-primary tracking-tight block transform -rotate-3 leading-tight">
           From Strategy <br /> to Product
         </span>
         <svg
-          className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)] ml-auto -mt-1 transform rotate-12"
+          className="w-5 h-5 sm:w-6 sm:h-6 text-primary ml-auto -mt-1 transform rotate-12"
           viewBox="0 0 28 28"
           fill="none"
         >
@@ -149,7 +149,7 @@ export function StepVisualBlueprint() {
           <span className="font-bold text-xs sm:text-xs text-neutral-800">
             Market Research
           </span>
-          <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--primary)]" />
+          <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
         </div>
 
         {/* Skeletal bars */}
@@ -182,7 +182,7 @@ export function StepVisualBlueprint() {
 
         {/* Downward Hand-drawn Arrow */}
         <svg
-          className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[var(--primary)] transform -rotate-12"
+          className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-primary transform -rotate-12"
           viewBox="0 0 32 48"
           fill="none"
         >

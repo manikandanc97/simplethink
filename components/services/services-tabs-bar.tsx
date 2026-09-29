@@ -70,7 +70,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
   return (
     <div
       id="services-tabs-container"
-      className="w-full relative z-20 mb-8 sm:mb-12 pb-6 sm:pb-6 border-b border-[var(--surface-elevated)]"
+      className="w-full relative z-20 mb-8 sm:mb-12 pb-6 sm:pb-6 border-b border-surface-elevated"
     >
       <div
         ref={containerRef}
@@ -98,7 +98,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
                 "group relative flex items-center gap-2 px-4.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap",
                 isActive
                   ? "bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] text-white shadow-elevated scale-[1.02]"
-                  : "bg-white/90 hover:bg-white text-[var(--muted-foreground)] border border-[var(--surface-elevated)] hover:border-primary/30 shadow-2xs"
+                  : "bg-white/90 hover:bg-white text-muted-foreground border border-surface-elevated hover:border-primary/30 shadow-2xs"
               )}
             >
               {Icon && (
@@ -116,7 +116,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
                   "text-xs font-bold px-2 py-0.5 rounded-full transition-colors",
                   isActive
                     ? "bg-white/20 text-white backdrop-blur-xs"
-                    : "bg-[var(--surface-elevated)] text-[var(--muted-foreground)] group-hover:bg-[var(--surface-elevated)]"
+                    : "bg-[var(--surface-elevated)] text-muted-foreground group-hover:bg-[var(--surface-elevated)]"
                 )}
               >
                 {count}

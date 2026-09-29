@@ -1,6 +1,7 @@
 "use client";
 
 import { type ServiceData } from "@/lib/data/services";
+import { SectionHeader } from "@/components/ui/section-header";
 import { 
   CheckCircle2, Target, Rocket, Building, Shield, RefreshCw, 
   Briefcase, Award, Crown, ShoppingBag, Truck, Zap, Repeat, 
@@ -39,7 +40,7 @@ const ColorMap: Record<string, { primary: string; fill: string; bg: string; bord
   websites: { primary: "text-primary", fill: "fill-[var(--primary)]/10", bg: "bg-rose-50", border: "border-rose-100" },
   "web-apps": { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-purple-50", border: "border-purple-100" },
   ecommerce: { primary: "text-[var(--chart-3)]", fill: "fill-[var(--chart-3)]/10", bg: "bg-cyan-50", border: "border-cyan-100" },
-  "mobile-apps": { primary: "text-[var(--primary)]", fill: "fill-[var(--primary)]/10", bg: "bg-pink-50", border: "border-pink-100" },
+  "mobile-apps": { primary: "text-primary", fill: "fill-[var(--primary)]/10", bg: "bg-pink-50", border: "border-pink-100" },
   saas: { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-violet-50", border: "border-violet-100" },
   branding: { primary: "text-[var(--chart-4)]", fill: "fill-[var(--chart-4)]/10", bg: "bg-orange-50", border: "border-orange-100" },
   "ui-ux": { primary: "text-[var(--chart-2)]", fill: "fill-[var(--chart-2)]/10", bg: "bg-purple-50", border: "border-purple-100" },
@@ -64,20 +65,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
         {/* ── Left Column: Deliverables (7 cols) ── */}
         <div className="lg:col-span-7 flex flex-col items-start text-left justify-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-4">
-              <span className="w-2 h-2 rounded-full bg-primary inline-block" />
-              <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
-                Deliverables
-              </span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight font-satoshi">
-              Everything included
-            </h3>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1 mb-6 sm:mb-8 font-normal">
-              A complete solution from planning to launch.
-            </p>
-          </div>
+          <div className="mb-6 sm:mb-8"><SectionHeader eyebrow="Deliverables" title="Everything included" description="A complete solution from planning to launch." /></div>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -96,7 +84,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
                     />
-                    <span className="text-xs sm:text-sm font-semibold text-[var(--foreground)]">
+                    <span className="text-xs sm:text-sm font-semibold text-foreground">
                       {item}
                     </span>
                   </div>
@@ -111,7 +99,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
                     />
-                    <span className="text-xs sm:text-sm font-semibold text-[var(--foreground)]">
+                    <span className="text-xs sm:text-sm font-semibold text-foreground">
                       {item}
                     </span>
                   </div>
@@ -123,7 +111,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
 
         {/* ── Right Column: Perfect For Card (5 cols) ── */}
         <div className="lg:col-span-5 flex">
-          <div className="w-full p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[var(--surface-elevated)] shadow-card flex flex-col justify-between text-left">
+          <div className="w-full p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-surface-elevated shadow-card flex flex-col justify-between text-left">
             <div>
               {/* Header */}
               <div className="flex items-start gap-4 mb-6">
@@ -134,7 +122,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                   <h4 className="text-base sm:text-lg font-black text-foreground tracking-tight">
                     Perfect for
                   </h4>
-                  <p className="text-xs sm:text-xs text-[var(--muted-foreground)] mt-0.5">
+                  <p className="text-xs sm:text-xs text-muted-foreground mt-0.5">
                     Tailored for your business stage
                   </p>
                 </div>
@@ -155,7 +143,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                     return (
                       <div
                         key={idx}
-                        className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-[var(--background)] transition-colors group"
+                        className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-background transition-colors group"
                       >
                         <div className={`w-8 h-8 rounded-xl ${colors.bg} ${colors.primary} flex items-center justify-center shrink-0 border ${colors.border}/60 transition-colors duration-300`}>
                           <IconComponent size={15} />

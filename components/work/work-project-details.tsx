@@ -2,6 +2,7 @@
 
 import { BarChart3, ShieldCheck, Star, Users } from "lucide-react";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
+import { buttonVariants } from "@/components/ui/button";
 import { type Project } from "@/types/project";
 import { type EnhancedProjectDetails } from "./work-data";
 
@@ -24,9 +25,9 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
           return (
             <div
               key={idx}
-              className="p-4 sm:p-4.5 rounded-2xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center gap-2"
+              className="p-4 sm:p-4.5 rounded-2xl bg-background border border-surface-elevated flex items-center gap-2"
             >
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[var(--primary)]/15 to-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] shrink-0">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[var(--primary)]/15 to-[var(--primary)]/10 flex items-center justify-center text-primary shrink-0">
                 <IconComponent size={16} />
               </div>
               <div className="min-w-0">
@@ -47,7 +48,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
         <h4 className="text-sm sm:text-base font-bold text-foreground">
           Project Overview
         </h4>
-        <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
           {enhancement.overview}
         </p>
       </div>
@@ -61,7 +62,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
           {enhancement.techStack.map((tech) => (
             <div
               key={tech.name}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-medium text-[var(--foreground)] shadow-sm hover:border-[var(--primary)]/30 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-background border border-surface-elevated text-xs font-medium text-foreground shadow-sm hover:border-primary/30 transition-colors"
             >
               <tech.icon className="w-3.5 h-3.5" />
               <span>{tech.name}</span>
@@ -71,13 +72,13 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
       </div>
 
       {/* ── Project Action Row ── */}
-      <div className="pt-2 flex items-center justify-between border-t border-[var(--surface-elevated)]">
+      <div className="pt-2 flex items-center justify-between border-t border-surface-elevated">
         {project.serviceType === "Websites" && project.url ? (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-[var(--primary)]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className={buttonVariants({ variant: "default" })}
           >
             <span>Visit Live Website</span>
             <AnimatedArrowRight size={15} />
@@ -87,13 +88,13 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[var(--chart-2)] hover:bg-[var(--chart-2)] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className={buttonVariants({ variant: "default", className: "bg-chart-2 hover:bg-chart-2" })}
           >
             <span>Launch Web App Portal</span>
             <AnimatedArrowRight size={15} />
           </a>
         ) : (
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-semibold text-[var(--muted-foreground)]">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-surface-elevated text-xs font-semibold text-muted-foreground">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>{project.serviceType} Project Showcase</span>
           </div>

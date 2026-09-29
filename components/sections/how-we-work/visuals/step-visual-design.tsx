@@ -20,8 +20,8 @@ export function StepVisualDesign() {
       >
         {/* Window Header */}
         <div className="w-full flex items-center gap-2 ml-4 sm:ml-8">
-          <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--muted-foreground)]" />
-          <span className="font-bold text-sm sm:text-base text-[var(--muted-foreground)] tracking-tight">
+          <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
+          <span className="font-bold text-sm sm:text-base text-muted-foreground tracking-tight">
             Design System
           </span>
         </div>
@@ -30,7 +30,7 @@ export function StepVisualDesign() {
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           {/* Colors */}
           <div className="flex items-center gap-1.5 sm:gap-2 bg-white border border-neutral-100 rounded-full px-2.5 sm:px-3 py-1.5 sm:py-2 shadow-sm">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--primary)] shadow-inner" />
+            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary shadow-inner" />
             <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--chart-2)] shadow-inner" />
             <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#3B82F6] shadow-inner" />
             <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--chart-5)] shadow-inner" />
@@ -64,7 +64,7 @@ export function StepVisualDesign() {
           <div>• Pixel Perfect</div>
           <div>• User First</div>
         </div>
-        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" viewBox="0 0 28 28" fill="none">
+        <svg className="absolute -bottom-3 sm:-bottom-4 right-1 w-5 h-5 sm:w-6 sm:h-6 text-primary" viewBox="0 0 28 28" fill="none">
           <path d="M 6 4 C 10 12, 14 16, 22 22" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 14 22 L 22 22 L 20 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -76,10 +76,10 @@ export function StepVisualDesign() {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute top-2 sm:top-18 right-2 sm:right-52 z-10 text-right pointer-events-none select-none scale-85 sm:scale-100 origin-top-right"
       >
-        <span className="font-handwriting font-bold text-xs sm:text-sm text-[var(--primary)] tracking-tight block transform -rotate-3 leading-tight">
+        <span className="font-handwriting font-bold text-xs sm:text-sm text-primary tracking-tight block transform -rotate-3 leading-tight">
           Beautiful & <br /> Intuitive
         </span>
-        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)] ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary ml-auto -mt-1 transform rotate-12" viewBox="0 0 28 28" fill="none">
           <path d="M 4 18 C 10 10, 18 10, 24 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 16 6 L 24 6 L 22 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -99,7 +99,7 @@ export function StepVisualDesign() {
         </div>
         
         <div className="flex flex-col gap-1.5 sm:gap-2">
-          <div className="w-full h-5 sm:h-6 bg-[var(--primary)] rounded-md flex items-center justify-center">
+          <div className="w-full h-5 sm:h-6 bg-primary rounded-md flex items-center justify-center">
             <div className="w-8 h-1 bg-white/50 rounded-full" />
           </div>
           <div className="w-full h-5 sm:h-6 bg-neutral-100 border border-neutral-200 rounded-md flex items-center px-2">
@@ -113,7 +113,7 @@ export function StepVisualDesign() {
           </div>
         </div>
 
-        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-[var(--primary)] transform -rotate-12" viewBox="0 0 32 48" fill="none">
+        <svg className="absolute -bottom-8 sm:-bottom-12 left-8 sm:left-14 w-6 h-10 sm:w-10 sm:h-14 text-primary transform -rotate-12" viewBox="0 0 32 48" fill="none">
           <path d="M 12 4 C 12 20, 20 30, 20 44" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
           <path d="M 12 36 L 20 44 L 28 36" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

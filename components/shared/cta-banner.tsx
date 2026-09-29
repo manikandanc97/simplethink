@@ -1,6 +1,7 @@
 import { useLead } from "@/components/leads/lead-provider";
 import { type LeadInput } from "@/lib/leads/schema";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
+import { Button } from "@/components/ui/button";
 import { type LucideIcon } from "lucide-react";
 import React from "react";
 
@@ -63,32 +64,31 @@ export function CtaBanner({
 
         {/* ── Right Side: Dual Action Buttons ── */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 relative z-10 shrink-0 w-full xl:w-auto mt-4 xl:mt-0">
-          <button
-            type="button"
+          <Button
             onClick={() =>
               openLead({
                 source: primaryButton.source as LeadInput["source"],
                 description: primaryButton.actionDescription,
               })
             }
-            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-6 py-3 sm:py-3.5 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground text-sm font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-0.5 transition-all cursor-pointer"
+            className="w-full sm:w-auto"
           >
             <span>{primaryButton.label}</span>
-            <AnimatedArrowRight size={14} className="text-white" />
-          </button>
+            <AnimatedArrowRight size={14} />
+          </Button>
 
-          <button
-            type="button"
+          <Button
+            variant="outline"
             onClick={() =>
               openLead({
                 source: secondaryButton.source as LeadInput["source"],
                 description: secondaryButton.actionDescription,
               })
             }
-            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-6 py-3 sm:py-3.5 rounded-full bg-card hover:bg-muted text-foreground border border-border shadow-2xs hover:shadow-card hover:-translate-y-0.5 transition-all text-sm font-medium cursor-pointer"
+            className="w-full sm:w-auto"
           >
             <span>{secondaryButton.label}</span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

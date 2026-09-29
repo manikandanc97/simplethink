@@ -23,7 +23,7 @@ export function StepNarrative({
       <div className="flex flex-col gap-2 sm:gap-4">
         {/* Step Kicker */}
         <div className="flex items-center gap-2">
-          <span className="inline-block px-4 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs sm:text-xs font-black tracking-widest text-[var(--primary)] uppercase">
+          <span className="inline-block px-4 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs sm:text-xs font-black tracking-widest text-primary uppercase">
             {currentStep.stepKicker}
           </span>
           <span className="hidden sm:inline-block text-xs font-mono text-neutral-400">

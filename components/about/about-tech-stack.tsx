@@ -53,7 +53,7 @@ const STACK_CATEGORIES = [
 
 export function AboutTechStack() {
   return (
-    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)] flex flex-col gap-12 sm:gap-16">
+    <div className="w-full pt-16 sm:pt-20 border-t border-surface-elevated flex flex-col gap-12 sm:gap-16">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Engineering Stack"
@@ -72,14 +72,14 @@ export function AboutTechStack() {
           return (
             <div
               key={i}
-              className="p-6 rounded-3xl bg-white/90 border border-[var(--surface-elevated)] shadow-card hover:border-primary/30 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white/90 border border-surface-elevated shadow-card hover:border-primary/30 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="w-10 h-10 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-primary">
                     <Icon size={18} />
                   </div>
-                  <span className="text-xs font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-[var(--background)] text-primary border border-[var(--surface-elevated)]">
+                  <span className="text-xs font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-background text-primary border border-surface-elevated">
                     {cat.badge}
                   </span>
                 </div>
@@ -92,7 +92,7 @@ export function AboutTechStack() {
                   {cat.technologies.map((t, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] hover:border-primary/30 hover:bg-white transition-colors flex flex-col gap-0.5"
+                      className="p-2.5 rounded-xl bg-background border border-surface-elevated hover:border-primary/30 hover:bg-white transition-colors flex flex-col gap-0.5"
                     >
                       <div className="text-xs font-bold text-foreground">
                         {t.name}

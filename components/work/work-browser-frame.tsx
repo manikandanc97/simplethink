@@ -24,9 +24,9 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
   }, [project.id, isWebsite]);
 
   return (
-    <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--surface-elevated)] bg-white shadow-card flex flex-col">
+    <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-surface-elevated bg-white shadow-card flex flex-col">
       {/* ── Browser Header Bar ── */}
-      <div className="h-10 sm:h-11 bg-[var(--background)] border-b border-[var(--surface-elevated)] px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
+      <div className="h-10 sm:h-11 bg-background border-b border-surface-elevated px-3.5 sm:px-4 flex items-center justify-between select-none gap-2">
         {/* Mac 3 dots */}
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />
@@ -40,7 +40,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 bg-white border border-[var(--surface-elevated)] shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-xs sm:text-xs font-medium text-[var(--muted-foreground)] max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-primary/40 hover:text-foreground transition-colors cursor-pointer group"
+            className="flex items-center justify-center gap-1.5 bg-white border border-surface-elevated shadow-xs rounded-md px-2.5 sm:px-3.5 py-1 text-xs sm:text-xs font-medium text-muted-foreground max-w-[200px] xs:max-w-xs sm:max-w-sm truncate hover:border-primary/40 hover:text-foreground transition-colors cursor-pointer group"
             title={`Visit ${project.domain || project.name}`}
           >
             <AnimatedIcon icon={LockIcon} size={11} className="text-emerald-500 shrink-0" />
@@ -48,7 +48,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             <AnimatedIcon
               icon={ExternalLinkIcon}
               size={10}
-              className="text-[var(--muted-foreground)] opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
+              className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity ml-0.5 shrink-0"
             />
           </a>
         </div>
@@ -103,7 +103,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             onClick={onOpenFullscreen}
             aria-label="Expand Preview"
             title="Expand Fullscreen"
-            className="text-[var(--muted-foreground)] hover:text-foreground transition-colors p-1 rounded-md hover:bg-[var(--surface-elevated)] cursor-pointer"
+            className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-[var(--surface-elevated)] cursor-pointer"
           >
             <Maximize2 size={14} />
           </button>

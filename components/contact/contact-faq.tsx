@@ -54,7 +54,7 @@ export function ContactFaq() {
   return (
     <SharedFaqSection
       id="contact-faq"
-      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]"
+      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-surface-elevated"
       faqs={formattedFaqs}
       eyebrow="SCOPING FAQ"
       title={<>Engagement & <br /></>}

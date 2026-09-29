@@ -53,8 +53,8 @@ export function AmbientBackground({
       )}
     >
       {/* ── 1. Atmospheric Glowing Ambient Gradient Blurs ── */}
-      <div className="absolute top-0 left-[-4%] w-[75%] h-[550px] sm:h-[800px] lg:h-[1100px] max-w-[1200px] bg-[var(--background)]/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-75 sm:opacity-90 transform-gpu pointer-events-none" />
-      <div className="absolute top-[4%] right-[-4%] w-[65%] h-[450px] sm:h-[700px] lg:h-[950px] max-w-[950px] bg-[var(--background)]/75 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
+      <div className="absolute top-0 left-[-4%] w-[75%] h-[550px] sm:h-[800px] lg:h-[1100px] max-w-[1200px] bg-background/70 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-75 sm:opacity-90 transform-gpu pointer-events-none" />
+      <div className="absolute top-[4%] right-[-4%] w-[65%] h-[450px] sm:h-[700px] lg:h-[950px] max-w-[950px] bg-background/75 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
       
       <div className="absolute top-[24%] left-[4%] w-[70%] h-[500px] sm:h-[800px] lg:h-[1200px] max-w-[1000px] bg-[var(--accent-soft)]/55 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-65 sm:opacity-75 transform-gpu pointer-events-none" />
       <div className="absolute top-[36%] right-[-2%] w-[65%] h-[500px] sm:h-[800px] lg:h-[1100px] max-w-[950px] bg-[var(--accent-soft)]/55 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
@@ -63,7 +63,7 @@ export function AmbientBackground({
       <div className="absolute top-[66%] right-[4%] w-[60%] h-[500px] sm:h-[800px] lg:h-[1100px] max-w-[900px] bg-[var(--accent-soft)]/45 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-75 transform-gpu pointer-events-none" />
 
       <div className="absolute top-[80%] left-[4%] w-[70%] h-[500px] sm:h-[850px] lg:h-[1200px] max-w-[1000px] bg-[var(--accent-soft)]/50 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-60 sm:opacity-75 transform-gpu pointer-events-none" />
-      <div className="absolute top-[90%] right-[-2%] w-[80%] h-[500px] sm:h-[850px] lg:h-[1100px] max-w-[1100px] bg-[var(--background)]/65 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
+      <div className="absolute top-[90%] right-[-2%] w-[80%] h-[500px] sm:h-[850px] lg:h-[1100px] max-w-[1100px] bg-background/65 rounded-full blur-[70px] sm:blur-[110px] lg:blur-[150px] opacity-70 sm:opacity-85 transform-gpu pointer-events-none" />
 
       {/* ── 2. Delicate Sweeping SVG Curves (Screen-Randomized) ── */}
       <svg className="absolute top-0 left-0 w-full h-full opacity-25 sm:opacity-35 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">

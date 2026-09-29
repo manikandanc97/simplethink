@@ -11,7 +11,7 @@ export function BrowserMockup({ activeProject }: { activeProject: Project }) {
   return (
     <div className="relative w-full rounded-2xl shadow-card border border-slate-200/90 bg-white overflow-hidden flex flex-col z-20">
       {/* Browser Window Header Chrome */}
-      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-[var(--background)] rounded-t-2xl border-b border-slate-200/80 select-none">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-background rounded-t-2xl border-b border-slate-200/80 select-none">
         {/* 3 Traffic Dots */}
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-black/10 shadow-xs" />

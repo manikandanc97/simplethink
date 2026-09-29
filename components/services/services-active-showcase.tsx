@@ -5,6 +5,7 @@ import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-i
 import { type ServiceData } from "@/lib/data/services";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ServicesMockupWindow } from "./showcase/services-mockup-window";
 
 interface ServicesActiveShowcaseProps {
@@ -58,30 +59,28 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
 
               {/* Dual Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 sm:gap-4">
-                <button
-                  type="button"
+                <Button
                   onClick={() =>
                     openLead({
                       source: "services-configurator",
                       description: `Interested in ${service.name} services.`,
                     })
                   }
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
                 >
                   <span>Start a project</span>
-                  <AnimatedArrowRight size={14} className="text-white" />
-                </button>
+                  <AnimatedArrowRight size={14} />
+                </Button>
 
                 <Link
                   href={service.relatedWorkUrl}
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-[var(--background)] text-foreground border border-[var(--border)] shadow-xs hover:border-[var(--border)] text-sm font-bold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
+                  className={buttonVariants({ variant: "outline" })}
                 >
                   <span>View related work</span>
                 </Link>
               </div>
 
               {/* 3 Large Key Metrics */}
-              <div className="grid grid-cols-3 gap-4 sm:gap-4 pt-6 border-t border-[var(--surface-elevated)]">
+              <div className="grid grid-cols-3 gap-4 sm:gap-4 pt-6 border-t border-surface-elevated">
                 {service.stats.map((st, i) => (
                   <div key={i} className="flex flex-col">
                     <span className="text-xl sm:text-2xl lg:text-3xl font-black text-foreground tracking-tight font-satoshi">

@@ -108,7 +108,7 @@ function WorkViewContent() {
             {/* ── LEFT COLUMN: Project Selector List ── */}
             <div className="lg:col-span-5 flex flex-col gap-4">
               {filteredProjects.length === 0 ? (
-                <div className="text-center py-16 px-4 bg-[var(--background)] rounded-2xl border border-dashed border-[var(--surface-elevated)]">
+                <div className="text-center py-16 px-4 bg-background rounded-2xl border border-dashed border-surface-elevated">
                   <p className="text-sm text-muted-foreground font-medium">
                     No projects found matching your criteria.
                   </p>
@@ -170,7 +170,7 @@ export function WorkView() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
+        <div className="min-h-screen flex items-center justify-center bg-background">
           <div className="w-9 h-9 border-3 border-primary/30 border-t-[var(--primary)] rounded-full animate-spin" />
         </div>
       }

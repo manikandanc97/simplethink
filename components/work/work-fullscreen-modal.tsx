@@ -39,7 +39,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
             <span className="text-xs font-bold text-white truncate ml-1">
               {project.name}
             </span>
-            <span className="text-xs font-mono text-[var(--muted-foreground)] hidden md:inline truncate">
+            <span className="text-xs font-mono text-muted-foreground hidden md:inline truncate">
               ({project.domain || project.serviceType})
             </span>
           </div>
@@ -54,7 +54,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                   "px-4 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "live"
                     ? "bg-white text-emerald-800 shadow-sm"
-                    : "text-[var(--muted-foreground)] hover:text-white"
+                    : "text-muted-foreground hover:text-white"
                 )}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -67,7 +67,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                   "px-4 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "screenshot"
                     ? "bg-white text-primary shadow-sm"
-                    : "text-[var(--muted-foreground)] hover:text-white"
+                    : "text-muted-foreground hover:text-white"
                 )}
               >
                 <ImageIcon size={11} />
@@ -123,7 +123,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
               />
             </div>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center text-[var(--muted-foreground)]">
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center text-muted-foreground">
               <ImageIcon size={36} className="mb-2 opacity-50" />
               <p className="text-sm font-medium">No preview image available</p>
             </div>

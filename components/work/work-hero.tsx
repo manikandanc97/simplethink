@@ -59,7 +59,7 @@ export function WorkHero() {
           </div>
 
           {/* 3 Core Value Props in a Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-[var(--surface-elevated)]/80 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-surface-elevated/80 w-full">
             {/* Value Prop 1 */}
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100/80">
@@ -93,7 +93,7 @@ export function WorkHero() {
             {/* Value Prop 3 */}
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-pink-50 flex items-center justify-center shrink-0 border border-pink-100/80">
-                <Code2 size={18} className="text-[var(--primary)]" />
+                <Code2 size={18} className="text-primary" />
               </div>
               <div className="flex flex-col gap-0.5">
                 <span className="text-sm font-bold text-foreground leading-tight">
@@ -118,13 +118,13 @@ export function WorkHero() {
           <div className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl aspect-[1.12/1] flex items-center justify-center">
             
             {/* Background Subtle Dot Pattern Card */}
-            <div className="absolute inset-1 sm:inset-3 rounded-3xl bg-white/40 border border-[var(--surface-elevated)]/80 [background-image:radial-gradient(#d3ccd8_1.2px,transparent_1.2px)] [background-size:22px_22px] -z-10 shadow-card" />
+            <div className="absolute inset-1 sm:inset-3 rounded-3xl bg-white/40 border border-surface-elevated/80 [background-image:radial-gradient(#d3ccd8_1.2px,transparent_1.2px)] [background-size:22px_22px] -z-10 shadow-card" />
 
             {/* ── Floating Badge 1 (Top Left): Next.js 15 & React 19 ── */}
             <motion.div
               animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
+              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-surface-elevated shadow-card"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-black flex items-center justify-center text-white shadow-xs shrink-0">
                 <NextJsIcon className="w-4 h-4 text-white" />
@@ -143,13 +143,13 @@ export function WorkHero() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[var(--surface-elevated)] shadow-xs text-[9.5px] sm:text-xs font-bold text-muted-foreground whitespace-nowrap"
+              className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-surface-elevated shadow-xs text-[9.5px] sm:text-xs font-bold text-muted-foreground whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Production</span>
-              <span className="text-[var(--muted-foreground)]">•</span>
+              <span className="text-muted-foreground">•</span>
               <span>100% Handover</span>
-              <span className="text-[var(--muted-foreground)]">•</span>
+              <span className="text-muted-foreground">•</span>
               <span className="text-primary">Bespoke</span>
             </motion.div>
 
@@ -204,7 +204,7 @@ export function WorkHero() {
             <motion.div
               animate={{ y: [0, 4, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              className="absolute top-44 sm:top-48 -left-1 sm:left-2 z-20 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
+              className="absolute top-44 sm:top-48 -left-1 sm:left-2 z-20 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-surface-elevated shadow-card"
             >
               <Cpu size={11} className="text-[var(--chart-2)]" />
               <span className="text-[9px] font-bold text-muted-foreground">
@@ -244,7 +244,7 @@ export function WorkHero() {
             <motion.div
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-              className="absolute bottom-3 sm:bottom-4 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-xs"
+              className="absolute bottom-3 sm:bottom-4 left-2 sm:left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-surface-elevated shadow-xs"
             >
               <CheckCircle2 size={12} className="text-emerald-500" />
               <span className="text-[9.5px] sm:text-xs font-bold text-foreground">
@@ -256,7 +256,7 @@ export function WorkHero() {
             <motion.div
               animate={{ y: [0, 4, 0] }}
               transition={{ duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-              className="absolute bottom-3 sm:bottom-4 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-xs"
+              className="absolute bottom-3 sm:bottom-4 right-2 sm:right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-surface-elevated shadow-xs"
             >
               <ShieldCheck size={12} className="text-[var(--chart-3)]" />
               <span className="text-[9.5px] sm:text-xs font-bold text-foreground">
@@ -268,7 +268,7 @@ export function WorkHero() {
             <motion.span
               animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute top-16 right-20 text-[var(--primary)] text-xs z-[5]"
+              className="pointer-events-none absolute top-16 right-20 text-primary text-xs z-[5]"
             >
               ✦
             </motion.span>

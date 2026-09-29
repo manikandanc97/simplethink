@@ -26,7 +26,7 @@ const STANDARDS = [
   },
   {
     icon: ShieldCheck,
-    iconColor: "text-[var(--primary)]",
+    iconColor: "text-primary",
     iconBg: "bg-pink-50 border-pink-100",
     title: "Enterprise Security",
     metric: "Bank-Grade",
@@ -48,7 +48,7 @@ const STANDARDS = [
 
 export function WorkEngineeringStandards() {
   return (
-    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-surface-elevated">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Engineering Standards"
@@ -67,7 +67,7 @@ export function WorkEngineeringStandards() {
           return (
             <div
               key={i}
-              className="p-6 rounded-3xl bg-white/90 border border-[var(--surface-elevated)] shadow-card hover:border-primary/30 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="p-6 rounded-3xl bg-white/90 border border-surface-elevated shadow-card hover:border-primary/30 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Header with Icon + Metric badge */}
@@ -77,7 +77,7 @@ export function WorkEngineeringStandards() {
                   >
                     <Icon size={22} className={std.iconColor} />
                   </div>
-                  <span className="text-xs font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-[var(--background)] text-foreground border border-[var(--surface-elevated)]">
+                  <span className="text-xs font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-background text-foreground border border-surface-elevated">
                     {std.metric}
                   </span>
                 </div>
@@ -85,7 +85,7 @@ export function WorkEngineeringStandards() {
                 <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight mb-2">
                   {std.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
                   {std.description}
                 </p>
               </div>

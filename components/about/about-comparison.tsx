@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 
 export function AboutComparison() {
   return (
-    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-surface-elevated">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Comparative Standards"
@@ -19,18 +19,18 @@ export function AboutComparison() {
       />
 
       {/* ── Comparison Table Card ── */}
-      <div className="border border-[var(--surface-elevated)] rounded-3xl overflow-hidden bg-white shadow-card text-left">
+      <div className="border border-surface-elevated rounded-3xl overflow-hidden bg-white shadow-card text-left">
         {/* Table Header Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--surface-elevated)] bg-[var(--background)] p-4 sm:p-6 font-mono text-xs font-bold text-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-surface-elevated bg-background p-4 sm:p-6 font-mono text-xs font-bold text-foreground">
           <div className="md:col-span-3 text-muted-foreground uppercase tracking-wider">
             Evaluation Metric
           </div>
-          <div className="md:col-span-4 text-[var(--muted-foreground)] uppercase tracking-wider hidden md:block">
+          <div className="md:col-span-4 text-muted-foreground uppercase tracking-wider hidden md:block">
             Traditional Agencies
           </div>
           <div className="md:col-span-5 text-primary uppercase tracking-wider hidden md:flex items-center gap-2">
             <span>The Simpluxe Studio Model</span>
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[var(--background)] text-primary border border-[var(--surface-elevated)]">
+            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-background text-primary border border-surface-elevated">
               RECOMMENDED
             </span>
           </div>
@@ -41,7 +41,7 @@ export function AboutComparison() {
           {COMPARISONS.map((row, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-4 sm:gap-4 items-center hover:bg-[var(--background)] transition-colors"
+              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-4 sm:gap-4 items-center hover:bg-background transition-colors"
             >
               {/* Metric Title */}
               <div className="md:col-span-3 font-bold text-sm text-foreground font-satoshi">
@@ -55,7 +55,7 @@ export function AboutComparison() {
               </div>
 
               {/* Simpluxe Model */}
-              <div className="md:col-span-5 flex items-start gap-2 text-xs sm:text-sm text-foreground font-semibold bg-[var(--background)]/70 p-4.5 rounded-2xl border border-[var(--surface-elevated)]/80 shadow-2xs">
+              <div className="md:col-span-5 flex items-start gap-2 text-xs sm:text-sm text-foreground font-semibold bg-background/70 p-4.5 rounded-2xl border border-surface-elevated/80 shadow-2xs">
                 <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
                 <span>{row.simpluxe}</span>
               </div>

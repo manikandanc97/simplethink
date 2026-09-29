@@ -84,7 +84,7 @@ export function AboutFaqSection() {
   return (
     <SharedFaqSection
       id="about-faq"
-      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]"
+      className="pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-surface-elevated"
       faqs={ABOUT_FAQS}
       eyebrow="STUDIO FAQ"
       title={<>Working With <br /></>}
