@@ -378,7 +378,7 @@
 }
 
 .font-handwriting {
-  font-family: 'Caveat', cursive, sans-serif;
+  font-family: var(--font-caveat), 'Caveat', cursive, sans-serif;
 }
 
 .hero-dots {

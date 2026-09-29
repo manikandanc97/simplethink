@@ -7,21 +7,21 @@ import { Badge } from "@/components/ui/badge";
 
 export function ContactProcess() {
   return (
-    <Card variant="default" padding="default" className="text-left">
-      <CardHeader className="mb-6">
+    <Card className="bg-transparent border-none shadow-none p-0 text-left">
+      <CardHeader className="mb-4">
         <div className="flex items-center gap-2 mb-2">
           <Badge variant="outline" size="lg">
             <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
-            Roadmap & Expectations
+            Expectations
           </Badge>
         </div>
         <CardTitle className="text-xl sm:text-2xl">What Happens Next?</CardTitle>
         <CardDescription>
-          A disciplined, zero-ambiguity execution framework from intake to launch.
+          A clear execution framework from intake to launch.
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="gap-6">
+      <CardContent className="gap-4">
         {CONTACT_STEPS.map((step) => (
           <div key={step.number} className="flex items-start gap-4 group">
             <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-200">
@@ -51,15 +51,15 @@ export function ContactProcess() {
         <div className="flex flex-col gap-2 w-full text-xs text-muted-foreground">
           <div className="flex items-start gap-2">
             <ShieldCheck size={16} className="text-primary shrink-0 mt-0.5" />
-            <span><strong className="text-foreground">Mutual NDA Ready:</strong> Complete confidentiality before project review.</span>
+            <span><strong className="text-foreground">NDA Ready:</strong> Complete confidentiality.</span>
           </div>
           <div className="flex items-start gap-2">
             <FileCheck size={16} className="text-emerald-600 shrink-0 mt-0.5" />
-            <span><strong className="text-foreground">100% IP Transfer:</strong> Full repository ownership on final milestone.</span>
+            <span><strong className="text-foreground">IP Transfer:</strong> Full repository ownership.</span>
           </div>
           <div className="flex items-start gap-2">
             <Code2 size={16} className="text-primary/80 shrink-0 mt-0.5" />
-            <span><strong className="text-foreground">0% Vendor Lock-in:</strong> Clean TypeScript Next.js code any team can run.</span>
+            <span><strong className="text-foreground">No Lock-in:</strong> Clean, maintainable code.</span>
           </div>
         </div>
       </CardFooter>

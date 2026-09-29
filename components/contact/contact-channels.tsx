@@ -22,7 +22,7 @@ export function ContactChannels() {
   };
 
   return (
-    <Card variant="default" padding="default" className="text-left">
+    <Card className="bg-transparent border-none shadow-none p-0 text-left">
       <CardHeader className="mb-6">
         <div className="flex items-center gap-2 mb-2">
           <Badge variant="outline" size="lg">
@@ -102,16 +102,7 @@ export function ContactChannels() {
         )}
       </CardContent>
 
-      <CardFooter className="flex-col items-start gap-2 text-xs text-muted-foreground pt-6">
-        <div className="flex items-center gap-2 font-mono">
-          <Clock size={14} className="text-primary shrink-0" />
-          <span>Guaranteed response within 24 hours (Mon - Sat)</span>
-        </div>
-        <div className="flex items-center gap-2 font-mono">
-          <Globe size={14} className="text-primary/80 shrink-0" />
-          <span>Global Delivery &bull; Overlapping US, EU & Asia Timezones</span>
-        </div>
-      </CardFooter>
+
     </Card>
   );
 }

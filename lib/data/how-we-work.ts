@@ -201,4 +201,4 @@ export const STEPS: StepConfig[] = [
     imageSrc: "simpluxe/process/launch",
   },
 ];
-
+

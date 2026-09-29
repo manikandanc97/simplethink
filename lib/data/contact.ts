@@ -13,51 +13,43 @@ export interface ContactFaq {
 export const CONTACT_STEPS: ContactStep[] = [
   {
     number: "01",
-    title: "Technical Scoping & Review",
-    time: "Within 24 Hours",
-    description:
-      "We review your product requirements, target audience, and architecture constraints to evaluate technical feasibility.",
+    title: "Scoping & Review",
+    time: "24 Hours",
+    description: "We review your requirements to evaluate feasibility.",
   },
   {
     number: "02",
-    title: "Architecture & Roadmap Session",
+    title: "Roadmap Session",
     time: "30-Min Call",
-    description:
-      "A direct conversation with a lead software architect. No salespeople. We align on database schemas, APIs, and sprint milestones.",
+    description: "Direct alignment on milestones with an architect.",
   },
   {
     number: "03",
-    title: "Fixed Milestone Proposal",
-    time: "48-Hour Delivery",
-    description:
-      "You receive a comprehensive statement of work with exact sprint deliverables, timeline, and transparent fixed milestone pricing.",
+    title: "Proposal",
+    time: "48 Hours",
+    description: "Receive a statement of work with exact deliverables.",
   },
 ];
 
 export const CONTACT_FAQS: ContactFaq[] = [
   {
     question: "How fast can we kick off a build?",
-    answer:
-      "Most projects can begin within 3 to 7 business days following our initial technical scoping session and architectural sign-off.",
+    answer: "Most projects begin within 3-7 days after architectural sign-off.",
   },
   {
     question: "Do you sign Non-Disclosure Agreements (NDAs)?",
-    answer:
-      "Yes, absolutely. We regularly sign mutual NDAs before reviewing proprietary requirements, codebases, or patent-pending architectures.",
+    answer: "Yes, we regularly sign mutual NDAs before reviewing requirements.",
   },
   {
     question: "How do you handle pricing and contracts?",
-    answer:
-      "We operate primarily on clear milestone-based fixed scope contracts or dedicated weekly engineering sprints, ensuring full transparency with zero hidden fees.",
+    answer: "We operate on milestone-based fixed scope contracts.",
   },
   {
     question: "What core tech stack do you work with?",
-    answer:
-      "We specialize in modern fullstack TypeScript (Next.js, React, React Native / Expo), scalable backend services (FastAPI, Node.js, Python), and battle-tested databases (PostgreSQL, Supabase, Redis, AWS).",
+    answer: "TypeScript, Next.js, React Native, FastAPI, PostgreSQL, and AWS.",
   },
   {
     question: "Can you modernize or rebuild an existing product?",
-    answer:
-      "Yes. We frequently help companies refactor sluggish legacy apps, migrate monolithic backends to modern cloud microservices, and overhaul outdated UX/UI with sub-second performance.",
+    answer: "Yes, we refactor legacy apps and migrate to modern cloud microservices.",
   },
 ];
