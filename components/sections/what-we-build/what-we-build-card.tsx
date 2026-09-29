@@ -109,7 +109,7 @@ export function WhatWeBuildCard({
         opacity: { type: "tween", duration: 0.3, ease: "easeOut" },
       }}
       className={cn(
-        "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-5 pb-12 xs:p-6 xs:pb-14 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
+        "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-6 pb-12 xs:p-6 xs:pb-16 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
         "backdrop-blur-2xl border",
         isActive
           ? "bg-card border-primary/20 z-30 pointer-events-auto"
@@ -164,10 +164,10 @@ export function WhatWeBuildCard({
               {isActive && (
                 <motion.div
                   key={`content-${service.id}`}
-                  className="flex flex-col items-start w-full gap-5"
+                  className="flex flex-col items-start w-full gap-6"
                 >
                   {/* Number + Icon */}
-                  <FadeUp delay={0} className="flex items-center gap-3">
+                  <FadeUp delay={0} className="flex items-center gap-4">
                     <span
                       className="text-2xl sm:text-3xl font-black tracking-tight leading-none font-mono"
                       style={{ color: service.brandColor }}
@@ -201,7 +201,7 @@ export function WhatWeBuildCard({
                     {service.deliverables?.map((item, i) => (
                       <motion.span
                         key={i}
-                        className="inline-flex items-center px-3 py-1 rounded-full bg-secondary border border-border text-foreground type-label"
+                        className="inline-flex items-center px-4 py-1 rounded-full bg-secondary border border-border text-foreground type-label"
                         initial={{ opacity: 0, scale: 0.88 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.26 + i * 0.055, duration: 0.3, ease: "easeOut" }}
@@ -235,7 +235,7 @@ export function WhatWeBuildCard({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <span
                       className="text-2xl sm:text-3xl font-black tracking-tight leading-none font-mono"
                       style={{ color: service.brandColor }}
@@ -266,7 +266,7 @@ export function WhatWeBuildCard({
               animate={isActive ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.92, opacity: 0.6, y: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
             >
-              <div className="w-full max-w-xs h-40 sm:h-52 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-3">
+              <div className="w-full max-w-xs h-40 sm:h-52 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-4">
                 <MockupComponent isActive={isActive} />
               </div>
             </motion.div>

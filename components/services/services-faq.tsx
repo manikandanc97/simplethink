@@ -22,7 +22,7 @@ function FaqAccordionItem({
       <button
         type="button"
         onClick={onToggle}
-        className="w-full text-left p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-[var(--background)] transition-colors"
+        className="w-full text-left p-6 flex items-center justify-between gap-4 cursor-pointer hover:bg-[var(--background)] transition-colors"
       >
         <span className="text-sm sm:text-base font-bold text-foreground">
           {question}
@@ -44,7 +44,7 @@ function FaqAccordionItem({
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="p-5 pt-0 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed border-t border-[var(--background)]">
+            <div className="p-6 pt-0 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed border-t border-[var(--background)]">
               {answer}
             </div>
           </motion.div>
@@ -58,7 +58,7 @@ export function ServicesFaq() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   return (
-    <div className="mt-14 pt-10 border-t border-[var(--surface-elevated)]">
+    <div className="mt-16 pt-12 border-t border-[var(--surface-elevated)]">
       <div className="text-center max-w-xl mx-auto mb-8">
         <span className="text-xs font-mono font-bold tracking-widest text-primary uppercase block mb-1">
           Frequently Asked Questions
@@ -68,7 +68,7 @@ export function ServicesFaq() {
         </h3>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-3">
+      <div className="max-w-3xl mx-auto space-y-4">
         {SERVICES_FAQS.map((faq, index) => (
           <FaqAccordionItem
             key={index}

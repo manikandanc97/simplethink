@@ -84,7 +84,7 @@ export function ExperimentCard({ experiment, isFeatured = false }: ExperimentCar
 
       {/* Content Area */}
       <div className="p-6 sm:p-8 flex flex-col justify-between gap-6 flex-1 bg-card">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <span className="text-xs font-mono font-bold tracking-widest uppercase text-primary block">
               {experiment.category}

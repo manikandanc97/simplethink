@@ -65,7 +65,7 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
         {/* ── Left Column: Deliverables (7 cols) ── */}
         <div className="lg:col-span-7 flex flex-col items-start text-left justify-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-3">
+            <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-4">
               <span className="w-2 h-2 rounded-full bg-primary inline-block" />
               <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
                 Deliverables
@@ -89,9 +89,9 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
               className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-3 sm:gap-y-4 w-full"
             >
               {/* Column 1 */}
-              <div className="flex flex-col gap-3 sm:gap-3.5">
+              <div className="flex flex-col gap-4 sm:gap-4.5">
                 {col1.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
+                  <div key={idx} className="flex items-start gap-2">
                     <CheckCircle2
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
@@ -104,9 +104,9 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
               </div>
 
               {/* Column 2 */}
-              <div className="flex flex-col gap-3 sm:gap-3.5">
+              <div className="flex flex-col gap-4 sm:gap-4.5">
                 {col2.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
+                  <div key={idx} className="flex items-start gap-2">
                     <CheckCircle2
                       size={17}
                       className={`${colors.primary} ${colors.fill} shrink-0 mt-0.5 transition-colors duration-300`}
@@ -123,10 +123,10 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
 
         {/* ── Right Column: Perfect For Card (5 cols) ── */}
         <div className="lg:col-span-5 flex">
-          <div className="w-full p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-[var(--surface-elevated)] shadow-card flex flex-col justify-between text-left">
+          <div className="w-full p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[var(--surface-elevated)] shadow-card flex flex-col justify-between text-left">
             <div>
               {/* Header */}
-              <div className="flex items-start gap-3 mb-5">
+              <div className="flex items-start gap-4 mb-6">
                 <div className={`w-10 h-10 rounded-2xl ${colors.bg} border ${colors.border} flex items-center justify-center ${colors.primary} shrink-0 transition-colors duration-300`}>
                   <Target size={20} />
                 </div>
@@ -148,14 +148,14 @@ export function ServicesDeliverablesAudience({ service }: ServicesDeliverablesAu
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -8 }}
                   transition={{ duration: 0.28 }}
-                  className="flex flex-col gap-3.5"
+                  className="flex flex-col gap-4.5"
                 >
                   {service.perfectFor.map((item, idx) => {
                     const IconComponent = IconMap[item.icon] || Target;
                     return (
                       <div
                         key={idx}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[var(--background)] transition-colors group"
+                        className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-[var(--background)] transition-colors group"
                       >
                         <div className={`w-8 h-8 rounded-xl ${colors.bg} ${colors.primary} flex items-center justify-center shrink-0 border ${colors.border}/60 transition-colors duration-300`}>
                           <IconComponent size={15} />

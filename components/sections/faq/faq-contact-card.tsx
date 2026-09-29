@@ -8,7 +8,7 @@ export function FaqContactCard() {
   const { openLead } = useLead();
 
   return (
-    <div className="relative mt-2 sm:mt-6 pt-8 lg:pt-10">
+    <div className="relative mt-2 sm:mt-6 pt-8 lg:pt-12">
       {/* 1. "Still have a question?" Handwritten note & curved arrow */}
       <div className="absolute -top-5 left-1 sm:left-2 z-20 flex items-start gap-1 pointer-events-none select-none">
         <span className="font-['Caveat',cursive] italic text-xl sm:text-2xl text-foreground/90 font-bold rotate-[-8deg] leading-tight block">
@@ -39,13 +39,13 @@ export function FaqContactCard() {
       </div>
 
       {/* 2. Main Outer Card */}
-      <div className="faq-card relative z-10 w-full max-w-[22rem] sm:max-w-md bg-card rounded-2xl p-5 sm:p-6 shadow-card border border-border overflow-visible">
+      <div className="faq-card relative z-10 w-full max-w-[22rem] sm:max-w-md bg-card rounded-2xl p-6 sm:p-6 shadow-card border border-border overflow-visible">
         
         {/* Upper Content Area: Left CTA + Right 3D Character */}
         <div className="relative min-h-[10rem] sm:min-h-[12rem]">
           
           {/* Left: Text & CTA Button */}
-          <div className="relative z-10 max-w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2.5 sm:gap-3">
+          <div className="relative z-10 max-w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2 sm:gap-4">
             <div className="flex flex-col items-start gap-1.5 sm:gap-2">
               {/* Badge */}
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
@@ -75,7 +75,7 @@ export function FaqContactCard() {
             <button
               type="button"
               onClick={() => openLead({ description: "FAQ - Technical Consultation" })}
-              className="inline-flex mt-0.5 sm:mt-1 items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-elevated active:scale-95 transition-all duration-200 cursor-pointer group shrink-0"
+              className="inline-flex mt-0.5 sm:mt-1 items-center gap-1.5 px-4.5 py-1.5 sm:px-6 sm:py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-elevated active:scale-95 transition-all duration-200 cursor-pointer group shrink-0"
             >
               <span>Talk to our team</span>
               <AnimatedArrowRight size={13} className="ml-0.5 text-white" />
@@ -104,7 +104,7 @@ export function FaqContactCard() {
         </div>
 
         {/* Bottom: Stats Panel (Full-width rounded card with dividers) */}
-        <div className="relative z-20 mt-3 sm:mt-4 bg-muted/40 backdrop-blur-sm rounded-xl p-2.5 border border-border shadow-2xs grid grid-cols-3 divide-x divide-border text-center sm:text-left">
+        <div className="relative z-20 mt-4 sm:mt-4 bg-muted/40 backdrop-blur-sm rounded-xl p-2.5 border border-border shadow-2xs grid grid-cols-3 divide-x divide-border text-center sm:text-left">
           <div className="px-2">
             <div className="text-xs sm:text-sm font-extrabold text-primary">100%</div>
             <div className="text-[10px] sm:text-xs font-medium text-muted-foreground mt-0.5">

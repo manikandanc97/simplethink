@@ -85,13 +85,13 @@ export default function Loading() {
 
       {/* ── Live Diff Card ──────────────────────────────────────── */}
       <motion.div
-        className="relative z-10 w-64 rounded-xl border border-border/70 bg-card/90 backdrop-blur-md shadow-sm overflow-hidden flex flex-col mb-7"
+        className="relative z-10 w-64 rounded-xl border border-border/70 bg-card/90 backdrop-blur-md shadow-sm overflow-hidden flex flex-col mb-8"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Header */}
-        <div className="flex items-center gap-2 px-3 py-2 border-b border-border/50 bg-muted/20">
+        <div className="flex items-center gap-2 px-4 py-2 border-b border-border/50 bg-muted/20">
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-destructive/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
@@ -103,7 +103,7 @@ export default function Loading() {
         </div>
 
         {/* Body */}
-        <div className="relative h-20 w-full p-3 font-mono text-xs">
+        <div className="relative h-20 w-full p-4 font-mono text-xs">
           {DIFF_PAIRS.map((pair, i) => {
             const cycle = 3.2;
             const total = DIFF_PAIRS.length;

@@ -85,7 +85,7 @@ export function HowWeWork() {
             />
 
             {/* MAIN BENTO CARD (Left Narrative + Right 3D Visual Scene) */}
-            <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-card p-4 xs:p-5 sm:p-6 lg:p-7 relative overflow-hidden min-h-[400px] lg:h-auto lg:flex-1 lg:max-h-[500px] flex items-center">
+            <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/80 shadow-card p-4 xs:p-6 sm:p-6 lg:p-8 relative overflow-hidden min-h-[400px] lg:h-auto lg:flex-1 lg:max-h-[500px] flex items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentStep.id}
@@ -108,7 +108,7 @@ export function HowWeWork() {
             </div>
 
             {/* Bottom Trust & Scroll Navigation Affordance Bar */}
-            <div className="pt-3 border-t border-neutral-200/60 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center sm:text-left text-xs font-mono text-neutral-500">
+            <div className="pt-4 border-t border-neutral-200/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-xs font-mono text-neutral-500">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span className="text-xs sm:text-xs">Dedicated senior engineers · Direct communication · Production warranty.</span>

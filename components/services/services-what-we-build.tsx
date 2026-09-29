@@ -25,7 +25,7 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
       {/* ── Section Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
         <div className="flex flex-col items-start text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-3">
+          <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-4">
             <span className="w-2 h-2 rounded-full bg-primary inline-block" />
             <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
               {service.whatWeBuild.length} Capabilities
@@ -70,12 +70,12 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {service.whatWeBuild.map((item, idx) => (
             <div
               key={idx}
-              className="group p-5 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left"
+              className="group p-6 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left"
             >
               {/* Icon Container with soft pastel tint */}
               <div

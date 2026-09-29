@@ -81,11 +81,11 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
       {state.message && !state.ok && (
         <div
           role="alert"
-          className="p-3 text-xs sm:text-sm rounded-xl bg-destructive/10 text-destructive border border-destructive/20"
+          className="p-4 text-xs sm:text-sm rounded-xl bg-destructive/10 text-destructive border border-destructive/20"
         >
           <p className="font-semibold">{state.message}</p>
           {(SITE.email || SITE.whatsapp) && (
-            <div className="mt-2 flex gap-3 text-xs font-semibold">
+            <div className="mt-2 flex gap-4 text-xs font-semibold">
               {SITE.email && (
                 <a href={`mailto:${SITE.email}`} className="underline hover:opacity-80">
                   Email us ({SITE.email})
@@ -115,11 +115,11 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
             type="button"
             onClick={() => setIsDropdownOpen((prev) => !prev)}
             className={cn(
-              "w-full h-10 sm:h-10.5 px-3.5 py-2 rounded-xl bg-card border border-border text-xs sm:text-sm font-medium flex items-center justify-between transition-all duration-150 cursor-pointer shadow-2xs hover:border-primary/40 outline-none",
+              "w-full h-10 sm:h-10.5 px-4.5 py-2 rounded-xl bg-card border border-border text-xs sm:text-sm font-medium flex items-center justify-between transition-all duration-150 cursor-pointer shadow-2xs hover:border-primary/40 outline-none",
               isDropdownOpen && "border-primary ring-2 ring-primary/15"
             )}
           >
-            <div className="flex items-center gap-2.5 truncate">
+            <div className="flex items-center gap-2 truncate">
               <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
               <span className="text-foreground font-semibold truncate">
                 {selectedProjectType}
@@ -155,13 +155,13 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
                         setIsDropdownOpen(false);
                       }}
                       className={cn(
-                        "w-full text-left px-3.5 py-2.5 text-xs sm:text-sm font-medium flex items-center justify-between hover:bg-muted/60 transition-colors cursor-pointer",
+                        "w-full text-left px-4.5 py-2.5 text-xs sm:text-sm font-medium flex items-center justify-between hover:bg-muted/60 transition-colors cursor-pointer",
                         isSelected
                           ? "text-primary font-bold bg-primary/5"
                           : "text-foreground"
                       )}
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-2">
                         <span
                           className={cn(
                             "w-1.5 h-1.5 rounded-full transition-colors",
@@ -270,7 +270,7 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
         <FormMessage id="lead-description-error">{state.fieldErrors?.description?.[0]}</FormMessage>
       </FormField>
 
-      <div className="pt-2 flex flex-col gap-3">
+      <div className="pt-2 flex flex-col gap-4">
         <Button
           type="submit"
           disabled={isPending}
@@ -291,7 +291,7 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
       </div>
 
       {/* Enterprise Trust & Security Badges */}
-      <div className="pt-4 border-t border-border flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs text-muted-foreground font-mono">
+      <div className="pt-4 border-t border-border flex flex-wrap items-center justify-center gap-4 sm:gap-4 text-xs text-muted-foreground font-mono">
         <div className="flex items-center gap-1.5">
           <Lock size={13} className="text-emerald-600" />
           <span>256-Bit SSL Encrypted</span>
@@ -307,7 +307,7 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
 
       {/* Alternative direct contacts */}
       {(SITE.whatsapp || SITE.email) && (
-        <div className="pt-3 border-t border-border flex items-center justify-center gap-4 text-xs text-muted-foreground">
+        <div className="pt-4 border-t border-border flex items-center justify-center gap-4 text-xs text-muted-foreground">
           <span>Prefer direct messaging?</span>
           {SITE.whatsapp && (
             <a

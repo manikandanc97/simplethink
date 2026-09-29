@@ -57,15 +57,15 @@ export function ServicesHero() {
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-10 font-normal">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-12 font-normal">
             From websites and mobile products to AI-powered systems, we design
             and build the exact digital capabilities your business needs.
           </p>
 
           {/* 3 Core Value Props in a Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2.5 border-t border-[var(--surface-elevated)]/80 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-[var(--surface-elevated)]/80 w-full">
             {/* Value Prop 1 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100/80">
                 <Grid size={18} className="text-primary" />
               </div>
@@ -80,7 +80,7 @@ export function ServicesHero() {
             </div>
 
             {/* Value Prop 2 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-purple-50 flex items-center justify-center shrink-0 border border-purple-100/80">
                 <Zap size={18} className="text-[var(--chart-2)]" />
               </div>
@@ -95,7 +95,7 @@ export function ServicesHero() {
             </div>
 
             {/* Value Prop 3 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-pink-50 flex items-center justify-center shrink-0 border border-pink-100/80">
                 <TrendingUp size={18} className="text-[var(--primary)]" />
               </div>
@@ -128,7 +128,7 @@ export function ServicesHero() {
             <motion.div
               animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
+              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-gradient-to-tr from-[var(--chart-1)] to-[var(--chart-1)] flex items-center justify-center text-white shadow-xs shrink-0">
                 <Code2 size={13} />
@@ -170,7 +170,7 @@ export function ServicesHero() {
             <motion.div
               animate={{ y: [0, 5, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              className="absolute top-3 sm:top-4 right-2 sm:right-4 z-20 flex items-center gap-2 sm:gap-2.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 shadow-elevated"
+              className="absolute top-3 sm:top-4 right-2 sm:right-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-white/90 shadow-elevated"
             >
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-tr from-[var(--primary)] to-[var(--primary)] flex items-center justify-center text-white shadow-xs shrink-0">
                 <Sparkles size={15} className="text-white" />
@@ -189,7 +189,7 @@ export function ServicesHero() {
             <motion.div
               animate={{ y: [0, 5, 0], x: [0, -2, 0] }}
               transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-              className="absolute top-28 sm:top-32 -left-2 sm:-left-3 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--accent-soft)] shadow-violet"
+              className="absolute top-28 sm:top-32 -left-2 sm:-left-3 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--accent-soft)] shadow-violet"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-purple-50 text-[var(--chart-2)] flex items-center justify-center border border-purple-100 shrink-0">
                 <Layers size={14} />
@@ -220,7 +220,7 @@ export function ServicesHero() {
             <motion.div
               animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
               transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute top-28 sm:top-32 -right-2 sm:-right-2 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--accent-soft)] shadow-violet"
+              className="absolute top-28 sm:top-32 -right-2 sm:-right-2 z-20 flex items-center gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--accent-soft)] shadow-violet"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-indigo-50 text-[var(--chart-2)] flex items-center justify-center border border-indigo-100 shrink-0">
                 <Smartphone size={14} />
@@ -248,7 +248,7 @@ export function ServicesHero() {
             <motion.div
               animate={{ y: [0, 5, 0], rotate: [0, 1.2, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-              className="absolute top-44 sm:top-48 -right-2 sm:right-0 z-20 flex items-center gap-2 sm:gap-2.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
+              className="absolute top-44 sm:top-48 -right-2 sm:right-0 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/95 backdrop-blur-md border border-[var(--surface-elevated)] shadow-card"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-100 shrink-0">
                 <LineChart size={14} />

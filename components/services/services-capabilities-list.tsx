@@ -21,7 +21,7 @@ export function ServicesCapabilitiesList({
   onResetFilters,
 }: ServicesCapabilitiesListProps) {
   return (
-    <div className="lg:col-span-5 flex flex-col gap-3.5">
+    <div className="lg:col-span-5 flex flex-col gap-4.5">
       <div className="flex items-center justify-between mb-1">
         <div>
           <h2 className="text-xl font-black text-foreground tracking-tight">
@@ -43,13 +43,13 @@ export function ServicesCapabilitiesList({
       </div>
 
       {services.length === 0 ? (
-        <div className="text-center py-14 px-4 bg-[var(--background)] rounded-2xl border border-dashed border-[var(--surface-elevated)]">
+        <div className="text-center py-16 px-4 bg-[var(--background)] rounded-2xl border border-dashed border-[var(--surface-elevated)]">
           <p className="text-sm text-muted-foreground font-medium">
             No capabilities match your search.
           </p>
           <button
             onClick={onResetFilters}
-            className="mt-3 text-xs font-bold text-primary hover:underline cursor-pointer"
+            className="mt-4 text-xs font-bold text-primary hover:underline cursor-pointer"
           >
             Reset Filters
           </button>
@@ -74,7 +74,7 @@ export function ServicesCapabilitiesList({
               }}
               whileHover={{ x: 3 }}
               className={cn(
-                "group relative p-4 sm:p-5 rounded-2xl border text-left cursor-pointer transition-all duration-200 flex flex-col overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]",
+                "group relative p-4 sm:p-6 rounded-2xl border text-left cursor-pointer transition-all duration-200 flex flex-col overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]",
                 isSelected
                   ? "bg-white border-primary shadow-elevated ring-1 ring-[var(--primary)]/30"
                   : "bg-white/70 border-[var(--surface-elevated)] hover:border-[var(--primary)]/50 hover:bg-white hover:shadow-xs"
@@ -90,8 +90,8 @@ export function ServicesCapabilitiesList({
                 )}
               />
 
-              <div className="flex items-start justify-between gap-3.5">
-                <div className="flex items-start gap-3.5 flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-4.5">
+                <div className="flex items-start gap-4.5 flex-1 min-w-0">
                   {/* Module Icon */}
                   <div
                     className={cn(
@@ -150,9 +150,9 @@ export function ServicesCapabilitiesList({
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-4 mt-3.5 border-t border-[var(--background)]">
+                    <div className="pt-4 mt-4.5 border-t border-[var(--background)]">
                       {/* Pillars */}
-                      <div className="flex flex-wrap gap-1.5 mb-3">
+                      <div className="flex flex-wrap gap-1.5 mb-4">
                         {service.pillars.map((pillar) => (
                           <span
                             key={pillar}

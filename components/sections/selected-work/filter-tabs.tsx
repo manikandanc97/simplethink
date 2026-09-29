@@ -32,7 +32,7 @@ export function FilterTabsList({
             key={tab}
             onClick={() => onSelectFilter(tab)}
             className={cn(
-              "relative px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors duration-300 cursor-pointer outline-none select-none",
+              "relative px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2 whitespace-nowrap transition-colors duration-300 cursor-pointer outline-none select-none",
               isActiveTab ? "text-white" : "text-slate-600 hover:text-primary"
             )}
           >

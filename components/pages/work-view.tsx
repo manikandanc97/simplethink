@@ -90,7 +90,7 @@ function WorkViewContent() {
       {/* ── Main Structured Showcase Area ── */}
       <Container
         id="work-projects-container"
-        className="relative z-20 pb-16 md:pb-20 lg:pb-24 flex flex-col gap-14 sm:gap-18"
+        className="relative z-20 pb-16 md:pb-20 lg:pb-24 flex flex-col gap-16 sm:gap-18"
       >
         {/* ── 2. Showcase Controls and Split View (Clean transparent layout without white box or inner side padding) ── */}
         <div className="w-full">
@@ -106,9 +106,9 @@ function WorkViewContent() {
           />
 
           {/* Split Pane: Left Project List & Right Interactive Canvas */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-9 items-start pt-6 sm:pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start pt-6 sm:pt-8">
             {/* ── LEFT COLUMN: Project Selector List ── */}
-            <div className="lg:col-span-5 flex flex-col gap-3">
+            <div className="lg:col-span-5 flex flex-col gap-4">
               {filteredProjects.length === 0 ? (
                 <div className="text-center py-16 px-4 bg-[var(--background)] rounded-2xl border border-dashed border-[var(--surface-elevated)]">
                   <p className="text-sm text-muted-foreground font-medium">
@@ -119,7 +119,7 @@ function WorkViewContent() {
                       setActiveFilter("all");
                       setSearchQuery("");
                     }}
-                    className="mt-3 text-xs font-bold text-primary hover:underline cursor-pointer"
+                    className="mt-4 text-xs font-bold text-primary hover:underline cursor-pointer"
                   >
                     Reset Filters
                   </button>

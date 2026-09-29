@@ -71,7 +71,7 @@ export function MobileBottomNav() {
       >
         {/* Background container with cutout mask */}
         <div
-          className="relative w-full h-full rounded-full bg-card/95 backdrop-blur-2xl border border-border/60 pointer-events-auto flex items-center justify-between px-3"
+          className="relative w-full h-full rounded-full bg-card/95 backdrop-blur-2xl border border-border/60 pointer-events-auto flex items-center justify-between px-4"
           style={{
             WebkitMaskImage: "radial-gradient(circle at 50% 9px, transparent 27px, black 28px)",
             maskImage: "radial-gradient(circle at 50% 9px, transparent 27px, black 28px)",

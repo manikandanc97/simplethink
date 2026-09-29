@@ -24,12 +24,12 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
   }, [project.id, isWebsite]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-black/85 backdrop-blur-md p-2 sm:p-5 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex flex-col bg-black/85 backdrop-blur-md p-2 sm:p-6 animate-in fade-in duration-200">
       <div className="flex-1 w-full bg-[var(--foreground)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-white/10">
         {/* Fullscreen Header */}
-        <div className="h-12 bg-[var(--foreground)] border-b border-white/10 px-4 sm:px-6 flex items-center justify-between gap-3">
+        <div className="h-12 bg-[var(--foreground)] border-b border-white/10 px-4 sm:px-6 flex items-center justify-between gap-4">
           {/* Traffic Dots + Project Info */}
-          <div className="flex items-center gap-2.5 min-w-0">
+          <div className="flex items-center gap-2 min-w-0">
             <div className="flex items-center gap-1.5 shrink-0">
               <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
@@ -50,7 +50,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                 type="button"
                 onClick={() => setModalMode("live")}
                 className={cn(
-                  "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
+                  "px-4 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "live"
                     ? "bg-white text-emerald-800 shadow-sm"
                     : "text-[var(--muted-foreground)] hover:text-white"
@@ -63,7 +63,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                 type="button"
                 onClick={() => setModalMode("screenshot")}
                 className={cn(
-                  "px-3 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
+                  "px-4 py-1 rounded-full transition-all cursor-pointer flex items-center gap-1.5",
                   modalMode === "screenshot"
                     ? "bg-white text-primary shadow-sm"
                     : "text-[var(--muted-foreground)] hover:text-white"
@@ -82,7 +82,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors"
                 title="Open in new window"
               >
                 <span className="hidden xs:inline">Open New Tab</span>

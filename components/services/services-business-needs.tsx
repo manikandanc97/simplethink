@@ -48,16 +48,16 @@ export function ServicesBusinessNeeds({ onSelectServiceTab }: ServicesBusinessNe
       </div>
 
       {/* ── 5 Cards in a Responsive Grid ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4.5 sm:gap-4">
         {BUILT_BUSINESS_NEEDS.map((item, idx) => (
           <button
             key={item.id}
             type="button"
             onClick={() => handleSelect(item.targetTab)}
-            className="group p-4 sm:p-5 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left cursor-pointer"
+            className="group p-4 sm:p-6 rounded-2xl bg-white border border-[var(--surface-elevated)] hover:border-[var(--primary)]/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col items-start text-left cursor-pointer"
           >
             {/* Top Icon */}
-            <div className="w-10 h-10 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center mb-3.5 group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center justify-center mb-4.5 group-hover:scale-110 transition-transform">
               {idx === 0 && <Rocket size={18} className="text-[var(--primary)]" />}
               {idx === 1 && <Sliders size={18} className="text-[var(--chart-1)]" />}
               {idx === 2 && <ShoppingCart size={18} className="text-[var(--chart-4)]" />}
@@ -71,7 +71,7 @@ export function ServicesBusinessNeeds({ onSelectServiceTab }: ServicesBusinessNe
             </h4>
 
             {/* Subtitle / Need */}
-            <p className="text-xs sm:text-xs text-muted-foreground mt-1 mb-3.5 leading-tight font-medium">
+            <p className="text-xs sm:text-xs text-muted-foreground mt-1 mb-4.5 leading-tight font-medium">
               {item.subtitle}
             </p>
 

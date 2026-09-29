@@ -24,14 +24,14 @@ export function SelectedWorkProjectItem({
     <div
       onClick={onSelect}
       className={cn(
-        "sw-project-item group p-3 sm:p-3.5 rounded-2xl flex flex-col gap-3 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
+        "sw-project-item group p-4 sm:p-4.5 rounded-2xl flex flex-col gap-4 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
         isActive
           ? "bg-card border-primary/20 shadow-elevated ring-1 ring-primary/20 translate-x-0 lg:translate-x-3 z-10"
           : "bg-transparent border-transparent hover:bg-card/40 hover:border-border hover:translate-x-0 lg:hover:translate-x-1"
       )}
     >
       {/* Top Row: Number, Logo, Details, Chevron */}
-      <div className="flex items-center gap-3 sm:gap-4 w-full">
+      <div className="flex items-center gap-4 sm:gap-4 w-full">
         {/* Project Number */}
         <span 
           className={cn(

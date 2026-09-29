@@ -83,7 +83,7 @@ export function TechStack() {
                     : filtered.length === 6
                     ? "lg:grid-cols-6"
                     : "lg:grid-cols-6"
-                } gap-3.5 sm:gap-4`}
+                } gap-4.5 sm:gap-4`}
               >
                 {filtered.map((tech, i) => (
                   <TechCard key={tech.slug} tech={tech} index={i} />
@@ -98,7 +98,7 @@ export function TechStack() {
 
         {/* ── Bottom Divider & Editorial Note ─────────────────────────────────── */}
         <div
-          className="ts-footer flex items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto w-full px-2"
+          className="ts-footer flex items-center justify-center gap-4 sm:gap-4 max-w-4xl mx-auto w-full px-2"
         >
           <div className="hidden sm:block h-px bg-slate-200/80 dark:bg-border/60 flex-1" />
           <p className="text-xs sm:text-xs font-mono uppercase tracking-widest text-slate-400 dark:text-muted-foreground/60 text-center leading-relaxed">

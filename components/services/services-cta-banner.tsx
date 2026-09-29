@@ -29,10 +29,10 @@ export function ServicesCtaBanner() {
           </div>
 
           <div className="flex flex-col items-start pt-1 sm:pt-2">
-            <span className="text-xs sm:text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)] font-satoshi mb-2 sm:mb-3 block">
+            <span className="text-xs sm:text-xs font-bold uppercase tracking-[0.25em] text-[var(--primary)] font-satoshi mb-2 sm:mb-4 block">
               Ready to build?
             </span>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-satoshi leading-tight mb-3 sm:mb-4">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight font-satoshi leading-tight mb-4 sm:mb-4">
               Know what you need? <br className="hidden lg:block"/> Let&apos;s scope it properly.
             </h3>
             <p className="text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed font-normal max-w-lg">
@@ -43,7 +43,7 @@ export function ServicesCtaBanner() {
         </div>
 
         {/* ── Right Side: Dual Action Buttons ── */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 relative z-10 shrink-0 w-full xl:w-auto mt-4 xl:mt-0">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 relative z-10 shrink-0 w-full xl:w-auto mt-4 xl:mt-0">
           <button
             type="button"
             onClick={() =>
@@ -66,7 +66,7 @@ export function ServicesCtaBanner() {
                 description: "Tell us what you need custom request.",
               })
             }
-            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-7 py-4 sm:py-4.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md text-sm sm:text-base font-medium hover:-translate-y-1 transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 sm:py-4.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md text-sm sm:text-base font-medium hover:-translate-y-1 transition-all cursor-pointer"
           >
             <span>Tell us what you need</span>
           </button>

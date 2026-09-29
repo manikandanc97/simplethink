@@ -12,9 +12,9 @@ interface WorkProjectDetailsProps {
 
 export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsProps) {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-6">
       {/* ── Stats Bar (4 Metric Cards in a Row) ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
         {enhancement.metrics.map((m, idx) => {
           let IconComponent = BarChart3;
           if (m.iconType === "users") IconComponent = Users;
@@ -24,7 +24,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
           return (
             <div
               key={idx}
-              className="p-3 sm:p-3.5 rounded-2xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center gap-2.5"
+              className="p-4 sm:p-4.5 rounded-2xl bg-[var(--background)] border border-[var(--surface-elevated)] flex items-center gap-2"
             >
               <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[var(--primary)]/15 to-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] shrink-0">
                 <IconComponent size={16} />
@@ -61,7 +61,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
           {enhancement.techStack.map((tech) => (
             <div
               key={tech.name}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-medium text-[var(--foreground)] shadow-sm hover:border-[var(--primary)]/30 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-medium text-[var(--foreground)] shadow-sm hover:border-[var(--primary)]/30 transition-colors"
             >
               <tech.icon className="w-3.5 h-3.5" />
               <span>{tech.name}</span>
@@ -77,7 +77,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-[var(--primary)]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-[var(--primary)]/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Visit Live Website</span>
             <AnimatedArrowRight size={15} />
@@ -87,7 +87,7 @@ export function WorkProjectDetails({ project, enhancement }: WorkProjectDetailsP
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--chart-2)] hover:bg-[var(--chart-2)] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[var(--chart-2)] hover:bg-[var(--chart-2)] text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-900/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <span>Launch Web App Portal</span>
             <AnimatedArrowRight size={15} />

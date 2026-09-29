@@ -19,7 +19,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
       </div>
 
       {/* 4 Cards */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         {PROCESS_STEPS.map((step, idx) => {
           const StepIcon = step.icon;
           return (
@@ -28,7 +28,7 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
               initial={{ opacity: 0, x: -16 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.15 + idx * 0.08 }}
-              className={`relative rounded-[22px] p-2.5 sm:p-3 pr-4 flex items-center gap-3 bg-white border transition-all duration-300 ${
+              className={`relative rounded-[22px] p-2.5 sm:p-4 pr-4 flex items-center gap-4 bg-white border transition-all duration-300 ${
                 step.active
                   ? "border-rose-100/80 shadow-elevated"
                   : "border-neutral-100/80 shadow-card hover:shadow-md"

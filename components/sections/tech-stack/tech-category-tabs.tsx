@@ -20,7 +20,7 @@ export function TechCategoryTabs({
   return (
     <div className="relative">
       {/* Playful Handwritten Annotation: "Tools we love" + Curved Arrow pointing right to the tab */}
-      <div className="absolute -top-12 sm:-top-16 left-1 sm:left-4 md:left-8 lg:left-14 z-20 pointer-events-none select-none flex items-end gap-2 sm:gap-3 scale-90 sm:scale-100 origin-bottom-left">
+      <div className="absolute -top-12 sm:-top-16 left-1 sm:left-4 md:left-8 lg:left-14 z-20 pointer-events-none select-none flex items-end gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom-left">
         <span
           className="font-handwriting text-base sm:text-xl font-bold text-slate-800 dark:text-slate-200 -rotate-10 leading-tight tracking-wide"
           style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
@@ -50,7 +50,7 @@ export function TechCategoryTabs({
 
       {/* Tabs Bar */}
       <div
-        className="ts-tabs grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 w-full max-w-lg sm:max-w-none mx-auto"
+        className="ts-tabs grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2 w-full max-w-lg sm:max-w-none mx-auto"
         role="tablist"
         aria-label="Technology categories"
       >
@@ -66,7 +66,7 @@ export function TechCategoryTabs({
               aria-selected={isActive}
               onClick={() => onSelectCategory(cat)}
               id={`tech-tab-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-              className={`relative px-2.5 xs:px-3 sm:px-4.5 py-2 rounded-full text-xs xs:text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2.5 w-full sm:w-auto ${
+              className={`relative px-2.5 xs:px-4 sm:px-4.5 py-2 rounded-full text-xs xs:text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/50 flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 w-full sm:w-auto ${
                 isActive
                   ? "text-white shadow-lg shadow-[var(--primary-hover)]/25"
                   : "border border-slate-200/80 dark:border-border/70 text-slate-600 dark:text-muted-foreground bg-white dark:bg-card/80 hover:text-slate-900 dark:hover:text-foreground hover:border-slate-300 dark:hover:border-border"

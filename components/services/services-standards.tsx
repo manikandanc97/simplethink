@@ -4,8 +4,8 @@ import { ENGINEERING_STANDARDS } from "@/lib/data/services-faq";
 
 export function ServicesStandards() {
   return (
-    <div className="mt-14 pt-10 border-t border-[var(--surface-elevated)]">
-      <div className="text-center max-w-2xl mx-auto mb-10">
+    <div className="mt-16 pt-12 border-t border-[var(--surface-elevated)]">
+      <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="text-xs font-mono font-bold tracking-widest text-primary uppercase block mb-1.5">
           Technical Rigor
         </span>
@@ -23,9 +23,9 @@ export function ServicesStandards() {
           return (
             <div
               key={index}
-              className="p-5 rounded-2xl border border-[var(--surface-elevated)] bg-white/70 hover:bg-white hover:shadow-xs transition-all"
+              className="p-6 rounded-2xl border border-[var(--surface-elevated)] bg-white/70 hover:bg-white hover:shadow-xs transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-[var(--background)] text-primary flex items-center justify-center mb-3">
+              <div className="w-10 h-10 rounded-xl bg-[var(--background)] text-primary flex items-center justify-center mb-4">
                 <Icon size={20} />
               </div>
               <h4 className="text-sm font-bold text-foreground mb-1">

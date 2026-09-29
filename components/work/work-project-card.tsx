@@ -15,7 +15,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
     <button
       onClick={onClick}
       className={cn(
-        "group w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center gap-3.5 sm:gap-4 border cursor-pointer",
+        "group w-full text-left p-4.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center gap-4.5 sm:gap-4 border cursor-pointer",
         isActive
           ? "bg-white border-primary shadow-elevated ring-1 ring-[var(--primary)]/20"
           : "bg-transparent border-[var(--surface-elevated)] hover:bg-white/60 hover:border-primary/30 hover:shadow-2xs"

@@ -117,7 +117,7 @@ export function CommandPalette({ onStartProject }: CommandPaletteProps) {
             aria-controls={listboxId}
             aria-activedescendant={activeDescendantId}
             placeholder="Type a command or search..."
-            className="flex h-12 w-full border-0 bg-transparent py-3 text-sm outline-none focus-visible:ring-0 shadow-none focus-visible:border-0"
+            className="flex h-12 w-full border-0 bg-transparent py-4 text-sm outline-none focus-visible:ring-0 shadow-none focus-visible:border-0"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -146,7 +146,7 @@ export function CommandPalette({ onStartProject }: CommandPaletteProps) {
                   onMouseEnter={() => setSelectedIndex(index)}
                   onClick={() => executeCommand(cmd)}
                   className={cn(
-                    "group flex items-center px-4 py-2 text-sm rounded-sm transition-colors text-left w-full cursor-pointer select-none gap-2.5",
+                    "group flex items-center px-4 py-2 text-sm rounded-sm transition-colors text-left w-full cursor-pointer select-none gap-2",
                     isSelected ? "bg-muted text-foreground font-medium" : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                   )}
                 >

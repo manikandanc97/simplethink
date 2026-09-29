@@ -58,7 +58,7 @@ export function PageBannerFloatingTech({ techStack }: PageBannerFloatingTechProp
             title={meta.label}
             className={cn(
               "pointer-events-auto absolute z-10 flex items-center justify-center",
-              "w-11 h-11 sm:w-13 sm:h-13 p-2.5 sm:p-3",
+              "w-11 h-11 sm:w-13 sm:h-13 p-2.5 sm:p-4",
               "rounded-2xl",
               "bg-white/90 backdrop-blur-sm",
               "border border-white/60 shadow-md",

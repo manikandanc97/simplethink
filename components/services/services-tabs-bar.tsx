@@ -70,11 +70,11 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
   return (
     <div
       id="services-tabs-container"
-      className="w-full relative z-20 mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[var(--surface-elevated)]"
+      className="w-full relative z-20 mb-8 sm:mb-12 pb-6 sm:pb-6 border-b border-[var(--surface-elevated)]"
     >
       <div
         ref={containerRef}
-        className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto no-scrollbar scroll-smooth w-full cursor-grab py-1 px-0.5 select-none"
+        className="flex items-center gap-2 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth w-full cursor-grab py-1 px-0.5 select-none"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
@@ -95,7 +95,7 @@ export function ServicesTabsBar({ activeId, onSelect }: ServicesTabsBarProps) {
                 onSelect(service.id);
               }}
               className={cn(
-                "group relative flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap",
+                "group relative flex items-center gap-2 px-4.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0 whitespace-nowrap",
                 isActive
                   ? "bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] text-white shadow-elevated scale-[1.02]"
                   : "bg-white/90 hover:bg-white text-[var(--muted-foreground)] border border-[var(--surface-elevated)] hover:border-primary/30 shadow-2xs"

@@ -63,7 +63,7 @@ export function AboutView() {
             <div className="lg:col-span-7 flex flex-col gap-4 text-left">
               {/* Pillar 1: Hero Card */}
               <Card variant="default" padding="default" className="relative overflow-hidden">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-4 mb-4">
                   <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shrink-0">
                     <Zap size={18} />
                   </div>

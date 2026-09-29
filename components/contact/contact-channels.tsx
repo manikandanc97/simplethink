@@ -36,7 +36,7 @@ export function ContactChannels() {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="gap-3">
+      <CardContent className="gap-4">
         {SITE.email && (
           <div className="flex items-center justify-between p-4 rounded-xl border border-border bg-muted/30 hover:bg-card hover:border-primary/40 transition-all duration-200 group shadow-2xs">
             <a
@@ -102,12 +102,12 @@ export function ContactChannels() {
         )}
       </CardContent>
 
-      <CardFooter className="flex-col items-start gap-2.5 text-xs text-muted-foreground pt-5">
-        <div className="flex items-center gap-2.5 font-mono">
+      <CardFooter className="flex-col items-start gap-2 text-xs text-muted-foreground pt-6">
+        <div className="flex items-center gap-2 font-mono">
           <Clock size={14} className="text-primary shrink-0" />
           <span>Guaranteed response within 24 hours (Mon - Sat)</span>
         </div>
-        <div className="flex items-center gap-2.5 font-mono">
+        <div className="flex items-center gap-2 font-mono">
           <Globe size={14} className="text-primary/80 shrink-0" />
           <span>Global Delivery &bull; Overlapping US, EU & Asia Timezones</span>
         </div>

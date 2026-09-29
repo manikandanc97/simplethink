@@ -43,7 +43,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               className="w-full"
             >
               {/* Kicker with Number & Category */}
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="text-primary font-black text-base sm:text-lg tracking-tight font-satoshi">
                   {service.number}
                 </span>
@@ -54,7 +54,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               </div>
 
               {/* Dynamic Headline */}
-              <h2 className="text-3xl sm:text-4xl lg:text-4xl sm:text-5xl font-black text-foreground tracking-tight leading-[1.12] font-satoshi mb-4 sm:mb-5">
+              <h2 className="text-3xl sm:text-4xl lg:text-4xl sm:text-5xl font-black text-foreground tracking-tight leading-[1.12] font-satoshi mb-4 sm:mb-6">
                 {service.headline.normal}
                 <span className="text-primary">
                   {service.headline.highlight}
@@ -67,7 +67,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               </p>
 
               {/* Dual Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-4 mb-8 sm:mb-12">
                 <button
                   type="button"
                   onClick={() =>
@@ -76,7 +76,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                       description: `Interested in ${service.name} services.`,
                     })
                   }
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-elevated hover:shadow-elevated hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
                 >
                   <span>Start a project</span>
                   <AnimatedArrowRight size={14} className="text-white" />
@@ -84,14 +84,14 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
 
                 <Link
                   href={service.relatedWorkUrl}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-[var(--background)] text-foreground border border-[var(--border)] shadow-xs hover:border-[var(--border)] text-sm font-bold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-[var(--background)] text-foreground border border-[var(--border)] shadow-xs hover:border-[var(--border)] text-sm font-bold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
                 >
                   <span>View related work</span>
                 </Link>
               </div>
 
               {/* 3 Large Key Metrics */}
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-[var(--surface-elevated)]">
+              <div className="grid grid-cols-3 gap-4 sm:gap-4 pt-6 border-t border-[var(--surface-elevated)]">
                 {service.stats.map((st, i) => (
                   <div key={i} className="flex flex-col">
                     <span className="text-xl sm:text-2xl lg:text-3xl font-black text-foreground tracking-tight font-satoshi">
@@ -119,11 +119,11 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: -10 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative w-full rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-[var(--surface-elevated)] shadow-elevated overflow-hidden p-3.5 sm:p-5 text-left"
+              className="relative w-full rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-[var(--surface-elevated)] shadow-elevated overflow-hidden p-4.5 sm:p-6 text-left"
             >
               {/* Window Header */}
-              <div className="flex items-center justify-between pb-3.5 sm:pb-4 border-b border-[var(--surface-elevated)]">
-                <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center justify-between pb-4.5 sm:pb-4 border-b border-[var(--surface-elevated)]">
+                <div className="flex items-center gap-2 sm:gap-4">
                   {/* Brand Tag */}
                   <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary text-white">
                     <Sparkles size={11} className="text-pink-200" />
@@ -137,7 +137,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                 </div>
 
                 {/* Right controls: Search bar & User Avatar */}
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-2 sm:gap-4">
                   <div className="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-[var(--muted-foreground)] text-xs">
                     <Search size={12} />
                     <span className="text-xs">Search...</span>
@@ -157,7 +157,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
               </div>
 
               {/* Window Body: Mini Sidebar + Main Content */}
-              <div className="grid grid-cols-12 gap-3 sm:gap-4 pt-3.5 sm:pt-4">
+              <div className="grid grid-cols-12 gap-4 sm:gap-4 pt-4.5 sm:pt-4">
                 {/* Mini Sidebar */}
                 <div className="col-span-3 sm:col-span-3 border-r border-[var(--surface-elevated)] pr-2 sm:pr-3 flex flex-col gap-1">
                   {[
@@ -187,7 +187,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                 </div>
 
                 {/* Right Content Area */}
-                <div className="col-span-9 sm:col-span-9 flex flex-col gap-3 sm:gap-4 pl-1 sm:pl-2">
+                <div className="col-span-9 sm:col-span-9 flex flex-col gap-4 sm:gap-4 pl-1 sm:pl-2">
                   {/* Greeting */}
                   <div>
                     <h3 className="text-xs sm:text-sm font-extrabold text-foreground tracking-tight">
@@ -199,7 +199,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                   </div>
 
                   {/* 3 KPI Cards */}
-                  <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-4">
                     <div className="p-2 sm:p-2.5 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col">
                       <span className="text-[9px] sm:text-xs font-semibold text-muted-foreground">
                         Total Projects
@@ -244,9 +244,9 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                   </div>
 
                   {/* Chart + Recent Activity */}
-                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 sm:gap-3 items-stretch">
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-stretch">
                     {/* Project Overview Chart */}
-                    <div className="sm:col-span-7 p-2.5 sm:p-3 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
+                    <div className="sm:col-span-7 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-xs sm:text-xs font-bold text-foreground">
                           Project Overview
@@ -303,7 +303,7 @@ export function ServicesActiveShowcase({ service }: ServicesActiveShowcaseProps)
                     </div>
 
                     {/* Recent Activity List */}
-                    <div className="sm:col-span-5 p-2.5 sm:p-3 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
+                    <div className="sm:col-span-5 p-2.5 sm:p-4 rounded-xl bg-[var(--background)] border border-[var(--surface-elevated)] flex flex-col justify-between">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs sm:text-xs font-bold text-foreground">
                           Recent Activity

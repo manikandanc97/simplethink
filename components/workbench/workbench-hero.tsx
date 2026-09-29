@@ -54,7 +54,7 @@ export function WorkbenchHero() {
               <div className="overflow-hidden pb-1 -mb-1">
                 <span className="block hero-line-1 will-change-transform">{HERO_CONTENT.headlineLine1}</span>
               </div>
-              <div className="overflow-hidden pb-3 -mb-3">
+              <div className="overflow-hidden pb-4 -mb-4">
                 <span className="block relative inline-block hero-line-2 will-change-transform">
                   {HERO_CONTENT.headlineLine2Prefix}
                   <span className="relative inline-block brand-gradient-text">
@@ -100,16 +100,16 @@ export function WorkbenchHero() {
             </p>
             </div>
 
-            <div className="flex flex-col gap-8 sm:gap-14 w-full">
+            <div className="flex flex-col gap-8 sm:gap-16 w-full">
             {/* CTA Buttons */}
             <div
-              className="hero-cta flex flex-row items-center gap-3 sm:gap-6 w-full sm:w-auto font-satoshi"
+              className="hero-cta flex flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto font-satoshi"
             >
               <Button
                 id="hero-start-project"
                 onClick={() => openLead({ source: "cta" })}
                 size="lg"
-                className="group rounded-full shadow-elevated h-12 sm:h-12 w-auto justify-center px-5 sm:px-8"
+                className="group rounded-full shadow-elevated h-12 sm:h-12 w-auto justify-center px-6 sm:px-8"
               >
                 <span className="text-sm sm:text-base whitespace-nowrap">Start a project</span>
                 <AnimatedArrowRight size={16} className="text-white ml-1 shrink-0" />
@@ -117,7 +117,7 @@ export function WorkbenchHero() {
               
               <button
                 type="button"
-                className="group flex items-center justify-start gap-2.5 sm:gap-3.5 hover:opacity-85 transition-opacity py-1 w-auto"
+                className="group flex items-center justify-start gap-2 sm:gap-4.5 hover:opacity-85 transition-opacity py-1 w-auto"
               >
                 <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-foreground group-hover:scale-105 transition-transform pl-0.5 shrink-0">
                   <AnimatedIcon icon={PlayIcon} size={13} className="fill-current" />

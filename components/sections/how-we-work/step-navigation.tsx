@@ -21,7 +21,7 @@ export function StepNavigation({
   return (
     <div
       ref={navContainerRef}
-      className="relative flex items-center justify-start md:justify-center gap-2 sm:gap-3 md:gap-3.5 overflow-x-auto py-1 sm:py-1.5 w-full scrollbar-none [mask-image:linear-gradient(to_right,black_85%,transparent_100%)] lg:[mask-image:none] pr-12 lg:pr-0"
+      className="relative flex items-center justify-start md:justify-center gap-2 sm:gap-4 md:gap-4.5 overflow-x-auto py-1 sm:py-1.5 w-full scrollbar-none [mask-image:linear-gradient(to_right,black_85%,transparent_100%)] lg:[mask-image:none] pr-12 lg:pr-0"
     >
       {STEPS.map((step, index) => {
         const isActive = activeStepIndex === index;
@@ -29,19 +29,19 @@ export function StepNavigation({
         const StepIcon = step.icon;
 
         return (
-          <div key={step.id} className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div key={step.id} className="flex items-center gap-2 sm:gap-4 shrink-0">
             {/* Step Button Card */}
             <button
               type="button"
               data-step={index}
               onClick={() => onSelectStep(index)}
               className={cn(
-                "relative group flex items-center gap-2.5 sm:gap-3 transition-all duration-300 cursor-pointer text-left rounded-2xl select-none overflow-hidden",
+                "relative group flex items-center gap-2 sm:gap-4 transition-all duration-300 cursor-pointer text-left rounded-2xl select-none overflow-hidden",
                 isActive
-                  ? "bg-white px-3.5 sm:px-4 py-2 sm:py-2.5 shadow-lg shadow-pink-500/10 border border-pink-200/90 ring-1 ring-pink-100"
+                  ? "bg-white px-4.5 sm:px-4 py-2 sm:py-2.5 shadow-lg shadow-pink-500/10 border border-pink-200/90 ring-1 ring-pink-100"
                   : isCompleted
-                  ? "px-3 py-2 bg-white/60 hover:bg-white rounded-2xl border border-neutral-200/70"
-                  : "px-3 py-2 hover:bg-white/80 rounded-2xl border border-transparent hover:border-neutral-200/80"
+                  ? "px-4 py-2 bg-white/60 hover:bg-white rounded-2xl border border-neutral-200/70"
+                  : "px-4 py-2 hover:bg-white/80 rounded-2xl border border-transparent hover:border-neutral-200/80"
               )}
             >
               {/* Step Number Circle */}

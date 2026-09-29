@@ -27,7 +27,7 @@ export function ServicesFilterBar({
           type="button"
           onClick={() => onSelectCategory("all")}
           className={cn(
-            "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
+            "px-4.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
             activeCategory === "all"
               ? "bg-primary text-white shadow-sm"
               : "bg-[var(--background)] text-muted-foreground hover:bg-[var(--background)] border border-[var(--surface-elevated)]"
@@ -41,7 +41,7 @@ export function ServicesFilterBar({
             type="button"
             onClick={() => onSelectCategory(cat)}
             className={cn(
-              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
+              "px-4.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer",
               activeCategory === cat
                 ? "bg-primary text-white shadow-sm"
                 : "bg-[var(--background)] text-muted-foreground hover:bg-[var(--background)] border border-[var(--surface-elevated)]"
@@ -53,7 +53,7 @@ export function ServicesFilterBar({
       </div>
 
       {/* Search Input & Selected Count */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <div className="relative flex-1 md:w-56">
           <Search
             size={15}
@@ -69,7 +69,7 @@ export function ServicesFilterBar({
         </div>
 
         {selectedCount > 0 && (
-          <span className="hidden sm:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-mono font-bold text-primary">
+          <span className="hidden sm:inline-flex items-center gap-1 px-4 py-1 rounded-full bg-[var(--background)] border border-[var(--surface-elevated)] text-xs font-mono font-bold text-primary">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
             {selectedCount} active
           </span>

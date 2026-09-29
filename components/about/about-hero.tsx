@@ -28,7 +28,7 @@ export function AboutHero() {
         {/* ── Left Column: Headline, Description & 3 Value Props ── */}
         <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 mb-3 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
+          <nav className="flex items-center gap-2 mb-4 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
             <a href="/" className="hover:text-foreground transition-colors">
               Home
             </a>
@@ -43,16 +43,16 @@ export function AboutHero() {
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-10 font-normal">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed mb-8 sm:mb-12 font-normal">
             We are a dedicated software studio built on the conviction that
             digital products should be clear, lightning-fast, and engineered to
             solve real business challenges without bureaucratic overhead.
           </p>
 
           {/* 3 Core Value Props in a Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-border w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-4 border-t border-border w-full">
             {/* Value Prop 1 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                 <Sparkles size={18} className="text-primary" />
               </div>
@@ -67,7 +67,7 @@ export function AboutHero() {
             </div>
 
             {/* Value Prop 2 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center shrink-0 border border-border">
                 <Zap size={18} className="text-foreground/80" />
               </div>
@@ -82,7 +82,7 @@ export function AboutHero() {
             </div>
 
             {/* Value Prop 3 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 border border-primary/15">
                 <ShieldCheck size={18} className="text-primary" />
               </div>
@@ -115,7 +115,7 @@ export function AboutHero() {
             <motion.div
               animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-card"
+              className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-card"
             >
               <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-foreground flex items-center justify-center text-background shadow-2xs shrink-0 p-1">
                 <NextJsIcon className="w-full h-full object-contain" />
@@ -134,7 +134,7 @@ export function AboutHero() {
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-[5] hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
+              className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-[5] hidden sm:flex items-center gap-1.5 px-4 py-1 rounded-full bg-card/90 backdrop-blur-md border border-border shadow-2xs text-xs font-bold text-muted-foreground whitespace-nowrap"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Full Stack</span>
@@ -148,7 +148,7 @@ export function AboutHero() {
             <motion.div
               animate={{ y: [0, 5, 0], rotate: [0, -1, 0] }}
               transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              className="absolute top-3 sm:top-4 right-2 sm:right-4 z-20 flex items-center gap-2 sm:gap-2.5 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-elevated"
+              className="absolute top-3 sm:top-4 right-2 sm:right-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-elevated"
             >
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-2xs shrink-0">
                 <Code2 size={16} className="text-white" />

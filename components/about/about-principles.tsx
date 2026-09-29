@@ -19,11 +19,11 @@ export function AboutPrinciples() {
         description="The core tenets that guide every architectural decision, interface, and line of code we ship."
         centered
         maxWidth="max-w-2xl"
-        className="mb-10 sm:mb-14 mx-auto"
+        className="mb-12 sm:mb-16 mx-auto"
       />
 
       {/* ── 3 Principles Grid ── */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {PRINCIPLES.map((principle, index) => {
           const isActive = activePrinciple === index;
 
@@ -45,7 +45,7 @@ export function AboutPrinciples() {
 
               <div>
                 {/* Number and Tag */}
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-6">
                   <span
                     className={cn(
                       "text-3xl sm:text-4xl font-black font-mono tracking-tight transition-colors",
@@ -56,7 +56,7 @@ export function AboutPrinciples() {
                   </span>
                   <span
                     className={cn(
-                      "type-label uppercase px-3 py-1 rounded-full border transition-colors",
+                      "type-label uppercase px-4 py-1 rounded-full border transition-colors",
                       isActive
                         ? "bg-primary/10 text-primary border-primary/20"
                         : "bg-secondary text-muted-foreground border-border"
@@ -72,7 +72,7 @@ export function AboutPrinciples() {
                 </h3>
 
                 {/* Summary */}
-                <p className="text-sm font-semibold text-primary mb-3">
+                <p className="text-sm font-semibold text-primary mb-4">
                   {principle.summary}
                 </p>
 

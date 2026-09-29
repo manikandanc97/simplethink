@@ -29,11 +29,11 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
         {/* Top Grid: Brand, Explore, Capabilities, Connect Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-border/80 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-border/80 items-start">
 
           {/* Col 1: Brand & Socials (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between gap-6">
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-6">
               {/* Brand Logo */}
               <Link
                 href="/"
@@ -65,7 +65,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
               </p>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-2.5 pt-1">
+              <div className="flex items-center gap-2 pt-1">
                 {/* X (Twitter) */}
                 <a
                   href={SITE.twitter || "#"}
@@ -135,18 +135,18 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
           </div>
 
           {/* Col 2: Navigation / Explore (2 cols) */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
+          <div className="lg:col-span-2 flex flex-col gap-6">
             <h4 className="text-xs font-bold uppercase tracking-widest text-foreground">
               EXPLORE
             </h4>
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex flex-col gap-4.5">
               {NAV_ITEMS.map((item) => {
                 const iconName = FOOTER_DATA.navIcons[item.route] || "sparkles";
                 return (
                   <li key={item.route}>
                     <Link
                       href={item.route}
-                      className="group text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-3"
+                      className="group text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-4"
                     >
                       <span className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <AnimatedIcon
@@ -164,13 +164,13 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
           </div>
 
           {/* Col 3: Capabilities (3 cols) */}
-          <div className="lg:col-span-3 flex flex-col gap-5">
+          <div className="lg:col-span-3 flex flex-col gap-6">
             <h4 className="text-xs font-bold uppercase tracking-widest text-foreground">
               CAPABILITIES
             </h4>
-            <ul className="flex flex-col gap-3.5 text-sm text-muted-foreground">
+            <ul className="flex flex-col gap-4.5 text-sm text-muted-foreground">
               {FOOTER_DATA.capabilities.map((cap) => (
-                <li key={cap.label} className="group flex items-center gap-3 cursor-default">
+                <li key={cap.label} className="group flex items-center gap-4 cursor-default">
                   <span className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <AnimatedIcon
                       name={cap.icon}
@@ -197,7 +197,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
               </svg>
             </div>
 
-            <div className="bg-card rounded-3xl p-7 shadow-sm border border-border relative z-10 flex flex-col justify-between gap-5">
+            <div className="bg-card rounded-3xl p-8 shadow-sm border border-border relative z-10 flex flex-col justify-between gap-6">
               <div className="flex justify-between items-start">
                 {/* Send icon */}
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -208,7 +208,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                 </div>
 
                 {/* Live pill */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background border border-border text-xs font-semibold text-foreground shadow-sm">
+                <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-background border border-border text-xs font-semibold text-foreground shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   Let&apos;s Build
                 </div>
@@ -253,7 +253,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
               Sitemap
             </Link>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/8 text-primary text-xs font-semibold tracking-wide ml-2 border border-primary/15">
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/8 text-primary text-xs font-semibold tracking-wide ml-2 border border-primary/15">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>

@@ -86,8 +86,8 @@ export function ServicesTechStack({ service }: ServicesTechStackProps) {
   return (
     <div className="w-full relative z-20 mb-16 sm:mb-20">
       {/* ── Header ── */}
-      <div className="flex flex-col items-start text-left mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-3">
+      <div className="flex flex-col items-start text-left mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-border shadow-xs mb-4">
           <span className="w-2 h-2 rounded-full bg-primary inline-block" />
           <span className="type-label font-extrabold tracking-wide text-foreground/90 uppercase">
             Tech Stack
@@ -123,11 +123,11 @@ export function ServicesTechStack({ service }: ServicesTechStackProps) {
                   <div className={`w-1.5 h-1.5 rounded-full ${isFirst ? colors.bg : "bg-[var(--muted-foreground)]"} transition-colors duration-300`} />
                   {CATEGORY_TITLES[category]}
                 </h4>
-                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4.5">
                   {techs.map((tech) => (
                     <div
                       key={tech.slug}
-                      className={`group flex items-center gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full ${
+                      className={`group flex items-center gap-2 px-4.5 sm:px-4 py-2 sm:py-2.5 rounded-full ${
                         isFirst ? "bg-white" : "bg-[var(--background)]/50"
                       } border border-[var(--surface-elevated)] ${colors.hoverBorder} shadow-card hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-default`}
                     >

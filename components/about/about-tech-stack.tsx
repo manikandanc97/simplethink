@@ -53,7 +53,7 @@ const STACK_CATEGORIES = [
 
 export function AboutTechStack() {
   return (
-    <div className="w-full pt-14 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Engineering Stack"
@@ -62,11 +62,11 @@ export function AboutTechStack() {
         description="We intentionally curate our stack to maximize runtime velocity, developer joy, and long-term codebase maintainability."
         centered
         maxWidth="max-w-2xl"
-        className="mb-10 sm:mb-14 mx-auto"
+        className="mb-12 sm:mb-16 mx-auto"
       />
 
       {/* ── 4 Category Grid ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {STACK_CATEGORIES.map((cat, i) => {
           const Icon = cat.icon;
           return (

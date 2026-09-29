@@ -29,9 +29,9 @@ export function WorkControls({
   const [isSortOpen, setIsSortOpen] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 sm:pb-7 border-b border-[var(--surface-elevated)]">
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 sm:pb-8 border-b border-[var(--surface-elevated)]">
       {/* ── Filter Pills ── */}
-      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-2">
         {FILTER_SERVICES.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeFilter === tab.id;
@@ -45,7 +45,7 @@ export function WorkControls({
               key={tab.id}
               onClick={() => onFilterChange(tab.id)}
               className={cn(
-                "group relative flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
+                "group relative flex items-center gap-2 px-4.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer",
                 isActive
                   ? "bg-gradient-to-r from-[var(--primary)] to-[var(--primary)] text-white shadow-elevated scale-[1.02]"
                   : "bg-white/90 hover:bg-white text-[var(--muted-foreground)] border border-[var(--surface-elevated)] hover:border-primary/30 shadow-2xs"
@@ -78,7 +78,7 @@ export function WorkControls({
       </div>
 
       {/* ── Search & Sort Controls ── */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         {/* Search Pill */}
         <div className="relative flex-1 sm:flex-initial">
           <AnimatedIcon
@@ -108,7 +108,7 @@ export function WorkControls({
           <button
             type="button"
             onClick={() => setIsSortOpen((prev) => !prev)}
-            className="bg-white border border-[var(--surface-elevated)] rounded-full px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-medium text-foreground flex items-center gap-2 hover:bg-[var(--background)] cursor-pointer shadow-sm transition-all group"
+            className="bg-white border border-[var(--surface-elevated)] rounded-full px-4.5 sm:px-4 py-2 text-xs sm:text-sm font-medium text-foreground flex items-center gap-2 hover:bg-[var(--background)] cursor-pointer shadow-sm transition-all group"
           >
             <span>
               {sortOption === "latest"

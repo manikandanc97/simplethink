@@ -20,10 +20,10 @@ export function StepNarrative({
 }: StepNarrativeProps) {
   return (
     <div className="hww-narrative lg:col-span-6 flex flex-col gap-4 sm:gap-6 z-10">
-      <div className="flex flex-col gap-2.5 sm:gap-3">
+      <div className="flex flex-col gap-2 sm:gap-4">
         {/* Step Kicker */}
         <div className="flex items-center gap-2">
-          <span className="inline-block px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs sm:text-xs font-black tracking-widest text-[var(--primary)] uppercase">
+          <span className="inline-block px-4 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs sm:text-xs font-black tracking-widest text-[var(--primary)] uppercase">
             {currentStep.stepKicker}
           </span>
           <span className="hidden sm:inline-block text-xs font-mono text-neutral-400">
@@ -46,13 +46,13 @@ export function StepNarrative({
       </div>
 
       {/* 2x2 Feature Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2">
         {currentStep.features.map((feature, idx) => {
           const FeatIcon = feature.icon;
           return (
             <div
               key={idx}
-              className="bg-neutral-50/70 rounded-2xl border border-neutral-200/70 p-2 sm:p-2.5 hover:bg-white hover:shadow-card hover:border-purple-200/80 transition-all flex items-start gap-2.5 group"
+              className="bg-neutral-50/70 rounded-2xl border border-neutral-200/70 p-2 sm:p-2.5 hover:bg-white hover:shadow-card hover:border-purple-200/80 transition-all flex items-start gap-2 group"
             >
               <div
                 className={cn(
@@ -77,11 +77,11 @@ export function StepNarrative({
       </div>
 
       {/* Bottom Action Row: Primary Next Step Button */}
-      <div className="flex items-center gap-3 sm:gap-4 flex-wrap pt-1">
+      <div className="flex items-center gap-4 sm:gap-4 flex-wrap pt-1">
         <button
           type="button"
           onClick={onNextStep}
-          className="bg-[var(--primary-hover)] hover:bg-[var(--primary-hover)] text-white font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg shadow-[var(--primary-hover)]/20 flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 group w-full sm:w-auto"
+          className="bg-[var(--primary-hover)] hover:bg-[var(--primary-hover)] text-white font-bold text-xs sm:text-sm px-6 sm:px-6 py-2.5 sm:py-4 rounded-full shadow-lg shadow-[var(--primary-hover)]/20 flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-95 group w-full sm:w-auto"
         >
           <span>
             {activeStepIndex === totalSteps - 1

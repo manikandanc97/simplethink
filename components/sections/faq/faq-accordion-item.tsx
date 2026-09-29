@@ -29,9 +29,9 @@ export function FaqAccordionItem({
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left cursor-pointer outline-none"
+        className="w-full flex items-center justify-between gap-4 p-4 sm:p-6 text-left cursor-pointer outline-none"
       >
-        <div className="flex items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
+        <div className="flex items-center gap-4.5 sm:gap-4 flex-1 min-w-0">
           {/* Number Box */}
           <div
             className={`shrink-0 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl font-bold text-xs sm:text-sm font-mono transition-colors duration-200 ${
@@ -84,7 +84,7 @@ export function FaqAccordionItem({
               animate={{ y: 0 }}
               exit={{ y: -6 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-3 px-4 pb-5 pt-0 sm:pl-16 lg:pl-18 sm:pr-6"
+              className="flex flex-col gap-4 px-4 pb-6 pt-0 sm:pl-16 lg:pl-18 sm:pr-6"
             >
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {faq.answer}

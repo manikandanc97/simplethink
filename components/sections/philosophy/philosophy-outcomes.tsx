@@ -57,10 +57,10 @@ export function PhilosophyOutcomes({ inView }: PhilosophyOutcomesProps) {
         initial={{ opacity: 0, x: 16 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.25 }}
-        className="rounded-3xl bg-white border border-neutral-100 shadow-card p-5 flex flex-col gap-5 relative z-20"
+        className="rounded-3xl bg-white border border-neutral-100 shadow-card p-6 flex flex-col gap-6 relative z-20"
       >
         {/* Header */}
-        <div className="flex items-center gap-2.5 px-1">
+        <div className="flex items-center gap-2 px-1">
           <div className="flex items-end gap-0.5 text-[var(--primary-hover)]">
             <span className="w-1.5 h-2.5 bg-[var(--primary-hover)] rounded-[1px]" />
             <span className="w-1.5 h-4 bg-[var(--primary-hover)] rounded-[1px]" />
@@ -72,7 +72,7 @@ export function PhilosophyOutcomes({ inView }: PhilosophyOutcomesProps) {
         </div>
 
         {/* 4 Outcome Stat Cards */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           {REAL_OUTCOMES.map((stat, i) => {
             const StatIcon = stat.icon;
             return (
@@ -83,7 +83,7 @@ export function PhilosophyOutcomes({ inView }: PhilosophyOutcomesProps) {
                 transition={{ duration: 0.4, delay: 0.28 + i * 0.08 }}
                 className="bg-white rounded-2xl border border-neutral-100/80 shadow-card p-2.5 flex items-center justify-between gap-2 hover:shadow-md hover:border-rose-100 transition-all duration-300 group cursor-default"
               >
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-4 min-w-0">
                   <div className="w-11 h-11 rounded-full bg-rose-50 border border-rose-100/50 flex items-center justify-center text-primary shrink-0">
                     <StatIcon className="w-[18px] h-[18px]" strokeWidth={2.5} />
                   </div>

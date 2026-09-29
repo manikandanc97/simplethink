@@ -65,18 +65,18 @@ export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {
   }, [service]);
 
   return (
-    <section id="faq" className="relative scroll-mt-24 py-10 sm:py-14 lg:py-18 mb-8 sm:mb-12">
+    <section id="faq" className="relative scroll-mt-24 py-12 sm:py-16 lg:py-18 mb-8 sm:mb-12">
       {/* ── Ambient Background Accents Matching Home Page FAQ ── */}
       <div className="faq-accent-decor absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none select-none">
         {/* Top-left dot grid */}
-        <div className="absolute top-10 left-4 sm:left-8 grid grid-cols-4 gap-2.5 opacity-25">
+        <div className="absolute top-10 left-4 sm:left-8 grid grid-cols-4 gap-2 opacity-25">
           {Array.from({ length: 24 }).map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
         </div>
 
         {/* Right edge dot grid */}
-        <div className="absolute top-1/3 right-2 sm:right-6 grid grid-cols-4 gap-2.5 opacity-20">
+        <div className="absolute top-1/3 right-2 sm:right-6 grid grid-cols-4 gap-2 opacity-20">
           {Array.from({ length: 28 }).map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />
           ))}
@@ -90,9 +90,9 @@ export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
         {/* ── Left Column (5 Cols) — Sticky on lg ── */}
-        <div className="lg:col-span-5 flex flex-col justify-start gap-5 sm:gap-6 lg:sticky lg:top-32">
+        <div className="lg:col-span-5 flex flex-col justify-start gap-6 sm:gap-6 lg:sticky lg:top-32">
           {/* Top Info Header */}
           <SectionHeader
             eyebrow="FAQ"
@@ -107,7 +107,7 @@ export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {
         </div>
 
         {/* ── Right Column (7 Cols) — FAQ Accordion List (Dynamic per Service) ── */}
-        <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4 pt-0 lg:pt-1">
+        <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-4 pt-0 lg:pt-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={service.id}
@@ -115,7 +115,7 @@ export function ServicesFaqSection({ service }: ServicesFaqSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="flex flex-col gap-3 sm:gap-4 w-full"
+              className="flex flex-col gap-4 sm:gap-4 w-full"
             >
               {formattedFaqs.map((faq) => (
                 <FaqAccordionItem

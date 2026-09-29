@@ -48,7 +48,7 @@ const STANDARDS = [
 
 export function WorkEngineeringStandards() {
   return (
-    <div className="w-full pt-14 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Engineering Standards"
@@ -57,11 +57,11 @@ export function WorkEngineeringStandards() {
         description="Every website, web app, and platform we ship adheres to rigorous engineering benchmarks before touching a production domain."
         centered
         maxWidth="max-w-2xl"
-        className="mb-10 sm:mb-14 mx-auto"
+        className="mb-12 sm:mb-16 mx-auto"
       />
 
       {/* ── 4 Standards Cards Grid ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {STANDARDS.map((std, i) => {
           const Icon = std.icon;
           return (
@@ -85,7 +85,7 @@ export function WorkEngineeringStandards() {
                 <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight mb-2">
                   {std.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed mb-6">
                   {std.description}
                 </p>
               </div>

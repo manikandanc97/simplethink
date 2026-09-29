@@ -59,10 +59,10 @@ export function ContactFaq() {
   }, []);
 
   return (
-    <section id="contact-faq" className="relative scroll-mt-24 pt-14 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-start">
+    <section id="contact-faq" className="relative scroll-mt-24 pt-16 sm:pt-20 pb-8 sm:pb-12 border-t border-[var(--surface-elevated)]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
         {/* ── Left Column (5 Cols) — Sticky on lg ── */}
-        <div className="lg:col-span-5 flex flex-col justify-start gap-5 sm:gap-6 lg:sticky lg:top-32">
+        <div className="lg:col-span-5 flex flex-col justify-start gap-6 sm:gap-6 lg:sticky lg:top-32">
           <SectionHeader
             eyebrow="SCOPING FAQ"
             title={<>Engagement & <br /></>}
@@ -75,7 +75,7 @@ export function ContactFaq() {
         </div>
 
         {/* ── Right Column (7 Cols) — FAQ Accordion List ── */}
-        <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4 pt-0 lg:pt-1">
+        <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-4 pt-0 lg:pt-1">
           {formattedFaqs.map((faq) => (
             <FaqAccordionItem
               key={faq.id}

@@ -50,7 +50,7 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
       }
     >
       <div className="max-w-7xl mx-auto">
-        <div className="w-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between bg-card/90 backdrop-blur-xl border border-border rounded-full shadow-card font-satoshi">
+        <div className="w-full px-4 sm:px-6 py-2.5 sm:py-4 flex items-center justify-between bg-card/90 backdrop-blur-xl border border-border rounded-full shadow-card font-satoshi">
           {/* Brand Logo */}
           <Link
             href="/"
@@ -99,7 +99,7 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+          <div className="flex items-center gap-4 sm:gap-4 shrink-0">
             {/* Availability status badge */}
             <div className="hidden xl:flex items-center gap-2 border-l border-border pl-4 py-1">
               <span className="relative flex h-2 w-2">

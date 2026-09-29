@@ -61,7 +61,7 @@ export function SelectedWork() {
 
             {/* Mobile Filter & Nav (Visible only on < lg) */}
             <div className="sw-filter flex lg:hidden w-full mb-2">
-              <div className="flex items-center justify-start gap-3 relative z-10 w-full overflow-hidden">
+              <div className="flex items-center justify-start gap-4 relative z-10 w-full overflow-hidden">
                 <FilterTabsList
                   activeFilter={activeFilter}
                   onSelectFilter={setActiveFilter}
@@ -78,7 +78,7 @@ export function SelectedWork() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-4"
               >
                 {displayProjects.map((project) => (
                   <SelectedWorkProjectItem
@@ -110,7 +110,7 @@ export function SelectedWork() {
           <div className="hidden lg:flex lg:col-span-7 flex-col gap-4 relative pt-2 lg:pt-0 min-w-0">
             
             {/* Top Header: Filter Tabs & Live Client Site Badge + Prev/Next Arrows */}
-            <div className="sw-filter flex items-center justify-between gap-3 relative z-10">
+            <div className="sw-filter flex items-center justify-between gap-4 relative z-10">
               
               {/* Left: Filter Tabs */}
               <FilterTabsList
@@ -120,7 +120,7 @@ export function SelectedWork() {
               />
 
               {/* Right: Live Client Site Badge & Nav Buttons */}
-              <div className="flex items-center gap-3 sm:gap-6 shrink-0">
+              <div className="flex items-center gap-4 sm:gap-6 shrink-0">
                 {/* Handwritten "Live Client Site" badge positioned left of arrows */}
                 <div className="sw-live-badge hidden sm:flex pointer-events-none items-center gap-2 z-30 select-none">
                   <span className="font-handwriting text-lg text-primary font-bold -rotate-2 tracking-wide drop-shadow-sm">

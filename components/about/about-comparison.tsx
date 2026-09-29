@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 
 export function AboutComparison() {
   return (
-    <div className="w-full pt-14 sm:pt-20 border-t border-[var(--surface-elevated)]">
+    <div className="w-full pt-16 sm:pt-20 border-t border-[var(--surface-elevated)]">
       {/* ── Section Header ── */}
       <SectionHeader
         eyebrow="Comparative Standards"
@@ -15,13 +15,13 @@ export function AboutComparison() {
         description="A stark, transparent comparison between old-school agency bureaucracy and our streamlined senior software model."
         centered
         maxWidth="max-w-2xl"
-        className="mb-10 sm:mb-14 mx-auto"
+        className="mb-12 sm:mb-16 mx-auto"
       />
 
       {/* ── Comparison Table Card ── */}
       <div className="border border-[var(--surface-elevated)] rounded-3xl overflow-hidden bg-white shadow-card text-left">
         {/* Table Header Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--surface-elevated)] bg-[var(--background)] p-4 sm:p-5 font-mono text-xs font-bold text-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--surface-elevated)] bg-[var(--background)] p-4 sm:p-6 font-mono text-xs font-bold text-foreground">
           <div className="md:col-span-3 text-muted-foreground uppercase tracking-wider">
             Evaluation Metric
           </div>
@@ -41,7 +41,7 @@ export function AboutComparison() {
           {COMPARISONS.map((row, i) => (
             <div
               key={i}
-              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-3 sm:gap-4 items-center hover:bg-[var(--background)] transition-colors"
+              className="grid grid-cols-1 md:grid-cols-12 p-4 sm:p-6 gap-4 sm:gap-4 items-center hover:bg-[var(--background)] transition-colors"
             >
               {/* Metric Title */}
               <div className="md:col-span-3 font-bold text-sm text-foreground font-satoshi">
@@ -49,13 +49,13 @@ export function AboutComparison() {
               </div>
 
               {/* Traditional Agencies */}
-              <div className="md:col-span-4 flex items-start gap-2.5 text-xs sm:text-sm text-muted-foreground">
+              <div className="md:col-span-4 flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
                 <XCircle size={16} className="text-[#EF4444] shrink-0 mt-0.5" />
                 <span>{row.traditional}</span>
               </div>
 
               {/* SimpleThink Model */}
-              <div className="md:col-span-5 flex items-start gap-2.5 text-xs sm:text-sm text-foreground font-semibold bg-[var(--background)]/70 p-3.5 rounded-2xl border border-[var(--surface-elevated)]/80 shadow-2xs">
+              <div className="md:col-span-5 flex items-start gap-2 text-xs sm:text-sm text-foreground font-semibold bg-[var(--background)]/70 p-4.5 rounded-2xl border border-[var(--surface-elevated)]/80 shadow-2xs">
                 <CheckCircle2 size={16} className="text-primary shrink-0 mt-0.5" />
                 <span>{row.simplethink}</span>
               </div>

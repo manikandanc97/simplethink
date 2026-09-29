@@ -25,8 +25,8 @@ export function ServicesBlueprintPanel({
     <div className="lg:col-span-7 flex flex-col gap-6 lg:sticky lg:top-24">
       <div className="rounded-3xl border border-[var(--surface-elevated)] bg-white overflow-hidden flex flex-col shadow-card">
         {/* Canvas Header / Browser Frame Bar */}
-        <div className="p-4 sm:p-5 border-b border-[var(--surface-elevated)] flex items-center justify-between bg-[var(--background)]">
-          <div className="flex items-center gap-3">
+        <div className="p-4 sm:p-6 border-b border-[var(--surface-elevated)] flex items-center justify-between bg-[var(--background)]">
+          <div className="flex items-center gap-4">
             {/* Frame Dots */}
             <div className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
@@ -39,7 +39,7 @@ export function ServicesBlueprintPanel({
             </span>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             {selectedCount > 0 && (
               <button
                 type="button"
@@ -74,7 +74,7 @@ export function ServicesBlueprintPanel({
         </div>
 
         {/* Scope & Sprint Estimation Bar */}
-        <div className="p-4 sm:p-5 border-t border-[var(--surface-elevated)] bg-[var(--background)]/80 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-4 sm:p-6 border-t border-[var(--surface-elevated)] bg-[var(--background)]/80 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4 w-full sm:w-auto">
             <div>
               <div className="text-xs font-mono uppercase text-muted-foreground font-bold">

@@ -36,7 +36,7 @@ export function PageBanner({
       className={cn(
         "relative w-full overflow-hidden select-none",
         "bg-primary",
-        "py-8 sm:py-10 md:py-12",
+        "py-8 sm:py-12 md:py-12",
         className
       )}
     >
@@ -87,7 +87,7 @@ export function PageBanner({
       <PageBannerFloatingTech techStack={techStack} />
 
       {/* ─── Centered Content ────────────────────────────────── */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center gap-4 sm:gap-5">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center gap-4 sm:gap-6">
         {/* ── Breadcrumb — white glass pill on primary ── */}
         <PageBannerBreadcrumb breadcrumb={breadcrumb} />
 
@@ -113,7 +113,7 @@ export function PageBanner({
           transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className={cn(
             "font-black tracking-tight text-white leading-[1.05]",
-            "flex flex-wrap items-center justify-center gap-2 sm:gap-3",
+            "flex flex-wrap items-center justify-center gap-2 sm:gap-4",
             "text-[clamp(1.75rem,3.5vw,2.5rem)]"
           )}
         >

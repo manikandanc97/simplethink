@@ -47,7 +47,7 @@ export function CTA({ onStartProject }: CTAProps) {
       <div className="hidden lg:block pointer-events-none absolute bottom-12 right-10 w-28 h-28 hero-dots cta-dots opacity-35" />
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
           
           {/* ── Left Column: 3D Illustration ── */}
           <div
@@ -75,7 +75,7 @@ export function CTA({ onStartProject }: CTAProps) {
 
               {/* READY TO BUILD? Floating Pill */}
               <div
-                className="absolute right-[2%] bottom-[16%] xs:right-[4%] xs:bottom-[20%] sm:right-[8%] sm:bottom-[22%] z-20 inline-flex items-center gap-1.5 xs:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-card/95 backdrop-blur-md shadow-card border border-border hover:scale-105 transition-transform duration-300"
+                className="absolute right-[2%] bottom-[16%] xs:right-[4%] xs:bottom-[20%] sm:right-[8%] sm:bottom-[22%] z-20 inline-flex items-center gap-1.5 xs:gap-2 px-4.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-card/95 backdrop-blur-md shadow-card border border-border hover:scale-105 transition-transform duration-300"
               >
                 <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-primary font-extrabold text-xs tracking-wider sm:tracking-widest uppercase font-satoshi whitespace-nowrap">
@@ -90,7 +90,7 @@ export function CTA({ onStartProject }: CTAProps) {
             ref={contentRef}
             className="lg:col-span-7 xl:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left font-satoshi gap-6 sm:gap-8 lg:gap-10 w-full"
           >
-            <div className="flex flex-col items-center lg:items-start gap-5 sm:gap-6 w-full">
+            <div className="flex flex-col items-center lg:items-start gap-6 sm:gap-6 w-full">
               {/* Top Info Header */}
               <SectionHeader
                 eyebrow="FROM IDEA TO IMPACT"
@@ -102,7 +102,7 @@ export function CTA({ onStartProject }: CTAProps) {
               />
 
               {/* 3 Pillars as sleek pills */}
-              <div className="cta-content flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5">
+              <div className="cta-content flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2">
               {[
                 { label: "Simple process.", icon: Zap },
                 { label: "Clear communication.", icon: MessageSquare },
@@ -112,7 +112,7 @@ export function CTA({ onStartProject }: CTAProps) {
                 return (
                   <div
                     key={index}
-                    className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full bg-card border border-border shadow-2xs text-xs sm:text-sm font-semibold text-foreground"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 px-4.5 py-1.5 rounded-full bg-card border border-border shadow-2xs text-xs sm:text-sm font-semibold text-foreground"
                   >
                     <Icon size={14} className="text-primary shrink-0" />
                     <span>{item.label}</span>
@@ -122,9 +122,9 @@ export function CTA({ onStartProject }: CTAProps) {
               </div>
             </div>
 
-            <div className="cta-content flex flex-col items-center lg:items-start gap-3.5 sm:gap-4 w-full sm:w-auto">
+            <div className="cta-content flex flex-col items-center lg:items-start gap-4.5 sm:gap-4 w-full sm:w-auto">
               {/* Action Buttons & Fast Response Note */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-4 w-full sm:w-auto">
                 <Button
                   size="lg"
                   onClick={handleStart}
