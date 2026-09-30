@@ -109,7 +109,7 @@ export function WhatWeBuildCard({
         opacity: { type: "tween", duration: 0.3, ease: "easeOut" },
       }}
       className={cn(
-        "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-6 pb-12 xs:p-6 xs:pb-16 sm:p-8 lg:p-10 font-satoshi cursor-pointer",
+        "absolute top-0 w-full h-full max-w-3xl lg:max-w-4xl rounded-2xl sm:rounded-3xl p-6 pb-6 sm:pb-6 xs:p-6 sm:p-8 lg:p-10 font-satoshi cursor-pointer overflow-hidden",
         "backdrop-blur-2xl border",
         isActive
           ? "bg-card border-primary/20 z-30 pointer-events-auto"
@@ -117,9 +117,6 @@ export function WhatWeBuildCard({
       )}
       style={{
         transformStyle: "preserve-3d",
-        boxShadow: isActive
-          ? "0 0 0 1px rgba(146,47,85,0.07), 0 20px 60px -10px rgba(146,47,85,0.2), 0 8px 24px -4px rgba(0,0,0,0.07)"
-          : "0 4px 16px -4px rgba(0,0,0,0.05)",
       }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
@@ -158,13 +155,13 @@ export function WhatWeBuildCard({
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center w-full h-full relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8 items-center w-full h-full relative z-10">
           <div className="md:col-span-7 flex flex-col items-start text-left">
             <AnimatePresence mode="wait">
               {isActive && (
                 <motion.div
                   key={`content-${service.id}`}
-                  className="flex flex-col items-start w-full gap-6"
+                  className="flex flex-col items-start w-full gap-5 md:gap-6"
                 >
                   {/* Number + Icon */}
                   <FadeUp delay={0} className="flex items-center gap-4">
@@ -197,11 +194,11 @@ export function WhatWeBuildCard({
                   </FadeUp>
 
                   {/* Tags */}
-                  <FadeUp delay={0.21} className="flex flex-nowrap whitespace-nowrap overflow-hidden gap-2">
+                  <FadeUp delay={0.21} className="flex flex-wrap gap-2 w-full">
                     {service.shortDeliverables?.slice(0, 2).map((item, i) => (
                       <motion.span
                         key={i}
-                        className="inline-flex items-center px-4 py-1 rounded-full bg-secondary border border-border text-foreground type-label truncate max-w-full"
+                        className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary border border-border text-foreground type-label max-w-full whitespace-nowrap"
                         initial={{ opacity: 0, scale: 0.88 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.26 + i * 0.055, duration: 0.3, ease: "easeOut" }}
@@ -260,13 +257,13 @@ export function WhatWeBuildCard({
             </AnimatePresence>
           </div>
 
-          <div className="md:col-span-5 flex items-center justify-center relative w-full">
+          <div className="md:col-span-5 flex items-start justify-center relative w-full mt-2 md:mt-0">
             <motion.div
               className="w-full"
               animate={isActive ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.92, opacity: 0.6, y: 4 }}
               transition={{ type: "spring", stiffness: 300, damping: 28 }}
             >
-              <div className="w-full max-w-xs h-40 sm:h-52 md:h-64 mx-auto flex items-center justify-center px-2 sm:px-4">
+              <div className="w-full max-w-xs mx-auto flex items-start justify-center px-2 sm:px-4">
                 <MockupComponent isActive={isActive} />
               </div>
             </motion.div>

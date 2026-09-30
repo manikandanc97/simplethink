@@ -13,6 +13,7 @@ import { Hero3DCoder } from "./hero-3d-coder";
 import { HeroGridAccents } from "./hero-grid-accents";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { motion, useScroll, useTransform } from "motion/react";
+import Link from "next/link";
 
 export function WorkbenchHero() {
   const { openLead } = useLead();
@@ -148,9 +149,8 @@ export function WorkbenchHero() {
                 <span className="text-sm sm:text-base whitespace-nowrap">Start a project</span>
                 <AnimatedArrowRight size={16} className="text-white ml-1 shrink-0" />
               </Button>
-              
-              <button
-                type="button"
+              <Link
+                href="#selected-work"
                 className="group flex items-center justify-start gap-2 sm:gap-4.5 hover:opacity-85 transition-opacity py-1 w-auto"
               >
                 <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-foreground group-hover:scale-105 transition-transform pl-0.5 shrink-0">
@@ -160,7 +160,7 @@ export function WorkbenchHero() {
                   <span className="text-xs sm:text-base font-bold text-foreground leading-tight tracking-tight whitespace-nowrap">See our work</span>
                   <span className="text-xs sm:text-xs font-medium text-muted-foreground mt-0.5 whitespace-nowrap">2 min overview</span>
                 </div>
-              </button>
+              </Link>
             </div>
 
             </div>

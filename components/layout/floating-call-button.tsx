@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { MessageCircle, Phone, X, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/work/tech-icons";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { hoverLift, tapScale } from "@/lib/motion";
 
 const PHONE_RAW = SITE.phone.replace(/\s/g, "");
 const WA_NUM = SITE.whatsapp.replace(/\D/g, "") || SITE.phone.replace(/\D/g, "");
@@ -99,7 +100,9 @@ export function FloatingCallButton() {
                     visible: { opacity: 1, y: 0, scale: 1 },
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="flex items-center gap-3 p-1.5 pr-4 rounded-full bg-card/95 backdrop-blur-md border border-border shadow-elevated cursor-pointer hover:scale-105 transition-transform"
+                  whileHover={hoverLift}
+                  whileTap={tapScale}
+                  className="flex items-center gap-3 p-1.5 pr-4 rounded-full bg-card/95 backdrop-blur-md border border-border shadow-elevated cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
                   <div
@@ -126,7 +129,8 @@ export function FloatingCallButton() {
         <motion.button
           type="button"
           onClick={() => setOpen(!open)}
-          whileTap={{ scale: 0.9 }}
+          whileHover={hoverLift}
+          whileTap={tapScale}
           className={cn(
             "relative w-[52px] h-[52px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center text-white shadow-elevated transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-ring",
             open ? "bg-foreground/90" : "bg-primary"

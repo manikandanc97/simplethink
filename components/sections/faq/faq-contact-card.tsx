@@ -2,6 +2,7 @@
 
 import { useLead } from "@/components/leads/lead-provider";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
+import { Button } from "@/components/ui/button";
 import { CldImage } from "next-cloudinary";
 
 export function FaqContactCard() {
@@ -71,15 +72,14 @@ export function FaqContactCard() {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button
+            <Button
               type="button"
               onClick={() => openLead({ description: "FAQ - Technical Consultation" })}
-              className="inline-flex mt-0.5 sm:mt-1 items-center gap-1.5 px-4.5 py-1.5 sm:px-6 sm:py-2.5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold shadow-elevated active:scale-95 transition-all duration-200 cursor-pointer group shrink-0"
+              className="mt-0.5 sm:mt-1 px-4.5 py-1.5 sm:px-6 sm:py-2.5 text-xs sm:text-sm shrink-0"
             >
               <span>Talk to our team</span>
-              <AnimatedArrowRight size={13} className="ml-0.5 text-white" />
-            </button>
+              <AnimatedArrowRight size={13} className="ml-0.5" />
+            </Button>
           </div>
 
           {/* Right: 3D Character Sitting with Laptop */}

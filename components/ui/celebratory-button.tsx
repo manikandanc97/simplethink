@@ -4,13 +4,14 @@ import React, { useRef, useState } from "react";
 import { motion, useAnimationControls, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 import { fireCelebratoryConfetti } from "@/lib/confetti";
-import { prefersReducedMotion } from "@/lib/motion";
+import { prefersReducedMotion, hoverLift, tapScale, fadeUp, viewport } from "@/lib/motion";
 
 export interface CelebratoryButtonProps
   extends Omit<HTMLMotionProps<"button">, "children"> {
   children: React.ReactNode;
   isPending?: boolean;
   onCelebrate?: () => void;
+  disableScrollAnimation?: boolean;
 }
 
 export const CelebratoryButton = React.forwardRef<
@@ -26,6 +27,7 @@ export const CelebratoryButton = React.forwardRef<
       onClick,
       onCelebrate,
       type = "button",
+      disableScrollAnimation = false,
       ...props
     },
     forwardedRef
@@ -34,7 +36,6 @@ export const CelebratoryButton = React.forwardRef<
     const controls = useAnimationControls();
     const [isExploding, setIsExploding] = useState(false);
 
-    // Merge forwarded ref with internal ref
     const setRefs = (element: HTMLButtonElement | null) => {
       internalRef.current = element;
       if (typeof forwardedRef === "function") {
@@ -50,7 +51,6 @@ export const CelebratoryButton = React.forwardRef<
       const buttonEl = internalRef.current;
       if (!buttonEl) return;
 
-      // If this button is a submit button in a form, check form validity first
       if (type === "submit" && buttonEl.form && !buttonEl.form.checkValidity()) {
         return;
       }
@@ -58,7 +58,6 @@ export const CelebratoryButton = React.forwardRef<
       setIsExploding(true);
       onCelebrate?.();
 
-      // 1. Play the spring-driven button recoil
       if (!prefersReducedMotion()) {
         await controls.start({
           scale: [0.93, 1.06, 0.98, 1],
@@ -83,7 +82,6 @@ export const CelebratoryButton = React.forwardRef<
 
     return (
       <div className="relative w-full">
-        {/* Subtle celebratory radial halo on trigger */}
         <motion.div
           aria-hidden="true"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -102,16 +100,12 @@ export const CelebratoryButton = React.forwardRef<
           disabled={disabled || isPending}
           onClick={handleClick}
           animate={controls}
-          whileHover={
-            disabled || isPending
-              ? undefined
-              : { scale: 1.015, y: -1 }
-          }
-          whileTap={
-            disabled || isPending
-              ? undefined
-              : { scale: 0.94 }
-          }
+          initial={disableScrollAnimation ? undefined : "hidden"}
+          whileInView={disableScrollAnimation ? undefined : "visible"}
+          viewport={disableScrollAnimation ? undefined : viewport}
+          variants={disableScrollAnimation ? undefined : fadeUp}
+          whileHover={disabled || isPending ? undefined : hoverLift}
+          whileTap={disabled || isPending ? undefined : tapScale}
           transition={{
             type: "spring",
             stiffness: 500,

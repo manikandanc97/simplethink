@@ -1,4 +1,4 @@
-import { Variants } from "motion/react";
+import { Variants, TargetAndTransition } from "motion/react";
 
 // ==========================================
 // MOTION TIMING & EASING SYSTEM
@@ -131,17 +131,28 @@ export const slideIn = (direction: "up" | "down" | "left" | "right", distance = 
 // INTERACTION (HOVER & TAP)
 // ==========================================
 
-export const hoverLift = {
-  y: -4,
-  transition: spring.snappy,
+export const hoverLift: TargetAndTransition = {
+  // Modern buttons don't scale up or lift. We rely on Tailwind for color transitions.
+  // Adding a very subtle brightness shift for a premium feel.
+  filter: "brightness(1.08)",
+  transition: {
+    duration: 0.2,
+    ease: "easeOut"
+  },
 };
 
-export const hoverScale = {
-  scale: 1.02,
-  transition: spring.snappy,
+export const hoverScale: TargetAndTransition = {
+  scale: 1, // Disabled scale for modern feel
+  transition: {
+    duration: 0.2
+  },
 };
 
-export const tapScale = {
-  scale: 0.97,
-  transition: spring.snappy,
+export const tapScale: TargetAndTransition = {
+  scale: 0.97, // Subtle, realistic physical press
+  transition: {
+    type: "spring",
+    stiffness: 600,
+    damping: 30,
+  },
 };

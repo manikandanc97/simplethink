@@ -6,7 +6,7 @@ import { SiteNavbar } from "@/components/layout/site-navbar";
 import { LeadProvider } from "@/components/leads/lead-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { CommandPalette } from "@/components/ui/command-palette";
-import { NavigationProgress } from "@/components/ui/navigation-progress";
+
 import { SITE } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
@@ -152,7 +152,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <MobileMenuProvider>
               <SiteNavbar />
               <CommandPalette />
-              <NavigationProgress />
+
 
               <main id="main" className="flex-1 flex flex-col w-full pb-20 md:pb-0">
                 {children}

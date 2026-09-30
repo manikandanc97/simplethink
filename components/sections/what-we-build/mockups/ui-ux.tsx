@@ -314,7 +314,7 @@ export function UIUXMockup({ isActive }: { isActive?: boolean }) {
         </div>
 
         {/* Canvas — layout transitions here */}
-        <div className="relative overflow-hidden" style={{ minHeight: 120 }}>
+        <div className="relative overflow-hidden w-full h-[120px]">
           <AnimatePresence mode="wait">
             {layout === "list"  && <ListLayout  key="list"  />}
             {layout === "grid"  && <GridLayout  key="grid"  />}

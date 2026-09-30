@@ -3,6 +3,8 @@
 import { AnimatedChevronRight } from "@/components/ui/animated-icons/convenience-icons";
 import { cn } from "@/lib/utils";
 import { type Project } from "@/types/project";
+import { motion } from "motion/react";
+import { hoverLift, tapScale } from "@/lib/motion";
 
 interface WorkProjectCardProps {
   project: Project;
@@ -12,8 +14,10 @@ interface WorkProjectCardProps {
 
 export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardProps) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
+      whileHover={hoverLift}
+      whileTap={tapScale}
       className={cn(
         "group w-full text-left p-4.5 sm:p-4 rounded-2xl transition-all duration-300 flex items-center gap-4.5 sm:gap-4 border cursor-pointer",
         isActive
@@ -81,6 +85,6 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
       >
         <AnimatedChevronRight size={16} />
       </div>
-    </button>
+    </motion.button>
   );
 }

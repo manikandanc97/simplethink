@@ -54,7 +54,7 @@ export function WhatWeBuild() {
 
         <motion.div variants={scaleIn} {...viewportReveal} ref={parallaxWrapperRef} className="w-full">
           <div ref={containerRef} className="wwb-outer-card relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
-            <div className="flex items-center justify-center min-h-[520px] xs:min-h-[500px] sm:min-h-[460px] md:min-h-[420px] lg:min-h-[380px] xl:min-h-[380px] relative w-full">
+            <div className="flex items-center justify-center min-h-[620px] xs:min-h-[580px] sm:min-h-[520px] md:min-h-[460px] lg:min-h-[420px] xl:min-h-[420px] relative w-full">
               {displayServices.map((service, index) => (
                 <WhatWeBuildCard
                   key={service.id}

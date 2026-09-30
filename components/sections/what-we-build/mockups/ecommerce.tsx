@@ -46,7 +46,7 @@ export function EcommerceMockup({ isActive }: { isActive?: boolean }) {
     <MockupWrapper
       isActive={isActive}
       gradientClass="bg-gradient-to-tr from-[#CFFAFE]/60 via-[#E0F2FE]/50 to-[#F0FDFA]/60"
-      innerClassName="max-w-72 p-3.5 gap-3 overflow-hidden"
+      innerClassName="max-w-72 h-[250px] p-3.5 gap-3 overflow-hidden justify-center"
       outerChildren={
         <motion.div
           animate={isActive ? { y: [0, -6, 0], opacity: [0.85, 1, 0.85] } : { y: 0 }}
