@@ -57,7 +57,7 @@ function Button({
       whileHover={hoverLift}
       whileTap={tapScale}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props as any}
+      {...(props as unknown as React.ComponentProps<typeof MotionButton>)}
     />
   )
 }

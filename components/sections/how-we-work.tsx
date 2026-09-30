@@ -15,7 +15,6 @@ import { AnimatedText } from "@/components/ui/animated-text";
 
 export function HowWeWork() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [stepProgress, setStepProgress] = useState(0); // 0 to 1 within active step
   const { openLead } = useLead();
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,7 +24,6 @@ export function HowWeWork() {
   const scrollToStep = useCallback((targetIndex: number) => {
     const clampedIndex = Math.max(0, Math.min(targetIndex, STEPS.length - 1));
     setActiveStepIndex(clampedIndex);
-    setStepProgress(0); 
   }, []);
 
   useEffect(() => {
@@ -78,7 +76,6 @@ export function HowWeWork() {
             <StepNavigation
               navContainerRef={navContainerRef}
               activeStepIndex={activeStepIndex}
-              stepProgress={stepProgress}
               onSelectStep={scrollToStep}
             />
 

@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { CldImage } from "next-cloudinary";
 import React, { useRef } from "react";
 
-import { prefersReducedMotion } from "@/lib/motion-system";
+import { prefersReducedMotion } from "@/lib/motion";
 
 interface Hero3DCoderProps {
   className?: string;

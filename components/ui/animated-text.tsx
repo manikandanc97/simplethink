@@ -14,16 +14,6 @@ interface AnimatedTextProps {
   asTypewriter?: boolean;
 }
 
-const defaultContainerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
-};
-
 const defaultItemVariants: Variants = {
   hidden: {
     y: "40%",
@@ -49,7 +39,7 @@ export function AnimatedText({
   staggerDelay = 0.03,
   asTypewriter = false,
 }: AnimatedTextProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once, amount: 0.2 });
 
   const containerVariants: Variants = {
@@ -65,8 +55,9 @@ export function AnimatedText({
   if (typeof text !== "string") {
     // If it's a node, just animate it as a block with a spring
     return (
-      <Wrapper ref={ref as any} className={cn("inline-block overflow-hidden", className)}>
+      <Wrapper className={cn("inline-block overflow-hidden", className)}>
         <motion.span
+          ref={ref}
           variants={defaultItemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}

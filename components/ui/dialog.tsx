@@ -144,13 +144,13 @@ function DialogDescription({
 
 export {
   Dialog,
-  
+  DialogTrigger,
+  DialogPortal,
+  DialogClose,
+  DialogOverlay,
   DialogContent,
-  DialogDescription,
-  
   DialogHeader,
-  
-  
+  DialogFooter,
   DialogTitle,
-  
+  DialogDescription,
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon";
 import { LockIcon } from "@animateicons/react/lucide/lock-icon";
 import { Maximize2, Image as ImageIcon } from "lucide-react";
 import { AnimatedIcon } from "@/components/ui/animated-icon";

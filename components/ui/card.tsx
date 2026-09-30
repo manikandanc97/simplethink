@@ -43,7 +43,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         whileHover={variant === "interactive" ? hoverLift : undefined}
         className={cn(cardVariants({ variant, padding }), className)}
-        {...props as any}
+        {...(props as unknown as React.ComponentProps<typeof motion.div>)}
       />
     );
   }

@@ -7,7 +7,7 @@ import { CldImage } from "next-cloudinary";
 
 import { fadeUp, hoverLift } from "@/lib/motion";
 
-export function TechCard({ tech, index }: { tech: TechItem; index: number }) {
+export function TechCard({ tech }: { tech: TechItem }) {
   return (
     <motion.div
       layout

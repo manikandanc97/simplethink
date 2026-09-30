@@ -90,8 +90,8 @@ export function TechStack() {
                     : "lg:grid-cols-6"
                 } gap-4.5 sm:gap-4`}
               >
-                {filtered.map((tech, i) => (
-                  <TechCard key={tech.slug} tech={tech} index={i} />
+                {filtered.map((tech) => (
+                  <TechCard key={tech.slug} tech={tech} />
                 ))}
               </motion.div>
             </AnimatePresence>

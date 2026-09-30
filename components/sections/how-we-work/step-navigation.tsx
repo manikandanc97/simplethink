@@ -8,14 +8,12 @@ import React from "react";
 interface StepNavigationProps {
   navContainerRef: React.RefObject<HTMLDivElement | null>;
   activeStepIndex: number;
-  stepProgress: number;
   onSelectStep: (index: number) => void;
 }
 
 export function StepNavigation({
   navContainerRef,
   activeStepIndex,
-  stepProgress,
   onSelectStep,
 }: StepNavigationProps) {
   return (

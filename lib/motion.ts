@@ -12,6 +12,14 @@ export const ease = {
   smooth: [0.22, 1, 0.36, 1] as [number, number, number, number],
 };
 
+/**
+ * Check if the user prefers reduced motion
+ */
+export function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export const timing = {
   micro: 0.2, // 0.15s - 0.2s
   small: 0.3, // 0.2s - 0.3s
