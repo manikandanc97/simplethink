@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { PlayIcon } from "@animateicons/react/lucide/play-icon";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
-import { Button } from "@/components/ui/button";
+import { Button, StaggeredRollingContent } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { useRef } from "react";
 import { HERO_CONTENT } from "@/lib/data/hero";
@@ -149,18 +149,24 @@ export function WorkbenchHero() {
                 <span className="text-sm sm:text-base whitespace-nowrap">Start a project</span>
                 <AnimatedArrowRight size={16} className="text-white ml-1 shrink-0" />
               </Button>
-              <Link
-                href="#selected-work"
-                className="group flex items-center justify-start gap-2 sm:gap-4.5 hover:opacity-85 transition-opacity py-1 w-auto"
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-foreground group-hover:scale-105 transition-transform pl-0.5 shrink-0">
-                  <AnimatedIcon icon={PlayIcon} size={13} className="fill-current" />
-                </div>
-                <div className="flex flex-col text-left shrink-0">
-                  <span className="text-xs sm:text-base font-bold text-foreground leading-tight tracking-tight whitespace-nowrap">See our work</span>
-                  <span className="text-xs sm:text-xs font-medium text-muted-foreground mt-0.5 whitespace-nowrap">2 min overview</span>
-                </div>
-              </Link>
+                <Link
+                  href="#selected-work"
+                  className="group flex items-center justify-start gap-2 sm:gap-4.5 hover:opacity-85 transition-opacity py-1 w-auto"
+                >
+                  <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-sm border border-[rgba(30,24,30,0.08)] text-foreground group-hover:scale-105 transition-transform pl-0.5 shrink-0">
+                    <AnimatedIcon icon={PlayIcon} size={13} className="fill-current" />
+                  </div>
+                  <div className="flex flex-col text-left shrink-0">
+                    <span className="text-xs sm:text-base font-bold text-foreground leading-tight tracking-tight whitespace-nowrap block">See our work</span>
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground mt-0.5 whitespace-nowrap block">2 min overview</span>
+                  </div>
+                </Link>
+              </motion.div>
             </div>
 
             </div>
