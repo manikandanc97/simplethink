@@ -75,7 +75,7 @@ export function FloatingCallButton() {
 
       <div
         ref={containerRef}
-        className="fixed bottom-[96px] sm:bottom-8 right-4 sm:right-6 z-50 flex flex-col items-end gap-3"
+        className="relative z-50 flex flex-col items-end gap-3"
       >
         <AnimatePresence>
           {open && (

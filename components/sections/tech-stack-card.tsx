@@ -34,7 +34,7 @@ export function TechCard({ tech }: { tech: TechItem }) {
         </h3>
 
         {/* 2-line Description */}
-        <p className="type-small text-muted-foreground text-center min-h-9 flex items-center justify-center">
+        <p className="text-xs leading-relaxed text-muted-foreground text-center min-h-9 flex items-center justify-center">
           {tech.description}
         </p>
       </div>

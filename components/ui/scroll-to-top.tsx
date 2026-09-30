@@ -1,0 +1,89 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
+import { ArrowUp } from "lucide-react";
+
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+  const { scrollYProgress, scrollY } = useScroll();
+  
+  // Smooth out the progress value for the circular indicator
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      // Show button after scrolling down 300px
+      setIsVisible(latest > 300);
+    });
+  }, [scrollY]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ 
+        height: isVisible ? "auto" : 0,
+        opacity: isVisible ? 1 : 0,
+      }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="flex flex-col items-center justify-end overflow-hidden"
+    >
+      <motion.button
+        onClick={scrollToTop}
+        initial={{ scale: 0.5, y: 20 }}
+        animate={{ 
+          scale: isVisible ? 1 : 0.5,
+          y: isVisible ? 0 : 20,
+          pointerEvents: isVisible ? "auto" : "none"
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="relative z-40 flex items-center justify-center w-10 h-10 sm:w-[42px] sm:h-[42px] rounded-full bg-card shadow-elevated border border-border group mb-2"
+        aria-label="Scroll to top"
+      >
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 48 48"
+          className="absolute inset-0 -rotate-90 pointer-events-none"
+        >
+          <circle
+            cx="24"
+            cy="24"
+            r="22"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            className="text-muted border-border"
+          />
+          <motion.circle
+            cx="24"
+            cy="24"
+            r="22"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            className="text-primary"
+            style={{
+              pathLength: smoothProgress,
+            }}
+          />
+        </svg>
+        <ArrowUp size={18} strokeWidth={2.5} className="text-foreground group-hover:text-primary transition-colors" />
+      </motion.button>
+    </motion.div>
+  );
+}

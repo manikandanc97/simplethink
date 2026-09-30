@@ -40,13 +40,13 @@ export function FaqContactCard() {
       </div>
 
       {/* 2. Main Outer Card */}
-      <div className="faq-card relative z-10 w-full max-w-[22rem] sm:max-w-md bg-card rounded-2xl p-6 sm:p-6 shadow-card border border-border overflow-visible">
+      <div className="faq-card relative z-10 w-full sm:max-w-md bg-card rounded-2xl p-5 sm:p-6 shadow-card border border-border overflow-visible mx-auto lg:mx-0">
         
         {/* Upper Content Area: Left CTA + Right 3D Character */}
-        <div className="relative min-h-[10rem] sm:min-h-[12rem]">
+        <div className="relative min-h-[10.5rem] sm:min-h-[12rem]">
           
           {/* Left: Text & CTA Button */}
-          <div className="relative z-10 max-w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2 sm:gap-4">
+          <div className="relative z-10 w-[60%] sm:max-w-56 lg:max-w-[55%] flex flex-col items-start gap-2 sm:gap-4">
             <div className="flex flex-col items-start gap-1.5 sm:gap-2">
               {/* Badge */}
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20">
@@ -56,17 +56,17 @@ export function FaqContactCard() {
                   <circle cx="12" cy="12" r="1" fill="currentColor"/>
                   <circle cx="15" cy="12" r="1" fill="currentColor"/>
                 </svg>
-                <span className="text-xs font-bold text-primary">We&apos;re here to help</span>
+                <span className="text-[10px] xs:text-xs font-bold text-primary whitespace-nowrap">We're here to help</span>
               </div>
 
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 sm:gap-1.5">
                 {/* Heading */}
                 <h3 className="text-sm xs:text-base sm:text-lg font-extrabold text-foreground tracking-tight leading-tight font-satoshi">
-                  Can&apos;t find your answer?
+                  Can't find your answer?
                 </h3>
 
                 {/* Subtitle */}
-                <p className="text-xs text-muted-foreground leading-relaxed pr-1 sm:pr-2">
+                <p className="text-[11px] xs:text-xs text-muted-foreground leading-snug pr-0 sm:pr-2">
                   Talk to our team and get a clear answer for your requirement.
                 </p>
               </div>
@@ -75,7 +75,7 @@ export function FaqContactCard() {
             <Button
               type="button"
               onClick={() => openLead({ description: "FAQ - Technical Consultation" })}
-              className="mt-0.5 sm:mt-1 px-4.5 py-1.5 sm:px-6 sm:py-2.5 text-xs sm:text-sm shrink-0"
+              className="mt-1 sm:mt-1 px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm shrink-0 w-auto"
             >
               <span>Talk to our team</span>
               <AnimatedArrowRight size={13} className="ml-0.5" />
@@ -83,7 +83,7 @@ export function FaqContactCard() {
           </div>
 
           {/* Right: 3D Character Sitting with Laptop */}
-          <div className="absolute -right-2 sm:-right-6 lg:-right-4 -top-8 sm:-top-10 lg:-top-10 w-32 xs:w-36 sm:w-[13.5rem] lg:w-[45%] pointer-events-none select-none z-10">
+          <div className="absolute -right-2 sm:-right-6 lg:-right-4 -top-8 sm:-top-10 lg:-top-10 w-32 xs:w-[9rem] sm:w-[13.5rem] lg:w-[45%] pointer-events-none select-none z-10">
             {/* 3 accent lines radiating from hair */}
             <div className="absolute -top-1 sm:-top-2 right-4 flex gap-1.5 rotate-[35deg]">
               <div className="w-0.5 h-2.5 sm:h-3 bg-primary rounded-full" />
@@ -104,22 +104,22 @@ export function FaqContactCard() {
         </div>
 
         {/* Bottom: Stats Panel (Full-width rounded card with dividers) */}
-        <div className="relative z-20 mt-4 sm:mt-4 bg-muted/40 backdrop-blur-sm rounded-xl p-2.5 border border-border shadow-2xs grid grid-cols-3 divide-x divide-border text-center sm:text-left">
-          <div className="px-2">
-            <div className="text-xs sm:text-sm font-extrabold text-primary">100%</div>
-            <div className="text-[10px] sm:text-xs font-medium text-muted-foreground mt-0.5">
+        <div className="relative z-20 mt-4 sm:mt-4 bg-muted/40 backdrop-blur-sm rounded-xl p-2 sm:p-2.5 border border-border shadow-2xs grid grid-cols-3 divide-x divide-border text-center sm:text-left">
+          <div className="px-1.5 sm:px-2 flex flex-col justify-center">
+            <div className="text-xs sm:text-sm font-extrabold text-primary leading-none mb-0.5">100%</div>
+            <div className="text-[9px] xs:text-[10px] sm:text-xs font-medium text-muted-foreground leading-tight">
               Honest Answers
             </div>
           </div>
-          <div className="px-2">
-            <div className="text-xs sm:text-sm font-extrabold text-primary">Usually</div>
-            <div className="text-[10px] sm:text-xs font-medium text-muted-foreground mt-0.5">
+          <div className="px-1.5 sm:px-2 flex flex-col justify-center">
+            <div className="text-xs sm:text-sm font-extrabold text-primary leading-none mb-0.5">Usually</div>
+            <div className="text-[9px] xs:text-[10px] sm:text-xs font-medium text-muted-foreground leading-tight">
               &lt; 24h Reply
             </div>
           </div>
-          <div className="px-2">
-            <div className="text-xs sm:text-sm font-extrabold text-primary">Zero</div>
-            <div className="text-[10px] sm:text-xs font-medium text-muted-foreground mt-0.5">
+          <div className="px-1.5 sm:px-2 flex flex-col justify-center">
+            <div className="text-xs sm:text-sm font-extrabold text-primary leading-none mb-0.5">Zero</div>
+            <div className="text-[9px] xs:text-[10px] sm:text-xs font-medium text-muted-foreground leading-tight">
               Sales Pressure
             </div>
           </div>

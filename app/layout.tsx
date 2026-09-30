@@ -6,6 +6,7 @@ import { SiteNavbar } from "@/components/layout/site-navbar";
 import { LeadProvider } from "@/components/leads/lead-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { CommandPalette } from "@/components/ui/command-palette";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 import { SITE } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -158,7 +159,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {children}
               </main>
 
-              <FloatingCallButton />
+              <div className="fixed bottom-[96px] sm:bottom-8 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
+                <FloatingCallButton />
+                <ScrollToTop />
+              </div>
               <MobileBottomNav />
               <SiteFooter />
             </MobileMenuProvider>
