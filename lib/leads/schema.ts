@@ -18,6 +18,7 @@ const LEAD_SOURCES = [
   "cta",
   "cta-schedule",
   "navbar",
+  "mobile-nav",
   "footer",
   "what-we-build",
   "services-configurator",
