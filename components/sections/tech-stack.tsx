@@ -2,6 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { staggerContainer } from "@/lib/motion";
 import { TECH_STACK, type Category } from "@/lib/data/tech-stack";
 import { SectionHeader } from "@/components/ui/section-header";
 import { TechCard } from "./tech-stack-card";
@@ -10,6 +11,7 @@ import { TechCategoryTabs } from "./tech-stack/tech-category-tabs";
 import { TechValueStrip } from "./tech-stack/tech-value-strip";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
+import { fadeUp, viewportReveal } from "@/lib/motion";
 
 export function TechStack() {
   const [activeCategory, setActiveCategory] = useState<Category>("Frontend & Web");
@@ -38,7 +40,7 @@ export function TechStack() {
 
       <Container ref={containerRef} className="relative z-10 flex flex-col gap-6 sm:gap-10 lg:gap-12">
         {/* ── Top Header with Floating Performance Pill ──────────────────────── */}
-        <div className="relative text-center">
+        <motion.div variants={fadeUp} {...viewportReveal} className="relative text-center">
           <TechPerformancePill />
 
           <SectionHeader
@@ -53,16 +55,18 @@ export function TechStack() {
               </>
             }
           />
-        </div>
+        </motion.div>
 
         {/* ── Categories + Cards wrapper ────────────────────────────────────── */}
         <div className="flex flex-col gap-8 sm:gap-12">
           {/* ── Category Pill Tabs with "Tools we love" Handwritten Annotation ──── */}
-          <TechCategoryTabs
+          <motion.div variants={fadeUp} {...viewportReveal}>
+            <TechCategoryTabs
             activeCategory={activeCategory}
             onSelectCategory={setActiveCategory}
             categoryCounts={categoryCounts}
           />
+          </motion.div>
 
           {/* ── Tech Cards Grid ─────────────────────────────────────────────────── */}
           <div
@@ -73,10 +77,11 @@ export function TechStack() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeCategory}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
+                variants={staggerContainer(0.08, 0)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+                exit="hidden"
                 className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 ${
                   filtered.length <= 5
                     ? "lg:grid-cols-5"

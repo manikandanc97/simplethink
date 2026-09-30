@@ -86,7 +86,12 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
         className="relative w-full h-full flex items-center justify-center z-10"
       >
         {/* ── LEFT FLOATING WORKFLOW CARD (Behind desk/character) ── */}
-        <div className="parallax-ui-left absolute top-[2%] sm:top-[6%] left-0 xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto">
+        <motion.div 
+          initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="parallax-ui-left absolute top-[2%] sm:top-[6%] left-0 xs:left-0 sm:left-2 md:left-6 lg:left-12 xl:left-16 z-0 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-left pointer-events-none sm:pointer-events-auto"
+        >
           <motion.div
             animate={{ y: [3, -3, 3] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
@@ -187,10 +192,15 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
               </svg>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* ── CENTRAL 3D CHARACTER ── */}
-        <div className="parallax-char relative z-10 w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px] h-[210px] xs:h-[240px] sm:h-[340px] md:h-[420px] lg:h-[500px] flex items-center justify-center pointer-events-none">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.85, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="parallax-char relative z-10 w-full max-w-[210px] xs:max-w-[240px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px] h-[210px] xs:h-[240px] sm:h-[340px] md:h-[420px] lg:h-[500px] flex items-center justify-center pointer-events-none"
+        >
           <motion.div
             animate={{ y: [-3, 3, -3] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -209,7 +219,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
             />
           </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* ── RIGHT FLOATING FEATURE BADGES ── */}
         <div className="parallax-ui-right absolute top-[8%] sm:top-[16%] right-0 sm:right-0 md:right-2 lg:-right-2 xl:-right-6 z-20 scale-[0.48] xs:scale-[0.56] sm:scale-75 md:scale-90 lg:scale-100 origin-right pointer-events-none sm:pointer-events-auto">
@@ -219,6 +229,11 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
           >
             {/* Card 1: Modern Design */}
             <motion.div
+              initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            >
+              <motion.div
               animate={{ y: [2, -2, 2] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
               className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
@@ -233,10 +248,16 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                 </svg>
               </div>
               <span className="text-sm font-bold text-foreground tracking-tight">Modern Design</span>
+              </motion.div>
             </motion.div>
 
             {/* Card 2: Clean Code */}
             <motion.div
+              initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            >
+              <motion.div
               animate={{ y: [3, -3, 3] }}
               transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
@@ -247,10 +268,16 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                 </svg>
               </div>
               <span className="text-sm font-bold text-foreground tracking-tight">Clean Code</span>
+              </motion.div>
             </motion.div>
 
             {/* Card 3: Scalable Solutions */}
             <motion.div
+              initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+            >
+              <motion.div
               animate={{ y: [2, -2, 2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
               className="bg-white/90 backdrop-blur-md border border-[rgba(30,24,30,0.08)] shadow-card rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2.5 sm:gap-3 min-w-40 sm:min-w-44"
@@ -262,10 +289,14 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
                 </svg>
               </div>
               <span className="text-sm font-bold text-foreground tracking-tight">Scalable Solutions</span>
+              </motion.div>
             </motion.div>
 
             {/* Handwritten Annotation: Ideas into Impact */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
               className="flex flex-col items-center self-end mr-2 text-primary pointer-events-none mt-0.5"
               style={{ transform: "translateZ(15px)" }}
             >
@@ -296,7 +327,7 @@ export function Hero3DCoder({ className }: Hero3DCoderProps) {
               <span className="font-handwriting text-lg sm:text-xl font-bold text-[#4A3E4E] -rotate-3 leading-none text-center whitespace-nowrap">
                 Ideas<br />into Impact
               </span>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.div>

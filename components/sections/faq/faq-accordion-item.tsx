@@ -5,6 +5,8 @@ import { type FAQItem } from "@/types/faq";
 import { ChevronDownIcon } from "@animateicons/react/lucide/chevron-down-icon";
 import { AnimatePresence, motion } from "motion/react";
 
+import { fadeUp } from "@/lib/motion";
+
 interface FaqAccordionItemProps {
   faq: FAQItem;
   isOpen: boolean;
@@ -19,7 +21,8 @@ export function FaqAccordionItem({
   const Icon = faq.icon;
 
   return (
-    <div
+    <motion.div
+      variants={fadeUp}
       className={`faq-item group rounded-2xl transition-all duration-200 overflow-hidden font-satoshi ${
         isOpen
           ? "bg-card border border-primary/40 shadow-elevated"
@@ -110,6 +113,6 @@ export function FaqAccordionItem({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

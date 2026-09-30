@@ -25,9 +25,9 @@ export function PhilosophyProcessSteps({ inView }: PhilosophyProcessStepsProps) 
           return (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, x: -16 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.15 + idx * 0.08 }}
+              initial={{ opacity: 0, x: -24, filter: "blur(8px)" }}
+              animate={inView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 + idx * 0.08 }}
               className={`relative rounded-[22px] p-2.5 sm:p-4 pr-4 flex items-center gap-4 bg-white border transition-all duration-300 ${
                 step.active
                   ? "border-rose-100/80 shadow-elevated"

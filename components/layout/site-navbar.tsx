@@ -2,7 +2,7 @@
 
 import { NAV_ITEMS } from "@/config/nav";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,16 +21,16 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { scrollY } = useScroll();
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    setScrolled(window.scrollY > 20);
   }, []);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 20);
+  });
 
   const handleStart = () => {
     if (onStartProject) onStartProject();

@@ -27,7 +27,7 @@ const MOCKUPS: Record<string, React.ElementType> = {
   automation: AutomationMockup,
 };
 
-const EASE = [0.25, 0.46, 0.45, 0.94] as [number, number, number, number];
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 function FadeUp({
   delay = 0,
@@ -41,10 +41,10 @@ function FadeUp({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      transition={{ delay, duration: 0.36, ease: EASE }}
+      initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+      transition={{ delay, duration: 0.6, ease: EASE }}
     >
       {children}
     </motion.div>

@@ -2,6 +2,7 @@
 
 import { CldImage } from "next-cloudinary";
 import { motion } from "motion/react";
+import { staggerContainer, fadeUp } from "@/lib/motion";
 import {
   Grid,
   Zap,
@@ -33,31 +34,31 @@ export function ServicesHero() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8 items-center">
         {/* ── Left Column: Headline, CTAs, Highlights ── */}
-        <div className="lg:col-span-7 flex flex-col gap-8 sm:gap-12 items-start text-left z-10">
+        <motion.div variants={staggerContainer(0.1, 0.1)} initial="hidden" animate="visible" className="lg:col-span-7 flex flex-col gap-8 sm:gap-12 items-start text-left z-10">
           <div className="flex flex-col gap-4 sm:gap-6">
             <div className="flex flex-col gap-2 sm:gap-2.5">
               {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
+              <motion.nav variants={fadeUp} className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground font-medium font-satoshi">
                 <a href="/" className="hover:text-foreground transition-colors">Home</a>
                 <span className="text-[var(--border)]">/</span>
                 <span className="text-primary font-semibold">Services</span>
-              </nav>
+              </motion.nav>
 
               {/* Main Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi max-w-2xl">
+              <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-tight font-satoshi max-w-2xl">
                 Digital services for <span className="text-primary">your business.</span>
-              </h1>
+              </motion.h1>
             </div>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed font-normal">
+            <motion.p variants={fadeUp} className="text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed font-normal">
               From websites and mobile products to AI-powered systems, we design
               and build the exact digital capabilities your business needs.
-            </p>
+            </motion.p>
           </div>
 
           {/* 3 Core Value Props in a Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-surface-elevated/80 w-full">
+          <motion.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 pt-2.5 border-t border-surface-elevated/80 w-full">
             {/* Value Prop 1 */}
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-2xl bg-rose-50 flex items-center justify-center shrink-0 border border-rose-100/80">
@@ -102,8 +103,8 @@ export function ServicesHero() {
                 </span>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* ── Right Column: 3D Illustration, Gradient Fade Desk & Rich Floating Elements ── */}
         <div className="lg:col-span-5 relative flex justify-center items-center select-none pt-8 sm:pt-12 lg:pt-0">

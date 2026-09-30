@@ -74,10 +74,16 @@ export function SelectedWork() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeFilter}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+                  }
+                }}
                 className="flex flex-col gap-4"
               >
                 {displayProjects.map((project) => (

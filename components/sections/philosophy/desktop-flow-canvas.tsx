@@ -96,9 +96,9 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
       <div className="relative z-10 flex items-start justify-between w-full px-1">
         {/* Top-Left: Direct access */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.25 }}
+          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
@@ -123,9 +123,9 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
 
         {/* Top-Right: Weekly progress */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.3 }}
+          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
@@ -151,9 +151,9 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
 
       {/* ── CENTER MEDALLION: EXACT BRAND LOGO ── */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={inView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.55, delay: 0.38, type: "spring", stiffness: 220 }}
+        initial={{ opacity: 0, scale: 0.7, filter: "blur(8px)" }}
+        animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.38 }}
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none flex flex-col items-center justify-center"
       >
         <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-white shadow-elevated border border-rose-50 flex flex-col items-center justify-center p-3 sm:p-4">
@@ -171,9 +171,9 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
       <div className="relative z-10 flex items-end justify-between w-full px-1 pt-20 sm:pt-24">
         {/* Bottom-Left: Production quality */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.35 }}
+          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
           className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-rose-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">
@@ -198,9 +198,9 @@ export function DesktopFlowCanvas({ inView }: DesktopFlowCanvasProps) {
 
         {/* Bottom-Right: Clear ownership */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.4 }}
+          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           className="relative bg-white rounded-2xl border border-neutral-100 shadow-card p-4 sm:p-5 hover:shadow-lg hover:border-purple-100 transition-all duration-300 w-52 sm:w-60"
         >
           <div className="absolute -top-3.5 right-6 z-20">

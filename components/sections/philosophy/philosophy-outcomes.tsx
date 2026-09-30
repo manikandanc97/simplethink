@@ -54,9 +54,9 @@ export function PhilosophyOutcomes({ inView }: PhilosophyOutcomesProps) {
 
       {/* Outcomes Card Container */}
       <motion.div
-        initial={{ opacity: 0, x: 16 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        initial={{ opacity: 0, x: 24, filter: "blur(8px)" }}
+        animate={inView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
         className="rounded-3xl bg-white border border-neutral-100 shadow-card p-6 flex flex-col gap-6 relative z-20"
       >
         {/* Header */}
@@ -78,9 +78,9 @@ export function PhilosophyOutcomes({ inView }: PhilosophyOutcomesProps) {
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.28 + i * 0.08 }}
+                initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+                animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.28 + i * 0.08 }}
                 className="bg-white rounded-2xl border border-neutral-100/80 shadow-card p-2.5 flex items-center justify-between gap-2 hover:shadow-md hover:border-rose-100 transition-all duration-300 group cursor-default"
               >
                 <div className="flex items-center gap-4 min-w-0">

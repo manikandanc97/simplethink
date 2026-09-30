@@ -8,9 +8,9 @@ import { MobileFlowGrid } from "./mobile-flow-grid";
 export function FlowDiagram({ inView }: { inView: boolean }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      initial={{ opacity: 0, scale: 0.98, filter: "blur(8px)" }}
+      animate={inView ? { opacity: 1, scale: 1, filter: "blur(0px)" } : {}}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       className="relative rounded-2xl bg-white border border-neutral-100 shadow-card p-4 xs:p-6 sm:p-8 flex flex-col justify-between gap-5 sm:gap-6 min-h-0 md:min-h-[460px] overflow-visible z-10"
     >
       {/* Top Bar inside Center Card */}

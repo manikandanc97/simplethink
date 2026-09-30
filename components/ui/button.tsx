@@ -1,15 +1,17 @@
+"use client";
+
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const buttonVariants = cva(
-  "group/button font-satoshi inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding text-sm font-bold tracking-tight whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px active:scale-95 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-out hover:[&_svg]:scale-110 active:[&_svg]:scale-90",
+  "group/button font-satoshi inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding text-sm font-bold tracking-tight whitespace-nowrap outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 cursor-pointer [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-out hover:[&_svg]:scale-110 active:[&_svg]:scale-90",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-hover shadow-elevated hover:shadow-elevated hover:-translate-y-0.5",
+        default: "bg-primary text-primary-foreground hover:bg-primary-hover shadow-elevated hover:shadow-elevated",
         outline:
-          "bg-white text-foreground border border-black/10 hover:border-black/25 hover:bg-neutral-50 shadow-xs hover:-translate-y-0.5",
+          "bg-white text-foreground border border-black/10 hover:border-black/25 hover:bg-neutral-50 shadow-xs",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
@@ -38,6 +40,11 @@ const buttonVariants = cva(
   }
 )
 
+import { motion } from "motion/react";
+import { hoverLift, tapScale } from "@/lib/motion";
+
+const MotionButton = motion.create(ButtonPrimitive);
+
 function Button({
   className,
   variant = "default",
@@ -45,10 +52,12 @@ function Button({
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
-    <ButtonPrimitive
+    <MotionButton
       data-slot="button"
+      whileHover={hoverLift}
+      whileTap={tapScale}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
+      {...props as any}
     />
   )
 }

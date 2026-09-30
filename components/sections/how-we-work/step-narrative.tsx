@@ -4,6 +4,16 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatedArrowRight } from "@/components/ui/animated-icons/convenience-icons";
 import { STEPS } from "@/lib/data/how-we-work";
+import { motion, Variants } from "motion/react";
+import { fadeUp } from "@/lib/motion";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
+};
 
 interface StepNarrativeProps {
   currentStep: (typeof STEPS)[number];
@@ -19,30 +29,35 @@ export function StepNarrative({
   onNextStep,
 }: StepNarrativeProps) {
   return (
-    <div className="hww-narrative lg:col-span-6 flex flex-col gap-4 sm:gap-6 z-10">
+    <motion.div 
+      variants={containerVariants} 
+      initial="hidden" 
+      animate="visible" 
+      className="hww-narrative lg:col-span-6 flex flex-col gap-4 sm:gap-6 z-10"
+    >
       <div className="flex flex-col gap-2 sm:gap-4">
         {/* Step Kicker */}
-        <div className="flex items-center gap-2">
+        <motion.div variants={fadeUp} className="flex items-center gap-2">
           <span className="inline-block px-4 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-xs sm:text-xs font-black tracking-widest text-primary uppercase">
             {currentStep.stepKicker}
           </span>
           <span className="hidden sm:inline-block text-xs font-mono text-neutral-400">
             {activeStepIndex + 1} / {totalSteps}
           </span>
-        </div>
+        </motion.div>
 
         {/* Big Headline */}
-        <h3 className="font-satoshi font-black text-2xl xs:text-3xl sm:text-3xl lg:text-3xl xl:text-4xl text-neutral-900 tracking-tight leading-[1.15]">
+        <motion.h3 variants={fadeUp} className="font-satoshi font-black text-2xl xs:text-3xl sm:text-3xl lg:text-3xl xl:text-4xl text-neutral-900 tracking-tight leading-[1.15]">
           {currentStep.headlineFirst}{" "}
           <span className="bg-gradient-to-r from-purple-600 via-rose-600 to-pink-600 bg-clip-text text-transparent">
             {currentStep.headlineAccent}
           </span>
-        </h3>
+        </motion.h3>
 
         {/* Description Paragraph */}
-        <p className="text-neutral-500 text-xs sm:text-sm lg:text-sm font-normal leading-relaxed max-w-lg">
+        <motion.p variants={fadeUp} className="text-neutral-500 text-xs sm:text-sm lg:text-sm font-normal leading-relaxed max-w-lg">
           {currentStep.summary}
-        </p>
+        </motion.p>
       </div>
 
       {/* 2x2 Feature Cards Grid */}
@@ -50,7 +65,8 @@ export function StepNarrative({
         {currentStep.features.map((feature, idx) => {
           const FeatIcon = feature.icon;
           return (
-            <div
+            <motion.div
+              variants={fadeUp}
               key={idx}
               className="bg-neutral-50/70 rounded-2xl border border-neutral-200/70 p-2 sm:p-2.5 hover:bg-white hover:shadow-card hover:border-purple-200/80 transition-all flex items-start gap-2 group"
             >
@@ -71,13 +87,13 @@ export function StepNarrative({
                   {feature.desc}
                 </span>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
 
       {/* Bottom Action Row: Primary Next Step Button */}
-      <div className="flex items-center gap-4 sm:gap-4 flex-wrap pt-1">
+      <motion.div variants={fadeUp} className="flex items-center gap-4 sm:gap-4 flex-wrap pt-1">
         <button
           type="button"
           onClick={onNextStep}
@@ -97,7 +113,7 @@ export function StepNarrative({
             <ChevronDown className="w-3.5 h-3.5 text-rose-500 animate-bounce" />
           </span>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

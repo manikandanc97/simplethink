@@ -1,16 +1,23 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import React from "react";
+import { motion, HTMLMotionProps } from "motion/react";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionProps extends HTMLMotionProps<"section"> {
   children: React.ReactNode;
   padding?: "standard" | "tight" | "none";
 }
 
+import { fadeUp, viewportReveal } from "@/lib/motion";
+
 export const Section = React.forwardRef<HTMLElement, SectionProps>(
   ({ children, className, padding = "standard", ...props }, ref) => {
     return (
-      <section
+      <motion.section
         ref={ref}
+        {...viewportReveal}
+        variants={fadeUp}
         className={cn(
           "relative w-full",
           {
@@ -23,7 +30,7 @@ export const Section = React.forwardRef<HTMLElement, SectionProps>(
         {...props}
       >
         {children}
-      </section>
+      </motion.section>
     );
   }
 );

@@ -8,6 +8,8 @@ import { WhatWeBuildCard } from "./what-we-build/what-we-build-card";
 import { WhatWeBuildNav } from "./what-we-build/what-we-build-nav";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
+import { motion } from "motion/react";
+import { fadeUp, scaleIn, viewportReveal } from "@/lib/motion";
 
 export function WhatWeBuild() {
   const { openLead } = useLead();
@@ -40,15 +42,17 @@ export function WhatWeBuild() {
       className="overflow-hidden"
     >
       <Container className="relative z-10 flex flex-col gap-6 sm:gap-8">
-        <SectionHeader
+        <motion.div variants={fadeUp} {...viewportReveal}>
+          <SectionHeader
           eyebrow="WHAT WE BUILD"
           centered
           title="From Ideas to"
           highlightedText="Impact."
           description="We engineer custom software, scalable web applications, and mobile platforms — with enterprise-grade reliability and zero unnecessary overhead."
         />
+        </motion.div>
 
-        <div ref={parallaxWrapperRef} className="w-full">
+        <motion.div variants={scaleIn} {...viewportReveal} ref={parallaxWrapperRef} className="w-full">
           <div ref={containerRef} className="wwb-outer-card relative w-full py-2 perspective-[1400px] overflow-hidden sm:overflow-visible">
             <div className="flex items-center justify-center min-h-[520px] xs:min-h-[500px] sm:min-h-[460px] md:min-h-[420px] lg:min-h-[380px] xl:min-h-[380px] relative w-full">
               {displayServices.map((service, index) => (
@@ -66,7 +70,7 @@ export function WhatWeBuild() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <WhatWeBuildNav
           services={displayServices}

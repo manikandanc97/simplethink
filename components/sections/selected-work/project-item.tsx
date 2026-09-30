@@ -4,6 +4,7 @@ import { type Project } from "@/types/project";
 import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "@animateicons/react/lucide/chevron-right-icon";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
+import { motion } from "motion/react";
 import { getProjectBadge } from "./project-badge";
 import { BrowserMockup } from "./browser-mockup";
 
@@ -21,10 +22,15 @@ export function SelectedWorkProjectItem({
   const badge = getProjectBadge(project);
 
   return (
-    <div
+    <motion.div
       onClick={onSelect}
+      variants={{
+        hidden: { opacity: 0, y: 16, filter: "blur(8px)" },
+        visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+      }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className={cn(
-        "sw-project-item group p-4 sm:p-4.5 rounded-2xl flex flex-col gap-4 sm:gap-4 cursor-pointer transition-all duration-300 border relative w-full",
+        "sw-project-item group p-4 sm:p-4.5 rounded-2xl flex flex-col gap-4 sm:gap-4 cursor-pointer transition-colors border relative w-full",
         isActive
           ? "bg-card border-primary/20 shadow-elevated ring-1 ring-primary/20 translate-x-0 lg:translate-x-3 z-10"
           : "bg-transparent border-transparent hover:bg-card/40 hover:border-border hover:translate-x-0 lg:hover:translate-x-1"
@@ -116,6 +122,6 @@ export function SelectedWorkProjectItem({
           <BrowserMockup activeProject={project} />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

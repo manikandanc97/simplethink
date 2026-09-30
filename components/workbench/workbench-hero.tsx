@@ -11,9 +11,18 @@ import { useRef } from "react";
 import { HERO_CONTENT } from "@/lib/data/hero";
 import { Hero3DCoder } from "./hero-3d-coder";
 import { HeroGridAccents } from "./hero-grid-accents";
+import { AnimatedText } from "@/components/ui/animated-text";
+import { motion, useScroll, useTransform } from "motion/react";
+
 export function WorkbenchHero() {
   const { openLead } = useLead();
   const heroRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  
+  const yText = useTransform(scrollY, [0, 500], [0, 100]);
+  const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
+  const yArt = useTransform(scrollY, [0, 500], [0, 50]);
+  const scaleArt = useTransform(scrollY, [0, 500], [1, 1.05]);
 
   const handleScrollDown = () => {
     const nextSection = document.getElementById("capabilities") || document.getElementById("what-we-build");
@@ -43,7 +52,10 @@ export function WorkbenchHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center w-full">
           
           {/* LEFT: Text Content */}
-          <div className="hero-text-col lg:col-span-5 xl:col-span-6 flex flex-col items-start text-left max-w-xl z-10 gap-6 sm:gap-10">
+          <motion.div 
+            style={{ y: yText, opacity: opacityText }}
+            className="hero-text-col lg:col-span-5 xl:col-span-6 flex flex-col items-start text-left max-w-xl z-10 gap-6 sm:gap-10"
+          >
             <div className="flex flex-col gap-4 sm:gap-6">
 
             {/* Headline */}
@@ -51,13 +63,15 @@ export function WorkbenchHero() {
               className="font-satoshi font-extrabold tracking-tighter text-foreground leading-[1.08] sm:leading-none text-4xl xs:text-5xl sm:text-6xl lg:text-7xl flex flex-col gap-1.5 sm:gap-2"
             >
               <div className="overflow-hidden pb-1 -mb-1">
-                <span className="block hero-line-1 will-change-transform">{HERO_CONTENT.headlineLine1}</span>
+                <span className="block hero-line-1 will-change-transform">
+                  <AnimatedText text={HERO_CONTENT.headlineLine1} el="span" staggerDelay={0.03} />
+                </span>
               </div>
               <div className="overflow-hidden pb-4 -mb-4">
                 <span className="block relative inline-block hero-line-2 will-change-transform">
-                  {HERO_CONTENT.headlineLine2Prefix}
-                  <span className="relative inline-block brand-gradient-text">
-                    {HERO_CONTENT.headlineHighlight}
+                  <AnimatedText text={HERO_CONTENT.headlineLine2Prefix} el="span" staggerDelay={0.03} />
+                  <span className="relative inline-block brand-gradient-text ml-3">
+                    <AnimatedText text={HERO_CONTENT.headlineHighlight} el="span" staggerDelay={0.03} />
                     {/* Hand-drawn style SVG underline stroke */}
                     <svg 
                       className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-primary overflow-visible pointer-events-none" 
@@ -95,7 +109,7 @@ export function WorkbenchHero() {
             <p
               className="hero-desc type-lead text-muted-foreground max-w-lg text-sm sm:text-base lg:text-lg leading-relaxed"
             >
-              {HERO_CONTENT.description}
+              <AnimatedText text={HERO_CONTENT.description} el="span" staggerDelay={0.01} />
             </p>
             </div>
 
@@ -129,14 +143,15 @@ export function WorkbenchHero() {
             </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: 3D Character & Floating UI Cards */}
-          <div
+          <motion.div
+            style={{ y: yArt, scale: scaleArt }}
             className="hero-artwork lg:col-span-7 xl:col-span-6 flex justify-center items-center w-full relative min-h-64 sm:min-h-96"
           >
             <Hero3DCoder />
-          </div>
+          </motion.div>
           
         </div>
       </Container>

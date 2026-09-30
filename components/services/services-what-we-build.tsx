@@ -4,6 +4,7 @@ import { type ServiceData } from "@/lib/data/services";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Layout, Users, Sliders, Database } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { staggerContainer, fadeUp, hoverLift } from "@/lib/motion";
 interface ServicesWhatWeBuildProps {
   service: ServiceData;
 }
@@ -24,16 +25,18 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={service.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
+          variants={staggerContainer(0.08, 0)}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
         >
           {service.whatWeBuild.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="group p-4 sm:p-6 rounded-2xl bg-white border border-surface-elevated hover:border-primary/30 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 flex flex-col gap-3 sm:gap-4 items-start text-left"
+              variants={fadeUp}
+              whileHover={hoverLift}
+              className="group p-4 sm:p-6 rounded-2xl bg-white border border-surface-elevated hover:border-primary/30 shadow-card hover:shadow-elevated transition-colors duration-300 flex flex-col gap-3 sm:gap-4 items-start text-left"
             >
               {/* Icon Container with soft pastel tint */}
               <div
@@ -58,7 +61,7 @@ export function ServicesWhatWeBuild({ service }: ServicesWhatWeBuildProps) {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>

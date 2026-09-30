@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -31,13 +33,17 @@ interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {}
 
+import { motion } from "motion/react";
+import { hoverLift } from "@/lib/motion";
+
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, padding, ...props }, ref) => {
     return (
-      <div
+      <motion.div
         ref={ref}
+        whileHover={variant === "interactive" ? hoverLift : undefined}
         className={cn(cardVariants({ variant, padding }), className)}
-        {...props}
+        {...props as any}
       />
     );
   }

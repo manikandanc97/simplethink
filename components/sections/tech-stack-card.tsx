@@ -5,17 +5,15 @@ import { type TechItem } from "@/types/tech";
 import { motion } from "motion/react";
 import { CldImage } from "next-cloudinary";
 
-const SPRING = { type: "spring" as const, stiffness: 340, damping: 28 };
+import { fadeUp, hoverLift } from "@/lib/motion";
 
 export function TechCard({ tech, index }: { tech: TechItem; index: number }) {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 16, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -12, scale: 0.94 }}
-      transition={{ ...SPRING, delay: Math.min(index * 0.03, 0.25) }}
-      className="group relative flex flex-col items-center text-center gap-4 p-4 sm:p-6 rounded-2xl border border-border bg-card/95 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 overflow-hidden h-full"
+      variants={fadeUp}
+      whileHover={hoverLift}
+      className="group relative flex flex-col items-center text-center gap-4 p-4 sm:p-6 rounded-2xl border border-border bg-card/95 shadow-card hover:shadow-elevated transition-colors duration-300 overflow-hidden h-full"
     >
       {/* Official Brand Logo Squircle Container */}
       <div className="relative w-15 h-15 rounded-2xl bg-muted/40 border border-border/60 flex items-center justify-center p-4 shadow-sm group-hover:scale-105 transition-transform duration-300">

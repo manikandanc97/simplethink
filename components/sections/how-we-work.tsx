@@ -11,6 +11,7 @@ import { StepNarrative } from "./how-we-work/step-narrative";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 export function HowWeWork() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -24,7 +25,7 @@ export function HowWeWork() {
   const scrollToStep = useCallback((targetIndex: number) => {
     const clampedIndex = Math.max(0, Math.min(targetIndex, STEPS.length - 1));
     setActiveStepIndex(clampedIndex);
-    setStepProgress(0.2); // Just to visually indicate progress if they click
+    setStepProgress(0); 
   }, []);
 
   useEffect(() => {
@@ -48,11 +49,7 @@ export function HowWeWork() {
   };
 
   return (
-    <Section
-      id="how-we-work"
-      ref={sectionRef}
-      className="select-none"
-    >
+    <Section id="how-we-work" className="overflow-hidden" ref={sectionRef}>
       {/* Decorative Dotted Grid Accents */}
       <div className="hidden lg:block pointer-events-none absolute top-16 left-8 w-28 h-28 hero-dots hww-dots opacity-40" />
       <div className="hidden lg:block pointer-events-none absolute top-1/2 left-3 w-20 h-28 hero-dots hww-dots opacity-35" />
@@ -71,8 +68,8 @@ export function HowWeWork() {
               maxWidth="max-w-4xl"
               description={
                 <>
-                  A clear 4-step delivery process to turn your ideas into real, scalable digital products.
-                  <br className="hidden sm:inline" /> No confusion. No black boxes. Just results.
+                  <AnimatedText text="A clear 4-step delivery process to turn your ideas into real, scalable digital products." staggerDelay={0.015} />
+                  <br className="hidden sm:inline" /> <AnimatedText text="No confusion. No black boxes. Just results." staggerDelay={0.015} />
                 </>
               }
             />
@@ -125,7 +122,7 @@ export function HowWeWork() {
               </div>
             </div>
 
-      </Container>
+        </Container>
     </Section>
   );
 }

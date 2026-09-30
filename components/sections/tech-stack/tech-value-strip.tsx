@@ -4,13 +4,19 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import { motion } from "motion/react";
+import { fadeUp, staggerContainer, viewportReveal } from "@/lib/motion";
 
 export function TechValueStrip() {
   return (
-    <div className="ts-value-strip max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-4 sm:px-8 lg:px-12 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full">
+    <motion.div 
+      variants={staggerContainer(0.1, 0.2)}
+      {...viewportReveal}
+      className="ts-value-strip max-w-5xl mx-auto bg-white/95 dark:bg-card/90 backdrop-blur-md border border-slate-200/80 dark:border-border/70 rounded-2xl sm:rounded-full py-4 px-4 sm:px-8 lg:px-12 shadow-[0_8px_30px_rgb(0,0,0,0.03)] w-full"
+    >
       <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4.5 sm:gap-6">
         {/* 1. Reliable */}
-        <div className="flex items-center gap-4 min-w-0">
+        <motion.div variants={fadeUp} className="flex items-center gap-4 min-w-0">
           <div className="w-9 h-9 rounded-full bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-900/40 flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5 text-rose-500" />
           </div>
@@ -22,10 +28,10 @@ export function TechValueStrip() {
               Battle-tested in real projects
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2. Performant */}
-        <div className="flex items-center gap-4 min-w-0">
+        <motion.div variants={fadeUp} className="flex items-center gap-4 min-w-0">
           <div className="w-9 h-9 rounded-full bg-purple-50 dark:bg-purple-950/40 border border-purple-100 dark:border-purple-900/40 flex items-center justify-center shrink-0">
             <Zap className="w-5 h-5 text-purple-600 fill-purple-600/20" />
           </div>
@@ -37,10 +43,10 @@ export function TechValueStrip() {
               Optimized for speed
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3. Scalable */}
-        <div className="flex items-center gap-4 min-w-0">
+        <motion.div variants={fadeUp} className="flex items-center gap-4 min-w-0">
           <div className="w-9 h-9 rounded-full bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-center shrink-0">
             <BarChart2 className="w-5 h-5 text-indigo-600" />
           </div>
@@ -52,10 +58,10 @@ export function TechValueStrip() {
               Grows with your business
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* 4. Future-ready */}
-        <div className="flex items-center gap-4 min-w-0">
+        <motion.div variants={fadeUp} className="flex items-center gap-4 min-w-0">
           <div className="w-9 h-9 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900/40 flex items-center justify-center shrink-0">
             <InfinityIcon className="w-5 h-5 text-pink-600" />
           </div>
@@ -67,8 +73,8 @@ export function TechValueStrip() {
               Always evolving with best tools
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

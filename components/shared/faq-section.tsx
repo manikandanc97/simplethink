@@ -7,6 +7,7 @@ import { FaqContactCard } from "@/components/sections/faq/faq-contact-card";
 import { FaqAccordionItem } from "@/components/sections/faq/faq-accordion-item";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
+import { staggerContainer } from "@/lib/motion";
 
 interface SharedFaqSectionProps {
   id?: string;
@@ -95,10 +96,11 @@ export function SharedFaqSection({
             <AnimatePresence mode="wait">
               <motion.div
                 key={faqs[0]?.id || "empty"}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.28, ease: "easeOut" }}
+                variants={staggerContainer(0.08, 0.1)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+                exit="hidden"
                 className="flex flex-col gap-4 sm:gap-4 w-full"
               >
                 {faqs.map((faq) => (

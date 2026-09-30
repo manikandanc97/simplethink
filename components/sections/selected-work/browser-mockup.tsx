@@ -54,10 +54,10 @@ export function BrowserMockup({ activeProject }: { activeProject: Project }) {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.id}
-            initial={{ opacity: 0, scale: 1.01 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.99 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
+            initial={{ opacity: 0, scale: 1.02, filter: "blur(8px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="sw-mockup-content absolute inset-0 w-full h-full bg-white will-change-transform"
           >
             {activeProject.serviceType === "Websites" && activeProject.url ? (
