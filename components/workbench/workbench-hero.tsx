@@ -70,36 +70,57 @@ export function WorkbenchHero() {
               <div className="overflow-hidden pb-4 -mb-4">
                 <span className="block relative inline-block hero-line-2 will-change-transform">
                   <AnimatedText text={HERO_CONTENT.headlineLine2Prefix} el="span" staggerDelay={0.03} delay={0.2} />
-                  <span className="relative inline-block brand-gradient-text ml-3">
-                    <AnimatedText text={HERO_CONTENT.headlineHighlight} el="span" staggerDelay={0.03} delay={0.3} />
-                    {/* Hand-drawn style SVG underline stroke */}
-                    <svg 
-                      className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-primary overflow-visible pointer-events-none" 
-                      viewBox="0 0 240 24" 
-                      fill="none" 
+                  <span className="relative inline-block ml-3">
+                    {/* charClassName applies gradient per-word so background-clip:text works */}
+                    <AnimatedText
+                      text={HERO_CONTENT.headlineHighlight}
+                      el="span"
+                      asTypewriter
+                      delay={0.35}
+                      charClassName="brand-gradient-char"
+                    />
+                    {/* Hand-drawn style SVG underline — draws in after text animates */}
+                    <motion.svg
+                      className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 overflow-visible pointer-events-none"
+                      viewBox="0 0 240 24"
+                      fill="none"
                       preserveAspectRatio="none"
+                      initial="hidden"
+                      animate="visible"
                     >
-                      <path 
-                        d="M4 14 C60 4, 150 6, 230 12" 
-                        stroke="currentColor" 
-                        strokeWidth="4.5" 
-                        strokeLinecap="round" 
+                      <motion.path
+                        d="M4 14 C60 4, 150 6, 230 12"
+                        stroke="#922F55"
+                        strokeWidth="4.5"
+                        strokeLinecap="round"
+                        variants={{
+                          hidden: { pathLength: 0, opacity: 0 },
+                          visible: { pathLength: 1, opacity: 1, transition: { duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] } },
+                        }}
                       />
-                      <path 
-                        d="M40 18 C105 13, 175 14, 215 17" 
-                        stroke="#D23D78" 
-                        strokeWidth="2.5" 
-                        strokeLinecap="round" 
-                        strokeOpacity="0.85" 
+                      <motion.path
+                        d="M40 18 C105 13, 175 14, 215 17"
+                        stroke="#D23D78"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                        variants={{
+                          hidden: { pathLength: 0, opacity: 0 },
+                          visible: { pathLength: 1, opacity: 0.85, transition: { duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] } },
+                        }}
                       />
-                      <path 
-                        d="M224 8 L234 12 L227 18" 
-                        stroke="#6C2BB8" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
+                      <motion.path
+                        d="M224 8 L234 12 L227 18"
+                        stroke="#6C2BB8"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        variants={{
+                          hidden: { pathLength: 0, opacity: 0 },
+                          visible: { pathLength: 1, opacity: 1, transition: { duration: 0.3, delay: 1.4, ease: "easeOut" } },
+                        }}
                       />
-                    </svg>
+                    </motion.svg>
                   </span>
                 </span>
               </div>

@@ -24,7 +24,7 @@ export function ContactView() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* ── LEFT COLUMN: Channels & Stepper ── */}
-          <div className="lg:col-span-5 flex flex-col">
+          <div className="lg:col-span-5 flex flex-col gap-10">
             <ContactChannels />
             <ContactProcess />
           </div>

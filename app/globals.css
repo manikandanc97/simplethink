@@ -376,6 +376,19 @@
   color: transparent;
 }
 
+/**
+ * brand-gradient-char
+ * Applied via AnimatedText charClassName so background-clip:text works
+ * on each individual inline-block word/char span (not via inheritance).
+ */
+.brand-gradient-char {
+  background: linear-gradient(100deg, #6C2BB8 0%, #922F55 48%, #D23D78 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 .font-handwriting {
   font-family: var(--font-caveat), 'Caveat', cursive, sans-serif;
 }

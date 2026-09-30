@@ -124,8 +124,8 @@ export function ContactHero() {
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-3 sm:top-4 left-2 sm:left-4 z-20 flex items-center gap-2 sm:gap-2 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-card/95 backdrop-blur-md border border-border shadow-card"
             >
-              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#25D366] flex items-center justify-center text-white shadow-2xs shrink-0">
-                <WhatsAppIcon className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-50 flex items-center justify-center shadow-2xs shrink-0 border border-emerald-100">
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               </div>
               <div className="text-left">
                 <div className="text-xs font-bold text-foreground leading-tight">

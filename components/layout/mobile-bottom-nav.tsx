@@ -1,6 +1,7 @@
 "use client";
 
 import { useMobileMenu } from "@/components/layout/mobile-menu-context";
+import { useLead } from "@/components/leads/lead-provider";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -20,10 +21,11 @@ const RIGHT_TABS: { label: string; route: string; iconName: AnimatedIconName }[]
 
 export function MobileBottomNav() {
   const pathname = usePathname();
-  const { isOpen, toggleMenu, closeMenu } = useMobileMenu();
+  const { closeMenu } = useMobileMenu(); // Kept closeMenu to close any open menus on navigation
+  const { openLead } = useLead();
 
   const renderTab = (tab: { label: string; route: string; iconName: AnimatedIconName }) => {
-    const isActive = pathname === tab.route && !isOpen;
+    const isActive = pathname === tab.route;
 
     return (
       <Link
@@ -64,7 +66,7 @@ export function MobileBottomNav() {
       className="fixed bottom-[calc(env(safe-area-inset-bottom,0px)+12px)] inset-x-0 z-40 md:hidden pointer-events-none flex justify-center px-4"
     >
       <div
-        className="relative w-full max-w-80 h-12"
+        className="relative w-full h-12"
         style={{
           filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.18))",
         }}
@@ -101,21 +103,14 @@ export function MobileBottomNav() {
         <div className="absolute left-1/2 -translate-x-1/2 -top-3.5 pointer-events-auto">
           <button
             type="button"
-            onClick={toggleMenu}
-            aria-expanded={isOpen}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            onClick={() => openLead({ source: "mobile-nav" })}
+            aria-label="Start a project"
             className={cn(
               "relative flex items-center justify-center w-11 h-11 rounded-full shadow-[0_4px_16px_rgba(var(--primary),0.35)] transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary ring-offset-2 ring-offset-background active:scale-90",
-              isOpen
-                ? "bg-muted text-foreground rotate-90"
-                : "bg-primary text-primary-foreground hover:scale-105"
+              "bg-primary text-primary-foreground hover:scale-105"
             )}
           >
-            {isOpen ? (
-              <AnimatedIcon name="x" size={20} className="text-foreground" />
-            ) : (
-              <AnimatedIcon name="grid" size={20} className="text-primary-foreground" />
-            )}
+            <AnimatedIcon name="pencil" size={20} className="text-primary-foreground" />
           </button>
         </div>
       </div>

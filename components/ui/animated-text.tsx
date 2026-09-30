@@ -11,8 +11,15 @@ interface AnimatedTextProps {
   className?: string;
   once?: boolean;
   staggerDelay?: number;
+  /** Typewriter mode: chars appear one-by-one */
   asTypewriter?: boolean;
   delay?: number;
+  /**
+   * charClassName — applied to each individual word/char span.
+   * Use this for gradient text so background-clip:text works on
+   * each element independently (avoids the parent-clip inheritance issue).
+   */
+  charClassName?: string;
 }
 
 const defaultItemVariants: Variants = {
@@ -27,8 +34,17 @@ const defaultItemVariants: Variants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1], // Premium Apple-style easing
+      ease: [0.16, 1, 0.3, 1],
     },
+  },
+};
+
+const typewriterCharVariants: Variants = {
+  hidden: { opacity: 0, y: 4 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.04, ease: "linear" },
   },
 };
 
@@ -40,22 +56,25 @@ export function AnimatedText({
   staggerDelay = 0.03,
   asTypewriter = false,
   delay = 0,
+  charClassName,
 }: AnimatedTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once, amount: 0 });
+  // initial:true sets the starting state to "in view" so elements already visible
+  // at page load (like the hero section) animate in immediately on mount.
+  const isInView = useInView(ref, { once, amount: 0, initial: true });
 
   const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: asTypewriter ? 0.08 : staggerDelay,
-        delayChildren: delay + (asTypewriter ? 0.3 : 0.1),
+        staggerChildren: asTypewriter ? 0.07 : staggerDelay,
+        delayChildren: delay + (asTypewriter ? 0.2 : 0.05),
       },
     },
   };
 
+  // Non-string (React node) fallback — animate as a single block
   if (typeof text !== "string") {
-    // If it's a node, just animate it as a block with a spring
     return (
       <Wrapper className={cn("inline-block overflow-hidden", className)}>
         <motion.span
@@ -71,6 +90,34 @@ export function AnimatedText({
     );
   }
 
+  // Typewriter mode: char-by-char
+  if (asTypewriter) {
+    return (
+      <Wrapper className={cn("inline-block", className)}>
+        <motion.span
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="inline-block"
+          aria-label={text}
+        >
+          {text.split("").map((char, i) => (
+            <motion.span
+              key={i}
+              variants={typewriterCharVariants}
+              className={cn("inline-block", charClassName)}
+              style={char === " " ? { width: "0.3em" } : undefined}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.span>
+      </Wrapper>
+    );
+  }
+
+  // Default: word-reveal mode
   return (
     <Wrapper className={cn("inline-block", className)}>
       <motion.span
@@ -80,29 +127,17 @@ export function AnimatedText({
         animate={isInView ? "visible" : "hidden"}
         className="inline-block"
       >
-        {asTypewriter ? (
-          text.split("").map((char, charIndex) => (
+        {text.split(" ").map((word, wordIndex) => (
+          <span key={wordIndex} className="inline-block overflow-hidden whitespace-nowrap">
             <motion.span
-              key={charIndex}
-              variants={{
-                hidden: { opacity: 0, display: "none" },
-                visible: { opacity: 1, display: "inline-block", transition: { duration: 0.01 } }
-              }}
-              className="inline-block"
+              variants={defaultItemVariants}
+              className={cn("inline-block", charClassName)}
             >
-              {char === " " ? "\u00A0" : char}
+              {word}
             </motion.span>
-          ))
-        ) : (
-          text.split(" ").map((word, wordIndex) => (
-            <span key={wordIndex} className="inline-block overflow-hidden whitespace-nowrap">
-              <motion.span variants={defaultItemVariants} className="inline-block">
-                {word}
-              </motion.span>
-              <span className="inline-block">&nbsp;</span>
-            </span>
-          ))
-        )}
+            <span className="inline-block select-none">&nbsp;</span>
+          </span>
+        ))}
       </motion.span>
     </Wrapper>
   );
