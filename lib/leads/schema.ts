@@ -35,7 +35,7 @@ export const leadSchema = z.object({
   lastName: z
     .string()
     .trim()
-    .min(2, "Last name must be at least 2 characters")
+    .min(1, "Last name is required")
     .max(50, "Last name must be less than 50 characters"),
   email: z
     .string()

@@ -19,7 +19,7 @@ interface LeadDialogProps {
 export function LeadDialog({ open, onOpenChange, prefill }: LeadDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto p-6 flex flex-col gap-4">
+      <DialogContent className="sm:max-w-xl md:max-w-2xl lg:max-w-3xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden p-6 flex flex-col gap-4">
         <DialogHeader className="text-left flex flex-col gap-2">
           <DialogTitle className="text-2xl font-bold tracking-tight">
             Start a project

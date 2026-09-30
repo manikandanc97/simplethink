@@ -64,14 +64,14 @@ export function WorkbenchHero() {
             >
               <div className="overflow-hidden pb-1 -mb-1">
                 <span className="block hero-line-1 will-change-transform">
-                  <AnimatedText text={HERO_CONTENT.headlineLine1} el="span" staggerDelay={0.03} />
+                  <AnimatedText text={HERO_CONTENT.headlineLine1} el="span" staggerDelay={0.03} delay={0.1} />
                 </span>
               </div>
               <div className="overflow-hidden pb-4 -mb-4">
                 <span className="block relative inline-block hero-line-2 will-change-transform">
-                  <AnimatedText text={HERO_CONTENT.headlineLine2Prefix} el="span" staggerDelay={0.03} />
+                  <AnimatedText text={HERO_CONTENT.headlineLine2Prefix} el="span" staggerDelay={0.03} delay={0.2} />
                   <span className="relative inline-block brand-gradient-text ml-3">
-                    <AnimatedText text={HERO_CONTENT.headlineHighlight} el="span" staggerDelay={0.03} />
+                    <AnimatedText text={HERO_CONTENT.headlineHighlight} el="span" staggerDelay={0.03} delay={0.3} />
                     {/* Hand-drawn style SVG underline stroke */}
                     <svg 
                       className="hero-underline absolute -bottom-2 sm:-bottom-3 left-0 w-full h-3 sm:h-3.5 text-primary overflow-visible pointer-events-none" 
@@ -109,7 +109,7 @@ export function WorkbenchHero() {
             <p
               className="hero-desc type-lead text-muted-foreground max-w-lg text-sm sm:text-base lg:text-lg leading-relaxed"
             >
-              <AnimatedText text={HERO_CONTENT.description} el="span" staggerDelay={0.01} />
+              <AnimatedText text={HERO_CONTENT.description} el="span" staggerDelay={0.01} delay={0.4} />
             </p>
             </div>
 

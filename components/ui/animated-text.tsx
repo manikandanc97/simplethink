@@ -12,6 +12,7 @@ interface AnimatedTextProps {
   once?: boolean;
   staggerDelay?: number;
   asTypewriter?: boolean;
+  delay?: number;
 }
 
 const defaultItemVariants: Variants = {
@@ -38,16 +39,17 @@ export function AnimatedText({
   once = true,
   staggerDelay = 0.03,
   asTypewriter = false,
+  delay = 0,
 }: AnimatedTextProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once, amount: 0.2 });
+  const isInView = useInView(ref, { once, amount: 0 });
 
   const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
         staggerChildren: asTypewriter ? 0.08 : staggerDelay,
-        delayChildren: asTypewriter ? 0.3 : 0.1,
+        delayChildren: delay + (asTypewriter ? 0.3 : 0.1),
       },
     },
   };

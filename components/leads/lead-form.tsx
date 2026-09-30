@@ -1,15 +1,16 @@
 "use client";
 
 import { AnimatedMail, AnimatedMessageSquare, AnimatedSend } from "@/components/ui/animated-icons/convenience-icons";
-import { Button } from "@/components/ui/button";
+import { CelebratoryButton } from "@/components/ui/celebratory-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FormField, FormLabel, FormMessage } from "@/components/ui/form";
 import { submitLead } from "@/lib/leads/actions";
 import { type LeadInput, type LeadState, PROJECT_TYPES } from "@/lib/leads/schema";
 import { SITE } from "@/config/site";
+import { fireCelebratoryConfetti } from "@/lib/confetti";
 import { CheckCircle2, Lock, ShieldCheck, ChevronDown, Check } from "lucide-react";
-import { useActionState, useState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface LeadFormProps {
@@ -28,6 +29,12 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
   );
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [mountTime] = useState(() => Date.now());
+
+  useEffect(() => {
+    if (state.ok) {
+      fireCelebratoryConfetti();
+    }
+  }, [state.ok]);
 
   if (state.ok) {
     onSuccess?.();
@@ -290,20 +297,23 @@ export function LeadForm({ prefill, onSuccess }: LeadFormProps) {
       </FormField>
 
       <div className="pt-2 flex flex-col gap-4">
-        <Button
+        <CelebratoryButton
           type="submit"
-          disabled={isPending}
+          isPending={isPending}
           className="w-full h-11 text-sm font-bold shadow-elevated gap-2"
         >
           {isPending ? (
-            "Sending scoping request..."
+            <span className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground animate-spin" />
+              <span>Sending scoping request...</span>
+            </span>
           ) : (
             <>
               <span>Send Project Scoping Request</span>
               <AnimatedSend size={16} />
             </>
           )}
-        </Button>
+        </CelebratoryButton>
         <p className="text-xs text-muted-foreground text-center font-normal">
           We will review your requirements and provide a structured technical assessment within 24 hours.
         </p>
