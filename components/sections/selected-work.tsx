@@ -9,7 +9,7 @@ import { useRef } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { useSelectedWork } from "@/hooks/use-selected-work";
 import { BrowserMockup } from "./selected-work/browser-mockup";
-import { FilterTabsList, NavButtons } from "./selected-work/filter-tabs";
+import { FilterTabsList } from "./selected-work/filter-tabs";
 import { SelectedWorkProjectItem } from "./selected-work/project-item";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
@@ -138,8 +138,6 @@ export function SelectedWork() {
                   </svg>
                 </div>
 
-                {/* Prev / Next Circular Navigation Buttons */}
-                <NavButtons onPrev={handlePrev} onNext={handleNext} />
               </div>
             </div>
 

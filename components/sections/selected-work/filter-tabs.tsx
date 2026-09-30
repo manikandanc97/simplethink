@@ -38,7 +38,7 @@ export function FilterTabsList({
             {isActiveTab && (
               <motion.div 
                 layoutId={`activeFilterTab-${layoutIdPrefix}`}
-                className="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--chart-2)] rounded-full shadow-md z-0"
+                className="absolute inset-0 bg-primary rounded-full shadow-md z-0"
                 transition={{ type: "spring", stiffness: 350, damping: 28 }}
               />
             )}

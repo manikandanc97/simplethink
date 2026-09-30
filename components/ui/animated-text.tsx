@@ -40,11 +40,12 @@ const defaultItemVariants: Variants = {
 };
 
 const typewriterCharVariants: Variants = {
-  hidden: { opacity: 0, y: 4 },
+  hidden: { opacity: 0, y: 8, filter: "blur(4px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.04, ease: "linear" },
+    filter: "blur(0px)",
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -67,7 +68,7 @@ export function AnimatedText({
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: asTypewriter ? 0.07 : staggerDelay,
+        staggerChildren: asTypewriter ? 0.04 : staggerDelay,
         delayChildren: delay + (asTypewriter ? 0.2 : 0.05),
       },
     },

@@ -137,9 +137,9 @@ export function FloatingCallButton() {
             {!open && (
               <motion.span
                 className="absolute inset-0 rounded-full bg-primary"
-                initial={{ opacity: 0.4, scale: 1 }}
-                animate={{ opacity: 0, scale: 1.6 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: [0, 0.4, 0], scale: [1, 1.3, 1.7] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
               />
             )}
           </AnimatePresence>
