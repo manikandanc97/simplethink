@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { type Project } from "@/types/project";
 import { motion } from "motion/react";
 import { hoverLift, tapScale } from "@/lib/motion";
+import Image from "next/image";
 
 interface WorkProjectCardProps {
   project: Project;
@@ -37,12 +38,14 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
 
       {/* ── Project Brand Logo ── */}
       <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden shrink-0 border border-surface-elevated bg-white shadow-xs flex items-center justify-center p-2.5 transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-sm">
-        <img
-          src={project.logo || "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo"}
+        <Image
+          src={project.logo || "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/logo/logo"}
           alt={`${project.name} Logo`}
+          width={72}
+          height={72}
           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo";
+            (e.currentTarget as HTMLImageElement).srcset = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/logo/logo";
           }}
         />
       </div>
@@ -63,7 +66,7 @@ export function WorkProjectCard({ project, isActive, onClick }: WorkProjectCardP
 
         {/* ── Tech Tag Pills ── */}
         <div className="flex flex-wrap gap-1.5">
-          {project.tags.slice(0, 3).map((tag) => (
+          {project.stack.slice(0, 3).map((tag) => (
             <span
               key={tag}
               className="px-2 py-0.5 rounded-md bg-background text-muted-foreground text-xs sm:text-xs font-medium border border-surface-elevated"

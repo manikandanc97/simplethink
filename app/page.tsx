@@ -8,7 +8,6 @@ import { FAQ } from "@/components/sections/faq";
 import { CTA } from "@/components/sections/cta";
 import { AmbientBackground } from "@/components/ui/ambient-background";
 
-
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 w-full relative">

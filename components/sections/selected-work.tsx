@@ -46,7 +46,7 @@ export function SelectedWork() {
       />
 
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
            
           {/* ── LEFT COLUMN: Heading & Project List ── */}
           <div className="lg:col-span-5 flex flex-col gap-6 min-w-0">
@@ -142,9 +142,9 @@ export function SelectedWork() {
             </div>
 
             {/* ── Browser Window Mockup Frame ── */}
-            <div className="sw-browser">
-              <div className="sw-browser-parallax">
-                <BrowserMockup activeProject={activeProject} />
+            <div className="sw-browser flex-1 relative min-h-[400px]">
+              <div className="sw-browser-parallax absolute inset-0 w-full h-full">
+                {activeProject && <BrowserMockup activeProject={activeProject} />}
               </div>
             </div>
 

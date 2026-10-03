@@ -62,6 +62,7 @@ export function SiteNavbar({ onStartProject }: SiteNavbarProps) {
               alt="Simpluxe Logo"
               width={180}
               height={40}
+              sizes="(max-width: 768px) 180px, 180px"
               className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
               priority
             />

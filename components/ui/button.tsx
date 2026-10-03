@@ -41,7 +41,7 @@ const buttonVariants = cva(
 )
 
 import React from "react";
-import { motion, HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
 import { hoverLift, tapScale, fadeUp, viewport } from "@/lib/motion";
 
 const MotionButton = motion.create(ButtonPrimitive);
@@ -80,7 +80,7 @@ export function StaggeredRollingContent({ children, isDuplicate }: { children: R
     }
     
     if (React.isValidElement(node) && typeof node.type === "string" && node.type !== "svg" && node.type !== "img") {
-      const element = node as React.ReactElement<any>;
+      const element = node as React.ReactElement<unknown>;
       return React.cloneElement(
         element,
         undefined,
@@ -89,7 +89,7 @@ export function StaggeredRollingContent({ children, isDuplicate }: { children: R
     }
 
     if (React.isValidElement(node) && node.type === React.Fragment) {
-       const element = node as React.ReactElement<any>;
+       const element = node as React.ReactElement<unknown>;
        return React.Children.map(element.props.children, renderNode);
     }
 
@@ -129,7 +129,7 @@ function Button({
       viewport={disableScrollAnimation ? undefined : viewport}
       variants={disableScrollAnimation ? undefined : fadeUp}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...(props as any)}
+      {...props}
     >
       {children}
     </MotionButton>

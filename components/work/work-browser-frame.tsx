@@ -7,6 +7,7 @@ import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { AnimatePresence, motion } from "motion/react";
 import { type Project } from "@/types/project";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface WorkBrowserFrameProps {
   project: Project;
@@ -38,6 +39,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Visit ${project.domain || project.name}`}
             className="hidden xs:flex items-center justify-center bg-white border border-border shadow-sm rounded-md w-9 h-7 hover:bg-gray-50 transition-colors"
             title={`Visit ${project.domain || project.name}`}
           >
@@ -121,6 +123,7 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
                   title={project.name}
                   className="w-full h-full border-none pointer-events-auto"
                   sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -144,10 +147,12 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
 
               {/* Main Screenshot Image */}
               {project.image ? (
-                <img
+                <Image
                   src={project.image}
                   alt={`${project.name} Screenshot`}
-                  className="relative z-10 w-full h-full object-cover transition-transform duration-500 ease-out group-hover/viewport:scale-[1.02]"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="relative z-10 object-cover transition-transform duration-500 ease-out group-hover/viewport:scale-[1.02]"
                 />
               ) : (
                 <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center text-white/70">

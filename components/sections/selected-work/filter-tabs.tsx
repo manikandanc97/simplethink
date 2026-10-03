@@ -24,7 +24,7 @@ export function FilterTabsList({
     <div className="flex items-center gap-1 p-1 bg-slate-100/70 backdrop-blur-xl rounded-full border border-slate-200/60 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-max max-w-full shadow-inner">
       {FILTER_TABS.map((tab) => {
         const isActiveTab = activeFilter === tab;
-        const count = PROJECTS.filter((p) => p.kind === "client" && p.serviceType === tab).length;
+        const count = PROJECTS.filter((p) => p.serviceType === tab).length;
 
         return (
           <button 

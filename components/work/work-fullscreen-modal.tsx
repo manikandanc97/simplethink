@@ -7,6 +7,7 @@ import { ExternalLinkIcon } from "@animateicons/react/lucide/external-link-icon"
 import { type Project } from "@/types/project";
 import { Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface WorkFullscreenModalProps {
   isOpen: boolean;
@@ -108,6 +109,7 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
               className="w-full h-full border-none bg-white"
               title={`${project.name} Fullscreen Live Preview`}
               sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+              loading="lazy"
             />
           ) : project.image ? (
             <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-6 overflow-auto">
@@ -116,10 +118,12 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
                 className="absolute inset-0 bg-cover bg-center opacity-20 blur-3xl scale-110 pointer-events-none"
                 style={{ backgroundImage: `url(${project.image})` }}
               />
-              <img
+              <Image
                 src={project.image}
                 alt={`${project.name} High Resolution Preview`}
-                className="relative z-10 max-w-full max-h-full object-contain rounded-xl shadow-2xl border border-white/10"
+                fill
+                sizes="(max-width: 1200px) 100vw, 80vw"
+                className="relative z-10 object-contain rounded-xl shadow-2xl border border-white/10"
               />
             </div>
           ) : (

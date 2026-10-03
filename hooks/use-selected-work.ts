@@ -6,14 +6,9 @@ import { PROJECTS } from "@/lib/data/projects";
 export function useSelectedWork() {
   const [activeFilter, setActiveFilter] = useState<string>("Websites");
 
-  const clientProjects = useMemo(
-    () => PROJECTS.filter((p) => p.kind === "client"),
-    []
-  );
-
   const filteredProjects = useMemo(
-    () => clientProjects.filter((p) => p.serviceType === activeFilter),
-    [clientProjects, activeFilter]
+    () => PROJECTS.filter((p) => p.serviceType === activeFilter),
+    [activeFilter]
   );
 
   const displayProjects = useMemo(

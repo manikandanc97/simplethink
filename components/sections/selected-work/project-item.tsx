@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "@animateicons/react/lucide/chevron-right-icon";
 import { AnimatedIcon } from "@/components/ui/animated-icon";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { getProjectBadge } from "./project-badge";
 import { BrowserMockup } from "./browser-mockup";
 
@@ -25,8 +26,8 @@ export function SelectedWorkProjectItem({
     <motion.div
       onClick={onSelect}
       variants={{
-        hidden: { opacity: 0, y: 16, filter: "blur(8px)" },
-        visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+        hidden: { opacity: 0, y: 16 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
       }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className={cn(
@@ -50,12 +51,14 @@ export function SelectedWorkProjectItem({
 
         {/* Authentic Brand Logo */}
         <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 flex items-center justify-center rounded-xl bg-white border border-slate-200/80 p-1.5 shadow-2xs">
-          <img
+          <Image
             src={project.logo || `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${project.url}&size=128`}
             alt={`${project.name} Logo`}
+            width={48}
+            height={48}
             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/logo/logo";
+              (e.currentTarget as HTMLImageElement).srcset = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/logo/logo";
             }}
           />
         </div>
@@ -118,7 +121,7 @@ export function SelectedWorkProjectItem({
 
       {/* Mobile Mockup (Visible only when active and on mobile) */}
       {isActive && (
-        <div className="block lg:hidden w-full pt-2 pb-1">
+        <div className="block lg:hidden w-full pt-2 pb-1 h-[350px] xs:h-[400px] sm:h-[450px]">
           <BrowserMockup activeProject={project} />
         </div>
       )}

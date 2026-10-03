@@ -97,6 +97,7 @@ export function WorkControls({
           {searchQuery && (
             <button
               onClick={() => onSearchChange("")}
+              aria-label="Clear search"
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             >
               <AnimatedX size={14} />

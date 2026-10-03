@@ -51,18 +51,19 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                   alt="Simpluxe"
                   width={160}
                   height={36}
+                  sizes="(max-width: 768px) 160px, 160px"
                   className="h-8 w-auto object-contain"
                 />
               </Link>
 
-              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground leading-tight tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-foreground leading-tight tracking-tight">
                 Keep It Simple.
                 <br />
                 Make It{" "}
                 <span className="brand-gradient-text">
                   Luxury.
                 </span>
-              </h3>
+              </h2>
 
               <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
                 A premier software development company engineering custom software,
@@ -142,9 +143,9 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
 
           {/* Col 2: Navigation / Explore (2 cols) */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-foreground">
               EXPLORE
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-4.5">
               {NAV_ITEMS.map((item) => {
                 const iconName = FOOTER_DATA.navIcons[item.route] || "sparkles";
@@ -172,9 +173,9 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
 
           {/* Col 3: Capabilities (3 cols) */}
           <div className="lg:col-span-3 flex flex-col gap-6">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-foreground">
               CAPABILITIES
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-4.5 text-sm text-muted-foreground">
               {FOOTER_DATA.capabilities.map((cap) => {
                 const content = (
@@ -237,9 +238,9 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
 
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                  <h4 className="text-xl font-bold text-foreground tracking-tight">
+                  <h3 className="text-xl font-bold text-foreground tracking-tight">
                     Have a project in mind?
-                  </h4>
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Let&apos;s discuss your idea and turn it into a premium digital product.
                   </p>
@@ -292,6 +293,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
             alt="Simpluxe Logo"
             width={1920}
             height={400}
+            sizes="100vw"
             className="w-full max-w-none  h-auto object-contain  opacity-100 dark:opacity-100"
           />
         </div>
