@@ -14,6 +14,7 @@ export function MobileFlowGrid() {
             width={140}
             height={32}
             className="w-[90%] h-auto object-contain drop-shadow-sm select-none"
+            priority
           />
         </div>
       </div>

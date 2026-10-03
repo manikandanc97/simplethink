@@ -53,6 +53,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
                   height={36}
                   sizes="(max-width: 768px) 160px, 160px"
                   className="h-8 w-auto object-contain"
+                  priority
                 />
               </Link>
 
@@ -295,6 +296,7 @@ export function SiteFooter({ onStartProject }: SiteFooterProps) {
             height={400}
             sizes="100vw"
             className="w-full max-w-none  h-auto object-contain  opacity-100 dark:opacity-100"
+            priority
           />
         </div>
       </div>
