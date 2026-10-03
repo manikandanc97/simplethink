@@ -111,15 +111,15 @@ export function WorkFullscreenModal({ isOpen, onClose, project }: WorkFullscreen
               sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
               loading="lazy"
             />
-          ) : project.image ? (
+          ) : (project.desktopImage || project.mobileImage) ? (
             <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-6 overflow-auto">
               {/* Ambient Glow */}
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-20 blur-3xl scale-110 pointer-events-none"
-                style={{ backgroundImage: `url(${project.image})` }}
+                style={{ backgroundImage: `url(${project.desktopImage || project.mobileImage})` }}
               />
               <Image
-                src={project.image}
+                src={(project.desktopImage || project.mobileImage)!}
                 alt={`${project.name} High Resolution Preview`}
                 fill
                 sizes="(max-width: 1200px) 100vw, 80vw"

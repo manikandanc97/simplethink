@@ -50,7 +50,7 @@ function WorkViewContent() {
         (p) =>
           p.name.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q))
+          p.stack.some((t: string) => t.toLowerCase().includes(q))
       );
     }
 

@@ -138,17 +138,17 @@ export function WorkBrowserFrame({ project, onOpenFullscreen }: WorkBrowserFrame
               className="group/viewport absolute inset-0 w-full h-full flex items-center justify-center cursor-pointer select-none bg-[var(--foreground)] overflow-hidden"
             >
               {/* Ambient Glow Backdrop from image */}
-              {project.image && (
+              {(project.desktopImage || project.mobileImage) && (
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 pointer-events-none"
-                  style={{ backgroundImage: `url(${project.image})` }}
+                  style={{ backgroundImage: `url(${project.desktopImage || project.mobileImage})` }}
                 />
               )}
 
               {/* Main Screenshot Image */}
-              {project.image ? (
+              {(project.desktopImage || project.mobileImage) ? (
                 <Image
-                  src={project.image}
+                  src={(project.desktopImage || project.mobileImage)!}
                   alt={`${project.name} Screenshot`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

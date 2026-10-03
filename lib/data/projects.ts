@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     mobileImage: `${IMAGE_BASE_URL}website/valparai-mobile_gjwd7r.jpg`,
     logo: `${LOGO_BASE_URL}/valparai_rwsldt.png`,
     result: "+ 3600% Month 1 Bookings",
-    stack: ["Next.js", "Tailwind CSS", "motion/react"],
+    stack: ["Next.js", "Tailwind CSS", "Typescript"],
   },
   {
     ...baseProject,
@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     mobileImage: `${IMAGE_BASE_URL}/website/grn-mobile_tmmhdr.jpg`,
     logo: `${LOGO_BASE_URL}/grn_caw9tl.jpg`,
     result: "#1 Google SEO Ranking",
-    stack: ["Next.js", "Tailwind CSS", "CMS"],
+    stack: ["Next.js", "Tailwind CSS", "Typescript"],
   },
   {
     ...baseProject,
@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     mobileImage: `${IMAGE_BASE_URL}/website/viha-mobile_ubkrpm.jpg`,
     logo: `${LOGO_BASE_URL}/viha_ewc0c7.png`,
     result: "Pan-India Orders",
-    stack: ["Next.js", "Shopify", "Payments"],
+    stack: ["Next.js", "Tailwind CSS", "Typescript"],
   },
   {
     ...baseProject,
@@ -78,7 +78,7 @@ export const PROJECTS: Project[] = [
     mobileImage: `${IMAGE_BASE_URL}/website/vizha-mobile_vrak8f.jpg`,
     logo: `${LOGO_BASE_URL}/Logo_Vizha_p9xiij.png`,
     result: "Trusted by 500+ Clients",
-    stack: ["Next.js", "Tailwind CSS", "motion/react"],
+    stack: ["Next.js", "Tailwind CSS", "Typescript"],
   },
 
   // ─── 02. WEB APPLICATIONS ──────────────────────────────────────────────────

@@ -80,7 +80,7 @@ export function StaggeredRollingContent({ children, isDuplicate }: { children: R
     }
     
     if (React.isValidElement(node) && typeof node.type === "string" && node.type !== "svg" && node.type !== "img") {
-      const element = node as React.ReactElement<unknown>;
+      const element = node as React.ReactElement<{ children?: React.ReactNode }>;
       return React.cloneElement(
         element,
         undefined,
@@ -89,7 +89,7 @@ export function StaggeredRollingContent({ children, isDuplicate }: { children: R
     }
 
     if (React.isValidElement(node) && node.type === React.Fragment) {
-       const element = node as React.ReactElement<unknown>;
+       const element = node as React.ReactElement<{ children?: React.ReactNode }>;
        return React.Children.map(element.props.children, renderNode);
     }
 
