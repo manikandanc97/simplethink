@@ -1,6 +1,6 @@
 import { Project } from "@/types/project";
 
-const IMAGE_BASE_URL = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects/";
+const IMAGE_BASE_URL = "https://res.cloudinary.com/drdl4pdnx/image/upload/f_auto,q_auto/simpluxe/projects";
 const LOGO_BASE_URL = "https://res.cloudinary.com/drdl4pdnx/image/upload/w_128,c_limit,f_auto,q_auto/simpluxe/projects/logo";
 
 const baseProject = {
@@ -29,8 +29,8 @@ export const PROJECTS: Project[] = [
     serviceType: "Websites",
     category: "Travel & Tourism · Tour Booking Platform",
     url: "https://valparaiwanderertours.com",
-    desktopImage: `${IMAGE_BASE_URL}website/valparaiwanderertours_pbcgyi.png`,
-    mobileImage: `${IMAGE_BASE_URL}website/valparai-mobile_gjwd7r.jpg`,
+    desktopImage: `${IMAGE_BASE_URL}/website/valparaiwanderertours_pbcgyi.png`,
+    mobileImage: `${IMAGE_BASE_URL}/website/valparai-mobile_gjwd7r.jpg`,
     logo: `${LOGO_BASE_URL}/valparai_rwsldt.png`,
     result: "+ 3600% Month 1 Bookings",
     stack: ["Next.js", "Tailwind CSS", "Typescript"],
